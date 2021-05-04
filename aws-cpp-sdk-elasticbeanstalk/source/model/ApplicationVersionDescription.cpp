@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,9 +33,11 @@ ApplicationVersionDescription::ApplicationVersionDescription() :
     m_applicationNameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_versionLabelHasBeenSet(false),
+    m_sourceBuildInformationHasBeenSet(false),
     m_sourceBundleHasBeenSet(false),
     m_dateCreatedHasBeenSet(false),
     m_dateUpdatedHasBeenSet(false),
+    m_status(ApplicationVersionStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
 }
@@ -44,9 +46,11 @@ ApplicationVersionDescription::ApplicationVersionDescription(const XmlNode& xmlN
     m_applicationNameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_versionLabelHasBeenSet(false),
+    m_sourceBuildInformationHasBeenSet(false),
     m_sourceBundleHasBeenSet(false),
     m_dateCreatedHasBeenSet(false),
     m_dateUpdatedHasBeenSet(false),
+    m_status(ApplicationVersionStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
   *this = xmlNode;
@@ -75,6 +79,12 @@ ApplicationVersionDescription& ApplicationVersionDescription::operator =(const X
     {
       m_versionLabel = StringUtils::Trim(versionLabelNode.GetText().c_str());
       m_versionLabelHasBeenSet = true;
+    }
+    XmlNode sourceBuildInformationNode = resultNode.FirstChild("SourceBuildInformation");
+    if(!sourceBuildInformationNode.IsNull())
+    {
+      m_sourceBuildInformation = sourceBuildInformationNode;
+      m_sourceBuildInformationHasBeenSet = true;
     }
     XmlNode sourceBundleNode = resultNode.FirstChild("SourceBundle");
     if(!sourceBundleNode.IsNull())
@@ -111,32 +121,46 @@ void ApplicationVersionDescription::OutputToStream(Aws::OStream& oStream, const 
   {
       oStream << location << index << locationValue << ".ApplicationName=" << StringUtils::URLEncode(m_applicationName.c_str()) << "&";
   }
+
   if(m_descriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
   }
+
   if(m_versionLabelHasBeenSet)
   {
       oStream << location << index << locationValue << ".VersionLabel=" << StringUtils::URLEncode(m_versionLabel.c_str()) << "&";
   }
+
+  if(m_sourceBuildInformationHasBeenSet)
+  {
+      Aws::StringStream sourceBuildInformationLocationAndMemberSs;
+      sourceBuildInformationLocationAndMemberSs << location << index << locationValue << ".SourceBuildInformation";
+      m_sourceBuildInformation.OutputToStream(oStream, sourceBuildInformationLocationAndMemberSs.str().c_str());
+  }
+
   if(m_sourceBundleHasBeenSet)
   {
       Aws::StringStream sourceBundleLocationAndMemberSs;
       sourceBundleLocationAndMemberSs << location << index << locationValue << ".SourceBundle";
       m_sourceBundle.OutputToStream(oStream, sourceBundleLocationAndMemberSs.str().c_str());
   }
+
   if(m_dateCreatedHasBeenSet)
   {
       oStream << location << index << locationValue << ".DateCreated=" << StringUtils::URLEncode(m_dateCreated.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_dateUpdatedHasBeenSet)
   {
       oStream << location << index << locationValue << ".DateUpdated=" << StringUtils::URLEncode(m_dateUpdated.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << ApplicationVersionStatusMapper::GetNameForApplicationVersionStatus(m_status) << "&";
   }
+
 }
 
 void ApplicationVersionDescription::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -152,6 +176,12 @@ void ApplicationVersionDescription::OutputToStream(Aws::OStream& oStream, const 
   if(m_versionLabelHasBeenSet)
   {
       oStream << location << ".VersionLabel=" << StringUtils::URLEncode(m_versionLabel.c_str()) << "&";
+  }
+  if(m_sourceBuildInformationHasBeenSet)
+  {
+      Aws::String sourceBuildInformationLocationAndMember(location);
+      sourceBuildInformationLocationAndMember += ".SourceBuildInformation";
+      m_sourceBuildInformation.OutputToStream(oStream, sourceBuildInformationLocationAndMember.c_str());
   }
   if(m_sourceBundleHasBeenSet)
   {

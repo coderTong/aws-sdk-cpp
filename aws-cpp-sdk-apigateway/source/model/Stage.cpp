@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,9 @@ Stage::Stage() :
     m_descriptionHasBeenSet(false),
     m_cacheClusterEnabled(false),
     m_cacheClusterEnabledHasBeenSet(false),
+    m_cacheClusterSize(CacheClusterSize::NOT_SET),
     m_cacheClusterSizeHasBeenSet(false),
+    m_cacheClusterStatus(CacheClusterStatus::NOT_SET),
     m_cacheClusterStatusHasBeenSet(false),
     m_methodSettingsHasBeenSet(false),
     m_variablesHasBeenSet(false),
@@ -50,7 +52,9 @@ Stage::Stage(const JsonValue& jsonValue) :
     m_descriptionHasBeenSet(false),
     m_cacheClusterEnabled(false),
     m_cacheClusterEnabledHasBeenSet(false),
+    m_cacheClusterSize(CacheClusterSize::NOT_SET),
     m_cacheClusterSizeHasBeenSet(false),
+    m_cacheClusterStatus(CacheClusterStatus::NOT_SET),
     m_cacheClusterStatusHasBeenSet(false),
     m_methodSettingsHasBeenSet(false),
     m_variablesHasBeenSet(false),

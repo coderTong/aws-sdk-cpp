@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 ResourceTagSet::ResourceTagSet() : 
+    m_resourceType(TagResourceType::NOT_SET),
     m_resourceTypeHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
     m_tagsHasBeenSet(false)
@@ -37,6 +38,7 @@ ResourceTagSet::ResourceTagSet() :
 }
 
 ResourceTagSet::ResourceTagSet(const XmlNode& xmlNode) : 
+    m_resourceType(TagResourceType::NOT_SET),
     m_resourceTypeHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
     m_tagsHasBeenSet(false)

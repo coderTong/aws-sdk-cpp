@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 StepConfig::StepConfig() : 
     m_nameHasBeenSet(false),
+    m_actionOnFailure(ActionOnFailure::NOT_SET),
     m_actionOnFailureHasBeenSet(false),
     m_hadoopJarStepHasBeenSet(false)
 {
@@ -36,6 +37,7 @@ StepConfig::StepConfig() :
 
 StepConfig::StepConfig(const JsonValue& jsonValue) : 
     m_nameHasBeenSet(false),
+    m_actionOnFailure(ActionOnFailure::NOT_SET),
     m_actionOnFailureHasBeenSet(false),
     m_hadoopJarStepHasBeenSet(false)
 {

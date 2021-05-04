@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 CognitoStreams::CognitoStreams() : 
     m_streamNameHasBeenSet(false),
     m_roleArnHasBeenSet(false),
+    m_streamingStatus(StreamingStatus::NOT_SET),
     m_streamingStatusHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ CognitoStreams::CognitoStreams() :
 CognitoStreams::CognitoStreams(const JsonValue& jsonValue) : 
     m_streamNameHasBeenSet(false),
     m_roleArnHasBeenSet(false),
+    m_streamingStatus(StreamingStatus::NOT_SET),
     m_streamingStatusHasBeenSet(false)
 {
   *this = jsonValue;

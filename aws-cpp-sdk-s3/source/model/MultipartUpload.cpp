@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ MultipartUpload::MultipartUpload() :
     m_uploadIdHasBeenSet(false),
     m_keyHasBeenSet(false),
     m_initiatedHasBeenSet(false),
+    m_storageClass(StorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_ownerHasBeenSet(false),
     m_initiatorHasBeenSet(false)
@@ -43,6 +44,7 @@ MultipartUpload::MultipartUpload(const XmlNode& xmlNode) :
     m_uploadIdHasBeenSet(false),
     m_keyHasBeenSet(false),
     m_initiatedHasBeenSet(false),
+    m_storageClass(StorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_ownerHasBeenSet(false),
     m_initiatorHasBeenSet(false)

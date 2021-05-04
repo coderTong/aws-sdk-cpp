@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 DeploymentCommand::DeploymentCommand() : 
+    m_name(DeploymentCommandName::NOT_SET),
     m_nameHasBeenSet(false),
     m_argsHasBeenSet(false)
 {
 }
 
 DeploymentCommand::DeploymentCommand(const JsonValue& jsonValue) : 
+    m_name(DeploymentCommandName::NOT_SET),
     m_nameHasBeenSet(false),
     m_argsHasBeenSet(false)
 {

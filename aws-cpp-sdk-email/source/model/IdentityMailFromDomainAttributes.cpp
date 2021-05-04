@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,14 +31,18 @@ namespace Model
 
 IdentityMailFromDomainAttributes::IdentityMailFromDomainAttributes() : 
     m_mailFromDomainHasBeenSet(false),
+    m_mailFromDomainStatus(CustomMailFromStatus::NOT_SET),
     m_mailFromDomainStatusHasBeenSet(false),
+    m_behaviorOnMXFailure(BehaviorOnMXFailure::NOT_SET),
     m_behaviorOnMXFailureHasBeenSet(false)
 {
 }
 
 IdentityMailFromDomainAttributes::IdentityMailFromDomainAttributes(const XmlNode& xmlNode) : 
     m_mailFromDomainHasBeenSet(false),
+    m_mailFromDomainStatus(CustomMailFromStatus::NOT_SET),
     m_mailFromDomainStatusHasBeenSet(false),
+    m_behaviorOnMXFailure(BehaviorOnMXFailure::NOT_SET),
     m_behaviorOnMXFailureHasBeenSet(false)
 {
   *this = xmlNode;
@@ -79,14 +83,17 @@ void IdentityMailFromDomainAttributes::OutputToStream(Aws::OStream& oStream, con
   {
       oStream << location << index << locationValue << ".MailFromDomain=" << StringUtils::URLEncode(m_mailFromDomain.c_str()) << "&";
   }
+
   if(m_mailFromDomainStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".MailFromDomainStatus=" << CustomMailFromStatusMapper::GetNameForCustomMailFromStatus(m_mailFromDomainStatus) << "&";
   }
+
   if(m_behaviorOnMXFailureHasBeenSet)
   {
       oStream << location << index << locationValue << ".BehaviorOnMXFailure=" << BehaviorOnMXFailureMapper::GetNameForBehaviorOnMXFailure(m_behaviorOnMXFailure) << "&";
   }
+
 }
 
 void IdentityMailFromDomainAttributes::OutputToStream(Aws::OStream& oStream, const char* location) const

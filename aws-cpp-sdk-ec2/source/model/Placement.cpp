@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 Placement::Placement() : 
     m_availabilityZoneHasBeenSet(false),
     m_groupNameHasBeenSet(false),
+    m_tenancy(Tenancy::NOT_SET),
     m_tenancyHasBeenSet(false),
     m_hostIdHasBeenSet(false),
     m_affinityHasBeenSet(false)
@@ -41,6 +42,7 @@ Placement::Placement() :
 Placement::Placement(const XmlNode& xmlNode) : 
     m_availabilityZoneHasBeenSet(false),
     m_groupNameHasBeenSet(false),
+    m_tenancy(Tenancy::NOT_SET),
     m_tenancyHasBeenSet(false),
     m_hostIdHasBeenSet(false),
     m_affinityHasBeenSet(false)
@@ -95,22 +97,27 @@ void Placement::OutputToStream(Aws::OStream& oStream, const char* location, unsi
   {
       oStream << location << index << locationValue << ".AvailabilityZone=" << StringUtils::URLEncode(m_availabilityZone.c_str()) << "&";
   }
+
   if(m_groupNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".GroupName=" << StringUtils::URLEncode(m_groupName.c_str()) << "&";
   }
+
   if(m_tenancyHasBeenSet)
   {
       oStream << location << index << locationValue << ".Tenancy=" << TenancyMapper::GetNameForTenancy(m_tenancy) << "&";
   }
+
   if(m_hostIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".HostId=" << StringUtils::URLEncode(m_hostId.c_str()) << "&";
   }
+
   if(m_affinityHasBeenSet)
   {
       oStream << location << index << locationValue << ".Affinity=" << StringUtils::URLEncode(m_affinity.c_str()) << "&";
   }
+
 }
 
 void Placement::OutputToStream(Aws::OStream& oStream, const char* location) const

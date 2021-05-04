@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,7 @@ namespace ElasticBeanstalk
 namespace Model
 {
   /**
-   * <p>Result message containing a list of environment resource descriptions. </p>
+   * <p>Result message containing a list of environment resource descriptions.</p>
    */
   class AWS_ELASTICBEANSTALK_API DescribeEnvironmentResourcesResult
   {

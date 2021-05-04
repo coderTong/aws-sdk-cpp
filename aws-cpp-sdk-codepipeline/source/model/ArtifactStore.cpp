@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 ArtifactStore::ArtifactStore() : 
+    m_type(ArtifactStoreType::NOT_SET),
     m_typeHasBeenSet(false),
     m_locationHasBeenSet(false),
     m_encryptionKeyHasBeenSet(false)
@@ -35,6 +36,7 @@ ArtifactStore::ArtifactStore() :
 }
 
 ArtifactStore::ArtifactStore(const JsonValue& jsonValue) : 
+    m_type(ArtifactStoreType::NOT_SET),
     m_typeHasBeenSet(false),
     m_locationHasBeenSet(false),
     m_encryptionKeyHasBeenSet(false)

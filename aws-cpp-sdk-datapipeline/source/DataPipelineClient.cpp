@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -57,11 +57,11 @@ using namespace Aws::Utils::Json;
 static const char* SERVICE_NAME = "datapipeline";
 static const char* ALLOCATION_TAG = "DataPipelineClient";
 
+
 DataPipelineClient::DataPipelineClient(const Client::ClientConfiguration& clientConfiguration) :
   BASECLASS(clientConfiguration,
     Aws::MakeShared<AWSAuthV4Signer>(ALLOCATION_TAG, Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG),
-        SERVICE_NAME, clientConfiguration.authenticationRegion.empty() ? RegionMapper::GetRegionName(clientConfiguration.region)
-                                                                        : clientConfiguration.authenticationRegion),
+        SERVICE_NAME, clientConfiguration.region),
     Aws::MakeShared<DataPipelineErrorMarshaller>(ALLOCATION_TAG)),
     m_executor(clientConfiguration.executor)
 {
@@ -71,8 +71,7 @@ DataPipelineClient::DataPipelineClient(const Client::ClientConfiguration& client
 DataPipelineClient::DataPipelineClient(const AWSCredentials& credentials, const Client::ClientConfiguration& clientConfiguration) :
   BASECLASS(clientConfiguration,
     Aws::MakeShared<AWSAuthV4Signer>(ALLOCATION_TAG, Aws::MakeShared<SimpleAWSCredentialsProvider>(ALLOCATION_TAG, credentials),
-         SERVICE_NAME, clientConfiguration.authenticationRegion.empty() ? RegionMapper::GetRegionName(clientConfiguration.region)
-                                                                        : clientConfiguration.authenticationRegion),
+         SERVICE_NAME, clientConfiguration.region),
     Aws::MakeShared<DataPipelineErrorMarshaller>(ALLOCATION_TAG)),
     m_executor(clientConfiguration.executor)
 {
@@ -83,8 +82,7 @@ DataPipelineClient::DataPipelineClient(const std::shared_ptr<AWSCredentialsProvi
   const Client::ClientConfiguration& clientConfiguration) :
   BASECLASS(clientConfiguration,
     Aws::MakeShared<AWSAuthV4Signer>(ALLOCATION_TAG, credentialsProvider,
-         SERVICE_NAME, clientConfiguration.authenticationRegion.empty() ? RegionMapper::GetRegionName(clientConfiguration.region)
-                                                                        : clientConfiguration.authenticationRegion),
+         SERVICE_NAME, clientConfiguration.region),
     Aws::MakeShared<DataPipelineErrorMarshaller>(ALLOCATION_TAG)),
     m_executor(clientConfiguration.executor)
 {
@@ -100,9 +98,9 @@ void DataPipelineClient::init(const ClientConfiguration& config)
   Aws::StringStream ss;
   ss << SchemeMapper::ToString(config.scheme) << "://";
 
-  if(config.endpointOverride.empty() && config.authenticationRegion.empty())
+  if(config.endpointOverride.empty())
   {
-    ss << DataPipelineEndpoint::ForRegion(config.region);
+    ss << DataPipelineEndpoint::ForRegion(config.region, config.useDualStack);
   }
   else
   {
@@ -130,12 +128,15 @@ ActivatePipelineOutcome DataPipelineClient::ActivatePipeline(const ActivatePipel
 
 ActivatePipelineOutcomeCallable DataPipelineClient::ActivatePipelineCallable(const ActivatePipelineRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::ActivatePipeline, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< ActivatePipelineOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ActivatePipeline(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::ActivatePipelineAsync(const ActivatePipelineRequest& request, const ActivatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::ActivatePipelineAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->ActivatePipelineAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::ActivatePipelineAsyncHelper(const ActivatePipelineRequest& request, const ActivatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -161,12 +162,15 @@ AddTagsOutcome DataPipelineClient::AddTags(const AddTagsRequest& request) const
 
 AddTagsOutcomeCallable DataPipelineClient::AddTagsCallable(const AddTagsRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::AddTags, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< AddTagsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->AddTags(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::AddTagsAsync(const AddTagsRequest& request, const AddTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::AddTagsAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->AddTagsAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::AddTagsAsyncHelper(const AddTagsRequest& request, const AddTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -192,12 +196,15 @@ CreatePipelineOutcome DataPipelineClient::CreatePipeline(const CreatePipelineReq
 
 CreatePipelineOutcomeCallable DataPipelineClient::CreatePipelineCallable(const CreatePipelineRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::CreatePipeline, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< CreatePipelineOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreatePipeline(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::CreatePipelineAsync(const CreatePipelineRequest& request, const CreatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::CreatePipelineAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->CreatePipelineAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::CreatePipelineAsyncHelper(const CreatePipelineRequest& request, const CreatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -223,12 +230,15 @@ DeactivatePipelineOutcome DataPipelineClient::DeactivatePipeline(const Deactivat
 
 DeactivatePipelineOutcomeCallable DataPipelineClient::DeactivatePipelineCallable(const DeactivatePipelineRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::DeactivatePipeline, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< DeactivatePipelineOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeactivatePipeline(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::DeactivatePipelineAsync(const DeactivatePipelineRequest& request, const DeactivatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::DeactivatePipelineAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->DeactivatePipelineAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::DeactivatePipelineAsyncHelper(const DeactivatePipelineRequest& request, const DeactivatePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -254,12 +264,15 @@ DeletePipelineOutcome DataPipelineClient::DeletePipeline(const DeletePipelineReq
 
 DeletePipelineOutcomeCallable DataPipelineClient::DeletePipelineCallable(const DeletePipelineRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::DeletePipeline, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< DeletePipelineOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeletePipeline(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::DeletePipelineAsync(const DeletePipelineRequest& request, const DeletePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::DeletePipelineAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->DeletePipelineAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::DeletePipelineAsyncHelper(const DeletePipelineRequest& request, const DeletePipelineResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -285,12 +298,15 @@ DescribeObjectsOutcome DataPipelineClient::DescribeObjects(const DescribeObjects
 
 DescribeObjectsOutcomeCallable DataPipelineClient::DescribeObjectsCallable(const DescribeObjectsRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::DescribeObjects, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< DescribeObjectsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeObjects(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::DescribeObjectsAsync(const DescribeObjectsRequest& request, const DescribeObjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::DescribeObjectsAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeObjectsAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::DescribeObjectsAsyncHelper(const DescribeObjectsRequest& request, const DescribeObjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -316,12 +332,15 @@ DescribePipelinesOutcome DataPipelineClient::DescribePipelines(const DescribePip
 
 DescribePipelinesOutcomeCallable DataPipelineClient::DescribePipelinesCallable(const DescribePipelinesRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::DescribePipelines, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< DescribePipelinesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribePipelines(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::DescribePipelinesAsync(const DescribePipelinesRequest& request, const DescribePipelinesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::DescribePipelinesAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->DescribePipelinesAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::DescribePipelinesAsyncHelper(const DescribePipelinesRequest& request, const DescribePipelinesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -347,12 +366,15 @@ EvaluateExpressionOutcome DataPipelineClient::EvaluateExpression(const EvaluateE
 
 EvaluateExpressionOutcomeCallable DataPipelineClient::EvaluateExpressionCallable(const EvaluateExpressionRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::EvaluateExpression, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< EvaluateExpressionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->EvaluateExpression(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::EvaluateExpressionAsync(const EvaluateExpressionRequest& request, const EvaluateExpressionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::EvaluateExpressionAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->EvaluateExpressionAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::EvaluateExpressionAsyncHelper(const EvaluateExpressionRequest& request, const EvaluateExpressionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -378,12 +400,15 @@ GetPipelineDefinitionOutcome DataPipelineClient::GetPipelineDefinition(const Get
 
 GetPipelineDefinitionOutcomeCallable DataPipelineClient::GetPipelineDefinitionCallable(const GetPipelineDefinitionRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::GetPipelineDefinition, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< GetPipelineDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetPipelineDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::GetPipelineDefinitionAsync(const GetPipelineDefinitionRequest& request, const GetPipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::GetPipelineDefinitionAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->GetPipelineDefinitionAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::GetPipelineDefinitionAsyncHelper(const GetPipelineDefinitionRequest& request, const GetPipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -409,12 +434,15 @@ ListPipelinesOutcome DataPipelineClient::ListPipelines(const ListPipelinesReques
 
 ListPipelinesOutcomeCallable DataPipelineClient::ListPipelinesCallable(const ListPipelinesRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::ListPipelines, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< ListPipelinesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListPipelines(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::ListPipelinesAsync(const ListPipelinesRequest& request, const ListPipelinesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::ListPipelinesAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->ListPipelinesAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::ListPipelinesAsyncHelper(const ListPipelinesRequest& request, const ListPipelinesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -440,12 +468,15 @@ PollForTaskOutcome DataPipelineClient::PollForTask(const PollForTaskRequest& req
 
 PollForTaskOutcomeCallable DataPipelineClient::PollForTaskCallable(const PollForTaskRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::PollForTask, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< PollForTaskOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PollForTask(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::PollForTaskAsync(const PollForTaskRequest& request, const PollForTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::PollForTaskAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->PollForTaskAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::PollForTaskAsyncHelper(const PollForTaskRequest& request, const PollForTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -471,12 +502,15 @@ PutPipelineDefinitionOutcome DataPipelineClient::PutPipelineDefinition(const Put
 
 PutPipelineDefinitionOutcomeCallable DataPipelineClient::PutPipelineDefinitionCallable(const PutPipelineDefinitionRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::PutPipelineDefinition, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< PutPipelineDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PutPipelineDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::PutPipelineDefinitionAsync(const PutPipelineDefinitionRequest& request, const PutPipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::PutPipelineDefinitionAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->PutPipelineDefinitionAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::PutPipelineDefinitionAsyncHelper(const PutPipelineDefinitionRequest& request, const PutPipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -502,12 +536,15 @@ QueryObjectsOutcome DataPipelineClient::QueryObjects(const QueryObjectsRequest& 
 
 QueryObjectsOutcomeCallable DataPipelineClient::QueryObjectsCallable(const QueryObjectsRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::QueryObjects, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< QueryObjectsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->QueryObjects(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::QueryObjectsAsync(const QueryObjectsRequest& request, const QueryObjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::QueryObjectsAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->QueryObjectsAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::QueryObjectsAsyncHelper(const QueryObjectsRequest& request, const QueryObjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -533,12 +570,15 @@ RemoveTagsOutcome DataPipelineClient::RemoveTags(const RemoveTagsRequest& reques
 
 RemoveTagsOutcomeCallable DataPipelineClient::RemoveTagsCallable(const RemoveTagsRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::RemoveTags, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< RemoveTagsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->RemoveTags(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::RemoveTagsAsync(const RemoveTagsRequest& request, const RemoveTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::RemoveTagsAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->RemoveTagsAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::RemoveTagsAsyncHelper(const RemoveTagsRequest& request, const RemoveTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -564,12 +604,15 @@ ReportTaskProgressOutcome DataPipelineClient::ReportTaskProgress(const ReportTas
 
 ReportTaskProgressOutcomeCallable DataPipelineClient::ReportTaskProgressCallable(const ReportTaskProgressRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::ReportTaskProgress, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< ReportTaskProgressOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ReportTaskProgress(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::ReportTaskProgressAsync(const ReportTaskProgressRequest& request, const ReportTaskProgressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::ReportTaskProgressAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->ReportTaskProgressAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::ReportTaskProgressAsyncHelper(const ReportTaskProgressRequest& request, const ReportTaskProgressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -595,12 +638,15 @@ ReportTaskRunnerHeartbeatOutcome DataPipelineClient::ReportTaskRunnerHeartbeat(c
 
 ReportTaskRunnerHeartbeatOutcomeCallable DataPipelineClient::ReportTaskRunnerHeartbeatCallable(const ReportTaskRunnerHeartbeatRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::ReportTaskRunnerHeartbeat, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< ReportTaskRunnerHeartbeatOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ReportTaskRunnerHeartbeat(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::ReportTaskRunnerHeartbeatAsync(const ReportTaskRunnerHeartbeatRequest& request, const ReportTaskRunnerHeartbeatResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::ReportTaskRunnerHeartbeatAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->ReportTaskRunnerHeartbeatAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::ReportTaskRunnerHeartbeatAsyncHelper(const ReportTaskRunnerHeartbeatRequest& request, const ReportTaskRunnerHeartbeatResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -626,12 +672,15 @@ SetStatusOutcome DataPipelineClient::SetStatus(const SetStatusRequest& request) 
 
 SetStatusOutcomeCallable DataPipelineClient::SetStatusCallable(const SetStatusRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::SetStatus, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< SetStatusOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SetStatus(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::SetStatusAsync(const SetStatusRequest& request, const SetStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::SetStatusAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->SetStatusAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::SetStatusAsyncHelper(const SetStatusRequest& request, const SetStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -657,12 +706,15 @@ SetTaskStatusOutcome DataPipelineClient::SetTaskStatus(const SetTaskStatusReques
 
 SetTaskStatusOutcomeCallable DataPipelineClient::SetTaskStatusCallable(const SetTaskStatusRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::SetTaskStatus, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< SetTaskStatusOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SetTaskStatus(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::SetTaskStatusAsync(const SetTaskStatusRequest& request, const SetTaskStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::SetTaskStatusAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->SetTaskStatusAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::SetTaskStatusAsyncHelper(const SetTaskStatusRequest& request, const SetTaskStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
@@ -688,12 +740,15 @@ ValidatePipelineDefinitionOutcome DataPipelineClient::ValidatePipelineDefinition
 
 ValidatePipelineDefinitionOutcomeCallable DataPipelineClient::ValidatePipelineDefinitionCallable(const ValidatePipelineDefinitionRequest& request) const
 {
-  return std::async(std::launch::async, &DataPipelineClient::ValidatePipelineDefinition, this, request);
+  auto task = Aws::MakeShared< std::packaged_task< ValidatePipelineDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ValidatePipelineDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
 }
 
 void DataPipelineClient::ValidatePipelineDefinitionAsync(const ValidatePipelineDefinitionRequest& request, const ValidatePipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
-  m_executor->Submit(&DataPipelineClient::ValidatePipelineDefinitionAsyncHelper, this, request, handler, context);
+  m_executor->Submit( [this, request, handler, context](){ this->ValidatePipelineDefinitionAsyncHelper( request, handler, context ); } );
 }
 
 void DataPipelineClient::ValidatePipelineDefinitionAsyncHelper(const ValidatePipelineDefinitionRequest& request, const ValidatePipelineDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -66,37 +66,37 @@ namespace Model
     inline CreateReusableDelegationSetResult& WithDelegationSet(DelegationSet&& value) { SetDelegationSet(value); return *this;}
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline const Aws::String& GetLocation() const{ return m_location; }
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline void SetLocation(const Aws::String& value) { m_location = value; }
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline void SetLocation(Aws::String&& value) { m_location = value; }
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline void SetLocation(const char* value) { m_location.assign(value); }
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline CreateReusableDelegationSetResult& WithLocation(const Aws::String& value) { SetLocation(value); return *this;}
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline CreateReusableDelegationSetResult& WithLocation(Aws::String&& value) { SetLocation(value); return *this;}
 
     /**
-     * <p>The unique URL representing the new reusbale delegation set.</p>
+     * <p>The unique URL representing the new reusable delegation set.</p>
      */
     inline CreateReusableDelegationSetResult& WithLocation(const char* value) { SetLocation(value); return *this;}
 

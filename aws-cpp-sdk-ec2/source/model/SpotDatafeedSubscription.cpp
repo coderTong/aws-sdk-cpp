@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ SpotDatafeedSubscription::SpotDatafeedSubscription() :
     m_ownerIdHasBeenSet(false),
     m_bucketHasBeenSet(false),
     m_prefixHasBeenSet(false),
+    m_state(DatafeedSubscriptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_faultHasBeenSet(false)
 {
@@ -42,6 +43,7 @@ SpotDatafeedSubscription::SpotDatafeedSubscription(const XmlNode& xmlNode) :
     m_ownerIdHasBeenSet(false),
     m_bucketHasBeenSet(false),
     m_prefixHasBeenSet(false),
+    m_state(DatafeedSubscriptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_faultHasBeenSet(false)
 {
@@ -95,24 +97,29 @@ void SpotDatafeedSubscription::OutputToStream(Aws::OStream& oStream, const char*
   {
       oStream << location << index << locationValue << ".OwnerId=" << StringUtils::URLEncode(m_ownerId.c_str()) << "&";
   }
+
   if(m_bucketHasBeenSet)
   {
       oStream << location << index << locationValue << ".Bucket=" << StringUtils::URLEncode(m_bucket.c_str()) << "&";
   }
+
   if(m_prefixHasBeenSet)
   {
       oStream << location << index << locationValue << ".Prefix=" << StringUtils::URLEncode(m_prefix.c_str()) << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << DatafeedSubscriptionStateMapper::GetNameForDatafeedSubscriptionState(m_state) << "&";
   }
+
   if(m_faultHasBeenSet)
   {
       Aws::StringStream faultLocationAndMemberSs;
       faultLocationAndMemberSs << location << index << locationValue << ".Fault";
       m_fault.OutputToStream(oStream, faultLocationAndMemberSs.str().c_str());
   }
+
 }
 
 void SpotDatafeedSubscription::OutputToStream(Aws::OStream& oStream, const char* location) const

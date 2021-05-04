@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -22,6 +22,7 @@ using namespace Aws::Utils;
 DescribeEnvironmentManagedActionsRequest::DescribeEnvironmentManagedActionsRequest() : 
     m_environmentNameHasBeenSet(false),
     m_environmentIdHasBeenSet(false),
+    m_status(ActionStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
 }
@@ -34,14 +35,17 @@ Aws::String DescribeEnvironmentManagedActionsRequest::SerializePayload() const
   {
     ss << "EnvironmentName=" << StringUtils::URLEncode(m_environmentName.c_str()) << "&";
   }
+
   if(m_environmentIdHasBeenSet)
   {
     ss << "EnvironmentId=" << StringUtils::URLEncode(m_environmentId.c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
     ss << "Status=" << ActionStatusMapper::GetNameForActionStatus(m_status) << "&";
   }
+
   ss << "Version=2010-12-01";
   return ss.str();
 }

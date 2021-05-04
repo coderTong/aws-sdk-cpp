@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -48,19 +48,19 @@ namespace Model
 
     /**
      * <p>True if DKIM signing is enabled for email sent from the identity; false
-     * otherwise.</p>
+     * otherwise. The default value is true.</p>
      */
     inline bool GetDkimEnabled() const{ return m_dkimEnabled; }
 
     /**
      * <p>True if DKIM signing is enabled for email sent from the identity; false
-     * otherwise.</p>
+     * otherwise. The default value is true.</p>
      */
     inline void SetDkimEnabled(bool value) { m_dkimEnabledHasBeenSet = true; m_dkimEnabled = value; }
 
     /**
      * <p>True if DKIM signing is enabled for email sent from the identity; false
-     * otherwise.</p>
+     * otherwise. The default value is true.</p>
      */
     inline IdentityDkimAttributes& WithDkimEnabled(bool value) { SetDkimEnabled(value); return *this;}
 

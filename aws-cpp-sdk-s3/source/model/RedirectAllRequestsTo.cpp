@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 RedirectAllRequestsTo::RedirectAllRequestsTo() : 
     m_hostNameHasBeenSet(false),
+    m_protocol(Protocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
 }
 
 RedirectAllRequestsTo::RedirectAllRequestsTo(const XmlNode& xmlNode) : 
     m_hostNameHasBeenSet(false),
+    m_protocol(Protocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
   *this = xmlNode;

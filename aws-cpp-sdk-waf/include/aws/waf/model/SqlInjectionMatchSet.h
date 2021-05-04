@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -57,7 +57,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -71,7 +71,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -85,7 +85,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -99,7 +99,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -113,7 +113,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -127,7 +127,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */
@@ -141,7 +141,7 @@ namespace Model
      * insert a <code>SqlInjectionMatchSet</code> into a <code>Rule</code> or delete
      * one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a
      * <code>SqlInjectionMatchSet</code> from AWS WAF (see
-     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p><code>SqlInjectionMatchSetId</code>
+     * <a>DeleteSqlInjectionMatchSet</a>).</p> <p> <code>SqlInjectionMatchSetId</code>
      * is returned by <a>CreateSqlInjectionMatchSet</a> and by
      * <a>ListSqlInjectionMatchSets</a>.</p>
      */

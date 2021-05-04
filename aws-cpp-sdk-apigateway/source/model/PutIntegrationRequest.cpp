@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,6 +25,7 @@ PutIntegrationRequest::PutIntegrationRequest() :
     m_restApiIdHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
     m_httpMethodHasBeenSet(false),
+    m_type(IntegrationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_integrationHttpMethodHasBeenSet(false),
     m_uriHasBeenSet(false),

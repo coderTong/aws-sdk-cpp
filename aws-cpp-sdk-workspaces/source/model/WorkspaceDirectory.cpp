@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,8 +36,10 @@ WorkspaceDirectory::WorkspaceDirectory() :
     m_dnsIpAddressesHasBeenSet(false),
     m_customerUserNameHasBeenSet(false),
     m_iamRoleIdHasBeenSet(false),
+    m_directoryType(WorkspaceDirectoryType::NOT_SET),
     m_directoryTypeHasBeenSet(false),
     m_workspaceSecurityGroupIdHasBeenSet(false),
+    m_state(WorkspaceDirectoryState::NOT_SET),
     m_stateHasBeenSet(false),
     m_workspaceCreationPropertiesHasBeenSet(false)
 {
@@ -52,8 +54,10 @@ WorkspaceDirectory::WorkspaceDirectory(const JsonValue& jsonValue) :
     m_dnsIpAddressesHasBeenSet(false),
     m_customerUserNameHasBeenSet(false),
     m_iamRoleIdHasBeenSet(false),
+    m_directoryType(WorkspaceDirectoryType::NOT_SET),
     m_directoryTypeHasBeenSet(false),
     m_workspaceSecurityGroupIdHasBeenSet(false),
+    m_state(WorkspaceDirectoryState::NOT_SET),
     m_stateHasBeenSet(false),
     m_workspaceCreationPropertiesHasBeenSet(false)
 {

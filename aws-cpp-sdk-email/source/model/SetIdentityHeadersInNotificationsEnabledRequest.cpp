@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,6 +21,7 @@ using namespace Aws::Utils;
 
 SetIdentityHeadersInNotificationsEnabledRequest::SetIdentityHeadersInNotificationsEnabledRequest() : 
     m_identityHasBeenSet(false),
+    m_notificationType(NotificationType::NOT_SET),
     m_notificationTypeHasBeenSet(false),
     m_enabled(false),
     m_enabledHasBeenSet(false)
@@ -35,14 +36,17 @@ Aws::String SetIdentityHeadersInNotificationsEnabledRequest::SerializePayload() 
   {
     ss << "Identity=" << StringUtils::URLEncode(m_identity.c_str()) << "&";
   }
+
   if(m_notificationTypeHasBeenSet)
   {
     ss << "NotificationType=" << NotificationTypeMapper::GetNameForNotificationType(m_notificationType) << "&";
   }
+
   if(m_enabledHasBeenSet)
   {
     ss << "Enabled=" << m_enabled << "&";
   }
+
   ss << "Version=2010-12-01";
   return ss.str();
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -77,7 +77,7 @@ Part& Part::operator =(const XmlNode& xmlNode)
     XmlNode sizeNode = resultNode.FirstChild("Size");
     if(!sizeNode.IsNull())
     {
-      m_size = StringUtils::ConvertToInt32(StringUtils::Trim(sizeNode.GetText().c_str()).c_str());
+      m_size = StringUtils::ConvertToInt64(StringUtils::Trim(sizeNode.GetText().c_str()).c_str());
       m_sizeHasBeenSet = true;
     }
   }

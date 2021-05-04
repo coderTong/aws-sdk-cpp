@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ StackResourceSummary::StackResourceSummary() :
     m_physicalResourceIdHasBeenSet(false),
     m_resourceTypeHasBeenSet(false),
     m_lastUpdatedTimestampHasBeenSet(false),
+    m_resourceStatus(ResourceStatus::NOT_SET),
     m_resourceStatusHasBeenSet(false),
     m_resourceStatusReasonHasBeenSet(false)
 {
@@ -44,6 +45,7 @@ StackResourceSummary::StackResourceSummary(const XmlNode& xmlNode) :
     m_physicalResourceIdHasBeenSet(false),
     m_resourceTypeHasBeenSet(false),
     m_lastUpdatedTimestampHasBeenSet(false),
+    m_resourceStatus(ResourceStatus::NOT_SET),
     m_resourceStatusHasBeenSet(false),
     m_resourceStatusReasonHasBeenSet(false)
 {
@@ -103,26 +105,32 @@ void StackResourceSummary::OutputToStream(Aws::OStream& oStream, const char* loc
   {
       oStream << location << index << locationValue << ".LogicalResourceId=" << StringUtils::URLEncode(m_logicalResourceId.c_str()) << "&";
   }
+
   if(m_physicalResourceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".PhysicalResourceId=" << StringUtils::URLEncode(m_physicalResourceId.c_str()) << "&";
   }
+
   if(m_resourceTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ResourceType=" << StringUtils::URLEncode(m_resourceType.c_str()) << "&";
   }
+
   if(m_lastUpdatedTimestampHasBeenSet)
   {
       oStream << location << index << locationValue << ".LastUpdatedTimestamp=" << StringUtils::URLEncode(m_lastUpdatedTimestamp.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_resourceStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".ResourceStatus=" << ResourceStatusMapper::GetNameForResourceStatus(m_resourceStatus) << "&";
   }
+
   if(m_resourceStatusReasonHasBeenSet)
   {
       oStream << location << index << locationValue << ".ResourceStatusReason=" << StringUtils::URLEncode(m_resourceStatusReason.c_str()) << "&";
   }
+
 }
 
 void StackResourceSummary::OutputToStream(Aws::OStream& oStream, const char* location) const

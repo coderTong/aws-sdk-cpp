@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,14 +28,22 @@ namespace Model
 {
 
 SourceDetail::SourceDetail() : 
+    m_eventSource(EventSource::NOT_SET),
     m_eventSourceHasBeenSet(false),
-    m_messageTypeHasBeenSet(false)
+    m_messageType(MessageType::NOT_SET),
+    m_messageTypeHasBeenSet(false),
+    m_maximumExecutionFrequency(MaximumExecutionFrequency::NOT_SET),
+    m_maximumExecutionFrequencyHasBeenSet(false)
 {
 }
 
 SourceDetail::SourceDetail(const JsonValue& jsonValue) : 
+    m_eventSource(EventSource::NOT_SET),
     m_eventSourceHasBeenSet(false),
-    m_messageTypeHasBeenSet(false)
+    m_messageType(MessageType::NOT_SET),
+    m_messageTypeHasBeenSet(false),
+    m_maximumExecutionFrequency(MaximumExecutionFrequency::NOT_SET),
+    m_maximumExecutionFrequencyHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -56,6 +64,13 @@ SourceDetail& SourceDetail::operator =(const JsonValue& jsonValue)
     m_messageTypeHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("MaximumExecutionFrequency"))
+  {
+    m_maximumExecutionFrequency = MaximumExecutionFrequencyMapper::GetMaximumExecutionFrequencyForName(jsonValue.GetString("MaximumExecutionFrequency"));
+
+    m_maximumExecutionFrequencyHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -71,6 +86,11 @@ JsonValue SourceDetail::Jsonize() const
   if(m_messageTypeHasBeenSet)
   {
    payload.WithString("MessageType", MessageTypeMapper::GetNameForMessageType(m_messageType));
+  }
+
+  if(m_maximumExecutionFrequencyHasBeenSet)
+  {
+   payload.WithString("MaximumExecutionFrequency", MaximumExecutionFrequencyMapper::GetNameForMaximumExecutionFrequency(m_maximumExecutionFrequency));
   }
 
   return payload;

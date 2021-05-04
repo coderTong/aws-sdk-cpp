@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,9 +31,12 @@ namespace Model
 
 ManagedActionHistoryItem::ManagedActionHistoryItem() : 
     m_actionIdHasBeenSet(false),
+    m_actionType(ActionType::NOT_SET),
     m_actionTypeHasBeenSet(false),
     m_actionDescriptionHasBeenSet(false),
+    m_failureType(FailureType::NOT_SET),
     m_failureTypeHasBeenSet(false),
+    m_status(ActionHistoryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_failureDescriptionHasBeenSet(false),
     m_executedTimeHasBeenSet(false),
@@ -43,9 +46,12 @@ ManagedActionHistoryItem::ManagedActionHistoryItem() :
 
 ManagedActionHistoryItem::ManagedActionHistoryItem(const XmlNode& xmlNode) : 
     m_actionIdHasBeenSet(false),
+    m_actionType(ActionType::NOT_SET),
     m_actionTypeHasBeenSet(false),
     m_actionDescriptionHasBeenSet(false),
+    m_failureType(FailureType::NOT_SET),
     m_failureTypeHasBeenSet(false),
+    m_status(ActionHistoryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_failureDescriptionHasBeenSet(false),
     m_executedTimeHasBeenSet(false),
@@ -119,34 +125,42 @@ void ManagedActionHistoryItem::OutputToStream(Aws::OStream& oStream, const char*
   {
       oStream << location << index << locationValue << ".ActionId=" << StringUtils::URLEncode(m_actionId.c_str()) << "&";
   }
+
   if(m_actionTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ActionType=" << ActionTypeMapper::GetNameForActionType(m_actionType) << "&";
   }
+
   if(m_actionDescriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".ActionDescription=" << StringUtils::URLEncode(m_actionDescription.c_str()) << "&";
   }
+
   if(m_failureTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".FailureType=" << FailureTypeMapper::GetNameForFailureType(m_failureType) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << ActionHistoryStatusMapper::GetNameForActionHistoryStatus(m_status) << "&";
   }
+
   if(m_failureDescriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".FailureDescription=" << StringUtils::URLEncode(m_failureDescription.c_str()) << "&";
   }
+
   if(m_executedTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ExecutedTime=" << StringUtils::URLEncode(m_executedTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_finishedTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".FinishedTime=" << StringUtils::URLEncode(m_finishedTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void ManagedActionHistoryItem::OutputToStream(Aws::OStream& oStream, const char* location) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,7 +30,12 @@ UpdateUserPoolRequest::UpdateUserPoolRequest() :
     m_emailVerificationMessageHasBeenSet(false),
     m_emailVerificationSubjectHasBeenSet(false),
     m_smsAuthenticationMessageHasBeenSet(false),
-    m_mfaConfigurationHasBeenSet(false)
+    m_mfaConfiguration(UserPoolMfaType::NOT_SET),
+    m_mfaConfigurationHasBeenSet(false),
+    m_deviceConfigurationHasBeenSet(false),
+    m_emailConfigurationHasBeenSet(false),
+    m_smsConfigurationHasBeenSet(false),
+    m_adminCreateUserConfigHasBeenSet(false)
 {
 }
 
@@ -94,6 +99,30 @@ Aws::String UpdateUserPoolRequest::SerializePayload() const
   if(m_mfaConfigurationHasBeenSet)
   {
    payload.WithString("MfaConfiguration", UserPoolMfaTypeMapper::GetNameForUserPoolMfaType(m_mfaConfiguration));
+  }
+
+  if(m_deviceConfigurationHasBeenSet)
+  {
+   payload.WithObject("DeviceConfiguration", m_deviceConfiguration.Jsonize());
+
+  }
+
+  if(m_emailConfigurationHasBeenSet)
+  {
+   payload.WithObject("EmailConfiguration", m_emailConfiguration.Jsonize());
+
+  }
+
+  if(m_smsConfigurationHasBeenSet)
+  {
+   payload.WithObject("SmsConfiguration", m_smsConfiguration.Jsonize());
+
+  }
+
+  if(m_adminCreateUserConfigHasBeenSet)
+  {
+   payload.WithObject("AdminCreateUserConfig", m_adminCreateUserConfig.Jsonize());
+
   }
 
   return payload.WriteReadable();

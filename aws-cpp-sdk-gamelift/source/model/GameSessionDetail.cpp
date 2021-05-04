@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 GameSessionDetail::GameSessionDetail() : 
     m_gameSessionHasBeenSet(false),
+    m_protectionPolicy(ProtectionPolicy::NOT_SET),
     m_protectionPolicyHasBeenSet(false)
 {
 }
 
 GameSessionDetail::GameSessionDetail(const JsonValue& jsonValue) : 
     m_gameSessionHasBeenSet(false),
+    m_protectionPolicy(ProtectionPolicy::NOT_SET),
     m_protectionPolicyHasBeenSet(false)
 {
   *this = jsonValue;

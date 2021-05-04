@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,6 +27,7 @@ using namespace Aws;
 ListObjectsV2Result::ListObjectsV2Result() : 
     m_isTruncated(false),
     m_maxKeys(0),
+    m_encodingType(EncodingType::NOT_SET),
     m_keyCount(0)
 {
 }
@@ -34,6 +35,7 @@ ListObjectsV2Result::ListObjectsV2Result() :
 ListObjectsV2Result::ListObjectsV2Result(const AmazonWebServiceResult<XmlDocument>& result) : 
     m_isTruncated(false),
     m_maxKeys(0),
+    m_encodingType(EncodingType::NOT_SET),
     m_keyCount(0)
 {
   *this = result;

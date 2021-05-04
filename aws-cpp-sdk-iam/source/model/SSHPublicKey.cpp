@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ SSHPublicKey::SSHPublicKey() :
     m_sSHPublicKeyIdHasBeenSet(false),
     m_fingerprintHasBeenSet(false),
     m_sSHPublicKeyBodyHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_uploadDateHasBeenSet(false)
 {
@@ -44,6 +45,7 @@ SSHPublicKey::SSHPublicKey(const XmlNode& xmlNode) :
     m_sSHPublicKeyIdHasBeenSet(false),
     m_fingerprintHasBeenSet(false),
     m_sSHPublicKeyBodyHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_uploadDateHasBeenSet(false)
 {
@@ -103,26 +105,32 @@ void SSHPublicKey::OutputToStream(Aws::OStream& oStream, const char* location, u
   {
       oStream << location << index << locationValue << ".UserName=" << StringUtils::URLEncode(m_userName.c_str()) << "&";
   }
+
   if(m_sSHPublicKeyIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".SSHPublicKeyId=" << StringUtils::URLEncode(m_sSHPublicKeyId.c_str()) << "&";
   }
+
   if(m_fingerprintHasBeenSet)
   {
       oStream << location << index << locationValue << ".Fingerprint=" << StringUtils::URLEncode(m_fingerprint.c_str()) << "&";
   }
+
   if(m_sSHPublicKeyBodyHasBeenSet)
   {
       oStream << location << index << locationValue << ".SSHPublicKeyBody=" << StringUtils::URLEncode(m_sSHPublicKeyBody.c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << StatusTypeMapper::GetNameForStatusType(m_status) << "&";
   }
+
   if(m_uploadDateHasBeenSet)
   {
       oStream << location << index << locationValue << ".UploadDate=" << StringUtils::URLEncode(m_uploadDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void SSHPublicKey::OutputToStream(Aws::OStream& oStream, const char* location) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 IndexField::IndexField() : 
     m_indexFieldNameHasBeenSet(false),
+    m_indexFieldType(IndexFieldType::NOT_SET),
     m_indexFieldTypeHasBeenSet(false),
     m_intOptionsHasBeenSet(false),
     m_doubleOptionsHasBeenSet(false),
@@ -48,6 +49,7 @@ IndexField::IndexField() :
 
 IndexField::IndexField(const XmlNode& xmlNode) : 
     m_indexFieldNameHasBeenSet(false),
+    m_indexFieldType(IndexFieldType::NOT_SET),
     m_indexFieldTypeHasBeenSet(false),
     m_intOptionsHasBeenSet(false),
     m_doubleOptionsHasBeenSet(false),
@@ -159,76 +161,89 @@ void IndexField::OutputToStream(Aws::OStream& oStream, const char* location, uns
   {
       oStream << location << index << locationValue << ".IndexFieldName=" << StringUtils::URLEncode(m_indexFieldName.c_str()) << "&";
   }
+
   if(m_indexFieldTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".IndexFieldType=" << IndexFieldTypeMapper::GetNameForIndexFieldType(m_indexFieldType) << "&";
   }
+
   if(m_intOptionsHasBeenSet)
   {
       Aws::StringStream intOptionsLocationAndMemberSs;
       intOptionsLocationAndMemberSs << location << index << locationValue << ".IntOptions";
       m_intOptions.OutputToStream(oStream, intOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_doubleOptionsHasBeenSet)
   {
       Aws::StringStream doubleOptionsLocationAndMemberSs;
       doubleOptionsLocationAndMemberSs << location << index << locationValue << ".DoubleOptions";
       m_doubleOptions.OutputToStream(oStream, doubleOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_literalOptionsHasBeenSet)
   {
       Aws::StringStream literalOptionsLocationAndMemberSs;
       literalOptionsLocationAndMemberSs << location << index << locationValue << ".LiteralOptions";
       m_literalOptions.OutputToStream(oStream, literalOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_textOptionsHasBeenSet)
   {
       Aws::StringStream textOptionsLocationAndMemberSs;
       textOptionsLocationAndMemberSs << location << index << locationValue << ".TextOptions";
       m_textOptions.OutputToStream(oStream, textOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_dateOptionsHasBeenSet)
   {
       Aws::StringStream dateOptionsLocationAndMemberSs;
       dateOptionsLocationAndMemberSs << location << index << locationValue << ".DateOptions";
       m_dateOptions.OutputToStream(oStream, dateOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_latLonOptionsHasBeenSet)
   {
       Aws::StringStream latLonOptionsLocationAndMemberSs;
       latLonOptionsLocationAndMemberSs << location << index << locationValue << ".LatLonOptions";
       m_latLonOptions.OutputToStream(oStream, latLonOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_intArrayOptionsHasBeenSet)
   {
       Aws::StringStream intArrayOptionsLocationAndMemberSs;
       intArrayOptionsLocationAndMemberSs << location << index << locationValue << ".IntArrayOptions";
       m_intArrayOptions.OutputToStream(oStream, intArrayOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_doubleArrayOptionsHasBeenSet)
   {
       Aws::StringStream doubleArrayOptionsLocationAndMemberSs;
       doubleArrayOptionsLocationAndMemberSs << location << index << locationValue << ".DoubleArrayOptions";
       m_doubleArrayOptions.OutputToStream(oStream, doubleArrayOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_literalArrayOptionsHasBeenSet)
   {
       Aws::StringStream literalArrayOptionsLocationAndMemberSs;
       literalArrayOptionsLocationAndMemberSs << location << index << locationValue << ".LiteralArrayOptions";
       m_literalArrayOptions.OutputToStream(oStream, literalArrayOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_textArrayOptionsHasBeenSet)
   {
       Aws::StringStream textArrayOptionsLocationAndMemberSs;
       textArrayOptionsLocationAndMemberSs << location << index << locationValue << ".TextArrayOptions";
       m_textArrayOptions.OutputToStream(oStream, textArrayOptionsLocationAndMemberSs.str().c_str());
   }
+
   if(m_dateArrayOptionsHasBeenSet)
   {
       Aws::StringStream dateArrayOptionsLocationAndMemberSs;
       dateArrayOptionsLocationAndMemberSs << location << index << locationValue << ".DateArrayOptions";
       m_dateArrayOptions.OutputToStream(oStream, dateArrayOptionsLocationAndMemberSs.str().c_str());
   }
+
 }
 
 void IndexField::OutputToStream(Aws::OStream& oStream, const char* location) const

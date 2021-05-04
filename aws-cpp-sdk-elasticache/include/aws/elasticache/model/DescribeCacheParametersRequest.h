@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,7 +25,7 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a <i>DescribeCacheParameters</i> action.</p>
+   * <p>Represents the input of a <code>DescribeCacheParameters</code> operation.</p>
    */
   class AWS_ELASTICACHE_API DescribeCacheParametersRequest : public ElastiCacheRequest
   {
@@ -111,82 +111,82 @@ namespace Model
     inline DescribeCacheParametersRequest& WithSource(const char* value) { SetSource(value); return *this;}
 
     /**
-     * <p>The maximum number of brecords to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a marker is included in
      * the response so that the remaining results can be retrieved.</p> <p>Default:
      * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
      */
-    inline long GetMaxRecords() const{ return m_maxRecords; }
+    inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
-     * <p>The maximum number of brecords to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a marker is included in
      * the response so that the remaining results can be retrieved.</p> <p>Default:
      * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
      */
-    inline void SetMaxRecords(long value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
+    inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
-     * <p>The maximum number of brecords to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a marker is included in
      * the response so that the remaining results can be retrieved.</p> <p>Default:
      * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
      */
-    inline DescribeCacheParametersRequest& WithMaxRecords(long value) { SetMaxRecords(value); return *this;}
+    inline DescribeCacheParametersRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeCacheParametersRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeCacheParametersRequest& WithMarker(Aws::String&& value) { SetMarker(value); return *this;}
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for
-     * pagination of results from this action. If this parameter is specified, the
+     * pagination of results from this operation. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <i>MaxRecords</i>.</p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeCacheParametersRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
 
@@ -195,7 +195,7 @@ namespace Model
     bool m_cacheParameterGroupNameHasBeenSet;
     Aws::String m_source;
     bool m_sourceHasBeenSet;
-    long m_maxRecords;
+    int m_maxRecords;
     bool m_maxRecordsHasBeenSet;
     Aws::String m_marker;
     bool m_markerHasBeenSet;

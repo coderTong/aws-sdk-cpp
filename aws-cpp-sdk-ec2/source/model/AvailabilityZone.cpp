@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 AvailabilityZone::AvailabilityZone() : 
     m_zoneNameHasBeenSet(false),
+    m_state(AvailabilityZoneState::NOT_SET),
     m_stateHasBeenSet(false),
     m_regionNameHasBeenSet(false),
     m_messagesHasBeenSet(false)
@@ -39,6 +40,7 @@ AvailabilityZone::AvailabilityZone() :
 
 AvailabilityZone::AvailabilityZone(const XmlNode& xmlNode) : 
     m_zoneNameHasBeenSet(false),
+    m_state(AvailabilityZoneState::NOT_SET),
     m_stateHasBeenSet(false),
     m_regionNameHasBeenSet(false),
     m_messagesHasBeenSet(false)
@@ -93,14 +95,17 @@ void AvailabilityZone::OutputToStream(Aws::OStream& oStream, const char* locatio
   {
       oStream << location << index << locationValue << ".ZoneName=" << StringUtils::URLEncode(m_zoneName.c_str()) << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << AvailabilityZoneStateMapper::GetNameForAvailabilityZoneState(m_state) << "&";
   }
+
   if(m_regionNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".RegionName=" << StringUtils::URLEncode(m_regionName.c_str()) << "&";
   }
+
   if(m_messagesHasBeenSet)
   {
       unsigned messagesIdx = 1;
@@ -111,6 +116,7 @@ void AvailabilityZone::OutputToStream(Aws::OStream& oStream, const char* locatio
         item.OutputToStream(oStream, messagesSs.str().c_str());
       }
   }
+
 }
 
 void AvailabilityZone::OutputToStream(Aws::OStream& oStream, const char* location) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ FlowLog::FlowLog() :
     m_flowLogIdHasBeenSet(false),
     m_flowLogStatusHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_trafficType(TrafficType::NOT_SET),
     m_trafficTypeHasBeenSet(false),
     m_logGroupNameHasBeenSet(false),
     m_deliverLogsStatusHasBeenSet(false),
@@ -47,6 +48,7 @@ FlowLog::FlowLog(const XmlNode& xmlNode) :
     m_flowLogIdHasBeenSet(false),
     m_flowLogStatusHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_trafficType(TrafficType::NOT_SET),
     m_trafficTypeHasBeenSet(false),
     m_logGroupNameHasBeenSet(false),
     m_deliverLogsStatusHasBeenSet(false),
@@ -127,38 +129,47 @@ void FlowLog::OutputToStream(Aws::OStream& oStream, const char* location, unsign
   {
       oStream << location << index << locationValue << ".CreationTime=" << StringUtils::URLEncode(m_creationTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_flowLogIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".FlowLogId=" << StringUtils::URLEncode(m_flowLogId.c_str()) << "&";
   }
+
   if(m_flowLogStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".FlowLogStatus=" << StringUtils::URLEncode(m_flowLogStatus.c_str()) << "&";
   }
+
   if(m_resourceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".ResourceId=" << StringUtils::URLEncode(m_resourceId.c_str()) << "&";
   }
+
   if(m_trafficTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".TrafficType=" << TrafficTypeMapper::GetNameForTrafficType(m_trafficType) << "&";
   }
+
   if(m_logGroupNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".LogGroupName=" << StringUtils::URLEncode(m_logGroupName.c_str()) << "&";
   }
+
   if(m_deliverLogsStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".DeliverLogsStatus=" << StringUtils::URLEncode(m_deliverLogsStatus.c_str()) << "&";
   }
+
   if(m_deliverLogsErrorMessageHasBeenSet)
   {
       oStream << location << index << locationValue << ".DeliverLogsErrorMessage=" << StringUtils::URLEncode(m_deliverLogsErrorMessage.c_str()) << "&";
   }
+
   if(m_deliverLogsPermissionArnHasBeenSet)
   {
       oStream << location << index << locationValue << ".DeliverLogsPermissionArn=" << StringUtils::URLEncode(m_deliverLogsPermissionArn.c_str()) << "&";
   }
+
 }
 
 void FlowLog::OutputToStream(Aws::OStream& oStream, const char* location) const

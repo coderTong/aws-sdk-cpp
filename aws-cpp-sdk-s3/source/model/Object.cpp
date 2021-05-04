@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -35,6 +35,7 @@ Object::Object() :
     m_eTagHasBeenSet(false),
     m_size(0),
     m_sizeHasBeenSet(false),
+    m_storageClass(ObjectStorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_ownerHasBeenSet(false)
 {
@@ -46,6 +47,7 @@ Object::Object(const XmlNode& xmlNode) :
     m_eTagHasBeenSet(false),
     m_size(0),
     m_sizeHasBeenSet(false),
+    m_storageClass(ObjectStorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_ownerHasBeenSet(false)
 {
@@ -79,7 +81,7 @@ Object& Object::operator =(const XmlNode& xmlNode)
     XmlNode sizeNode = resultNode.FirstChild("Size");
     if(!sizeNode.IsNull())
     {
-      m_size = StringUtils::ConvertToInt32(StringUtils::Trim(sizeNode.GetText().c_str()).c_str());
+      m_size = StringUtils::ConvertToInt64(StringUtils::Trim(sizeNode.GetText().c_str()).c_str());
       m_sizeHasBeenSet = true;
     }
     XmlNode storageClassNode = resultNode.FirstChild("StorageClass");

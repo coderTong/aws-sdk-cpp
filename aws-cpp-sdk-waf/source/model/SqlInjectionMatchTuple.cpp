@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 SqlInjectionMatchTuple::SqlInjectionMatchTuple() : 
     m_fieldToMatchHasBeenSet(false),
+    m_textTransformation(TextTransformation::NOT_SET),
     m_textTransformationHasBeenSet(false)
 {
 }
 
 SqlInjectionMatchTuple::SqlInjectionMatchTuple(const JsonValue& jsonValue) : 
     m_fieldToMatchHasBeenSet(false),
+    m_textTransformation(TextTransformation::NOT_SET),
     m_textTransformationHasBeenSet(false)
 {
   *this = jsonValue;

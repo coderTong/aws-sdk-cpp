@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 Diagnostics::Diagnostics() : 
+    m_errorCode(LifecycleErrorCode::NOT_SET),
     m_errorCodeHasBeenSet(false),
     m_scriptNameHasBeenSet(false),
     m_messageHasBeenSet(false),
@@ -36,6 +37,7 @@ Diagnostics::Diagnostics() :
 }
 
 Diagnostics::Diagnostics(const JsonValue& jsonValue) : 
+    m_errorCode(LifecycleErrorCode::NOT_SET),
     m_errorCodeHasBeenSet(false),
     m_scriptNameHasBeenSet(false),
     m_messageHasBeenSet(false),

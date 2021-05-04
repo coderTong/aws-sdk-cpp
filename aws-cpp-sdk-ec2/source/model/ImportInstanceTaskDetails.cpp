@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 ImportInstanceTaskDetails::ImportInstanceTaskDetails() : 
     m_volumesHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
+    m_platform(PlatformValues::NOT_SET),
     m_platformHasBeenSet(false),
     m_descriptionHasBeenSet(false)
 {
@@ -40,6 +41,7 @@ ImportInstanceTaskDetails::ImportInstanceTaskDetails() :
 ImportInstanceTaskDetails::ImportInstanceTaskDetails(const XmlNode& xmlNode) : 
     m_volumesHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
+    m_platform(PlatformValues::NOT_SET),
     m_platformHasBeenSet(false),
     m_descriptionHasBeenSet(false)
 {
@@ -99,18 +101,22 @@ void ImportInstanceTaskDetails::OutputToStream(Aws::OStream& oStream, const char
         item.OutputToStream(oStream, volumesSs.str().c_str());
       }
   }
+
   if(m_instanceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
+
   if(m_platformHasBeenSet)
   {
       oStream << location << index << locationValue << ".Platform=" << PlatformValuesMapper::GetNameForPlatformValues(m_platform) << "&";
   }
+
   if(m_descriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
   }
+
 }
 
 void ImportInstanceTaskDetails::OutputToStream(Aws::OStream& oStream, const char* location) const

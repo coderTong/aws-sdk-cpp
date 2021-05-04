@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -123,63 +123,63 @@ namespace Model
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline const Aws::Vector<IPSetUpdate>& GetUpdates() const{ return m_updates; }
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline void SetUpdates(const Aws::Vector<IPSetUpdate>& value) { m_updatesHasBeenSet = true; m_updates = value; }
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline void SetUpdates(Aws::Vector<IPSetUpdate>&& value) { m_updatesHasBeenSet = true; m_updates = value; }
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline UpdateIPSetRequest& WithUpdates(const Aws::Vector<IPSetUpdate>& value) { SetUpdates(value); return *this;}
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline UpdateIPSetRequest& WithUpdates(Aws::Vector<IPSetUpdate>&& value) { SetUpdates(value); return *this;}
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline UpdateIPSetRequest& AddUpdates(const IPSetUpdate& value) { m_updatesHasBeenSet = true; m_updates.push_back(value); return *this; }
 
     /**
      * <p>An array of <code>IPSetUpdate</code> objects that you want to insert into or
      * delete from an <a>IPSet</a>. For more information, see the applicable data
-     * types:</p> <ul> <li><a>IPSetUpdate</a>: Contains <code>Action</code> and
-     * <code>IPSetDescriptor</code></li> <li><a>IPSetDescriptor</a>: Contains
-     * <code>Type</code> and <code>Value</code></li> </ul>
+     * types:</p> <ul> <li> <p> <a>IPSetUpdate</a>: Contains <code>Action</code> and
+     * <code>IPSetDescriptor</code> </p> </li> <li> <p> <a>IPSetDescriptor</a>:
+     * Contains <code>Type</code> and <code>Value</code> </p> </li> </ul>
      */
     inline UpdateIPSetRequest& AddUpdates(IPSetUpdate&& value) { m_updatesHasBeenSet = true; m_updates.push_back(value); return *this; }
 

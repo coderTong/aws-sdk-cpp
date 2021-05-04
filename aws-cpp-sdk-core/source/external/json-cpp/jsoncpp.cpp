@@ -1568,7 +1568,7 @@ const LargestInt Value::maxLargestInt = LargestInt(LargestUInt(-1) / 2);
 const LargestUInt Value::maxLargestUInt = LargestUInt(-1);
 
 /// Unknown size marker
-static const unsigned int unknown = (unsigned)-1;
+static const size_t unknown = (size_t)-1;
 
 #if !defined(AWS_JSON_USE_INT64_DOUBLE_CONVERSION)
 template <typename T, typename U>
@@ -1598,14 +1598,14 @@ static inline bool InRange(double d, T min, U max) {
  * @return Pointer on the duplicate instance of string.
  */
 static inline char* duplicateStringValue(const char* value,
-                                         unsigned int length = unknown) {
+                                         size_t length = unknown) {
   if (length == unknown)
-    length = (unsigned int)strlen(value);
+    length = strlen(value);
 
   // Avoid an integer overflow in the call to malloc below by limiting length
   // to a sane value.
-  if (length >= (unsigned)Value::maxInt)
-    length = Value::maxInt - 1;
+  if (length >= (size_t)Value::maxInt)
+    length = (size_t)Value::maxInt - 1;
 
   char* newString = static_cast<char*>(Aws::Malloc(JSON_CPP_ALLOCATION_TAG, length + 1));
   AWS_JSON_ASSERT_MESSAGE(newString != 0,
@@ -1815,13 +1815,13 @@ Value::Value(const char* value) {
 Value::Value(const char* beginValue, const char* endValue) {
   initBasic(stringValue, true);
   value_.string_ =
-      duplicateStringValue(beginValue, (unsigned int)(endValue - beginValue));
+      duplicateStringValue(beginValue, (size_t)(endValue - beginValue));
 }
 
 Value::Value(const Aws::String& value) {
   initBasic(stringValue, true);
   value_.string_ =
-      duplicateStringValue(value.c_str(), (unsigned int)value.length());
+      duplicateStringValue(value.c_str(), value.length());
 }
 
 Value::Value(const StaticString& value) {
@@ -3070,7 +3070,8 @@ Value& Path::make(Value& root) const {
 // recognized in your jurisdiction.
 // See file LICENSE for detail or copy at http://jsoncpp.sourceforge.net/LICENSE
 
-#include <cmath>
+#include <math.h>
+//#include <cmath>
 
 #if !defined(AWS_JSON_IS_AMALGAMATION)
 #include <json/writer.h>
@@ -3098,7 +3099,11 @@ Value& Path::make(Value& root) const {
 
 #else
 
+#ifdef isfinite
+#define IS_FINITE isfinite
+#else
 #define IS_FINITE std::isfinite
+#endif 
 
 #endif
 

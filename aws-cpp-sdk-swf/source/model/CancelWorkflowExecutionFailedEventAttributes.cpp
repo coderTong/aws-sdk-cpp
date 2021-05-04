@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 CancelWorkflowExecutionFailedEventAttributes::CancelWorkflowExecutionFailedEventAttributes() : 
+    m_cause(CancelWorkflowExecutionFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)
@@ -35,6 +36,7 @@ CancelWorkflowExecutionFailedEventAttributes::CancelWorkflowExecutionFailedEvent
 }
 
 CancelWorkflowExecutionFailedEventAttributes::CancelWorkflowExecutionFailedEventAttributes(const JsonValue& jsonValue) : 
+    m_cause(CancelWorkflowExecutionFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)

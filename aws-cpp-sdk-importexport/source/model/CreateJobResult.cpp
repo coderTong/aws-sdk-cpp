@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,11 +26,13 @@ using namespace Aws::Utils::Logging;
 using namespace Aws::Utils;
 using namespace Aws;
 
-CreateJobResult::CreateJobResult()
+CreateJobResult::CreateJobResult() : 
+    m_jobType(JobType::NOT_SET)
 {
 }
 
-CreateJobResult::CreateJobResult(const AmazonWebServiceResult<XmlDocument>& result)
+CreateJobResult::CreateJobResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_jobType(JobType::NOT_SET)
 {
   *this = result;
 }

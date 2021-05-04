@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -14,6 +14,7 @@
 */
 #include <aws/s3/model/PutObjectAclRequest.h>
 #include <aws/core/utils/xml/XmlSerializer.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 #include <aws/core/http/URI.h>
 #include <aws/core/utils/memory/stl/AWSStringStream.h>
 
@@ -25,6 +26,7 @@ using namespace Aws::Utils;
 using namespace Aws::Http;
 
 PutObjectAclRequest::PutObjectAclRequest() : 
+    m_aCL(ObjectCannedACL::NOT_SET),
     m_aCLHasBeenSet(false),
     m_accessControlPolicyHasBeenSet(false),
     m_bucketHasBeenSet(false),
@@ -35,6 +37,7 @@ PutObjectAclRequest::PutObjectAclRequest() :
     m_grantWriteHasBeenSet(false),
     m_grantWriteACPHasBeenSet(false),
     m_keyHasBeenSet(false),
+    m_requestPayer(RequestPayer::NOT_SET),
     m_requestPayerHasBeenSet(false),
     m_versionIdHasBeenSet(false)
 {
@@ -44,11 +47,11 @@ Aws::String PutObjectAclRequest::SerializePayload() const
 {
   XmlDocument payloadDoc = XmlDocument::CreateWithRootNode("AccessControlPolicy");
 
-  XmlNode rootNode = payloadDoc.GetRootElement();
-  rootNode.SetAttributeValue("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+  XmlNode parentNode = payloadDoc.GetRootElement();
+  parentNode.SetAttributeValue("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
 
-  m_accessControlPolicy.AddToNode(rootNode);
-  if(rootNode.HasChildren())
+  m_accessControlPolicy.AddToNode(parentNode);
+  if(parentNode.HasChildren())
   {
     return payloadDoc.ConvertToString();
   }

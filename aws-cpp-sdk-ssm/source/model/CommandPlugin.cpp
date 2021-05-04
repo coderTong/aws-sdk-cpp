@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 CommandPlugin::CommandPlugin() : 
     m_nameHasBeenSet(false),
+    m_status(CommandPluginStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_responseCode(0),
     m_responseCodeHasBeenSet(false),
@@ -42,6 +43,7 @@ CommandPlugin::CommandPlugin() :
 
 CommandPlugin::CommandPlugin(const JsonValue& jsonValue) : 
     m_nameHasBeenSet(false),
+    m_status(CommandPluginStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_responseCode(0),
     m_responseCodeHasBeenSet(false),

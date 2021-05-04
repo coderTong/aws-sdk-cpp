@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,6 +38,7 @@ ActionConfigurationProperty::ActionConfigurationProperty() :
     m_queryable(false),
     m_queryableHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_type(ActionConfigurationPropertyType::NOT_SET),
     m_typeHasBeenSet(false)
 {
 }
@@ -53,6 +54,7 @@ ActionConfigurationProperty::ActionConfigurationProperty(const JsonValue& jsonVa
     m_queryable(false),
     m_queryableHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_type(ActionConfigurationPropertyType::NOT_SET),
     m_typeHasBeenSet(false)
 {
   *this = jsonValue;

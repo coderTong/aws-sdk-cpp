@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 ReplicationGroupPendingModifiedValues::ReplicationGroupPendingModifiedValues() : 
     m_primaryClusterIdHasBeenSet(false),
+    m_automaticFailoverStatus(PendingAutomaticFailoverStatus::NOT_SET),
     m_automaticFailoverStatusHasBeenSet(false)
 {
 }
 
 ReplicationGroupPendingModifiedValues::ReplicationGroupPendingModifiedValues(const XmlNode& xmlNode) : 
     m_primaryClusterIdHasBeenSet(false),
+    m_automaticFailoverStatus(PendingAutomaticFailoverStatus::NOT_SET),
     m_automaticFailoverStatusHasBeenSet(false)
 {
   *this = xmlNode;
@@ -71,10 +73,12 @@ void ReplicationGroupPendingModifiedValues::OutputToStream(Aws::OStream& oStream
   {
       oStream << location << index << locationValue << ".PrimaryClusterId=" << StringUtils::URLEncode(m_primaryClusterId.c_str()) << "&";
   }
+
   if(m_automaticFailoverStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".AutomaticFailoverStatus=" << PendingAutomaticFailoverStatusMapper::GetNameForPendingAutomaticFailoverStatus(m_automaticFailoverStatus) << "&";
   }
+
 }
 
 void ReplicationGroupPendingModifiedValues::OutputToStream(Aws::OStream& oStream, const char* location) const

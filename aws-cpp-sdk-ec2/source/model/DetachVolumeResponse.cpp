@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,11 +27,13 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 DetachVolumeResponse::DetachVolumeResponse() : 
+    m_state(VolumeAttachmentState::NOT_SET),
     m_deleteOnTermination(false)
 {
 }
 
 DetachVolumeResponse::DetachVolumeResponse(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_state(VolumeAttachmentState::NOT_SET),
     m_deleteOnTermination(false)
 {
   *this = result;

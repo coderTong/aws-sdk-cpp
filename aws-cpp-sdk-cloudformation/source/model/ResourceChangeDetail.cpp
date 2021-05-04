@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,7 +31,9 @@ namespace Model
 
 ResourceChangeDetail::ResourceChangeDetail() : 
     m_targetHasBeenSet(false),
+    m_evaluation(EvaluationType::NOT_SET),
     m_evaluationHasBeenSet(false),
+    m_changeSource(ChangeSource::NOT_SET),
     m_changeSourceHasBeenSet(false),
     m_causingEntityHasBeenSet(false)
 {
@@ -39,7 +41,9 @@ ResourceChangeDetail::ResourceChangeDetail() :
 
 ResourceChangeDetail::ResourceChangeDetail(const XmlNode& xmlNode) : 
     m_targetHasBeenSet(false),
+    m_evaluation(EvaluationType::NOT_SET),
     m_evaluationHasBeenSet(false),
+    m_changeSource(ChangeSource::NOT_SET),
     m_changeSourceHasBeenSet(false),
     m_causingEntityHasBeenSet(false)
 {
@@ -89,18 +93,22 @@ void ResourceChangeDetail::OutputToStream(Aws::OStream& oStream, const char* loc
       targetLocationAndMemberSs << location << index << locationValue << ".Target";
       m_target.OutputToStream(oStream, targetLocationAndMemberSs.str().c_str());
   }
+
   if(m_evaluationHasBeenSet)
   {
       oStream << location << index << locationValue << ".Evaluation=" << EvaluationTypeMapper::GetNameForEvaluationType(m_evaluation) << "&";
   }
+
   if(m_changeSourceHasBeenSet)
   {
       oStream << location << index << locationValue << ".ChangeSource=" << ChangeSourceMapper::GetNameForChangeSource(m_changeSource) << "&";
   }
+
   if(m_causingEntityHasBeenSet)
   {
       oStream << location << index << locationValue << ".CausingEntity=" << StringUtils::URLEncode(m_causingEntity.c_str()) << "&";
   }
+
 }
 
 void ResourceChangeDetail::OutputToStream(Aws::OStream& oStream, const char* location) const

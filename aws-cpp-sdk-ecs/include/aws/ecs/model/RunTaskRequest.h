@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,49 +38,49 @@ namespace Model
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline void SetCluster(const Aws::String& value) { m_clusterHasBeenSet = true; m_cluster = value; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline void SetCluster(Aws::String&& value) { m_clusterHasBeenSet = true; m_cluster = value; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline void SetCluster(const char* value) { m_clusterHasBeenSet = true; m_cluster.assign(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline RunTaskRequest& WithCluster(const Aws::String& value) { SetCluster(value); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline RunTaskRequest& WithCluster(Aws::String&& value) { SetCluster(value); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster on which to
      * run your task. If you do not specify a cluster, the default cluster is
-     * assumed..</p>
+     * assumed.</p>
      */
     inline RunTaskRequest& WithCluster(const char* value) { SetCluster(value); return *this;}
 
@@ -210,21 +210,21 @@ namespace Model
      * cluster.</p> <important> <p>The <code>count</code> parameter is limited to 10
      * tasks per call.</p> </important>
      */
-    inline long GetCount() const{ return m_count; }
+    inline int GetCount() const{ return m_count; }
 
     /**
      * <p>The number of instantiations of the specified task to place on your
      * cluster.</p> <important> <p>The <code>count</code> parameter is limited to 10
      * tasks per call.</p> </important>
      */
-    inline void SetCount(long value) { m_countHasBeenSet = true; m_count = value; }
+    inline void SetCount(int value) { m_countHasBeenSet = true; m_count = value; }
 
     /**
      * <p>The number of instantiations of the specified task to place on your
      * cluster.</p> <important> <p>The <code>count</code> parameter is limited to 10
      * tasks per call.</p> </important>
      */
-    inline RunTaskRequest& WithCount(long value) { SetCount(value); return *this;}
+    inline RunTaskRequest& WithCount(int value) { SetCount(value); return *this;}
 
     /**
      * <p>An optional tag specified when a task is started. For example if you
@@ -324,7 +324,7 @@ namespace Model
     bool m_taskDefinitionHasBeenSet;
     TaskOverride m_overrides;
     bool m_overridesHasBeenSet;
-    long m_count;
+    int m_count;
     bool m_countHasBeenSet;
     Aws::String m_startedBy;
     bool m_startedByHasBeenSet;

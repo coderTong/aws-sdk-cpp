@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -35,37 +35,37 @@ namespace Model
     Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(const Aws::String& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = value; }
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(Aws::String&& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = value; }
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(const char* value) { m_iamUserArnHasBeenSet = true; m_iamUserArn.assign(value); }
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline UpdateUserProfileRequest& WithIamUserArn(const Aws::String& value) { SetIamUserArn(value); return *this;}
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline UpdateUserProfileRequest& WithIamUserArn(Aws::String&& value) { SetIamUserArn(value); return *this;}
 
     /**
-     * <p>The user IAM ARN.</p>
+     * <p>The user IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline UpdateUserProfileRequest& WithIamUserArn(const char* value) { SetIamUserArn(value); return *this;}
 

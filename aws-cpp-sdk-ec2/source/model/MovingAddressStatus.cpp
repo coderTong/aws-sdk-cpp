@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 MovingAddressStatus::MovingAddressStatus() : 
     m_publicIpHasBeenSet(false),
+    m_moveStatus(MoveStatus::NOT_SET),
     m_moveStatusHasBeenSet(false)
 {
 }
 
 MovingAddressStatus::MovingAddressStatus(const XmlNode& xmlNode) : 
     m_publicIpHasBeenSet(false),
+    m_moveStatus(MoveStatus::NOT_SET),
     m_moveStatusHasBeenSet(false)
 {
   *this = xmlNode;
@@ -71,10 +73,12 @@ void MovingAddressStatus::OutputToStream(Aws::OStream& oStream, const char* loca
   {
       oStream << location << index << locationValue << ".PublicIp=" << StringUtils::URLEncode(m_publicIp.c_str()) << "&";
   }
+
   if(m_moveStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".MoveStatus=" << MoveStatusMapper::GetNameForMoveStatus(m_moveStatus) << "&";
   }
+
 }
 
 void MovingAddressStatus::OutputToStream(Aws::OStream& oStream, const char* location) const

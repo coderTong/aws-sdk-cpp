@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,12 +30,14 @@ namespace Model
 GlacierJobDescription::GlacierJobDescription() : 
     m_jobIdHasBeenSet(false),
     m_jobDescriptionHasBeenSet(false),
+    m_action(ActionCode::NOT_SET),
     m_actionHasBeenSet(false),
     m_archiveIdHasBeenSet(false),
     m_vaultARNHasBeenSet(false),
     m_creationDateHasBeenSet(false),
     m_completed(false),
     m_completedHasBeenSet(false),
+    m_statusCode(StatusCode::NOT_SET),
     m_statusCodeHasBeenSet(false),
     m_statusMessageHasBeenSet(false),
     m_archiveSizeInBytes(0),
@@ -54,12 +56,14 @@ GlacierJobDescription::GlacierJobDescription() :
 GlacierJobDescription::GlacierJobDescription(const JsonValue& jsonValue) : 
     m_jobIdHasBeenSet(false),
     m_jobDescriptionHasBeenSet(false),
+    m_action(ActionCode::NOT_SET),
     m_actionHasBeenSet(false),
     m_archiveIdHasBeenSet(false),
     m_vaultARNHasBeenSet(false),
     m_creationDateHasBeenSet(false),
     m_completed(false),
     m_completedHasBeenSet(false),
+    m_statusCode(StatusCode::NOT_SET),
     m_statusCodeHasBeenSet(false),
     m_statusMessageHasBeenSet(false),
     m_archiveSizeInBytes(0),

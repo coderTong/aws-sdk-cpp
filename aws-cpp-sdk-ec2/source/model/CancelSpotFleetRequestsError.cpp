@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,12 +30,14 @@ namespace Model
 {
 
 CancelSpotFleetRequestsError::CancelSpotFleetRequestsError() : 
+    m_code(CancelBatchErrorCode::NOT_SET),
     m_codeHasBeenSet(false),
     m_messageHasBeenSet(false)
 {
 }
 
 CancelSpotFleetRequestsError::CancelSpotFleetRequestsError(const XmlNode& xmlNode) : 
+    m_code(CancelBatchErrorCode::NOT_SET),
     m_codeHasBeenSet(false),
     m_messageHasBeenSet(false)
 {
@@ -71,10 +73,12 @@ void CancelSpotFleetRequestsError::OutputToStream(Aws::OStream& oStream, const c
   {
       oStream << location << index << locationValue << ".Code=" << CancelBatchErrorCodeMapper::GetNameForCancelBatchErrorCode(m_code) << "&";
   }
+
   if(m_messageHasBeenSet)
   {
       oStream << location << index << locationValue << ".Message=" << StringUtils::URLEncode(m_message.c_str()) << "&";
   }
+
 }
 
 void CancelSpotFleetRequestsError::OutputToStream(Aws::OStream& oStream, const char* location) const

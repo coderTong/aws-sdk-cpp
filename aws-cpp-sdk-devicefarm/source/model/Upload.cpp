@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,7 +31,9 @@ Upload::Upload() :
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_createdHasBeenSet(false),
+    m_type(UploadType::NOT_SET),
     m_typeHasBeenSet(false),
+    m_status(UploadStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_urlHasBeenSet(false),
     m_metadataHasBeenSet(false),
@@ -44,7 +46,9 @@ Upload::Upload(const JsonValue& jsonValue) :
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_createdHasBeenSet(false),
+    m_type(UploadType::NOT_SET),
     m_typeHasBeenSet(false),
+    m_status(UploadStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_urlHasBeenSet(false),
     m_metadataHasBeenSet(false),

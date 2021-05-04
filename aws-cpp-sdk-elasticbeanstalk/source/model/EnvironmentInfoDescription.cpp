@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 EnvironmentInfoDescription::EnvironmentInfoDescription() : 
+    m_infoType(EnvironmentInfoType::NOT_SET),
     m_infoTypeHasBeenSet(false),
     m_ec2InstanceIdHasBeenSet(false),
     m_sampleTimestampHasBeenSet(false),
@@ -38,6 +39,7 @@ EnvironmentInfoDescription::EnvironmentInfoDescription() :
 }
 
 EnvironmentInfoDescription::EnvironmentInfoDescription(const XmlNode& xmlNode) : 
+    m_infoType(EnvironmentInfoType::NOT_SET),
     m_infoTypeHasBeenSet(false),
     m_ec2InstanceIdHasBeenSet(false),
     m_sampleTimestampHasBeenSet(false),
@@ -87,18 +89,22 @@ void EnvironmentInfoDescription::OutputToStream(Aws::OStream& oStream, const cha
   {
       oStream << location << index << locationValue << ".InfoType=" << EnvironmentInfoTypeMapper::GetNameForEnvironmentInfoType(m_infoType) << "&";
   }
+
   if(m_ec2InstanceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".Ec2InstanceId=" << StringUtils::URLEncode(m_ec2InstanceId.c_str()) << "&";
   }
+
   if(m_sampleTimestampHasBeenSet)
   {
       oStream << location << index << locationValue << ".SampleTimestamp=" << StringUtils::URLEncode(m_sampleTimestamp.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_messageHasBeenSet)
   {
       oStream << location << index << locationValue << ".Message=" << StringUtils::URLEncode(m_message.c_str()) << "&";
   }
+
 }
 
 void EnvironmentInfoDescription::OutputToStream(Aws::OStream& oStream, const char* location) const

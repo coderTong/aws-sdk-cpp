@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,6 +24,7 @@ using namespace Aws::Utils;
 AddTagsRequest::AddTagsRequest() : 
     m_tagsHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_resourceType(TaggableResourceType::NOT_SET),
     m_resourceTypeHasBeenSet(false)
 {
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -45,6 +45,7 @@ MethodSetting::MethodSetting() :
     m_cacheDataEncryptedHasBeenSet(false),
     m_requireAuthorizationForCacheControl(false),
     m_requireAuthorizationForCacheControlHasBeenSet(false),
+    m_unauthorizedCacheControlHeaderStrategy(UnauthorizedCacheControlHeaderStrategy::NOT_SET),
     m_unauthorizedCacheControlHeaderStrategyHasBeenSet(false)
 {
 }
@@ -67,6 +68,7 @@ MethodSetting::MethodSetting(const JsonValue& jsonValue) :
     m_cacheDataEncryptedHasBeenSet(false),
     m_requireAuthorizationForCacheControl(false),
     m_requireAuthorizationForCacheControlHasBeenSet(false),
+    m_unauthorizedCacheControlHeaderStrategy(UnauthorizedCacheControlHeaderStrategy::NOT_SET),
     m_unauthorizedCacheControlHeaderStrategyHasBeenSet(false)
 {
   *this = jsonValue;

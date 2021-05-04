@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,6 +25,7 @@ PutRuleRequest::PutRuleRequest() :
     m_nameHasBeenSet(false),
     m_scheduleExpressionHasBeenSet(false),
     m_eventPatternHasBeenSet(false),
+    m_state(RuleState::NOT_SET),
     m_stateHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_roleArnHasBeenSet(false)

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,6 +24,7 @@ using namespace Aws::Utils;
 GetDevicePoolCompatibilityRequest::GetDevicePoolCompatibilityRequest() : 
     m_devicePoolArnHasBeenSet(false),
     m_appArnHasBeenSet(false),
+    m_testType(TestType::NOT_SET),
     m_testTypeHasBeenSet(false)
 {
 }

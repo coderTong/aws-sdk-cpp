@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 
 SetTaskStatusRequest::SetTaskStatusRequest() : 
     m_taskIdHasBeenSet(false),
+    m_taskStatus(TaskStatus::NOT_SET),
     m_taskStatusHasBeenSet(false),
     m_errorIdHasBeenSet(false),
     m_errorMessageHasBeenSet(false),

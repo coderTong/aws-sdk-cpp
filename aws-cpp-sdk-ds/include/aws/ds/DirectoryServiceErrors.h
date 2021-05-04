@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,7 +21,7 @@ namespace Aws
 {
 namespace DirectoryService
 {
-enum class AWS_DIRECTORYSERVICE_API DirectoryServiceErrors
+enum class DirectoryServiceErrors
 {
   //From Core//
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,12 @@ enum class AWS_DIRECTORYSERVICE_API DirectoryServiceErrors
   RESOURCE_NOT_FOUND = 16,
   UNRECOGNIZED_CLIENT = 17,
   MALFORMED_QUERY_STRING = 18,
+  SLOW_DOWN = 19,
+  REQUEST_TIME_TOO_SKEWED = 20,
+  INVALID_SIGNATURE = 21,
+  SIGNATURE_DOES_NOT_MATCH = 22,
   NETWORK_CONNECTION = 99,
+  
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -57,8 +62,10 @@ enum class AWS_DIRECTORYSERVICE_API DirectoryServiceErrors
   INSUFFICIENT_PERMISSIONS,
   INVALID_NEXT_TOKEN,
   INVALID_PARAMETER,
+  IP_ROUTE_LIMIT_EXCEEDED,
   SERVICE,
   SNAPSHOT_LIMIT_EXCEEDED,
+  TAG_LIMIT_EXCEEDED,
   UNSUPPORTED_OPERATION
 };
 namespace DirectoryServiceErrorMapper

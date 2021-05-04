@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -17,6 +17,7 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/ec2/model/ScheduledInstancesLaunchSpecification.h>
+#include <aws/core/utils/UUID.h>
 
 namespace Aws
 {
@@ -117,17 +118,17 @@ namespace Model
     /**
      * <p>The number of instances.</p> <p>Default: 1</p>
      */
-    inline long GetInstanceCount() const{ return m_instanceCount; }
+    inline int GetInstanceCount() const{ return m_instanceCount; }
 
     /**
      * <p>The number of instances.</p> <p>Default: 1</p>
      */
-    inline void SetInstanceCount(long value) { m_instanceCountHasBeenSet = true; m_instanceCount = value; }
+    inline void SetInstanceCount(int value) { m_instanceCountHasBeenSet = true; m_instanceCount = value; }
 
     /**
      * <p>The number of instances.</p> <p>Default: 1</p>
      */
-    inline RunScheduledInstancesRequest& WithInstanceCount(long value) { SetInstanceCount(value); return *this;}
+    inline RunScheduledInstancesRequest& WithInstanceCount(int value) { SetInstanceCount(value); return *this;}
 
     /**
      * <p>The Scheduled Instance ID.</p>
@@ -194,7 +195,7 @@ namespace Model
     bool m_dryRunHasBeenSet;
     Aws::String m_clientToken;
     bool m_clientTokenHasBeenSet;
-    long m_instanceCount;
+    int m_instanceCount;
     bool m_instanceCountHasBeenSet;
     Aws::String m_scheduledInstanceId;
     bool m_scheduledInstanceIdHasBeenSet;

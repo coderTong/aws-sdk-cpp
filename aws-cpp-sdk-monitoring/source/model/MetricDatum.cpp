@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,6 +36,7 @@ MetricDatum::MetricDatum() :
     m_value(0.0),
     m_valueHasBeenSet(false),
     m_statisticValuesHasBeenSet(false),
+    m_unit(StandardUnit::NOT_SET),
     m_unitHasBeenSet(false)
 {
 }
@@ -47,6 +48,7 @@ MetricDatum::MetricDatum(const XmlNode& xmlNode) :
     m_value(0.0),
     m_valueHasBeenSet(false),
     m_statisticValuesHasBeenSet(false),
+    m_unit(StandardUnit::NOT_SET),
     m_unitHasBeenSet(false)
 {
   *this = xmlNode;
@@ -111,6 +113,7 @@ void MetricDatum::OutputToStream(Aws::OStream& oStream, const char* location, un
   {
       oStream << location << index << locationValue << ".MetricName=" << StringUtils::URLEncode(m_metricName.c_str()) << "&";
   }
+
   if(m_dimensionsHasBeenSet)
   {
       unsigned dimensionsIdx = 1;
@@ -121,24 +124,29 @@ void MetricDatum::OutputToStream(Aws::OStream& oStream, const char* location, un
         item.OutputToStream(oStream, dimensionsSs.str().c_str());
       }
   }
+
   if(m_timestampHasBeenSet)
   {
       oStream << location << index << locationValue << ".Timestamp=" << StringUtils::URLEncode(m_timestamp.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_valueHasBeenSet)
   {
         oStream << location << index << locationValue << ".Value=" << StringUtils::URLEncode(m_value) << "&";
   }
+
   if(m_statisticValuesHasBeenSet)
   {
       Aws::StringStream statisticValuesLocationAndMemberSs;
       statisticValuesLocationAndMemberSs << location << index << locationValue << ".StatisticValues";
       m_statisticValues.OutputToStream(oStream, statisticValuesLocationAndMemberSs.str().c_str());
   }
+
   if(m_unitHasBeenSet)
   {
       oStream << location << index << locationValue << ".Unit=" << StandardUnitMapper::GetNameForStandardUnit(m_unit) << "&";
   }
+
 }
 
 void MetricDatum::OutputToStream(Aws::OStream& oStream, const char* location) const

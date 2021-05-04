@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,12 +25,14 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 AdminGetUserResult::AdminGetUserResult() : 
-    m_enabled(false)
+    m_enabled(false),
+    m_userStatus(UserStatusType::NOT_SET)
 {
 }
 
 AdminGetUserResult::AdminGetUserResult(const AmazonWebServiceResult<JsonValue>& result) : 
-    m_enabled(false)
+    m_enabled(false),
+    m_userStatus(UserStatusType::NOT_SET)
 {
   *this = result;
 }

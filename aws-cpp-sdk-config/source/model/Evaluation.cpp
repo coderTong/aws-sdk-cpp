@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 Evaluation::Evaluation() : 
     m_complianceResourceTypeHasBeenSet(false),
     m_complianceResourceIdHasBeenSet(false),
+    m_complianceType(ComplianceType::NOT_SET),
     m_complianceTypeHasBeenSet(false),
     m_annotationHasBeenSet(false),
     m_orderingTimestampHasBeenSet(false)
@@ -39,6 +40,7 @@ Evaluation::Evaluation() :
 Evaluation::Evaluation(const JsonValue& jsonValue) : 
     m_complianceResourceTypeHasBeenSet(false),
     m_complianceResourceIdHasBeenSet(false),
+    m_complianceType(ComplianceType::NOT_SET),
     m_complianceTypeHasBeenSet(false),
     m_annotationHasBeenSet(false),
     m_orderingTimestampHasBeenSet(false)

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 Integration::Integration() : 
+    m_type(IntegrationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_httpMethodHasBeenSet(false),
     m_uriHasBeenSet(false),
@@ -42,6 +43,7 @@ Integration::Integration() :
 }
 
 Integration::Integration(const JsonValue& jsonValue) : 
+    m_type(IntegrationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_httpMethodHasBeenSet(false),
     m_uriHasBeenSet(false),

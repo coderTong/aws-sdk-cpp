@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,9 @@ ViewerCertificate::ViewerCertificate() :
     m_cloudFrontDefaultCertificateHasBeenSet(false),
     m_iAMCertificateIdHasBeenSet(false),
     m_aCMCertificateArnHasBeenSet(false),
+    m_sSLSupportMethod(SSLSupportMethod::NOT_SET),
     m_sSLSupportMethodHasBeenSet(false),
+    m_minimumProtocolVersion(MinimumProtocolVersion::NOT_SET),
     m_minimumProtocolVersionHasBeenSet(false)
 {
 }
@@ -44,7 +46,9 @@ ViewerCertificate::ViewerCertificate(const XmlNode& xmlNode) :
     m_cloudFrontDefaultCertificateHasBeenSet(false),
     m_iAMCertificateIdHasBeenSet(false),
     m_aCMCertificateArnHasBeenSet(false),
+    m_sSLSupportMethod(SSLSupportMethod::NOT_SET),
     m_sSLSupportMethodHasBeenSet(false),
+    m_minimumProtocolVersion(MinimumProtocolVersion::NOT_SET),
     m_minimumProtocolVersionHasBeenSet(false)
 {
   *this = xmlNode;

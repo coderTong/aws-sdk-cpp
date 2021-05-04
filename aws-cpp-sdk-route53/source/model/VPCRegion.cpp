@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,12 +30,14 @@ namespace Aws
       {
 
         static const int us_east_1_HASH = HashingUtils::HashString("us-east-1");
+        static const int us_east_2_HASH = HashingUtils::HashString("us-east-2");
         static const int us_west_1_HASH = HashingUtils::HashString("us-west-1");
         static const int us_west_2_HASH = HashingUtils::HashString("us-west-2");
         static const int eu_west_1_HASH = HashingUtils::HashString("eu-west-1");
         static const int eu_central_1_HASH = HashingUtils::HashString("eu-central-1");
         static const int ap_southeast_1_HASH = HashingUtils::HashString("ap-southeast-1");
         static const int ap_southeast_2_HASH = HashingUtils::HashString("ap-southeast-2");
+        static const int ap_south_1_HASH = HashingUtils::HashString("ap-south-1");
         static const int ap_northeast_1_HASH = HashingUtils::HashString("ap-northeast-1");
         static const int ap_northeast_2_HASH = HashingUtils::HashString("ap-northeast-2");
         static const int sa_east_1_HASH = HashingUtils::HashString("sa-east-1");
@@ -48,6 +50,10 @@ namespace Aws
           if (hashCode == us_east_1_HASH)
           {
             return VPCRegion::us_east_1;
+          }
+          else if (hashCode == us_east_2_HASH)
+          {
+            return VPCRegion::us_east_2;
           }
           else if (hashCode == us_west_1_HASH)
           {
@@ -72,6 +78,10 @@ namespace Aws
           else if (hashCode == ap_southeast_2_HASH)
           {
             return VPCRegion::ap_southeast_2;
+          }
+          else if (hashCode == ap_south_1_HASH)
+          {
+            return VPCRegion::ap_south_1;
           }
           else if (hashCode == ap_northeast_1_HASH)
           {
@@ -105,6 +115,8 @@ namespace Aws
           {
           case VPCRegion::us_east_1:
             return "us-east-1";
+          case VPCRegion::us_east_2:
+            return "us-east-2";
           case VPCRegion::us_west_1:
             return "us-west-1";
           case VPCRegion::us_west_2:
@@ -117,6 +129,8 @@ namespace Aws
             return "ap-southeast-1";
           case VPCRegion::ap_southeast_2:
             return "ap-southeast-2";
+          case VPCRegion::ap_south_1:
+            return "ap-south-1";
           case VPCRegion::ap_northeast_1:
             return "ap-northeast-1";
           case VPCRegion::ap_northeast_2:

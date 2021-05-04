@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ Rule::Rule() :
     m_expirationHasBeenSet(false),
     m_iDHasBeenSet(false),
     m_prefixHasBeenSet(false),
+    m_status(ExpirationStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_transitionHasBeenSet(false),
     m_noncurrentVersionTransitionHasBeenSet(false),
@@ -45,6 +46,7 @@ Rule::Rule(const XmlNode& xmlNode) :
     m_expirationHasBeenSet(false),
     m_iDHasBeenSet(false),
     m_prefixHasBeenSet(false),
+    m_status(ExpirationStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_transitionHasBeenSet(false),
     m_noncurrentVersionTransitionHasBeenSet(false),

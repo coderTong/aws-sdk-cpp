@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 FailureDetails::FailureDetails() : 
+    m_type(FailureType::NOT_SET),
     m_typeHasBeenSet(false),
     m_messageHasBeenSet(false),
     m_externalExecutionIdHasBeenSet(false)
@@ -35,6 +36,7 @@ FailureDetails::FailureDetails() :
 }
 
 FailureDetails::FailureDetails(const JsonValue& jsonValue) : 
+    m_type(FailureType::NOT_SET),
     m_typeHasBeenSet(false),
     m_messageHasBeenSet(false),
     m_externalExecutionIdHasBeenSet(false)

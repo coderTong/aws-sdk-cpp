@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -40,6 +40,7 @@ DistributionSummary::DistributionSummary() :
     m_cacheBehaviorsHasBeenSet(false),
     m_customErrorResponsesHasBeenSet(false),
     m_commentHasBeenSet(false),
+    m_priceClass(PriceClass::NOT_SET),
     m_priceClassHasBeenSet(false),
     m_enabled(false),
     m_enabledHasBeenSet(false),
@@ -60,6 +61,7 @@ DistributionSummary::DistributionSummary(const XmlNode& xmlNode) :
     m_cacheBehaviorsHasBeenSet(false),
     m_customErrorResponsesHasBeenSet(false),
     m_commentHasBeenSet(false),
+    m_priceClass(PriceClass::NOT_SET),
     m_priceClassHasBeenSet(false),
     m_enabled(false),
     m_enabledHasBeenSet(false),

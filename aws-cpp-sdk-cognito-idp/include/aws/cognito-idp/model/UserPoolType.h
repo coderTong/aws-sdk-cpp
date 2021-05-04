@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,6 +21,10 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/cognito-idp/model/UserPoolMfaType.h>
+#include <aws/cognito-idp/model/DeviceConfigurationType.h>
+#include <aws/cognito-idp/model/EmailConfigurationType.h>
+#include <aws/cognito-idp/model/SmsConfigurationType.h>
+#include <aws/cognito-idp/model/AdminCreateUserConfigType.h>
 #include <aws/cognito-idp/model/SchemaAttributeType.h>
 #include <aws/cognito-idp/model/VerifiedAttributeType.h>
 #include <aws/cognito-idp/model/AliasAttributeType.h>
@@ -496,69 +500,253 @@ namespace Model
     inline UserPoolType& WithSmsAuthenticationMessage(const char* value) { SetSmsAuthenticationMessage(value); return *this;}
 
     /**
-     * <p>Can be one of the following values:</p> <ul> <li><code>OFF</code> - MFA
-     * tokens are not required and cannot be specified during user registration.</li>
-     * <li><code>ON</code> - MFA tokens are required for all user registrations. You
-     * can only specify required when you are initially creating a user pool.</li>
-     * <li><code>OPTIONAL</code> - Users have the option when registering to create an
-     * MFA token.</li> </ul>
+     * <p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA
+     * tokens are not required and cannot be specified during user registration.</p>
+     * </li> <li> <p> <code>ON</code> - MFA tokens are required for all user
+     * registrations. You can only specify required when you are initially creating a
+     * user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when
+     * registering to create an MFA token.</p> </li> </ul>
      */
     inline const UserPoolMfaType& GetMfaConfiguration() const{ return m_mfaConfiguration; }
 
     /**
-     * <p>Can be one of the following values:</p> <ul> <li><code>OFF</code> - MFA
-     * tokens are not required and cannot be specified during user registration.</li>
-     * <li><code>ON</code> - MFA tokens are required for all user registrations. You
-     * can only specify required when you are initially creating a user pool.</li>
-     * <li><code>OPTIONAL</code> - Users have the option when registering to create an
-     * MFA token.</li> </ul>
+     * <p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA
+     * tokens are not required and cannot be specified during user registration.</p>
+     * </li> <li> <p> <code>ON</code> - MFA tokens are required for all user
+     * registrations. You can only specify required when you are initially creating a
+     * user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when
+     * registering to create an MFA token.</p> </li> </ul>
      */
     inline void SetMfaConfiguration(const UserPoolMfaType& value) { m_mfaConfigurationHasBeenSet = true; m_mfaConfiguration = value; }
 
     /**
-     * <p>Can be one of the following values:</p> <ul> <li><code>OFF</code> - MFA
-     * tokens are not required and cannot be specified during user registration.</li>
-     * <li><code>ON</code> - MFA tokens are required for all user registrations. You
-     * can only specify required when you are initially creating a user pool.</li>
-     * <li><code>OPTIONAL</code> - Users have the option when registering to create an
-     * MFA token.</li> </ul>
+     * <p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA
+     * tokens are not required and cannot be specified during user registration.</p>
+     * </li> <li> <p> <code>ON</code> - MFA tokens are required for all user
+     * registrations. You can only specify required when you are initially creating a
+     * user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when
+     * registering to create an MFA token.</p> </li> </ul>
      */
     inline void SetMfaConfiguration(UserPoolMfaType&& value) { m_mfaConfigurationHasBeenSet = true; m_mfaConfiguration = value; }
 
     /**
-     * <p>Can be one of the following values:</p> <ul> <li><code>OFF</code> - MFA
-     * tokens are not required and cannot be specified during user registration.</li>
-     * <li><code>ON</code> - MFA tokens are required for all user registrations. You
-     * can only specify required when you are initially creating a user pool.</li>
-     * <li><code>OPTIONAL</code> - Users have the option when registering to create an
-     * MFA token.</li> </ul>
+     * <p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA
+     * tokens are not required and cannot be specified during user registration.</p>
+     * </li> <li> <p> <code>ON</code> - MFA tokens are required for all user
+     * registrations. You can only specify required when you are initially creating a
+     * user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when
+     * registering to create an MFA token.</p> </li> </ul>
      */
     inline UserPoolType& WithMfaConfiguration(const UserPoolMfaType& value) { SetMfaConfiguration(value); return *this;}
 
     /**
-     * <p>Can be one of the following values:</p> <ul> <li><code>OFF</code> - MFA
-     * tokens are not required and cannot be specified during user registration.</li>
-     * <li><code>ON</code> - MFA tokens are required for all user registrations. You
-     * can only specify required when you are initially creating a user pool.</li>
-     * <li><code>OPTIONAL</code> - Users have the option when registering to create an
-     * MFA token.</li> </ul>
+     * <p>Can be one of the following values:</p> <ul> <li> <p> <code>OFF</code> - MFA
+     * tokens are not required and cannot be specified during user registration.</p>
+     * </li> <li> <p> <code>ON</code> - MFA tokens are required for all user
+     * registrations. You can only specify required when you are initially creating a
+     * user pool.</p> </li> <li> <p> <code>OPTIONAL</code> - Users have the option when
+     * registering to create an MFA token.</p> </li> </ul>
      */
     inline UserPoolType& WithMfaConfiguration(UserPoolMfaType&& value) { SetMfaConfiguration(value); return *this;}
 
     /**
-     * <p>A number estimating the size of the user pool.</p>
+     * <p>The device configuration.</p>
      */
-    inline long GetEstimatedNumberOfUsers() const{ return m_estimatedNumberOfUsers; }
+    inline const DeviceConfigurationType& GetDeviceConfiguration() const{ return m_deviceConfiguration; }
+
+    /**
+     * <p>The device configuration.</p>
+     */
+    inline void SetDeviceConfiguration(const DeviceConfigurationType& value) { m_deviceConfigurationHasBeenSet = true; m_deviceConfiguration = value; }
+
+    /**
+     * <p>The device configuration.</p>
+     */
+    inline void SetDeviceConfiguration(DeviceConfigurationType&& value) { m_deviceConfigurationHasBeenSet = true; m_deviceConfiguration = value; }
+
+    /**
+     * <p>The device configuration.</p>
+     */
+    inline UserPoolType& WithDeviceConfiguration(const DeviceConfigurationType& value) { SetDeviceConfiguration(value); return *this;}
+
+    /**
+     * <p>The device configuration.</p>
+     */
+    inline UserPoolType& WithDeviceConfiguration(DeviceConfigurationType&& value) { SetDeviceConfiguration(value); return *this;}
 
     /**
      * <p>A number estimating the size of the user pool.</p>
      */
-    inline void SetEstimatedNumberOfUsers(long value) { m_estimatedNumberOfUsersHasBeenSet = true; m_estimatedNumberOfUsers = value; }
+    inline int GetEstimatedNumberOfUsers() const{ return m_estimatedNumberOfUsers; }
 
     /**
      * <p>A number estimating the size of the user pool.</p>
      */
-    inline UserPoolType& WithEstimatedNumberOfUsers(long value) { SetEstimatedNumberOfUsers(value); return *this;}
+    inline void SetEstimatedNumberOfUsers(int value) { m_estimatedNumberOfUsersHasBeenSet = true; m_estimatedNumberOfUsers = value; }
+
+    /**
+     * <p>A number estimating the size of the user pool.</p>
+     */
+    inline UserPoolType& WithEstimatedNumberOfUsers(int value) { SetEstimatedNumberOfUsers(value); return *this;}
+
+    /**
+     * <p>The email configuration.</p>
+     */
+    inline const EmailConfigurationType& GetEmailConfiguration() const{ return m_emailConfiguration; }
+
+    /**
+     * <p>The email configuration.</p>
+     */
+    inline void SetEmailConfiguration(const EmailConfigurationType& value) { m_emailConfigurationHasBeenSet = true; m_emailConfiguration = value; }
+
+    /**
+     * <p>The email configuration.</p>
+     */
+    inline void SetEmailConfiguration(EmailConfigurationType&& value) { m_emailConfigurationHasBeenSet = true; m_emailConfiguration = value; }
+
+    /**
+     * <p>The email configuration.</p>
+     */
+    inline UserPoolType& WithEmailConfiguration(const EmailConfigurationType& value) { SetEmailConfiguration(value); return *this;}
+
+    /**
+     * <p>The email configuration.</p>
+     */
+    inline UserPoolType& WithEmailConfiguration(EmailConfigurationType&& value) { SetEmailConfiguration(value); return *this;}
+
+    /**
+     * <p>The SMS configuration.</p>
+     */
+    inline const SmsConfigurationType& GetSmsConfiguration() const{ return m_smsConfiguration; }
+
+    /**
+     * <p>The SMS configuration.</p>
+     */
+    inline void SetSmsConfiguration(const SmsConfigurationType& value) { m_smsConfigurationHasBeenSet = true; m_smsConfiguration = value; }
+
+    /**
+     * <p>The SMS configuration.</p>
+     */
+    inline void SetSmsConfiguration(SmsConfigurationType&& value) { m_smsConfigurationHasBeenSet = true; m_smsConfiguration = value; }
+
+    /**
+     * <p>The SMS configuration.</p>
+     */
+    inline UserPoolType& WithSmsConfiguration(const SmsConfigurationType& value) { SetSmsConfiguration(value); return *this;}
+
+    /**
+     * <p>The SMS configuration.</p>
+     */
+    inline UserPoolType& WithSmsConfiguration(SmsConfigurationType&& value) { SetSmsConfiguration(value); return *this;}
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline const Aws::String& GetSmsConfigurationFailure() const{ return m_smsConfigurationFailure; }
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline void SetSmsConfigurationFailure(const Aws::String& value) { m_smsConfigurationFailureHasBeenSet = true; m_smsConfigurationFailure = value; }
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline void SetSmsConfigurationFailure(Aws::String&& value) { m_smsConfigurationFailureHasBeenSet = true; m_smsConfigurationFailure = value; }
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline void SetSmsConfigurationFailure(const char* value) { m_smsConfigurationFailureHasBeenSet = true; m_smsConfigurationFailure.assign(value); }
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline UserPoolType& WithSmsConfigurationFailure(const Aws::String& value) { SetSmsConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline UserPoolType& WithSmsConfigurationFailure(Aws::String&& value) { SetSmsConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The reason why the SMS configuration cannot send the message(s) to your
+     * users.</p>
+     */
+    inline UserPoolType& WithSmsConfigurationFailure(const char* value) { SetSmsConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline const Aws::String& GetEmailConfigurationFailure() const{ return m_emailConfigurationFailure; }
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline void SetEmailConfigurationFailure(const Aws::String& value) { m_emailConfigurationFailureHasBeenSet = true; m_emailConfigurationFailure = value; }
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline void SetEmailConfigurationFailure(Aws::String&& value) { m_emailConfigurationFailureHasBeenSet = true; m_emailConfigurationFailure = value; }
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline void SetEmailConfigurationFailure(const char* value) { m_emailConfigurationFailureHasBeenSet = true; m_emailConfigurationFailure.assign(value); }
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline UserPoolType& WithEmailConfigurationFailure(const Aws::String& value) { SetEmailConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline UserPoolType& WithEmailConfigurationFailure(Aws::String&& value) { SetEmailConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The reason why the email configuration cannot send the messages to your
+     * users.</p>
+     */
+    inline UserPoolType& WithEmailConfigurationFailure(const char* value) { SetEmailConfigurationFailure(value); return *this;}
+
+    /**
+     * <p>The configuration for AdminCreateUser requests.</p>
+     */
+    inline const AdminCreateUserConfigType& GetAdminCreateUserConfig() const{ return m_adminCreateUserConfig; }
+
+    /**
+     * <p>The configuration for AdminCreateUser requests.</p>
+     */
+    inline void SetAdminCreateUserConfig(const AdminCreateUserConfigType& value) { m_adminCreateUserConfigHasBeenSet = true; m_adminCreateUserConfig = value; }
+
+    /**
+     * <p>The configuration for AdminCreateUser requests.</p>
+     */
+    inline void SetAdminCreateUserConfig(AdminCreateUserConfigType&& value) { m_adminCreateUserConfigHasBeenSet = true; m_adminCreateUserConfig = value; }
+
+    /**
+     * <p>The configuration for AdminCreateUser requests.</p>
+     */
+    inline UserPoolType& WithAdminCreateUserConfig(const AdminCreateUserConfigType& value) { SetAdminCreateUserConfig(value); return *this;}
+
+    /**
+     * <p>The configuration for AdminCreateUser requests.</p>
+     */
+    inline UserPoolType& WithAdminCreateUserConfig(AdminCreateUserConfigType&& value) { SetAdminCreateUserConfig(value); return *this;}
 
   private:
     Aws::String m_id;
@@ -591,8 +779,20 @@ namespace Model
     bool m_smsAuthenticationMessageHasBeenSet;
     UserPoolMfaType m_mfaConfiguration;
     bool m_mfaConfigurationHasBeenSet;
-    long m_estimatedNumberOfUsers;
+    DeviceConfigurationType m_deviceConfiguration;
+    bool m_deviceConfigurationHasBeenSet;
+    int m_estimatedNumberOfUsers;
     bool m_estimatedNumberOfUsersHasBeenSet;
+    EmailConfigurationType m_emailConfiguration;
+    bool m_emailConfigurationHasBeenSet;
+    SmsConfigurationType m_smsConfiguration;
+    bool m_smsConfigurationHasBeenSet;
+    Aws::String m_smsConfigurationFailure;
+    bool m_smsConfigurationFailureHasBeenSet;
+    Aws::String m_emailConfigurationFailure;
+    bool m_emailConfigurationFailureHasBeenSet;
+    AdminCreateUserConfigType m_adminCreateUserConfig;
+    bool m_adminCreateUserConfigHasBeenSet;
   };
 
 } // namespace Model

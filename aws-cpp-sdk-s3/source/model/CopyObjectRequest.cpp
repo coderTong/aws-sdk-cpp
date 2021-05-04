@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -15,6 +15,7 @@
 #include <aws/s3/model/CopyObjectRequest.h>
 #include <aws/core/utils/xml/XmlSerializer.h>
 #include <aws/core/utils/memory/stl/AWSStringStream.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 
 #include <utility>
 
@@ -23,6 +24,7 @@ using namespace Aws::Utils::Xml;
 using namespace Aws::Utils;
 
 CopyObjectRequest::CopyObjectRequest() : 
+    m_aCL(ObjectCannedACL::NOT_SET),
     m_aCLHasBeenSet(false),
     m_bucketHasBeenSet(false),
     m_cacheControlHasBeenSet(false),
@@ -42,8 +44,11 @@ CopyObjectRequest::CopyObjectRequest() :
     m_grantWriteACPHasBeenSet(false),
     m_keyHasBeenSet(false),
     m_metadataHasBeenSet(false),
+    m_metadataDirective(MetadataDirective::NOT_SET),
     m_metadataDirectiveHasBeenSet(false),
+    m_serverSideEncryption(ServerSideEncryption::NOT_SET),
     m_serverSideEncryptionHasBeenSet(false),
+    m_storageClass(StorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_websiteRedirectLocationHasBeenSet(false),
     m_sSECustomerAlgorithmHasBeenSet(false),
@@ -53,6 +58,7 @@ CopyObjectRequest::CopyObjectRequest() :
     m_copySourceSSECustomerAlgorithmHasBeenSet(false),
     m_copySourceSSECustomerKeyHasBeenSet(false),
     m_copySourceSSECustomerKeyMD5HasBeenSet(false),
+    m_requestPayer(RequestPayer::NOT_SET),
     m_requestPayerHasBeenSet(false)
 {
 }

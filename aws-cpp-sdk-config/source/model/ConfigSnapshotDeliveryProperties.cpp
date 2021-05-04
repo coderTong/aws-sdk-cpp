@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,11 +28,13 @@ namespace Model
 {
 
 ConfigSnapshotDeliveryProperties::ConfigSnapshotDeliveryProperties() : 
+    m_deliveryFrequency(MaximumExecutionFrequency::NOT_SET),
     m_deliveryFrequencyHasBeenSet(false)
 {
 }
 
 ConfigSnapshotDeliveryProperties::ConfigSnapshotDeliveryProperties(const JsonValue& jsonValue) : 
+    m_deliveryFrequency(MaximumExecutionFrequency::NOT_SET),
     m_deliveryFrequencyHasBeenSet(false)
 {
   *this = jsonValue;

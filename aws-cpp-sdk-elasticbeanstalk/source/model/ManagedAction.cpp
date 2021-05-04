@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,7 +32,9 @@ namespace Model
 ManagedAction::ManagedAction() : 
     m_actionIdHasBeenSet(false),
     m_actionDescriptionHasBeenSet(false),
+    m_actionType(ActionType::NOT_SET),
     m_actionTypeHasBeenSet(false),
+    m_status(ActionStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_windowStartTimeHasBeenSet(false)
 {
@@ -41,7 +43,9 @@ ManagedAction::ManagedAction() :
 ManagedAction::ManagedAction(const XmlNode& xmlNode) : 
     m_actionIdHasBeenSet(false),
     m_actionDescriptionHasBeenSet(false),
+    m_actionType(ActionType::NOT_SET),
     m_actionTypeHasBeenSet(false),
+    m_status(ActionStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_windowStartTimeHasBeenSet(false)
 {
@@ -95,22 +99,27 @@ void ManagedAction::OutputToStream(Aws::OStream& oStream, const char* location, 
   {
       oStream << location << index << locationValue << ".ActionId=" << StringUtils::URLEncode(m_actionId.c_str()) << "&";
   }
+
   if(m_actionDescriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".ActionDescription=" << StringUtils::URLEncode(m_actionDescription.c_str()) << "&";
   }
+
   if(m_actionTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ActionType=" << ActionTypeMapper::GetNameForActionType(m_actionType) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << ActionStatusMapper::GetNameForActionStatus(m_status) << "&";
   }
+
   if(m_windowStartTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".WindowStartTime=" << StringUtils::URLEncode(m_windowStartTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void ManagedAction::OutputToStream(Aws::OStream& oStream, const char* location) const

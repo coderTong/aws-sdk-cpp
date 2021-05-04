@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 Condition::Condition() : 
     m_attributeValueListHasBeenSet(false),
+    m_comparisonOperator(ComparisonOperator::NOT_SET),
     m_comparisonOperatorHasBeenSet(false)
 {
 }
 
 Condition::Condition(const JsonValue& jsonValue) : 
     m_attributeValueListHasBeenSet(false),
+    m_comparisonOperator(ComparisonOperator::NOT_SET),
     m_comparisonOperatorHasBeenSet(false)
 {
   *this = jsonValue;

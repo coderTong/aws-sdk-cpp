@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,7 +21,7 @@ namespace Aws
 {
 namespace SSM
 {
-enum class AWS_SSM_API SSMErrors
+enum class SSMErrors
 {
   //From Core//
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,12 @@ enum class AWS_SSM_API SSMErrors
   RESOURCE_NOT_FOUND = 16,
   UNRECOGNIZED_CLIENT = 17,
   MALFORMED_QUERY_STRING = 18,
+  SLOW_DOWN = 19,
+  REQUEST_TIME_TOO_SKEWED = 20,
+  INVALID_SIGNATURE = 21,
+  SIGNATURE_DOES_NOT_MATCH = 22,
   NETWORK_CONNECTION = 99,
+  
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,17 +61,24 @@ enum class AWS_SSM_API SSMErrors
   DOCUMENT_LIMIT_EXCEEDED,
   DOCUMENT_PERMISSION_LIMIT,
   DUPLICATE_INSTANCE_ID,
+  INVALID_ACTIVATION,
+  INVALID_ACTIVATION_ID,
   INVALID_COMMAND_ID,
   INVALID_DOCUMENT,
   INVALID_DOCUMENT_CONTENT,
   INVALID_DOCUMENT_OPERATION,
+  INVALID_FILTER,
   INVALID_FILTER_KEY,
   INVALID_INSTANCE_ID,
   INVALID_INSTANCE_INFORMATION_FILTER_VALUE,
   INVALID_NEXT_TOKEN,
+  INVALID_NOTIFICATION_CONFIG,
   INVALID_OUTPUT_FOLDER,
   INVALID_PARAMETERS,
   INVALID_PERMISSION_TYPE,
+  INVALID_RESOURCE_ID,
+  INVALID_RESOURCE_TYPE,
+  INVALID_ROLE,
   MAX_DOCUMENT_SIZE_EXCEEDED,
   STATUS_UNCHANGED,
   TOO_MANY_UPDATES,

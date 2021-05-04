@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 LayerFailure::LayerFailure() : 
     m_layerDigestHasBeenSet(false),
+    m_failureCode(LayerFailureCode::NOT_SET),
     m_failureCodeHasBeenSet(false),
     m_failureReasonHasBeenSet(false)
 {
@@ -36,6 +37,7 @@ LayerFailure::LayerFailure() :
 
 LayerFailure::LayerFailure(const JsonValue& jsonValue) : 
     m_layerDigestHasBeenSet(false),
+    m_failureCode(LayerFailureCode::NOT_SET),
     m_failureCodeHasBeenSet(false),
     m_failureReasonHasBeenSet(false)
 {

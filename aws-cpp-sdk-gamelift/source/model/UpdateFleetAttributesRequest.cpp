@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,7 +25,9 @@ UpdateFleetAttributesRequest::UpdateFleetAttributesRequest() :
     m_fleetIdHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
-    m_newGameSessionProtectionPolicyHasBeenSet(false)
+    m_newGameSessionProtectionPolicy(ProtectionPolicy::NOT_SET),
+    m_newGameSessionProtectionPolicyHasBeenSet(false),
+    m_resourceCreationLimitPolicyHasBeenSet(false)
 {
 }
 
@@ -54,6 +56,12 @@ Aws::String UpdateFleetAttributesRequest::SerializePayload() const
   if(m_newGameSessionProtectionPolicyHasBeenSet)
   {
    payload.WithString("NewGameSessionProtectionPolicy", ProtectionPolicyMapper::GetNameForProtectionPolicy(m_newGameSessionProtectionPolicy));
+  }
+
+  if(m_resourceCreationLimitPolicyHasBeenSet)
+  {
+   payload.WithObject("ResourceCreationLimitPolicy", m_resourceCreationLimitPolicy.Jsonize());
+
   }
 
   return payload.WriteReadable();

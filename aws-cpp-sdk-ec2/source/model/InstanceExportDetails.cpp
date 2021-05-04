@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 InstanceExportDetails::InstanceExportDetails() : 
     m_instanceIdHasBeenSet(false),
+    m_targetEnvironment(ExportEnvironment::NOT_SET),
     m_targetEnvironmentHasBeenSet(false)
 {
 }
 
 InstanceExportDetails::InstanceExportDetails(const XmlNode& xmlNode) : 
     m_instanceIdHasBeenSet(false),
+    m_targetEnvironment(ExportEnvironment::NOT_SET),
     m_targetEnvironmentHasBeenSet(false)
 {
   *this = xmlNode;
@@ -71,10 +73,12 @@ void InstanceExportDetails::OutputToStream(Aws::OStream& oStream, const char* lo
   {
       oStream << location << index << locationValue << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
+
   if(m_targetEnvironmentHasBeenSet)
   {
       oStream << location << index << locationValue << ".TargetEnvironment=" << ExportEnvironmentMapper::GetNameForExportEnvironment(m_targetEnvironment) << "&";
   }
+
 }
 
 void InstanceExportDetails::OutputToStream(Aws::OStream& oStream, const char* location) const

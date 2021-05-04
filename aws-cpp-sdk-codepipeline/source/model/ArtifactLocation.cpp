@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 ArtifactLocation::ArtifactLocation() : 
+    m_type(ArtifactLocationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_s3LocationHasBeenSet(false)
 {
 }
 
 ArtifactLocation::ArtifactLocation(const JsonValue& jsonValue) : 
+    m_type(ArtifactLocationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_s3LocationHasBeenSet(false)
 {

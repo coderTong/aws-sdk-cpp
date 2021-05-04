@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,6 +36,7 @@ RadiusSettings::RadiusSettings() :
     m_radiusRetries(0),
     m_radiusRetriesHasBeenSet(false),
     m_sharedSecretHasBeenSet(false),
+    m_authenticationProtocol(RadiusAuthenticationProtocol::NOT_SET),
     m_authenticationProtocolHasBeenSet(false),
     m_displayLabelHasBeenSet(false),
     m_useSameUsername(false),
@@ -52,6 +53,7 @@ RadiusSettings::RadiusSettings(const JsonValue& jsonValue) :
     m_radiusRetries(0),
     m_radiusRetriesHasBeenSet(false),
     m_sharedSecretHasBeenSet(false),
+    m_authenticationProtocol(RadiusAuthenticationProtocol::NOT_SET),
     m_authenticationProtocolHasBeenSet(false),
     m_displayLabelHasBeenSet(false),
     m_useSameUsername(false),

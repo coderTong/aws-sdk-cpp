@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -52,6 +52,11 @@ namespace Model
      */
     inline Aws::IOStream& GetBody() { return m_body.GetUnderlyingStream(); }
 
+    /**
+     * <p>The job data, either archive data or inventory data.</p>
+     */
+    inline void ReplaceBody(Aws::IOStream* body) { m_body = Aws::Utils::Stream::ResponseStream(body); }
+    
     /**
      * <p> The checksum of the data in the response. This header is returned only when
      * retrieving the output for an archive retrieval job. Furthermore, this header
@@ -168,19 +173,19 @@ namespace Model
      * <p>The HTTP response code for a job output request. The value depends on whether
      * a range was specified in the request.</p>
      */
-    inline long GetStatus() const{ return m_status; }
+    inline int GetStatus() const{ return m_status; }
 
     /**
      * <p>The HTTP response code for a job output request. The value depends on whether
      * a range was specified in the request.</p>
      */
-    inline void SetStatus(long value) { m_status = value; }
+    inline void SetStatus(int value) { m_status = value; }
 
     /**
      * <p>The HTTP response code for a job output request. The value depends on whether
      * a range was specified in the request.</p>
      */
-    inline GetJobOutputResult& WithStatus(long value) { SetStatus(value); return *this;}
+    inline GetJobOutputResult& WithStatus(int value) { SetStatus(value); return *this;}
 
     /**
      * <p>The range of bytes returned by Amazon Glacier. If only partial output is
@@ -374,7 +379,7 @@ namespace Model
   private:
     Utils::Stream::ResponseStream m_body;
     Aws::String m_checksum;
-    long m_status;
+    int m_status;
     Aws::String m_contentRange;
     Aws::String m_acceptRanges;
     Aws::String m_contentType;

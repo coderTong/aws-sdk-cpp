@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -20,6 +20,9 @@
 #include <aws/core/client/AWSClient.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/json/JsonSerializer.h>
+#include <aws/ds/model/AddIpRoutesResult.h>
+#include <aws/ds/model/AddTagsToResourceResult.h>
+#include <aws/ds/model/CancelSchemaExtensionResult.h>
 #include <aws/ds/model/ConnectDirectoryResult.h>
 #include <aws/ds/model/CreateAliasResult.h>
 #include <aws/ds/model/CreateComputerResult.h>
@@ -44,8 +47,14 @@
 #include <aws/ds/model/EnableSsoResult.h>
 #include <aws/ds/model/GetDirectoryLimitsResult.h>
 #include <aws/ds/model/GetSnapshotLimitsResult.h>
+#include <aws/ds/model/ListIpRoutesResult.h>
+#include <aws/ds/model/ListSchemaExtensionsResult.h>
+#include <aws/ds/model/ListTagsForResourceResult.h>
 #include <aws/ds/model/RegisterEventTopicResult.h>
+#include <aws/ds/model/RemoveIpRoutesResult.h>
+#include <aws/ds/model/RemoveTagsFromResourceResult.h>
 #include <aws/ds/model/RestoreFromSnapshotResult.h>
+#include <aws/ds/model/StartSchemaExtensionResult.h>
 #include <aws/ds/model/UpdateConditionalForwarderResult.h>
 #include <aws/ds/model/UpdateRadiusResult.h>
 #include <aws/ds/model/VerifyTrustResult.h>
@@ -94,6 +103,9 @@ namespace DirectoryService
 
 namespace Model
 {
+        class AddIpRoutesRequest;
+        class AddTagsToResourceRequest;
+        class CancelSchemaExtensionRequest;
         class ConnectDirectoryRequest;
         class CreateAliasRequest;
         class CreateComputerRequest;
@@ -118,12 +130,21 @@ namespace Model
         class EnableSsoRequest;
         class GetDirectoryLimitsRequest;
         class GetSnapshotLimitsRequest;
+        class ListIpRoutesRequest;
+        class ListSchemaExtensionsRequest;
+        class ListTagsForResourceRequest;
         class RegisterEventTopicRequest;
+        class RemoveIpRoutesRequest;
+        class RemoveTagsFromResourceRequest;
         class RestoreFromSnapshotRequest;
+        class StartSchemaExtensionRequest;
         class UpdateConditionalForwarderRequest;
         class UpdateRadiusRequest;
         class VerifyTrustRequest;
 
+        typedef Aws::Utils::Outcome<AddIpRoutesResult, Aws::Client::AWSError<DirectoryServiceErrors>> AddIpRoutesOutcome;
+        typedef Aws::Utils::Outcome<AddTagsToResourceResult, Aws::Client::AWSError<DirectoryServiceErrors>> AddTagsToResourceOutcome;
+        typedef Aws::Utils::Outcome<CancelSchemaExtensionResult, Aws::Client::AWSError<DirectoryServiceErrors>> CancelSchemaExtensionOutcome;
         typedef Aws::Utils::Outcome<ConnectDirectoryResult, Aws::Client::AWSError<DirectoryServiceErrors>> ConnectDirectoryOutcome;
         typedef Aws::Utils::Outcome<CreateAliasResult, Aws::Client::AWSError<DirectoryServiceErrors>> CreateAliasOutcome;
         typedef Aws::Utils::Outcome<CreateComputerResult, Aws::Client::AWSError<DirectoryServiceErrors>> CreateComputerOutcome;
@@ -148,12 +169,21 @@ namespace Model
         typedef Aws::Utils::Outcome<EnableSsoResult, Aws::Client::AWSError<DirectoryServiceErrors>> EnableSsoOutcome;
         typedef Aws::Utils::Outcome<GetDirectoryLimitsResult, Aws::Client::AWSError<DirectoryServiceErrors>> GetDirectoryLimitsOutcome;
         typedef Aws::Utils::Outcome<GetSnapshotLimitsResult, Aws::Client::AWSError<DirectoryServiceErrors>> GetSnapshotLimitsOutcome;
+        typedef Aws::Utils::Outcome<ListIpRoutesResult, Aws::Client::AWSError<DirectoryServiceErrors>> ListIpRoutesOutcome;
+        typedef Aws::Utils::Outcome<ListSchemaExtensionsResult, Aws::Client::AWSError<DirectoryServiceErrors>> ListSchemaExtensionsOutcome;
+        typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<DirectoryServiceErrors>> ListTagsForResourceOutcome;
         typedef Aws::Utils::Outcome<RegisterEventTopicResult, Aws::Client::AWSError<DirectoryServiceErrors>> RegisterEventTopicOutcome;
+        typedef Aws::Utils::Outcome<RemoveIpRoutesResult, Aws::Client::AWSError<DirectoryServiceErrors>> RemoveIpRoutesOutcome;
+        typedef Aws::Utils::Outcome<RemoveTagsFromResourceResult, Aws::Client::AWSError<DirectoryServiceErrors>> RemoveTagsFromResourceOutcome;
         typedef Aws::Utils::Outcome<RestoreFromSnapshotResult, Aws::Client::AWSError<DirectoryServiceErrors>> RestoreFromSnapshotOutcome;
+        typedef Aws::Utils::Outcome<StartSchemaExtensionResult, Aws::Client::AWSError<DirectoryServiceErrors>> StartSchemaExtensionOutcome;
         typedef Aws::Utils::Outcome<UpdateConditionalForwarderResult, Aws::Client::AWSError<DirectoryServiceErrors>> UpdateConditionalForwarderOutcome;
         typedef Aws::Utils::Outcome<UpdateRadiusResult, Aws::Client::AWSError<DirectoryServiceErrors>> UpdateRadiusOutcome;
         typedef Aws::Utils::Outcome<VerifyTrustResult, Aws::Client::AWSError<DirectoryServiceErrors>> VerifyTrustOutcome;
 
+        typedef std::future<AddIpRoutesOutcome> AddIpRoutesOutcomeCallable;
+        typedef std::future<AddTagsToResourceOutcome> AddTagsToResourceOutcomeCallable;
+        typedef std::future<CancelSchemaExtensionOutcome> CancelSchemaExtensionOutcomeCallable;
         typedef std::future<ConnectDirectoryOutcome> ConnectDirectoryOutcomeCallable;
         typedef std::future<CreateAliasOutcome> CreateAliasOutcomeCallable;
         typedef std::future<CreateComputerOutcome> CreateComputerOutcomeCallable;
@@ -178,8 +208,14 @@ namespace Model
         typedef std::future<EnableSsoOutcome> EnableSsoOutcomeCallable;
         typedef std::future<GetDirectoryLimitsOutcome> GetDirectoryLimitsOutcomeCallable;
         typedef std::future<GetSnapshotLimitsOutcome> GetSnapshotLimitsOutcomeCallable;
+        typedef std::future<ListIpRoutesOutcome> ListIpRoutesOutcomeCallable;
+        typedef std::future<ListSchemaExtensionsOutcome> ListSchemaExtensionsOutcomeCallable;
+        typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
         typedef std::future<RegisterEventTopicOutcome> RegisterEventTopicOutcomeCallable;
+        typedef std::future<RemoveIpRoutesOutcome> RemoveIpRoutesOutcomeCallable;
+        typedef std::future<RemoveTagsFromResourceOutcome> RemoveTagsFromResourceOutcomeCallable;
         typedef std::future<RestoreFromSnapshotOutcome> RestoreFromSnapshotOutcomeCallable;
+        typedef std::future<StartSchemaExtensionOutcome> StartSchemaExtensionOutcomeCallable;
         typedef std::future<UpdateConditionalForwarderOutcome> UpdateConditionalForwarderOutcomeCallable;
         typedef std::future<UpdateRadiusOutcome> UpdateRadiusOutcomeCallable;
         typedef std::future<VerifyTrustOutcome> VerifyTrustOutcomeCallable;
@@ -187,6 +223,9 @@ namespace Model
 
   class DirectoryServiceClient;
 
+    typedef std::function<void(const DirectoryServiceClient*, const Model::AddIpRoutesRequest&, const Model::AddIpRoutesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AddIpRoutesResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::AddTagsToResourceRequest&, const Model::AddTagsToResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AddTagsToResourceResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::CancelSchemaExtensionRequest&, const Model::CancelSchemaExtensionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CancelSchemaExtensionResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::ConnectDirectoryRequest&, const Model::ConnectDirectoryOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ConnectDirectoryResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::CreateAliasRequest&, const Model::CreateAliasOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateAliasResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::CreateComputerRequest&, const Model::CreateComputerOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateComputerResponseReceivedHandler;
@@ -211,8 +250,14 @@ namespace Model
     typedef std::function<void(const DirectoryServiceClient*, const Model::EnableSsoRequest&, const Model::EnableSsoOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > EnableSsoResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::GetDirectoryLimitsRequest&, const Model::GetDirectoryLimitsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetDirectoryLimitsResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::GetSnapshotLimitsRequest&, const Model::GetSnapshotLimitsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetSnapshotLimitsResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::ListIpRoutesRequest&, const Model::ListIpRoutesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListIpRoutesResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::ListSchemaExtensionsRequest&, const Model::ListSchemaExtensionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSchemaExtensionsResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::RegisterEventTopicRequest&, const Model::RegisterEventTopicOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RegisterEventTopicResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::RemoveIpRoutesRequest&, const Model::RemoveIpRoutesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RemoveIpRoutesResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::RemoveTagsFromResourceRequest&, const Model::RemoveTagsFromResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RemoveTagsFromResourceResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::RestoreFromSnapshotRequest&, const Model::RestoreFromSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RestoreFromSnapshotResponseReceivedHandler;
+    typedef std::function<void(const DirectoryServiceClient*, const Model::StartSchemaExtensionRequest&, const Model::StartSchemaExtensionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartSchemaExtensionResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::UpdateConditionalForwarderRequest&, const Model::UpdateConditionalForwarderOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateConditionalForwarderResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::UpdateRadiusRequest&, const Model::UpdateRadiusOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateRadiusResponseReceivedHandler;
     typedef std::function<void(const DirectoryServiceClient*, const Model::VerifyTrustRequest&, const Model::VerifyTrustOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > VerifyTrustResponseReceivedHandler;
@@ -249,19 +294,145 @@ namespace Model
         virtual ~DirectoryServiceClient();
 
         /**
-         * <p>Creates an AD Connector to connect to an on-premises directory.</p>
+         * <p>If the DNS server for your on-premises domain uses a publicly addressable IP
+         * address, you must add a CIDR address block to correctly route traffic to and
+         * from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this
+         * address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic
+         * that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
+         * <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required
+         * permissions have been explicitly granted through a policy. For details about
+         * what permissions are required to run the <i>AddIpRoutes</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
+         */
+        virtual Model::AddIpRoutesOutcome AddIpRoutes(const Model::AddIpRoutesRequest& request) const;
+
+        /**
+         * <p>If the DNS server for your on-premises domain uses a publicly addressable IP
+         * address, you must add a CIDR address block to correctly route traffic to and
+         * from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this
+         * address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic
+         * that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
+         * <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required
+         * permissions have been explicitly granted through a policy. For details about
+         * what permissions are required to run the <i>AddIpRoutes</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AddIpRoutesOutcomeCallable AddIpRoutesCallable(const Model::AddIpRoutesRequest& request) const;
+
+        /**
+         * <p>If the DNS server for your on-premises domain uses a publicly addressable IP
+         * address, you must add a CIDR address block to correctly route traffic to and
+         * from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this
+         * address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic
+         * that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>
+         * <p>Before you call <i>AddIpRoutes</i>, ensure that all of the required
+         * permissions have been explicitly granted through a policy. For details about
+         * what permissions are required to run the <i>AddIpRoutes</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AddIpRoutesAsync(const Model::AddIpRoutesRequest& request, const AddIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Adds or overwrites one or more tags for the specified Amazon Directory
+         * Services directory. Each directory can have a maximum of 50 tags. Each tag
+         * consists of a key and optional value. Tag keys must be unique to each
+         * resource.</p>
+         */
+        virtual Model::AddTagsToResourceOutcome AddTagsToResource(const Model::AddTagsToResourceRequest& request) const;
+
+        /**
+         * <p>Adds or overwrites one or more tags for the specified Amazon Directory
+         * Services directory. Each directory can have a maximum of 50 tags. Each tag
+         * consists of a key and optional value. Tag keys must be unique to each
+         * resource.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AddTagsToResourceOutcomeCallable AddTagsToResourceCallable(const Model::AddTagsToResourceRequest& request) const;
+
+        /**
+         * <p>Adds or overwrites one or more tags for the specified Amazon Directory
+         * Services directory. Each directory can have a maximum of 50 tags. Each tag
+         * consists of a key and optional value. Tag keys must be unique to each
+         * resource.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AddTagsToResourceAsync(const Model::AddTagsToResourceRequest& request, const AddTagsToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+         * schema extension has started replicating to all domain controllers, the task can
+         * no longer be canceled. A schema extension can be canceled during any of the
+         * following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and
+         * <code>UpdatingSchema</code>.</p>
+         */
+        virtual Model::CancelSchemaExtensionOutcome CancelSchemaExtension(const Model::CancelSchemaExtensionRequest& request) const;
+
+        /**
+         * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+         * schema extension has started replicating to all domain controllers, the task can
+         * no longer be canceled. A schema extension can be canceled during any of the
+         * following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and
+         * <code>UpdatingSchema</code>.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CancelSchemaExtensionOutcomeCallable CancelSchemaExtensionCallable(const Model::CancelSchemaExtensionRequest& request) const;
+
+        /**
+         * <p>Cancels an in-progress schema extension to a Microsoft AD directory. Once a
+         * schema extension has started replicating to all domain controllers, the task can
+         * no longer be canceled. A schema extension can be canceled during any of the
+         * following states; <code>Initializing</code>, <code>CreatingSnapshot</code>, and
+         * <code>UpdatingSchema</code>.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CancelSchemaExtensionAsync(const Model::CancelSchemaExtensionRequest& request, const CancelSchemaExtensionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates an AD Connector to connect to an on-premises directory.</p> <p>Before
+         * you call <i>ConnectDirectory</i>, ensure that all of the required permissions
+         * have been explicitly granted through a policy. For details about what
+         * permissions are required to run the <i>ConnectDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          */
         virtual Model::ConnectDirectoryOutcome ConnectDirectory(const Model::ConnectDirectoryRequest& request) const;
 
         /**
-         * <p>Creates an AD Connector to connect to an on-premises directory.</p>
+         * <p>Creates an AD Connector to connect to an on-premises directory.</p> <p>Before
+         * you call <i>ConnectDirectory</i>, ensure that all of the required permissions
+         * have been explicitly granted through a policy. For details about what
+         * permissions are required to run the <i>ConnectDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::ConnectDirectoryOutcomeCallable ConnectDirectoryCallable(const Model::ConnectDirectoryRequest& request) const;
 
         /**
-         * <p>Creates an AD Connector to connect to an on-premises directory.</p>
+         * <p>Creates an AD Connector to connect to an on-premises directory.</p> <p>Before
+         * you call <i>ConnectDirectory</i>, ensure that all of the required permissions
+         * have been explicitly granted through a policy. For details about what
+         * permissions are required to run the <i>ConnectDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
@@ -270,20 +441,18 @@ namespace Model
         /**
          * <p>Creates an alias for a directory and assigns the alias to the directory. The
          * alias is used to construct the access URL for the directory, such as
-         * <code>http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com</code>.</p>
-         * <important> <p>After an alias has been created, it cannot be deleted or reused,
-         * so this operation should only be used when absolutely necessary.</p>
-         * </important>
+         * <code>http://&lt;alias&gt;.awsapps.com</code>.</p> <important> <p>After an alias
+         * has been created, it cannot be deleted or reused, so this operation should only
+         * be used when absolutely necessary.</p> </important>
          */
         virtual Model::CreateAliasOutcome CreateAlias(const Model::CreateAliasRequest& request) const;
 
         /**
          * <p>Creates an alias for a directory and assigns the alias to the directory. The
          * alias is used to construct the access URL for the directory, such as
-         * <code>http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com</code>.</p>
-         * <important> <p>After an alias has been created, it cannot be deleted or reused,
-         * so this operation should only be used when absolutely necessary.</p>
-         * </important>
+         * <code>http://&lt;alias&gt;.awsapps.com</code>.</p> <important> <p>After an alias
+         * has been created, it cannot be deleted or reused, so this operation should only
+         * be used when absolutely necessary.</p> </important>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
@@ -292,10 +461,9 @@ namespace Model
         /**
          * <p>Creates an alias for a directory and assigns the alias to the directory. The
          * alias is used to construct the access URL for the directory, such as
-         * <code>http://<![CDATA[&#x3C;]]>alias<![CDATA[&#x3E;]]>.awsapps.com</code>.</p>
-         * <important> <p>After an alias has been created, it cannot be deleted or reused,
-         * so this operation should only be used when absolutely necessary.</p>
-         * </important>
+         * <code>http://&lt;alias&gt;.awsapps.com</code>.</p> <important> <p>After an alias
+         * has been created, it cannot be deleted or reused, so this operation should only
+         * be used when absolutely necessary.</p> </important>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
@@ -349,38 +517,74 @@ namespace Model
         virtual void CreateConditionalForwarderAsync(const Model::CreateConditionalForwarderRequest& request, const CreateConditionalForwarderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a Simple AD directory.</p>
+         * <p>Creates a Simple AD directory.</p> <p>Before you call <i>CreateDirectory</i>,
+         * ensure that all of the required permissions have been explicitly granted through
+         * a policy. For details about what permissions are required to run the
+         * <i>CreateDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          */
         virtual Model::CreateDirectoryOutcome CreateDirectory(const Model::CreateDirectoryRequest& request) const;
 
         /**
-         * <p>Creates a Simple AD directory.</p>
+         * <p>Creates a Simple AD directory.</p> <p>Before you call <i>CreateDirectory</i>,
+         * ensure that all of the required permissions have been explicitly granted through
+         * a policy. For details about what permissions are required to run the
+         * <i>CreateDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::CreateDirectoryOutcomeCallable CreateDirectoryCallable(const Model::CreateDirectoryRequest& request) const;
 
         /**
-         * <p>Creates a Simple AD directory.</p>
+         * <p>Creates a Simple AD directory.</p> <p>Before you call <i>CreateDirectory</i>,
+         * ensure that all of the required permissions have been explicitly granted through
+         * a policy. For details about what permissions are required to run the
+         * <i>CreateDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void CreateDirectoryAsync(const Model::CreateDirectoryRequest& request, const CreateDirectoryResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Creates a Microsoft AD in the AWS cloud.
+         * <p>Creates a Microsoft AD in the AWS cloud.</p> <p>Before you call
+         * <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>CreateMicrosoftAD</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          */
         virtual Model::CreateMicrosoftADOutcome CreateMicrosoftAD(const Model::CreateMicrosoftADRequest& request) const;
 
         /**
-         * Creates a Microsoft AD in the AWS cloud.
+         * <p>Creates a Microsoft AD in the AWS cloud.</p> <p>Before you call
+         * <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>CreateMicrosoftAD</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::CreateMicrosoftADOutcomeCallable CreateMicrosoftADCallable(const Model::CreateMicrosoftADRequest& request) const;
 
         /**
-         * Creates a Microsoft AD in the AWS cloud.
+         * <p>Creates a Microsoft AD in the AWS cloud.</p> <p>Before you call
+         * <i>CreateMicrosoftAD</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>CreateMicrosoftAD</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
@@ -416,7 +620,7 @@ namespace Model
          * trust relationships. For example, you can establish a trust between your
          * Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active
          * Directory. This would allow you to provide users and groups access to resources
-         * in either domain, with a single set of credentials.</p><p>This action initiates
+         * in either domain, with a single set of credentials.</p> <p>This action initiates
          * the creation of the AWS side of a trust relationship between a Microsoft AD in
          * the AWS cloud and an external domain.</p>
          */
@@ -427,7 +631,7 @@ namespace Model
          * trust relationships. For example, you can establish a trust between your
          * Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active
          * Directory. This would allow you to provide users and groups access to resources
-         * in either domain, with a single set of credentials.</p><p>This action initiates
+         * in either domain, with a single set of credentials.</p> <p>This action initiates
          * the creation of the AWS side of a trust relationship between a Microsoft AD in
          * the AWS cloud and an external domain.</p>
          *
@@ -440,7 +644,7 @@ namespace Model
          * trust relationships. For example, you can establish a trust between your
          * Microsoft AD in the AWS cloud, and your existing on-premises Microsoft Active
          * Directory. This would allow you to provide users and groups access to resources
-         * in either domain, with a single set of credentials.</p><p>This action initiates
+         * in either domain, with a single set of credentials.</p> <p>This action initiates
          * the creation of the AWS side of a trust relationship between a Microsoft AD in
          * the AWS cloud and an external domain.</p>
          *
@@ -471,19 +675,37 @@ namespace Model
         virtual void DeleteConditionalForwarderAsync(const Model::DeleteConditionalForwarderRequest& request, const DeleteConditionalForwarderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes an AWS Directory Service directory.</p>
+         * <p>Deletes an AWS Directory Service directory.</p> <p>Before you call
+         * <i>DeleteDirectory</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>DeleteDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          */
         virtual Model::DeleteDirectoryOutcome DeleteDirectory(const Model::DeleteDirectoryRequest& request) const;
 
         /**
-         * <p>Deletes an AWS Directory Service directory.</p>
+         * <p>Deletes an AWS Directory Service directory.</p> <p>Before you call
+         * <i>DeleteDirectory</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>DeleteDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::DeleteDirectoryOutcomeCallable DeleteDirectoryCallable(const Model::DeleteDirectoryRequest& request) const;
 
         /**
-         * <p>Deletes an AWS Directory Service directory.</p>
+         * <p>Deletes an AWS Directory Service directory.</p> <p>Before you call
+         * <i>DeleteDirectory</i>, ensure that all of the required permissions have been
+         * explicitly granted through a policy. For details about what permissions are
+         * required to run the <i>DeleteDirectory</i> operation, see <a
+         * href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS
+         * Directory Service API Permissions: Actions, Resources, and Conditions
+         * Reference</a>.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
@@ -509,22 +731,22 @@ namespace Model
         virtual void DeleteSnapshotAsync(const Model::DeleteSnapshotRequest& request, const DeleteSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes an existing trust relationship between your Microsoft AD in the AWS
-         * cloud and an external domain.
+         * <p>Deletes an existing trust relationship between your Microsoft AD in the AWS
+         * cloud and an external domain.</p>
          */
         virtual Model::DeleteTrustOutcome DeleteTrust(const Model::DeleteTrustRequest& request) const;
 
         /**
-         * Deletes an existing trust relationship between your Microsoft AD in the AWS
-         * cloud and an external domain.
+         * <p>Deletes an existing trust relationship between your Microsoft AD in the AWS
+         * cloud and an external domain.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::DeleteTrustOutcomeCallable DeleteTrustCallable(const Model::DeleteTrustRequest& request) const;
 
         /**
-         * Deletes an existing trust relationship between your Microsoft AD in the AWS
-         * cloud and an external domain.
+         * <p>Deletes an existing trust relationship between your Microsoft AD in the AWS
+         * cloud and an external domain.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
@@ -834,11 +1056,68 @@ namespace Model
         virtual void GetSnapshotLimitsAsync(const Model::GetSnapshotLimitsRequest& request, const GetSnapshotLimitsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Lists the address blocks that you have added to a directory.</p>
+         */
+        virtual Model::ListIpRoutesOutcome ListIpRoutes(const Model::ListIpRoutesRequest& request) const;
+
+        /**
+         * <p>Lists the address blocks that you have added to a directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListIpRoutesOutcomeCallable ListIpRoutesCallable(const Model::ListIpRoutesRequest& request) const;
+
+        /**
+         * <p>Lists the address blocks that you have added to a directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListIpRoutesAsync(const Model::ListIpRoutesRequest& request, const ListIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
+         */
+        virtual Model::ListSchemaExtensionsOutcome ListSchemaExtensions(const Model::ListSchemaExtensionsRequest& request) const;
+
+        /**
+         * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListSchemaExtensionsOutcomeCallable ListSchemaExtensionsCallable(const Model::ListSchemaExtensionsRequest& request) const;
+
+        /**
+         * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListSchemaExtensionsAsync(const Model::ListSchemaExtensionsRequest& request, const ListSchemaExtensionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists all tags on an Amazon Directory Services directory.</p>
+         */
+        virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Lists all tags on an Amazon Directory Services directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Lists all tags on an Amazon Directory Services directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Associates a directory with an SNS topic. This establishes the directory as a
          * publisher to the specified SNS topic. You can then receive email or text (SMS)
          * messages when the status of your directory changes. You get notified if your
          * directory goes from an Active status to an Impaired or Inoperable status. You
-         * also receive a notification when the directory returns to an Active status. </p>
+         * also receive a notification when the directory returns to an Active status.</p>
          */
         virtual Model::RegisterEventTopicOutcome RegisterEventTopic(const Model::RegisterEventTopicRequest& request) const;
 
@@ -847,7 +1126,7 @@ namespace Model
          * publisher to the specified SNS topic. You can then receive email or text (SMS)
          * messages when the status of your directory changes. You get notified if your
          * directory goes from an Active status to an Impaired or Inoperable status. You
-         * also receive a notification when the directory returns to an Active status. </p>
+         * also receive a notification when the directory returns to an Active status.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
@@ -858,11 +1137,49 @@ namespace Model
          * publisher to the specified SNS topic. You can then receive email or text (SMS)
          * messages when the status of your directory changes. You get notified if your
          * directory goes from an Active status to an Impaired or Inoperable status. You
-         * also receive a notification when the directory returns to an Active status. </p>
+         * also receive a notification when the directory returns to an Active status.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void RegisterEventTopicAsync(const Model::RegisterEventTopicRequest& request, const RegisterEventTopicResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Removes IP address blocks from a directory.</p>
+         */
+        virtual Model::RemoveIpRoutesOutcome RemoveIpRoutes(const Model::RemoveIpRoutesRequest& request) const;
+
+        /**
+         * <p>Removes IP address blocks from a directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::RemoveIpRoutesOutcomeCallable RemoveIpRoutesCallable(const Model::RemoveIpRoutesRequest& request) const;
+
+        /**
+         * <p>Removes IP address blocks from a directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void RemoveIpRoutesAsync(const Model::RemoveIpRoutesRequest& request, const RemoveIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Removes tags from an Amazon Directory Services directory.</p>
+         */
+        virtual Model::RemoveTagsFromResourceOutcome RemoveTagsFromResource(const Model::RemoveTagsFromResourceRequest& request) const;
+
+        /**
+         * <p>Removes tags from an Amazon Directory Services directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::RemoveTagsFromResourceOutcomeCallable RemoveTagsFromResourceCallable(const Model::RemoveTagsFromResourceRequest& request) const;
+
+        /**
+         * <p>Removes tags from an Amazon Directory Services directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void RemoveTagsFromResourceAsync(const Model::RemoveTagsFromResourceRequest& request, const RemoveTagsFromResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Restores a directory using an existing directory snapshot.</p> <p>When you
@@ -900,6 +1217,25 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void RestoreFromSnapshotAsync(const Model::RestoreFromSnapshotRequest& request, const RestoreFromSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Applies a schema extension to a Microsoft AD directory.</p>
+         */
+        virtual Model::StartSchemaExtensionOutcome StartSchemaExtension(const Model::StartSchemaExtensionRequest& request) const;
+
+        /**
+         * <p>Applies a schema extension to a Microsoft AD directory.</p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StartSchemaExtensionOutcomeCallable StartSchemaExtensionCallable(const Model::StartSchemaExtensionRequest& request) const;
+
+        /**
+         * <p>Applies a schema extension to a Microsoft AD directory.</p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StartSchemaExtensionAsync(const Model::StartSchemaExtensionRequest& request, const StartSchemaExtensionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Updates a conditional forwarder that has been set up for your AWS
@@ -947,14 +1283,14 @@ namespace Model
 
         /**
          * <p>AWS Directory Service for Microsoft Active Directory allows you to configure
-         * and verify trust relationships. </p><p>This action verifies a trust relationship
+         * and verify trust relationships.</p> <p>This action verifies a trust relationship
          * between your Microsoft AD in the AWS cloud and an external domain.</p>
          */
         virtual Model::VerifyTrustOutcome VerifyTrust(const Model::VerifyTrustRequest& request) const;
 
         /**
          * <p>AWS Directory Service for Microsoft Active Directory allows you to configure
-         * and verify trust relationships. </p><p>This action verifies a trust relationship
+         * and verify trust relationships.</p> <p>This action verifies a trust relationship
          * between your Microsoft AD in the AWS cloud and an external domain.</p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
@@ -963,7 +1299,7 @@ namespace Model
 
         /**
          * <p>AWS Directory Service for Microsoft Active Directory allows you to configure
-         * and verify trust relationships. </p><p>This action verifies a trust relationship
+         * and verify trust relationships.</p> <p>This action verifies a trust relationship
          * between your Microsoft AD in the AWS cloud and an external domain.</p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
@@ -975,6 +1311,9 @@ namespace Model
       void init(const Client::ClientConfiguration& clientConfiguration);
 
         /**Async helpers**/
+        void AddIpRoutesAsyncHelper(const Model::AddIpRoutesRequest& request, const AddIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void AddTagsToResourceAsyncHelper(const Model::AddTagsToResourceRequest& request, const AddTagsToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CancelSchemaExtensionAsyncHelper(const Model::CancelSchemaExtensionRequest& request, const CancelSchemaExtensionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ConnectDirectoryAsyncHelper(const Model::ConnectDirectoryRequest& request, const ConnectDirectoryResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateAliasAsyncHelper(const Model::CreateAliasRequest& request, const CreateAliasResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateComputerAsyncHelper(const Model::CreateComputerRequest& request, const CreateComputerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -999,8 +1338,14 @@ namespace Model
         void EnableSsoAsyncHelper(const Model::EnableSsoRequest& request, const EnableSsoResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetDirectoryLimitsAsyncHelper(const Model::GetDirectoryLimitsRequest& request, const GetDirectoryLimitsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetSnapshotLimitsAsyncHelper(const Model::GetSnapshotLimitsRequest& request, const GetSnapshotLimitsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListIpRoutesAsyncHelper(const Model::ListIpRoutesRequest& request, const ListIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListSchemaExtensionsAsyncHelper(const Model::ListSchemaExtensionsRequest& request, const ListSchemaExtensionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RegisterEventTopicAsyncHelper(const Model::RegisterEventTopicRequest& request, const RegisterEventTopicResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void RemoveIpRoutesAsyncHelper(const Model::RemoveIpRoutesRequest& request, const RemoveIpRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void RemoveTagsFromResourceAsyncHelper(const Model::RemoveTagsFromResourceRequest& request, const RemoveTagsFromResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RestoreFromSnapshotAsyncHelper(const Model::RestoreFromSnapshotRequest& request, const RestoreFromSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StartSchemaExtensionAsyncHelper(const Model::StartSchemaExtensionRequest& request, const StartSchemaExtensionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateConditionalForwarderAsyncHelper(const Model::UpdateConditionalForwarderRequest& request, const UpdateConditionalForwarderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateRadiusAsyncHelper(const Model::UpdateRadiusRequest& request, const UpdateRadiusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void VerifyTrustAsyncHelper(const Model::VerifyTrustRequest& request, const VerifyTrustResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 KeySchemaElement::KeySchemaElement() : 
     m_attributeNameHasBeenSet(false),
+    m_keyType(KeyType::NOT_SET),
     m_keyTypeHasBeenSet(false)
 {
 }
 
 KeySchemaElement::KeySchemaElement(const JsonValue& jsonValue) : 
     m_attributeNameHasBeenSet(false),
+    m_keyType(KeyType::NOT_SET),
     m_keyTypeHasBeenSet(false)
 {
   *this = jsonValue;

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 Decision::Decision() : 
+    m_decisionType(DecisionType::NOT_SET),
     m_decisionTypeHasBeenSet(false),
     m_scheduleActivityTaskDecisionAttributesHasBeenSet(false),
     m_requestCancelActivityTaskDecisionAttributesHasBeenSet(false),
@@ -46,6 +47,7 @@ Decision::Decision() :
 }
 
 Decision::Decision(const JsonValue& jsonValue) : 
+    m_decisionType(DecisionType::NOT_SET),
     m_decisionTypeHasBeenSet(false),
     m_scheduleActivityTaskDecisionAttributesHasBeenSet(false),
     m_requestCancelActivityTaskDecisionAttributesHasBeenSet(false),

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ CustomOriginConfig::CustomOriginConfig() :
     m_hTTPPortHasBeenSet(false),
     m_hTTPSPort(0),
     m_hTTPSPortHasBeenSet(false),
+    m_originProtocolPolicy(OriginProtocolPolicy::NOT_SET),
     m_originProtocolPolicyHasBeenSet(false),
     m_originSslProtocolsHasBeenSet(false)
 {
@@ -44,6 +45,7 @@ CustomOriginConfig::CustomOriginConfig(const XmlNode& xmlNode) :
     m_hTTPPortHasBeenSet(false),
     m_hTTPSPort(0),
     m_hTTPSPortHasBeenSet(false),
+    m_originProtocolPolicy(OriginProtocolPolicy::NOT_SET),
     m_originProtocolPolicyHasBeenSet(false),
     m_originSslProtocolsHasBeenSet(false)
 {

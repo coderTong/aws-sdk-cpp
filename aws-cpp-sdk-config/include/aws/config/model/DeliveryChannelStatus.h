@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,7 @@ namespace Model
 
   /**
    * <p>The status of a specified delivery channel.</p> <p>Valid values:
-   * <code>Success</code> | <code>Failure</code></p>
+   * <code>Success</code> | <code>Failure</code> </p>
    */
   class AWS_CONFIGSERVICE_API DeliveryChannelStatus
   {

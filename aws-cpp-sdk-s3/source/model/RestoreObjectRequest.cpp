@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -14,6 +14,7 @@
 */
 #include <aws/s3/model/RestoreObjectRequest.h>
 #include <aws/core/utils/xml/XmlSerializer.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 #include <aws/core/http/URI.h>
 #include <aws/core/utils/memory/stl/AWSStringStream.h>
 
@@ -29,6 +30,7 @@ RestoreObjectRequest::RestoreObjectRequest() :
     m_keyHasBeenSet(false),
     m_versionIdHasBeenSet(false),
     m_restoreRequestHasBeenSet(false),
+    m_requestPayer(RequestPayer::NOT_SET),
     m_requestPayerHasBeenSet(false)
 {
 }
@@ -37,11 +39,11 @@ Aws::String RestoreObjectRequest::SerializePayload() const
 {
   XmlDocument payloadDoc = XmlDocument::CreateWithRootNode("RestoreRequest");
 
-  XmlNode rootNode = payloadDoc.GetRootElement();
-  rootNode.SetAttributeValue("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
+  XmlNode parentNode = payloadDoc.GetRootElement();
+  parentNode.SetAttributeValue("xmlns", "http://s3.amazonaws.com/doc/2006-03-01/");
 
-  m_restoreRequest.AddToNode(rootNode);
-  if(rootNode.HasChildren())
+  m_restoreRequest.AddToNode(parentNode);
+  if(parentNode.HasChildren())
   {
     return payloadDoc.ConvertToString();
   }

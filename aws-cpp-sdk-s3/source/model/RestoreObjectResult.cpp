@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,11 +25,13 @@ using namespace Aws::Utils::Xml;
 using namespace Aws::Utils;
 using namespace Aws;
 
-RestoreObjectResult::RestoreObjectResult()
+RestoreObjectResult::RestoreObjectResult() : 
+    m_requestCharged(RequestCharged::NOT_SET)
 {
 }
 
-RestoreObjectResult::RestoreObjectResult(const AmazonWebServiceResult<XmlDocument>& result)
+RestoreObjectResult::RestoreObjectResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_requestCharged(RequestCharged::NOT_SET)
 {
   *this = result;
 }

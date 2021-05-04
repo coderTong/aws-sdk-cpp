@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,7 +26,10 @@ using namespace Aws::Http;
 
 UpdateCACertificateRequest::UpdateCACertificateRequest() : 
     m_certificateIdHasBeenSet(false),
-    m_newStatusHasBeenSet(false)
+    m_newStatus(CACertificateStatus::NOT_SET),
+    m_newStatusHasBeenSet(false),
+    m_newAutoRegistrationStatus(AutoRegistrationStatus::NOT_SET),
+    m_newAutoRegistrationStatusHasBeenSet(false)
 {
 }
 
@@ -42,6 +45,13 @@ void UpdateCACertificateRequest::AddQueryStringParameters(URI& uri) const
     {
       ss << CACertificateStatusMapper::GetNameForCACertificateStatus(m_newStatus);
       uri.AddQueryStringParameter("newStatus", ss.str());
+      ss.str("");
+    }
+
+    if(m_newAutoRegistrationStatusHasBeenSet)
+    {
+      ss << AutoRegistrationStatusMapper::GetNameForAutoRegistrationStatus(m_newAutoRegistrationStatus);
+      uri.AddQueryStringParameter("newAutoRegistrationStatus", ss.str());
       ss.str("");
     }
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,7 +25,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a <i>DeleteCacheSecurityGroup</i> action.</p>
+   * <p>Represents the input of a <code>DeleteCacheSecurityGroup</code>
+   * operation.</p>
    */
   class AWS_ELASTICACHE_API DeleteCacheSecurityGroupRequest : public ElastiCacheRequest
   {

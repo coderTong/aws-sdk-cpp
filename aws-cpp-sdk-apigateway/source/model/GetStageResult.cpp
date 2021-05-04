@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,12 +25,16 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 GetStageResult::GetStageResult() : 
-    m_cacheClusterEnabled(false)
+    m_cacheClusterEnabled(false),
+    m_cacheClusterSize(CacheClusterSize::NOT_SET),
+    m_cacheClusterStatus(CacheClusterStatus::NOT_SET)
 {
 }
 
 GetStageResult::GetStageResult(const AmazonWebServiceResult<JsonValue>& result) : 
-    m_cacheClusterEnabled(false)
+    m_cacheClusterEnabled(false),
+    m_cacheClusterSize(CacheClusterSize::NOT_SET),
+    m_cacheClusterStatus(CacheClusterStatus::NOT_SET)
 {
   *this = result;
 }

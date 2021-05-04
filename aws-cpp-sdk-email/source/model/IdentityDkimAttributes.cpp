@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 IdentityDkimAttributes::IdentityDkimAttributes() : 
     m_dkimEnabled(false),
     m_dkimEnabledHasBeenSet(false),
+    m_dkimVerificationStatus(VerificationStatus::NOT_SET),
     m_dkimVerificationStatusHasBeenSet(false),
     m_dkimTokensHasBeenSet(false)
 {
@@ -40,6 +41,7 @@ IdentityDkimAttributes::IdentityDkimAttributes() :
 IdentityDkimAttributes::IdentityDkimAttributes(const XmlNode& xmlNode) : 
     m_dkimEnabled(false),
     m_dkimEnabledHasBeenSet(false),
+    m_dkimVerificationStatus(VerificationStatus::NOT_SET),
     m_dkimVerificationStatusHasBeenSet(false),
     m_dkimTokensHasBeenSet(false)
 {
@@ -87,10 +89,12 @@ void IdentityDkimAttributes::OutputToStream(Aws::OStream& oStream, const char* l
   {
       oStream << location << index << locationValue << ".DkimEnabled=" << m_dkimEnabled << "&";
   }
+
   if(m_dkimVerificationStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".DkimVerificationStatus=" << VerificationStatusMapper::GetNameForVerificationStatus(m_dkimVerificationStatus) << "&";
   }
+
   if(m_dkimTokensHasBeenSet)
   {
       unsigned dkimTokensIdx = 1;
@@ -99,6 +103,7 @@ void IdentityDkimAttributes::OutputToStream(Aws::OStream& oStream, const char* l
         oStream << location << index << locationValue << ".DkimTokens.member." << dkimTokensIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
   }
+
 }
 
 void IdentityDkimAttributes::OutputToStream(Aws::OStream& oStream, const char* location) const

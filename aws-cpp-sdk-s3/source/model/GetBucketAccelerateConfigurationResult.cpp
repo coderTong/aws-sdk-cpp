@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,11 +24,13 @@ using namespace Aws::Utils::Xml;
 using namespace Aws::Utils;
 using namespace Aws;
 
-GetBucketAccelerateConfigurationResult::GetBucketAccelerateConfigurationResult()
+GetBucketAccelerateConfigurationResult::GetBucketAccelerateConfigurationResult() : 
+    m_status(BucketAccelerateStatus::NOT_SET)
 {
 }
 
-GetBucketAccelerateConfigurationResult::GetBucketAccelerateConfigurationResult(const AmazonWebServiceResult<XmlDocument>& result)
+GetBucketAccelerateConfigurationResult::GetBucketAccelerateConfigurationResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_status(BucketAccelerateStatus::NOT_SET)
 {
   *this = result;
 }

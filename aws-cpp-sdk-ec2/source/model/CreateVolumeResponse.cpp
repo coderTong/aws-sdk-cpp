@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,8 @@ using namespace Aws;
 
 CreateVolumeResponse::CreateVolumeResponse() : 
     m_size(0),
+    m_state(VolumeState::NOT_SET),
+    m_volumeType(VolumeType::NOT_SET),
     m_iops(0),
     m_encrypted(false)
 {
@@ -35,6 +37,8 @@ CreateVolumeResponse::CreateVolumeResponse() :
 
 CreateVolumeResponse::CreateVolumeResponse(const AmazonWebServiceResult<XmlDocument>& result) : 
     m_size(0),
+    m_state(VolumeState::NOT_SET),
+    m_volumeType(VolumeType::NOT_SET),
     m_iops(0),
     m_encrypted(false)
 {

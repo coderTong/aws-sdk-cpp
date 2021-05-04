@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 DocumentSuggesterOptions::DocumentSuggesterOptions() : 
     m_sourceFieldHasBeenSet(false),
+    m_fuzzyMatching(SuggesterFuzzyMatching::NOT_SET),
     m_fuzzyMatchingHasBeenSet(false),
     m_sortExpressionHasBeenSet(false)
 {
@@ -38,6 +39,7 @@ DocumentSuggesterOptions::DocumentSuggesterOptions() :
 
 DocumentSuggesterOptions::DocumentSuggesterOptions(const XmlNode& xmlNode) : 
     m_sourceFieldHasBeenSet(false),
+    m_fuzzyMatching(SuggesterFuzzyMatching::NOT_SET),
     m_fuzzyMatchingHasBeenSet(false),
     m_sortExpressionHasBeenSet(false)
 {
@@ -79,14 +81,17 @@ void DocumentSuggesterOptions::OutputToStream(Aws::OStream& oStream, const char*
   {
       oStream << location << index << locationValue << ".SourceField=" << StringUtils::URLEncode(m_sourceField.c_str()) << "&";
   }
+
   if(m_fuzzyMatchingHasBeenSet)
   {
       oStream << location << index << locationValue << ".FuzzyMatching=" << SuggesterFuzzyMatchingMapper::GetNameForSuggesterFuzzyMatching(m_fuzzyMatching) << "&";
   }
+
   if(m_sortExpressionHasBeenSet)
   {
       oStream << location << index << locationValue << ".SortExpression=" << StringUtils::URLEncode(m_sortExpression.c_str()) << "&";
   }
+
 }
 
 void DocumentSuggesterOptions::OutputToStream(Aws::OStream& oStream, const char* location) const

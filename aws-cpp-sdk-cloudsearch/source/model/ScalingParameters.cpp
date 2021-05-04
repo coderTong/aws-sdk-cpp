@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 ScalingParameters::ScalingParameters() : 
+    m_desiredInstanceType(PartitionInstanceType::NOT_SET),
     m_desiredInstanceTypeHasBeenSet(false),
     m_desiredReplicationCount(0),
     m_desiredReplicationCountHasBeenSet(false),
@@ -39,6 +40,7 @@ ScalingParameters::ScalingParameters() :
 }
 
 ScalingParameters::ScalingParameters(const XmlNode& xmlNode) : 
+    m_desiredInstanceType(PartitionInstanceType::NOT_SET),
     m_desiredInstanceTypeHasBeenSet(false),
     m_desiredReplicationCount(0),
     m_desiredReplicationCountHasBeenSet(false),
@@ -83,14 +85,17 @@ void ScalingParameters::OutputToStream(Aws::OStream& oStream, const char* locati
   {
       oStream << location << index << locationValue << ".DesiredInstanceType=" << PartitionInstanceTypeMapper::GetNameForPartitionInstanceType(m_desiredInstanceType) << "&";
   }
+
   if(m_desiredReplicationCountHasBeenSet)
   {
       oStream << location << index << locationValue << ".DesiredReplicationCount=" << m_desiredReplicationCount << "&";
   }
+
   if(m_desiredPartitionCountHasBeenSet)
   {
       oStream << location << index << locationValue << ".DesiredPartitionCount=" << m_desiredPartitionCount << "&";
   }
+
 }
 
 void ScalingParameters::OutputToStream(Aws::OStream& oStream, const char* location) const

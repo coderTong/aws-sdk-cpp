@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,6 +26,7 @@ namespace Model
   {
     NOT_SET,
     us_east_1,
+    us_east_2,
     us_west_1,
     us_west_2,
     eu_west_1,
@@ -35,7 +36,8 @@ namespace Model
     ap_northeast_1,
     ap_northeast_2,
     sa_east_1,
-    cn_north_1
+    cn_north_1,
+    ap_south_1
   };
 
 namespace ResourceRecordSetRegionMapper

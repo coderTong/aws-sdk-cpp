@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,14 +28,18 @@ namespace Model
 {
 
 Rule::Rule() : 
+    m_attribute(DeviceAttribute::NOT_SET),
     m_attributeHasBeenSet(false),
+    m_operator(RuleOperator::NOT_SET),
     m_operatorHasBeenSet(false),
     m_valueHasBeenSet(false)
 {
 }
 
 Rule::Rule(const JsonValue& jsonValue) : 
+    m_attribute(DeviceAttribute::NOT_SET),
     m_attributeHasBeenSet(false),
+    m_operator(RuleOperator::NOT_SET),
     m_operatorHasBeenSet(false),
     m_valueHasBeenSet(false)
 {

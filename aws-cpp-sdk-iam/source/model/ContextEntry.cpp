@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 ContextEntry::ContextEntry() : 
     m_contextKeyNameHasBeenSet(false),
     m_contextKeyValuesHasBeenSet(false),
+    m_contextKeyType(ContextKeyTypeEnum::NOT_SET),
     m_contextKeyTypeHasBeenSet(false)
 {
 }
@@ -39,6 +40,7 @@ ContextEntry::ContextEntry() :
 ContextEntry::ContextEntry(const XmlNode& xmlNode) : 
     m_contextKeyNameHasBeenSet(false),
     m_contextKeyValuesHasBeenSet(false),
+    m_contextKeyType(ContextKeyTypeEnum::NOT_SET),
     m_contextKeyTypeHasBeenSet(false)
 {
   *this = xmlNode;
@@ -85,6 +87,7 @@ void ContextEntry::OutputToStream(Aws::OStream& oStream, const char* location, u
   {
       oStream << location << index << locationValue << ".ContextKeyName=" << StringUtils::URLEncode(m_contextKeyName.c_str()) << "&";
   }
+
   if(m_contextKeyValuesHasBeenSet)
   {
       unsigned contextKeyValuesIdx = 1;
@@ -93,10 +96,12 @@ void ContextEntry::OutputToStream(Aws::OStream& oStream, const char* location, u
         oStream << location << index << locationValue << ".ContextKeyValues.member." << contextKeyValuesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
   }
+
   if(m_contextKeyTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ContextKeyType=" << ContextKeyTypeEnumMapper::GetNameForContextKeyTypeEnum(m_contextKeyType) << "&";
   }
+
 }
 
 void ContextEntry::OutputToStream(Aws::OStream& oStream, const char* location) const

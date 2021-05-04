@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 Statement::Statement() : 
     m_sourcePolicyIdHasBeenSet(false),
+    m_sourcePolicyType(PolicySourceType::NOT_SET),
     m_sourcePolicyTypeHasBeenSet(false),
     m_startPositionHasBeenSet(false),
     m_endPositionHasBeenSet(false)
@@ -39,6 +40,7 @@ Statement::Statement() :
 
 Statement::Statement(const XmlNode& xmlNode) : 
     m_sourcePolicyIdHasBeenSet(false),
+    m_sourcePolicyType(PolicySourceType::NOT_SET),
     m_sourcePolicyTypeHasBeenSet(false),
     m_startPositionHasBeenSet(false),
     m_endPositionHasBeenSet(false)
@@ -87,22 +89,26 @@ void Statement::OutputToStream(Aws::OStream& oStream, const char* location, unsi
   {
       oStream << location << index << locationValue << ".SourcePolicyId=" << StringUtils::URLEncode(m_sourcePolicyId.c_str()) << "&";
   }
+
   if(m_sourcePolicyTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".SourcePolicyType=" << PolicySourceTypeMapper::GetNameForPolicySourceType(m_sourcePolicyType) << "&";
   }
+
   if(m_startPositionHasBeenSet)
   {
       Aws::StringStream startPositionLocationAndMemberSs;
       startPositionLocationAndMemberSs << location << index << locationValue << ".StartPosition";
       m_startPosition.OutputToStream(oStream, startPositionLocationAndMemberSs.str().c_str());
   }
+
   if(m_endPositionHasBeenSet)
   {
       Aws::StringStream endPositionLocationAndMemberSs;
       endPositionLocationAndMemberSs << location << index << locationValue << ".EndPosition";
       m_endPosition.OutputToStream(oStream, endPositionLocationAndMemberSs.str().c_str());
   }
+
 }
 
 void Statement::OutputToStream(Aws::OStream& oStream, const char* location) const

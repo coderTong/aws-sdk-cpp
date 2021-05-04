@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,10 +30,12 @@ namespace Model
 {
 
 ResourceChange::ResourceChange() : 
+    m_action(ChangeAction::NOT_SET),
     m_actionHasBeenSet(false),
     m_logicalResourceIdHasBeenSet(false),
     m_physicalResourceIdHasBeenSet(false),
     m_resourceTypeHasBeenSet(false),
+    m_replacement(Replacement::NOT_SET),
     m_replacementHasBeenSet(false),
     m_scopeHasBeenSet(false),
     m_detailsHasBeenSet(false)
@@ -41,10 +43,12 @@ ResourceChange::ResourceChange() :
 }
 
 ResourceChange::ResourceChange(const XmlNode& xmlNode) : 
+    m_action(ChangeAction::NOT_SET),
     m_actionHasBeenSet(false),
     m_logicalResourceIdHasBeenSet(false),
     m_physicalResourceIdHasBeenSet(false),
     m_resourceTypeHasBeenSet(false),
+    m_replacement(Replacement::NOT_SET),
     m_replacementHasBeenSet(false),
     m_scopeHasBeenSet(false),
     m_detailsHasBeenSet(false)
@@ -123,22 +127,27 @@ void ResourceChange::OutputToStream(Aws::OStream& oStream, const char* location,
   {
       oStream << location << index << locationValue << ".Action=" << ChangeActionMapper::GetNameForChangeAction(m_action) << "&";
   }
+
   if(m_logicalResourceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".LogicalResourceId=" << StringUtils::URLEncode(m_logicalResourceId.c_str()) << "&";
   }
+
   if(m_physicalResourceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".PhysicalResourceId=" << StringUtils::URLEncode(m_physicalResourceId.c_str()) << "&";
   }
+
   if(m_resourceTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ResourceType=" << StringUtils::URLEncode(m_resourceType.c_str()) << "&";
   }
+
   if(m_replacementHasBeenSet)
   {
       oStream << location << index << locationValue << ".Replacement=" << ReplacementMapper::GetNameForReplacement(m_replacement) << "&";
   }
+
   if(m_scopeHasBeenSet)
   {
       unsigned scopeIdx = 1;
@@ -147,6 +156,7 @@ void ResourceChange::OutputToStream(Aws::OStream& oStream, const char* location,
         oStream << location << index << locationValue << ".Scope.member." << scopeIdx++ << "=" << ResourceAttributeMapper::GetNameForResourceAttribute(item) << "&";
       }
   }
+
   if(m_detailsHasBeenSet)
   {
       unsigned detailsIdx = 1;
@@ -157,6 +167,7 @@ void ResourceChange::OutputToStream(Aws::OStream& oStream, const char* location,
         item.OutputToStream(oStream, detailsSs.str().c_str());
       }
   }
+
 }
 
 void ResourceChange::OutputToStream(Aws::OStream& oStream, const char* location) const

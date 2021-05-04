@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 SchemaAttributeType::SchemaAttributeType() : 
     m_nameHasBeenSet(false),
+    m_attributeDataType(AttributeDataType::NOT_SET),
     m_attributeDataTypeHasBeenSet(false),
     m_developerOnlyAttribute(false),
     m_developerOnlyAttributeHasBeenSet(false),
@@ -43,6 +44,7 @@ SchemaAttributeType::SchemaAttributeType() :
 
 SchemaAttributeType::SchemaAttributeType(const JsonValue& jsonValue) : 
     m_nameHasBeenSet(false),
+    m_attributeDataType(AttributeDataType::NOT_SET),
     m_attributeDataTypeHasBeenSet(false),
     m_developerOnlyAttribute(false),
     m_developerOnlyAttributeHasBeenSet(false),

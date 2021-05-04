@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ MountTargetDescription::MountTargetDescription() :
     m_mountTargetIdHasBeenSet(false),
     m_fileSystemIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
+    m_lifeCycleState(LifeCycleState::NOT_SET),
     m_lifeCycleStateHasBeenSet(false),
     m_ipAddressHasBeenSet(false),
     m_networkInterfaceIdHasBeenSet(false)
@@ -43,6 +44,7 @@ MountTargetDescription::MountTargetDescription(const JsonValue& jsonValue) :
     m_mountTargetIdHasBeenSet(false),
     m_fileSystemIdHasBeenSet(false),
     m_subnetIdHasBeenSet(false),
+    m_lifeCycleState(LifeCycleState::NOT_SET),
     m_lifeCycleStateHasBeenSet(false),
     m_ipAddressHasBeenSet(false),
     m_networkInterfaceIdHasBeenSet(false)

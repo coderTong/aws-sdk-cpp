@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,10 +30,12 @@ namespace Model
 DocumentDescription::DocumentDescription() : 
     m_sha1HasBeenSet(false),
     m_hashHasBeenSet(false),
+    m_hashType(DocumentHashType::NOT_SET),
     m_hashTypeHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_ownerHasBeenSet(false),
     m_createdDateHasBeenSet(false),
+    m_status(DocumentStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_parametersHasBeenSet(false),
@@ -44,10 +46,12 @@ DocumentDescription::DocumentDescription() :
 DocumentDescription::DocumentDescription(const JsonValue& jsonValue) : 
     m_sha1HasBeenSet(false),
     m_hashHasBeenSet(false),
+    m_hashType(DocumentHashType::NOT_SET),
     m_hashTypeHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_ownerHasBeenSet(false),
     m_createdDateHasBeenSet(false),
+    m_status(DocumentStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_parametersHasBeenSet(false),

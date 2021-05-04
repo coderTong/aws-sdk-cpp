@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,6 +21,7 @@
 #include <aws/rds/model/DBClusterOptionGroupStatus.h>
 #include <aws/rds/model/DBClusterMember.h>
 #include <aws/rds/model/VpcSecurityGroupMembership.h>
+#include <aws/rds/model/DBClusterRole.h>
 
 namespace Aws
 {
@@ -58,17 +59,17 @@ namespace Model
     /**
      * <p>Specifies the allocated storage size in gigabytes (GB).</p>
      */
-    inline long GetAllocatedStorage() const{ return m_allocatedStorage; }
+    inline int GetAllocatedStorage() const{ return m_allocatedStorage; }
 
     /**
      * <p>Specifies the allocated storage size in gigabytes (GB).</p>
      */
-    inline void SetAllocatedStorage(long value) { m_allocatedStorageHasBeenSet = true; m_allocatedStorage = value; }
+    inline void SetAllocatedStorage(int value) { m_allocatedStorageHasBeenSet = true; m_allocatedStorage = value; }
 
     /**
      * <p>Specifies the allocated storage size in gigabytes (GB).</p>
      */
-    inline DBCluster& WithAllocatedStorage(long value) { SetAllocatedStorage(value); return *this;}
+    inline DBCluster& WithAllocatedStorage(int value) { SetAllocatedStorage(value); return *this;}
 
     /**
      * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster
@@ -122,19 +123,19 @@ namespace Model
      * <p>Specifies the number of days for which automatic DB snapshots are
      * retained.</p>
      */
-    inline long GetBackupRetentionPeriod() const{ return m_backupRetentionPeriod; }
+    inline int GetBackupRetentionPeriod() const{ return m_backupRetentionPeriod; }
 
     /**
      * <p>Specifies the number of days for which automatic DB snapshots are
      * retained.</p>
      */
-    inline void SetBackupRetentionPeriod(long value) { m_backupRetentionPeriodHasBeenSet = true; m_backupRetentionPeriod = value; }
+    inline void SetBackupRetentionPeriod(int value) { m_backupRetentionPeriodHasBeenSet = true; m_backupRetentionPeriod = value; }
 
     /**
      * <p>Specifies the number of days for which automatic DB snapshots are
      * retained.</p>
      */
-    inline DBCluster& WithBackupRetentionPeriod(long value) { SetBackupRetentionPeriod(value); return *this;}
+    inline DBCluster& WithBackupRetentionPeriod(int value) { SetBackupRetentionPeriod(value); return *this;}
 
     /**
      * <p>If present, specifies the name of the character set that this cluster is
@@ -489,6 +490,104 @@ namespace Model
     inline DBCluster& WithEndpoint(const char* value) { SetEndpoint(value); return *this;}
 
     /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline const Aws::String& GetReaderEndpoint() const{ return m_readerEndpoint; }
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline void SetReaderEndpoint(const Aws::String& value) { m_readerEndpointHasBeenSet = true; m_readerEndpoint = value; }
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline void SetReaderEndpoint(Aws::String&& value) { m_readerEndpointHasBeenSet = true; m_readerEndpoint = value; }
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline void SetReaderEndpoint(const char* value) { m_readerEndpointHasBeenSet = true; m_readerEndpoint.assign(value); }
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline DBCluster& WithReaderEndpoint(const Aws::String& value) { SetReaderEndpoint(value); return *this;}
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline DBCluster& WithReaderEndpoint(Aws::String&& value) { SetReaderEndpoint(value); return *this;}
+
+    /**
+     * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster
+     * load-balances connections across the Aurora Replicas that are available in a DB
+     * cluster. As clients request new connections to the reader endpoint, Aurora
+     * distributes the connection requests among the Aurora Replicas in the DB cluster.
+     * This functionality can help balance your read workload across multiple Aurora
+     * Replicas in your DB cluster. </p> <p>If a failover occurs, and the Aurora
+     * Replica that you are connected to is promoted to be the primary instance, your
+     * connection will be dropped. To continue sending your read workload to other
+     * Aurora Replicas in the cluster, you can then recoonect to the reader
+     * endpoint.</p>
+     */
+    inline DBCluster& WithReaderEndpoint(const char* value) { SetReaderEndpoint(value); return *this;}
+
+    /**
      * <p>Provides the name of the database engine to be used for this DB cluster.</p>
      */
     inline const Aws::String& GetEngine() const{ return m_engine; }
@@ -591,17 +690,17 @@ namespace Model
     /**
      * <p>Specifies the port that the database engine is listening on.</p>
      */
-    inline long GetPort() const{ return m_port; }
+    inline int GetPort() const{ return m_port; }
 
     /**
      * <p>Specifies the port that the database engine is listening on.</p>
      */
-    inline void SetPort(long value) { m_portHasBeenSet = true; m_port = value; }
+    inline void SetPort(int value) { m_portHasBeenSet = true; m_port = value; }
 
     /**
      * <p>Specifies the port that the database engine is listening on.</p>
      */
-    inline DBCluster& WithPort(long value) { SetPort(value); return *this;}
+    inline DBCluster& WithPort(int value) { SetPort(value); return *this;}
 
     /**
      * <p>Contains the master username for the DB cluster.</p>
@@ -1072,12 +1171,103 @@ namespace Model
      */
     inline DBCluster& WithDbClusterResourceId(const char* value) { SetDbClusterResourceId(value); return *this;}
 
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline const Aws::String& GetDBClusterArn() const{ return m_dBClusterArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline void SetDBClusterArn(const Aws::String& value) { m_dBClusterArnHasBeenSet = true; m_dBClusterArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline void SetDBClusterArn(Aws::String&& value) { m_dBClusterArnHasBeenSet = true; m_dBClusterArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline void SetDBClusterArn(const char* value) { m_dBClusterArnHasBeenSet = true; m_dBClusterArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline DBCluster& WithDBClusterArn(const Aws::String& value) { SetDBClusterArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline DBCluster& WithDBClusterArn(Aws::String&& value) { SetDBClusterArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+     */
+    inline DBCluster& WithDBClusterArn(const char* value) { SetDBClusterArn(value); return *this;}
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline const Aws::Vector<DBClusterRole>& GetAssociatedRoles() const{ return m_associatedRoles; }
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline void SetAssociatedRoles(const Aws::Vector<DBClusterRole>& value) { m_associatedRolesHasBeenSet = true; m_associatedRoles = value; }
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline void SetAssociatedRoles(Aws::Vector<DBClusterRole>&& value) { m_associatedRolesHasBeenSet = true; m_associatedRoles = value; }
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline DBCluster& WithAssociatedRoles(const Aws::Vector<DBClusterRole>& value) { SetAssociatedRoles(value); return *this;}
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline DBCluster& WithAssociatedRoles(Aws::Vector<DBClusterRole>&& value) { SetAssociatedRoles(value); return *this;}
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline DBCluster& AddAssociatedRoles(const DBClusterRole& value) { m_associatedRolesHasBeenSet = true; m_associatedRoles.push_back(value); return *this; }
+
+    /**
+     * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that
+     * are associated with the DB cluster. IAM roles that are associated with a DB
+     * cluster grant permission for the DB cluster to access other AWS services on your
+     * behalf.</p>
+     */
+    inline DBCluster& AddAssociatedRoles(DBClusterRole&& value) { m_associatedRolesHasBeenSet = true; m_associatedRoles.push_back(value); return *this; }
+
   private:
-    long m_allocatedStorage;
+    int m_allocatedStorage;
     bool m_allocatedStorageHasBeenSet;
     Aws::Vector<Aws::String> m_availabilityZones;
     bool m_availabilityZonesHasBeenSet;
-    long m_backupRetentionPeriod;
+    int m_backupRetentionPeriod;
     bool m_backupRetentionPeriodHasBeenSet;
     Aws::String m_characterSetName;
     bool m_characterSetNameHasBeenSet;
@@ -1097,13 +1287,15 @@ namespace Model
     bool m_earliestRestorableTimeHasBeenSet;
     Aws::String m_endpoint;
     bool m_endpointHasBeenSet;
+    Aws::String m_readerEndpoint;
+    bool m_readerEndpointHasBeenSet;
     Aws::String m_engine;
     bool m_engineHasBeenSet;
     Aws::String m_engineVersion;
     bool m_engineVersionHasBeenSet;
     Aws::Utils::DateTime m_latestRestorableTime;
     bool m_latestRestorableTimeHasBeenSet;
-    long m_port;
+    int m_port;
     bool m_portHasBeenSet;
     Aws::String m_masterUsername;
     bool m_masterUsernameHasBeenSet;
@@ -1129,6 +1321,10 @@ namespace Model
     bool m_kmsKeyIdHasBeenSet;
     Aws::String m_dbClusterResourceId;
     bool m_dbClusterResourceIdHasBeenSet;
+    Aws::String m_dBClusterArn;
+    bool m_dBClusterArnHasBeenSet;
+    Aws::Vector<DBClusterRole> m_associatedRoles;
+    bool m_associatedRolesHasBeenSet;
   };
 
 } // namespace Model

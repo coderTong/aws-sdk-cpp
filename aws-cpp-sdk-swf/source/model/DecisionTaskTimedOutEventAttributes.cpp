@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 DecisionTaskTimedOutEventAttributes::DecisionTaskTimedOutEventAttributes() : 
+    m_timeoutType(DecisionTaskTimeoutType::NOT_SET),
     m_timeoutTypeHasBeenSet(false),
     m_scheduledEventId(0),
     m_scheduledEventIdHasBeenSet(false),
@@ -37,6 +38,7 @@ DecisionTaskTimedOutEventAttributes::DecisionTaskTimedOutEventAttributes() :
 }
 
 DecisionTaskTimedOutEventAttributes::DecisionTaskTimedOutEventAttributes(const JsonValue& jsonValue) : 
+    m_timeoutType(DecisionTaskTimeoutType::NOT_SET),
     m_timeoutTypeHasBeenSet(false),
     m_scheduledEventId(0),
     m_scheduledEventIdHasBeenSet(false),

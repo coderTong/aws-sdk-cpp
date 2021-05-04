@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -48,6 +48,11 @@ namespace Model
      */
     inline Aws::IOStream& GetPolicy() { return m_policy.GetUnderlyingStream(); }
 
+    /**
+     * The bucket policy as a JSON document.
+     */
+    inline void ReplaceBody(Aws::IOStream* body) { m_policy = Aws::Utils::Stream::ResponseStream(body); }
+    
   private:
     Utils::Stream::ResponseStream m_policy;
   };

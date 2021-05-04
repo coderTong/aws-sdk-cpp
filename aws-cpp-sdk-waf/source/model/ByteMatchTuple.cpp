@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,7 +31,9 @@ namespace Model
 ByteMatchTuple::ByteMatchTuple() : 
     m_fieldToMatchHasBeenSet(false),
     m_targetStringHasBeenSet(false),
+    m_textTransformation(TextTransformation::NOT_SET),
     m_textTransformationHasBeenSet(false),
+    m_positionalConstraint(PositionalConstraint::NOT_SET),
     m_positionalConstraintHasBeenSet(false)
 {
 }
@@ -39,7 +41,9 @@ ByteMatchTuple::ByteMatchTuple() :
 ByteMatchTuple::ByteMatchTuple(const JsonValue& jsonValue) : 
     m_fieldToMatchHasBeenSet(false),
     m_targetStringHasBeenSet(false),
+    m_textTransformation(TextTransformation::NOT_SET),
     m_textTransformationHasBeenSet(false),
+    m_positionalConstraint(PositionalConstraint::NOT_SET),
     m_positionalConstraintHasBeenSet(false)
 {
   *this = jsonValue;

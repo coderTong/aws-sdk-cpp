@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -20,6 +20,7 @@ using namespace Aws::ImportExport::Model;
 using namespace Aws::Utils;
 
 CreateJobRequest::CreateJobRequest() : 
+    m_jobType(JobType::NOT_SET),
     m_jobTypeHasBeenSet(false),
     m_manifestHasBeenSet(false),
     m_manifestAddendumHasBeenSet(false),
@@ -37,22 +38,27 @@ Aws::String CreateJobRequest::SerializePayload() const
   {
     ss << "JobType=" << JobTypeMapper::GetNameForJobType(m_jobType) << "&";
   }
+
   if(m_manifestHasBeenSet)
   {
     ss << "Manifest=" << StringUtils::URLEncode(m_manifest.c_str()) << "&";
   }
+
   if(m_manifestAddendumHasBeenSet)
   {
     ss << "ManifestAddendum=" << StringUtils::URLEncode(m_manifestAddendum.c_str()) << "&";
   }
+
   if(m_validateOnlyHasBeenSet)
   {
     ss << "ValidateOnly=" << m_validateOnly << "&";
   }
+
   if(m_aPIVersionHasBeenSet)
   {
     ss << "APIVersion=" << StringUtils::URLEncode(m_aPIVersion.c_str()) << "&";
   }
+
   ss << "Version=2010-06-01";
   return ss.str();
 }

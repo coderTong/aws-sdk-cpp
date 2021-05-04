@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 LookupAttribute::LookupAttribute() : 
+    m_attributeKey(LookupAttributeKey::NOT_SET),
     m_attributeKeyHasBeenSet(false),
     m_attributeValueHasBeenSet(false)
 {
 }
 
 LookupAttribute::LookupAttribute(const JsonValue& jsonValue) : 
+    m_attributeKey(LookupAttributeKey::NOT_SET),
     m_attributeKeyHasBeenSet(false),
     m_attributeValueHasBeenSet(false)
 {

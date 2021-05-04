@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 RecurringCharge::RecurringCharge() : 
     m_costHasBeenSet(false),
+    m_frequency(RecurringChargeFrequency::NOT_SET),
     m_frequencyHasBeenSet(false)
 {
 }
 
 RecurringCharge::RecurringCharge(const JsonValue& jsonValue) : 
     m_costHasBeenSet(false),
+    m_frequency(RecurringChargeFrequency::NOT_SET),
     m_frequencyHasBeenSet(false)
 {
   *this = jsonValue;

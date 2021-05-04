@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,11 +30,13 @@ namespace Model
 {
 
 Monitoring::Monitoring() : 
+    m_state(MonitoringState::NOT_SET),
     m_stateHasBeenSet(false)
 {
 }
 
 Monitoring::Monitoring(const XmlNode& xmlNode) : 
+    m_state(MonitoringState::NOT_SET),
     m_stateHasBeenSet(false)
 {
   *this = xmlNode;
@@ -63,6 +65,7 @@ void Monitoring::OutputToStream(Aws::OStream& oStream, const char* location, uns
   {
       oStream << location << index << locationValue << ".State=" << MonitoringStateMapper::GetNameForMonitoringState(m_state) << "&";
   }
+
 }
 
 void Monitoring::OutputToStream(Aws::OStream& oStream, const char* location) const

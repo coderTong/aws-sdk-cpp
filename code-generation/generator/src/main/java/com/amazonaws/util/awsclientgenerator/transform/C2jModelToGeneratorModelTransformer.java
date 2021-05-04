@@ -216,6 +216,7 @@ public class C2jModelToGeneratorModelTransformer {
         shapeMember.setLocationName(c2jShapeMember.getLocationName());
         shapeMember.setLocation(c2jShapeMember.getLocation());
         shapeMember.setStreaming(c2jShapeMember.isStreaming());
+        shapeMember.setIdempotencyToken(c2jShapeMember.isIdempotencyToken());
         if(shapeMember.isStreaming()) {
             shapeMember.setRequired(true);
         }
@@ -253,9 +254,18 @@ public class C2jModelToGeneratorModelTransformer {
             Shape requestShape = renameShape(shapes.get(c2jOperation.getInput().getShape()), requestName);
             requestShape.setRequest(true);
             requestShape.setReferenced(true);
+            requestShape.setLocationName(c2jOperation.getInput().getLocationName());
+            requestShape.setXmlNamespace(c2jOperation.getInput().getXmlNamespace() != null ? c2jOperation.getInput().getXmlNamespace().getUri() : null);
+
+            if(requestShape.getLocationName() != null && requestShape.getLocationName().length() > 0 &&
+                    (requestShape.getPayload() == null || requestShape.getPayload().length() == 0) ) {
+                requestShape.setPayload(requestName);
+            }
+
             ShapeMember requestMember = new ShapeMember();
             requestMember.setShape(requestShape);
             requestMember.setDocumentation(formatDocumentation(c2jOperation.getInput().getDocumentation(), 3));
+
             operation.setRequest(requestMember);
         }
 

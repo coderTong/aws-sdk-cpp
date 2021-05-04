@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -22,6 +22,7 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 ListAliasesRequest::ListAliasesRequest() : 
+    m_routingStrategyType(RoutingStrategyType::NOT_SET),
     m_routingStrategyTypeHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_limit(0),

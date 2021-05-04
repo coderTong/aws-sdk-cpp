@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,7 +32,9 @@ WorkflowExecutionInfo::WorkflowExecutionInfo() :
     m_workflowTypeHasBeenSet(false),
     m_startTimestampHasBeenSet(false),
     m_closeTimestampHasBeenSet(false),
+    m_executionStatus(ExecutionStatus::NOT_SET),
     m_executionStatusHasBeenSet(false),
+    m_closeStatus(CloseStatus::NOT_SET),
     m_closeStatusHasBeenSet(false),
     m_parentHasBeenSet(false),
     m_tagListHasBeenSet(false),
@@ -46,7 +48,9 @@ WorkflowExecutionInfo::WorkflowExecutionInfo(const JsonValue& jsonValue) :
     m_workflowTypeHasBeenSet(false),
     m_startTimestampHasBeenSet(false),
     m_closeTimestampHasBeenSet(false),
+    m_executionStatus(ExecutionStatus::NOT_SET),
     m_executionStatusHasBeenSet(false),
+    m_closeStatus(CloseStatus::NOT_SET),
     m_closeStatusHasBeenSet(false),
     m_parentHasBeenSet(false),
     m_tagListHasBeenSet(false),

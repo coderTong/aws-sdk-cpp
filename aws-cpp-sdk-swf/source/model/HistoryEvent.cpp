@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 HistoryEvent::HistoryEvent() : 
     m_eventTimestampHasBeenSet(false),
+    m_eventType(EventType::NOT_SET),
     m_eventTypeHasBeenSet(false),
     m_eventId(0),
     m_eventIdHasBeenSet(false),
@@ -91,6 +92,7 @@ HistoryEvent::HistoryEvent() :
 
 HistoryEvent::HistoryEvent(const JsonValue& jsonValue) : 
     m_eventTimestampHasBeenSet(false),
+    m_eventType(EventType::NOT_SET),
     m_eventTypeHasBeenSet(false),
     m_eventId(0),
     m_eventIdHasBeenSet(false),

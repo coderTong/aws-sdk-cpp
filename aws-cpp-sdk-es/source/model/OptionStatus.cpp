@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ OptionStatus::OptionStatus() :
     m_updateDateHasBeenSet(false),
     m_updateVersion(0),
     m_updateVersionHasBeenSet(false),
+    m_state(OptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_pendingDeletion(false),
     m_pendingDeletionHasBeenSet(false)
@@ -43,6 +44,7 @@ OptionStatus::OptionStatus(const JsonValue& jsonValue) :
     m_updateDateHasBeenSet(false),
     m_updateVersion(0),
     m_updateVersionHasBeenSet(false),
+    m_state(OptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_pendingDeletion(false),
     m_pendingDeletionHasBeenSet(false)

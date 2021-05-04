@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 CommandFilter::CommandFilter() : 
+    m_key(CommandFilterKey::NOT_SET),
     m_keyHasBeenSet(false),
     m_valueHasBeenSet(false)
 {
 }
 
 CommandFilter::CommandFilter(const JsonValue& jsonValue) : 
+    m_key(CommandFilterKey::NOT_SET),
     m_keyHasBeenSet(false),
     m_valueHasBeenSet(false)
 {

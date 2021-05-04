@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,7 +21,7 @@ namespace Aws
 {
 namespace IoT
 {
-enum class AWS_IOT_API IoTErrors
+enum class IoTErrors
 {
   //From Core//
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,12 @@ enum class AWS_IOT_API IoTErrors
   RESOURCE_NOT_FOUND = 16,
   UNRECOGNIZED_CLIENT = 17,
   MALFORMED_QUERY_STRING = 18,
+  SLOW_DOWN = 19,
+  REQUEST_TIME_TOO_SKEWED = 20,
+  INVALID_SIGNATURE = 21,
+  SIGNATURE_DOES_NOT_MATCH = 22,
   NETWORK_CONNECTION = 99,
+  
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -62,7 +67,8 @@ enum class AWS_IOT_API IoTErrors
   TRANSFER_ALREADY_COMPLETED,
   TRANSFER_CONFLICT,
   UNAUTHORIZED,
-  VERSIONS_LIMIT_EXCEEDED
+  VERSIONS_LIMIT_EXCEEDED,
+  VERSION_CONFLICT
 };
 namespace IoTErrorMapper
 {

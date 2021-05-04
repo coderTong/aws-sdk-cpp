@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,11 +27,13 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 GetStatusResult::GetStatusResult() : 
+    m_jobType(JobType::NOT_SET),
     m_errorCount(0)
 {
 }
 
 GetStatusResult::GetStatusResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_jobType(JobType::NOT_SET),
     m_errorCount(0)
 {
   *this = result;

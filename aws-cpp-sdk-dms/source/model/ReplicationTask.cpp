@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ ReplicationTask::ReplicationTask() :
     m_sourceEndpointArnHasBeenSet(false),
     m_targetEndpointArnHasBeenSet(false),
     m_replicationInstanceArnHasBeenSet(false),
+    m_migrationType(MigrationTypeValue::NOT_SET),
     m_migrationTypeHasBeenSet(false),
     m_tableMappingsHasBeenSet(false),
     m_replicationTaskSettingsHasBeenSet(false),
@@ -49,6 +50,7 @@ ReplicationTask::ReplicationTask(const JsonValue& jsonValue) :
     m_sourceEndpointArnHasBeenSet(false),
     m_targetEndpointArnHasBeenSet(false),
     m_replicationInstanceArnHasBeenSet(false),
+    m_migrationType(MigrationTypeValue::NOT_SET),
     m_migrationTypeHasBeenSet(false),
     m_tableMappingsHasBeenSet(false),
     m_replicationTaskSettingsHasBeenSet(false),

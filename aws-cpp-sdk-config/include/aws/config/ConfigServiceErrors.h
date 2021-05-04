@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,7 +21,7 @@ namespace Aws
 {
 namespace ConfigService
 {
-enum class AWS_CONFIGSERVICE_API ConfigServiceErrors
+enum class ConfigServiceErrors
 {
   //From Core//
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,12 @@ enum class AWS_CONFIGSERVICE_API ConfigServiceErrors
   RESOURCE_NOT_FOUND = 16,
   UNRECOGNIZED_CLIENT = 17,
   MALFORMED_QUERY_STRING = 18,
+  SLOW_DOWN = 19,
+  REQUEST_TIME_TOO_SKEWED = 20,
+  INVALID_SIGNATURE = 21,
+  SIGNATURE_DOES_NOT_MATCH = 22,
   NETWORK_CONNECTION = 99,
+  
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -61,6 +66,7 @@ enum class AWS_CONFIGSERVICE_API ConfigServiceErrors
   INVALID_S_N_S_TOPIC_A_R_N,
   INVALID_TIME_RANGE,
   LAST_DELIVERY_CHANNEL_DELETE_FAILED,
+  LIMIT_EXCEEDED,
   MAX_NUMBER_OF_CONFIGURATION_RECORDERS_EXCEEDED,
   MAX_NUMBER_OF_CONFIG_RULES_EXCEEDED,
   MAX_NUMBER_OF_DELIVERY_CHANNELS_EXCEEDED,

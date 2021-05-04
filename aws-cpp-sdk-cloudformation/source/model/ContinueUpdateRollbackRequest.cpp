@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -20,7 +20,9 @@ using namespace Aws::CloudFormation::Model;
 using namespace Aws::Utils;
 
 ContinueUpdateRollbackRequest::ContinueUpdateRollbackRequest() : 
-    m_stackNameHasBeenSet(false)
+    m_stackNameHasBeenSet(false),
+    m_roleARNHasBeenSet(false),
+    m_resourcesToSkipHasBeenSet(false)
 {
 }
 
@@ -32,6 +34,23 @@ Aws::String ContinueUpdateRollbackRequest::SerializePayload() const
   {
     ss << "StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
   }
+
+  if(m_roleARNHasBeenSet)
+  {
+    ss << "RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
+  }
+
+  if(m_resourcesToSkipHasBeenSet)
+  {
+    unsigned resourcesToSkipCount = 1;
+    for(auto& item : m_resourcesToSkip)
+    {
+      ss << "ResourcesToSkip.member." << resourcesToSkipCount << "="
+          << StringUtils::URLEncode(item.c_str()) << "&";
+      resourcesToSkipCount++;
+    }
+  }
+
   ss << "Version=2010-05-15";
   return ss.str();
 }

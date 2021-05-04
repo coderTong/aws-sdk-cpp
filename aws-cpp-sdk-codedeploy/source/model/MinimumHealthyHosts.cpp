@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 MinimumHealthyHosts::MinimumHealthyHosts() : 
     m_value(0),
     m_valueHasBeenSet(false),
+    m_type(MinimumHealthyHostsType::NOT_SET),
     m_typeHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ MinimumHealthyHosts::MinimumHealthyHosts() :
 MinimumHealthyHosts::MinimumHealthyHosts(const JsonValue& jsonValue) : 
     m_value(0),
     m_valueHasBeenSet(false),
+    m_type(MinimumHealthyHostsType::NOT_SET),
     m_typeHasBeenSet(false)
 {
   *this = jsonValue;

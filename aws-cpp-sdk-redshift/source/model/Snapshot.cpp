@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -67,7 +67,9 @@ Snapshot::Snapshot() :
     m_elapsedTimeInSecondsHasBeenSet(false),
     m_sourceRegionHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_restorableNodeTypesHasBeenSet(false)
+    m_restorableNodeTypesHasBeenSet(false),
+    m_enhancedVpcRouting(false),
+    m_enhancedVpcRoutingHasBeenSet(false)
 {
 }
 
@@ -109,7 +111,9 @@ Snapshot::Snapshot(const XmlNode& xmlNode) :
     m_elapsedTimeInSecondsHasBeenSet(false),
     m_sourceRegionHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_restorableNodeTypesHasBeenSet(false)
+    m_restorableNodeTypesHasBeenSet(false),
+    m_enhancedVpcRouting(false),
+    m_enhancedVpcRoutingHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -306,6 +310,12 @@ Snapshot& Snapshot::operator =(const XmlNode& xmlNode)
 
       m_restorableNodeTypesHasBeenSet = true;
     }
+    XmlNode enhancedVpcRoutingNode = resultNode.FirstChild("EnhancedVpcRouting");
+    if(!enhancedVpcRoutingNode.IsNull())
+    {
+      m_enhancedVpcRouting = StringUtils::ConvertToBool(StringUtils::Trim(enhancedVpcRoutingNode.GetText().c_str()).c_str());
+      m_enhancedVpcRoutingHasBeenSet = true;
+    }
   }
 
   return *this;
@@ -317,70 +327,87 @@ void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location, unsig
   {
       oStream << location << index << locationValue << ".SnapshotIdentifier=" << StringUtils::URLEncode(m_snapshotIdentifier.c_str()) << "&";
   }
+
   if(m_clusterIdentifierHasBeenSet)
   {
       oStream << location << index << locationValue << ".ClusterIdentifier=" << StringUtils::URLEncode(m_clusterIdentifier.c_str()) << "&";
   }
+
   if(m_snapshotCreateTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".SnapshotCreateTime=" << StringUtils::URLEncode(m_snapshotCreateTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << StringUtils::URLEncode(m_status.c_str()) << "&";
   }
+
   if(m_portHasBeenSet)
   {
       oStream << location << index << locationValue << ".Port=" << m_port << "&";
   }
+
   if(m_availabilityZoneHasBeenSet)
   {
       oStream << location << index << locationValue << ".AvailabilityZone=" << StringUtils::URLEncode(m_availabilityZone.c_str()) << "&";
   }
+
   if(m_clusterCreateTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".ClusterCreateTime=" << StringUtils::URLEncode(m_clusterCreateTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_masterUsernameHasBeenSet)
   {
       oStream << location << index << locationValue << ".MasterUsername=" << StringUtils::URLEncode(m_masterUsername.c_str()) << "&";
   }
+
   if(m_clusterVersionHasBeenSet)
   {
       oStream << location << index << locationValue << ".ClusterVersion=" << StringUtils::URLEncode(m_clusterVersion.c_str()) << "&";
   }
+
   if(m_snapshotTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".SnapshotType=" << StringUtils::URLEncode(m_snapshotType.c_str()) << "&";
   }
+
   if(m_nodeTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".NodeType=" << StringUtils::URLEncode(m_nodeType.c_str()) << "&";
   }
+
   if(m_numberOfNodesHasBeenSet)
   {
       oStream << location << index << locationValue << ".NumberOfNodes=" << m_numberOfNodes << "&";
   }
+
   if(m_dBNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".DBName=" << StringUtils::URLEncode(m_dBName.c_str()) << "&";
   }
+
   if(m_vpcIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".VpcId=" << StringUtils::URLEncode(m_vpcId.c_str()) << "&";
   }
+
   if(m_encryptedHasBeenSet)
   {
       oStream << location << index << locationValue << ".Encrypted=" << m_encrypted << "&";
   }
+
   if(m_kmsKeyIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".KmsKeyId=" << StringUtils::URLEncode(m_kmsKeyId.c_str()) << "&";
   }
+
   if(m_encryptedWithHSMHasBeenSet)
   {
       oStream << location << index << locationValue << ".EncryptedWithHSM=" << m_encryptedWithHSM << "&";
   }
+
   if(m_accountsWithRestoreAccessHasBeenSet)
   {
       unsigned accountsWithRestoreAccessIdx = 1;
@@ -391,38 +418,47 @@ void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location, unsig
         item.OutputToStream(oStream, accountsWithRestoreAccessSs.str().c_str());
       }
   }
+
   if(m_ownerAccountHasBeenSet)
   {
       oStream << location << index << locationValue << ".OwnerAccount=" << StringUtils::URLEncode(m_ownerAccount.c_str()) << "&";
   }
+
   if(m_totalBackupSizeInMegaBytesHasBeenSet)
   {
         oStream << location << index << locationValue << ".TotalBackupSizeInMegaBytes=" << StringUtils::URLEncode(m_totalBackupSizeInMegaBytes) << "&";
   }
+
   if(m_actualIncrementalBackupSizeInMegaBytesHasBeenSet)
   {
         oStream << location << index << locationValue << ".ActualIncrementalBackupSizeInMegaBytes=" << StringUtils::URLEncode(m_actualIncrementalBackupSizeInMegaBytes) << "&";
   }
+
   if(m_backupProgressInMegaBytesHasBeenSet)
   {
         oStream << location << index << locationValue << ".BackupProgressInMegaBytes=" << StringUtils::URLEncode(m_backupProgressInMegaBytes) << "&";
   }
+
   if(m_currentBackupRateInMegaBytesPerSecondHasBeenSet)
   {
         oStream << location << index << locationValue << ".CurrentBackupRateInMegaBytesPerSecond=" << StringUtils::URLEncode(m_currentBackupRateInMegaBytesPerSecond) << "&";
   }
+
   if(m_estimatedSecondsToCompletionHasBeenSet)
   {
       oStream << location << index << locationValue << ".EstimatedSecondsToCompletion=" << m_estimatedSecondsToCompletion << "&";
   }
+
   if(m_elapsedTimeInSecondsHasBeenSet)
   {
       oStream << location << index << locationValue << ".ElapsedTimeInSeconds=" << m_elapsedTimeInSeconds << "&";
   }
+
   if(m_sourceRegionHasBeenSet)
   {
       oStream << location << index << locationValue << ".SourceRegion=" << StringUtils::URLEncode(m_sourceRegion.c_str()) << "&";
   }
+
   if(m_tagsHasBeenSet)
   {
       unsigned tagsIdx = 1;
@@ -433,6 +469,7 @@ void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location, unsig
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
   }
+
   if(m_restorableNodeTypesHasBeenSet)
   {
       unsigned restorableNodeTypesIdx = 1;
@@ -441,6 +478,12 @@ void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location, unsig
         oStream << location << index << locationValue << ".NodeType." << restorableNodeTypesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
   }
+
+  if(m_enhancedVpcRoutingHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".EnhancedVpcRouting=" << m_enhancedVpcRouting << "&";
+  }
+
 }
 
 void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -572,6 +615,10 @@ void Snapshot::OutputToStream(Aws::OStream& oStream, const char* location) const
       {
         oStream << location << ".NodeType." << restorableNodeTypesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
+  }
+  if(m_enhancedVpcRoutingHasBeenSet)
+  {
+      oStream << location << ".EnhancedVpcRouting=" << m_enhancedVpcRouting << "&";
   }
 }
 

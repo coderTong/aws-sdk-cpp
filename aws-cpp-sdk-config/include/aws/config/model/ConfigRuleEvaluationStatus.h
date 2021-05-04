@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -35,7 +35,7 @@ namespace Model
    * <p>Status information for your AWS managed Config rules. The status includes
    * information such as the last time the rule ran, the last time it failed, and the
    * related error for the last failure.</p> <p>This action does not return status
-   * information about customer managed Config rules.</p>
+   * information about custom Config rules.</p>
    */
   class AWS_CONFIGSERVICE_API ConfigRuleEvaluationStatus
   {
@@ -367,28 +367,28 @@ namespace Model
 
     /**
      * <p>Indicates whether AWS Config has evaluated your resources against the rule at
-     * least once.</p> <ul> <li><code>true</code> - AWS Config has evaluated your AWS
-     * resources against the rule at least once.</li> <li><code>false</code> - AWS
-     * Config has not once finished evaluating your AWS resources against the
-     * rule.</li> </ul>
+     * least once.</p> <ul> <li> <p> <code>true</code> - AWS Config has evaluated your
+     * AWS resources against the rule at least once.</p> </li> <li> <p>
+     * <code>false</code> - AWS Config has not once finished evaluating your AWS
+     * resources against the rule.</p> </li> </ul>
      */
     inline bool GetFirstEvaluationStarted() const{ return m_firstEvaluationStarted; }
 
     /**
      * <p>Indicates whether AWS Config has evaluated your resources against the rule at
-     * least once.</p> <ul> <li><code>true</code> - AWS Config has evaluated your AWS
-     * resources against the rule at least once.</li> <li><code>false</code> - AWS
-     * Config has not once finished evaluating your AWS resources against the
-     * rule.</li> </ul>
+     * least once.</p> <ul> <li> <p> <code>true</code> - AWS Config has evaluated your
+     * AWS resources against the rule at least once.</p> </li> <li> <p>
+     * <code>false</code> - AWS Config has not once finished evaluating your AWS
+     * resources against the rule.</p> </li> </ul>
      */
     inline void SetFirstEvaluationStarted(bool value) { m_firstEvaluationStartedHasBeenSet = true; m_firstEvaluationStarted = value; }
 
     /**
      * <p>Indicates whether AWS Config has evaluated your resources against the rule at
-     * least once.</p> <ul> <li><code>true</code> - AWS Config has evaluated your AWS
-     * resources against the rule at least once.</li> <li><code>false</code> - AWS
-     * Config has not once finished evaluating your AWS resources against the
-     * rule.</li> </ul>
+     * least once.</p> <ul> <li> <p> <code>true</code> - AWS Config has evaluated your
+     * AWS resources against the rule at least once.</p> </li> <li> <p>
+     * <code>false</code> - AWS Config has not once finished evaluating your AWS
+     * resources against the rule.</p> </li> </ul>
      */
     inline ConfigRuleEvaluationStatus& WithFirstEvaluationStarted(bool value) { SetFirstEvaluationStarted(value); return *this;}
 

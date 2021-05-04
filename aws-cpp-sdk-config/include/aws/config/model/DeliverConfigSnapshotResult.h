@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,7 +33,7 @@ namespace ConfigService
 namespace Model
 {
   /**
-   * <p> The output for the <a>DeliverConfigSnapshot</a> action in JSON format. </p>
+   * <p>The output for the <a>DeliverConfigSnapshot</a> action in JSON format.</p>
    */
   class AWS_CONFIGSERVICE_API DeliverConfigSnapshotResult
   {

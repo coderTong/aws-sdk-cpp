@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 IncompatibilityMessage::IncompatibilityMessage() : 
     m_messageHasBeenSet(false),
+    m_type(DeviceAttribute::NOT_SET),
     m_typeHasBeenSet(false)
 {
 }
 
 IncompatibilityMessage::IncompatibilityMessage(const JsonValue& jsonValue) : 
     m_messageHasBeenSet(false),
+    m_type(DeviceAttribute::NOT_SET),
     m_typeHasBeenSet(false)
 {
   *this = jsonValue;

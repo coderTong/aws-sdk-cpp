@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,6 +26,7 @@ GenerateDataKeyRequest::GenerateDataKeyRequest() :
     m_encryptionContextHasBeenSet(false),
     m_numberOfBytes(0),
     m_numberOfBytesHasBeenSet(false),
+    m_keySpec(DataKeySpec::NOT_SET),
     m_keySpecHasBeenSet(false),
     m_grantTokensHasBeenSet(false)
 {

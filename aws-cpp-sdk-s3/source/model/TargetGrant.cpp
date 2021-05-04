@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 TargetGrant::TargetGrant() : 
     m_granteeHasBeenSet(false),
+    m_permission(BucketLogsPermission::NOT_SET),
     m_permissionHasBeenSet(false)
 {
 }
 
 TargetGrant::TargetGrant(const XmlNode& xmlNode) : 
     m_granteeHasBeenSet(false),
+    m_permission(BucketLogsPermission::NOT_SET),
     m_permissionHasBeenSet(false)
 {
   *this = xmlNode;

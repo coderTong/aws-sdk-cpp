@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 ResourceSpecificResult::ResourceSpecificResult() : 
     m_evalResourceNameHasBeenSet(false),
+    m_evalResourceDecision(PolicyEvaluationDecisionType::NOT_SET),
     m_evalResourceDecisionHasBeenSet(false),
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
@@ -40,6 +41,7 @@ ResourceSpecificResult::ResourceSpecificResult() :
 
 ResourceSpecificResult::ResourceSpecificResult(const XmlNode& xmlNode) : 
     m_evalResourceNameHasBeenSet(false),
+    m_evalResourceDecision(PolicyEvaluationDecisionType::NOT_SET),
     m_evalResourceDecisionHasBeenSet(false),
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
@@ -117,10 +119,12 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
   {
       oStream << location << index << locationValue << ".EvalResourceName=" << StringUtils::URLEncode(m_evalResourceName.c_str()) << "&";
   }
+
   if(m_evalResourceDecisionHasBeenSet)
   {
       oStream << location << index << locationValue << ".EvalResourceDecision=" << PolicyEvaluationDecisionTypeMapper::GetNameForPolicyEvaluationDecisionType(m_evalResourceDecision) << "&";
   }
+
   if(m_matchedStatementsHasBeenSet)
   {
       unsigned matchedStatementsIdx = 1;
@@ -131,6 +135,7 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
         item.OutputToStream(oStream, matchedStatementsSs.str().c_str());
       }
   }
+
   if(m_missingContextValuesHasBeenSet)
   {
       unsigned missingContextValuesIdx = 1;
@@ -139,9 +144,20 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
         oStream << location << index << locationValue << ".MissingContextValues.member." << missingContextValuesIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
   }
+
   if(m_evalDecisionDetailsHasBeenSet)
   {
+      unsigned evalDecisionDetailsIdx = 1;
+      for(auto& item : m_evalDecisionDetails)
+      {
+        oStream << location << index << locationValue << ".EvalDecisionDetails.entry." << evalDecisionDetailsIdx << ".key="
+            << StringUtils::URLEncode(item.first.c_str()) << "&";
+        oStream << location << index << locationValue << ".EvalDecisionDetails.entry." << evalDecisionDetailsIdx << ".value="
+            << StringUtils::URLEncode(PolicyEvaluationDecisionTypeMapper::GetNameForPolicyEvaluationDecisionType(item.second).c_str()) << "&";
+        evalDecisionDetailsIdx++;
+      }
   }
+
 }
 
 void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -174,6 +190,16 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
   }
   if(m_evalDecisionDetailsHasBeenSet)
   {
+      unsigned evalDecisionDetailsIdx = 1;
+      for(auto& item : m_evalDecisionDetails)
+      {
+        oStream << location << ".EvalDecisionDetails.entry."  << evalDecisionDetailsIdx << ".key="
+            << StringUtils::URLEncode(item.first.c_str()) << "&";
+        oStream << location <<  ".EvalDecisionDetails.entry." << evalDecisionDetailsIdx << ".value="
+            << StringUtils::URLEncode(PolicyEvaluationDecisionTypeMapper::GetNameForPolicyEvaluationDecisionType(item.second).c_str()) << "&";
+        evalDecisionDetailsIdx++;
+      }
+
   }
 }
 

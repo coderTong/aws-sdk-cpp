@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,7 +32,9 @@ namespace Model
 SpotInstanceRequest::SpotInstanceRequest() : 
     m_spotInstanceRequestIdHasBeenSet(false),
     m_spotPriceHasBeenSet(false),
+    m_type(SpotInstanceType::NOT_SET),
     m_typeHasBeenSet(false),
+    m_state(SpotInstanceState::NOT_SET),
     m_stateHasBeenSet(false),
     m_faultHasBeenSet(false),
     m_statusHasBeenSet(false),
@@ -43,6 +45,7 @@ SpotInstanceRequest::SpotInstanceRequest() :
     m_launchSpecificationHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
     m_createTimeHasBeenSet(false),
+    m_productDescription(RIProductDescription::NOT_SET),
     m_productDescriptionHasBeenSet(false),
     m_blockDurationMinutes(0),
     m_blockDurationMinutesHasBeenSet(false),
@@ -55,7 +58,9 @@ SpotInstanceRequest::SpotInstanceRequest() :
 SpotInstanceRequest::SpotInstanceRequest(const XmlNode& xmlNode) : 
     m_spotInstanceRequestIdHasBeenSet(false),
     m_spotPriceHasBeenSet(false),
+    m_type(SpotInstanceType::NOT_SET),
     m_typeHasBeenSet(false),
+    m_state(SpotInstanceState::NOT_SET),
     m_stateHasBeenSet(false),
     m_faultHasBeenSet(false),
     m_statusHasBeenSet(false),
@@ -66,6 +71,7 @@ SpotInstanceRequest::SpotInstanceRequest(const XmlNode& xmlNode) :
     m_launchSpecificationHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
     m_createTimeHasBeenSet(false),
+    m_productDescription(RIProductDescription::NOT_SET),
     m_productDescriptionHasBeenSet(false),
     m_blockDurationMinutes(0),
     m_blockDurationMinutesHasBeenSet(false),
@@ -207,72 +213,88 @@ void SpotInstanceRequest::OutputToStream(Aws::OStream& oStream, const char* loca
   {
       oStream << location << index << locationValue << ".SpotInstanceRequestId=" << StringUtils::URLEncode(m_spotInstanceRequestId.c_str()) << "&";
   }
+
   if(m_spotPriceHasBeenSet)
   {
       oStream << location << index << locationValue << ".SpotPrice=" << StringUtils::URLEncode(m_spotPrice.c_str()) << "&";
   }
+
   if(m_typeHasBeenSet)
   {
       oStream << location << index << locationValue << ".Type=" << SpotInstanceTypeMapper::GetNameForSpotInstanceType(m_type) << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << SpotInstanceStateMapper::GetNameForSpotInstanceState(m_state) << "&";
   }
+
   if(m_faultHasBeenSet)
   {
       Aws::StringStream faultLocationAndMemberSs;
       faultLocationAndMemberSs << location << index << locationValue << ".Fault";
       m_fault.OutputToStream(oStream, faultLocationAndMemberSs.str().c_str());
   }
+
   if(m_statusHasBeenSet)
   {
       Aws::StringStream statusLocationAndMemberSs;
       statusLocationAndMemberSs << location << index << locationValue << ".Status";
       m_status.OutputToStream(oStream, statusLocationAndMemberSs.str().c_str());
   }
+
   if(m_validFromHasBeenSet)
   {
       oStream << location << index << locationValue << ".ValidFrom=" << StringUtils::URLEncode(m_validFrom.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_validUntilHasBeenSet)
   {
       oStream << location << index << locationValue << ".ValidUntil=" << StringUtils::URLEncode(m_validUntil.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_launchGroupHasBeenSet)
   {
       oStream << location << index << locationValue << ".LaunchGroup=" << StringUtils::URLEncode(m_launchGroup.c_str()) << "&";
   }
+
   if(m_availabilityZoneGroupHasBeenSet)
   {
       oStream << location << index << locationValue << ".AvailabilityZoneGroup=" << StringUtils::URLEncode(m_availabilityZoneGroup.c_str()) << "&";
   }
+
   if(m_launchSpecificationHasBeenSet)
   {
       Aws::StringStream launchSpecificationLocationAndMemberSs;
       launchSpecificationLocationAndMemberSs << location << index << locationValue << ".LaunchSpecification";
       m_launchSpecification.OutputToStream(oStream, launchSpecificationLocationAndMemberSs.str().c_str());
   }
+
   if(m_instanceIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
+
   if(m_createTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".CreateTime=" << StringUtils::URLEncode(m_createTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_productDescriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".ProductDescription=" << RIProductDescriptionMapper::GetNameForRIProductDescription(m_productDescription) << "&";
   }
+
   if(m_blockDurationMinutesHasBeenSet)
   {
       oStream << location << index << locationValue << ".BlockDurationMinutes=" << m_blockDurationMinutes << "&";
   }
+
   if(m_actualBlockHourlyPriceHasBeenSet)
   {
       oStream << location << index << locationValue << ".ActualBlockHourlyPrice=" << StringUtils::URLEncode(m_actualBlockHourlyPrice.c_str()) << "&";
   }
+
   if(m_tagsHasBeenSet)
   {
       unsigned tagsIdx = 1;
@@ -283,10 +305,12 @@ void SpotInstanceRequest::OutputToStream(Aws::OStream& oStream, const char* loca
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
   }
+
   if(m_launchedAvailabilityZoneHasBeenSet)
   {
       oStream << location << index << locationValue << ".LaunchedAvailabilityZone=" << StringUtils::URLEncode(m_launchedAvailabilityZone.c_str()) << "&";
   }
+
 }
 
 void SpotInstanceRequest::OutputToStream(Aws::OStream& oStream, const char* location) const

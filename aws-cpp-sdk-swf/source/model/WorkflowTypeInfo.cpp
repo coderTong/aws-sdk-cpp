@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 WorkflowTypeInfo::WorkflowTypeInfo() : 
     m_workflowTypeHasBeenSet(false),
+    m_status(RegistrationStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_creationDateHasBeenSet(false),
@@ -38,6 +39,7 @@ WorkflowTypeInfo::WorkflowTypeInfo() :
 
 WorkflowTypeInfo::WorkflowTypeInfo(const JsonValue& jsonValue) : 
     m_workflowTypeHasBeenSet(false),
+    m_status(RegistrationStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_creationDateHasBeenSet(false),

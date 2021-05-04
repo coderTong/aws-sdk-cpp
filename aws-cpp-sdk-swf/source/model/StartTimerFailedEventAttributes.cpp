@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 StartTimerFailedEventAttributes::StartTimerFailedEventAttributes() : 
     m_timerIdHasBeenSet(false),
+    m_cause(StartTimerFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)
@@ -37,6 +38,7 @@ StartTimerFailedEventAttributes::StartTimerFailedEventAttributes() :
 
 StartTimerFailedEventAttributes::StartTimerFailedEventAttributes(const JsonValue& jsonValue) : 
     m_timerIdHasBeenSet(false),
+    m_cause(StartTimerFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -35,53 +35,53 @@ namespace Model
     Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline void SetLogGroupName(const Aws::String& value) { m_logGroupNameHasBeenSet = true; m_logGroupName = value; }
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline void SetLogGroupName(Aws::String&& value) { m_logGroupNameHasBeenSet = true; m_logGroupName = value; }
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline void SetLogGroupName(const char* value) { m_logGroupNameHasBeenSet = true; m_logGroupName.assign(value); }
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline PutRetentionPolicyRequest& WithLogGroupName(const Aws::String& value) { SetLogGroupName(value); return *this;}
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline PutRetentionPolicyRequest& WithLogGroupName(Aws::String&& value) { SetLogGroupName(value); return *this;}
 
     /**
-     * <p>The name of the log group to associate the retention policy with.</p>
+     * <p>The name of the log group.</p>
      */
     inline PutRetentionPolicyRequest& WithLogGroupName(const char* value) { SetLogGroupName(value); return *this;}
 
     
-    inline long GetRetentionInDays() const{ return m_retentionInDays; }
+    inline int GetRetentionInDays() const{ return m_retentionInDays; }
 
     
-    inline void SetRetentionInDays(long value) { m_retentionInDaysHasBeenSet = true; m_retentionInDays = value; }
+    inline void SetRetentionInDays(int value) { m_retentionInDaysHasBeenSet = true; m_retentionInDays = value; }
 
     
-    inline PutRetentionPolicyRequest& WithRetentionInDays(long value) { SetRetentionInDays(value); return *this;}
+    inline PutRetentionPolicyRequest& WithRetentionInDays(int value) { SetRetentionInDays(value); return *this;}
 
   private:
     Aws::String m_logGroupName;
     bool m_logGroupNameHasBeenSet;
-    long m_retentionInDays;
+    int m_retentionInDays;
     bool m_retentionInDaysHasBeenSet;
   };
 

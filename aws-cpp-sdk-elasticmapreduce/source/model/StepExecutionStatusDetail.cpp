@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 StepExecutionStatusDetail::StepExecutionStatusDetail() : 
+    m_state(StepExecutionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_startDateTimeHasBeenSet(false),
@@ -37,6 +38,7 @@ StepExecutionStatusDetail::StepExecutionStatusDetail() :
 }
 
 StepExecutionStatusDetail::StepExecutionStatusDetail(const JsonValue& jsonValue) : 
+    m_state(StepExecutionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_startDateTimeHasBeenSet(false),

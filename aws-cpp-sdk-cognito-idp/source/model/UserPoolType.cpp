@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ UserPoolType::UserPoolType() :
     m_nameHasBeenSet(false),
     m_policiesHasBeenSet(false),
     m_lambdaConfigHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastModifiedDateHasBeenSet(false),
     m_creationDateHasBeenSet(false),
@@ -42,9 +43,16 @@ UserPoolType::UserPoolType() :
     m_emailVerificationMessageHasBeenSet(false),
     m_emailVerificationSubjectHasBeenSet(false),
     m_smsAuthenticationMessageHasBeenSet(false),
+    m_mfaConfiguration(UserPoolMfaType::NOT_SET),
     m_mfaConfigurationHasBeenSet(false),
+    m_deviceConfigurationHasBeenSet(false),
     m_estimatedNumberOfUsers(0),
-    m_estimatedNumberOfUsersHasBeenSet(false)
+    m_estimatedNumberOfUsersHasBeenSet(false),
+    m_emailConfigurationHasBeenSet(false),
+    m_smsConfigurationHasBeenSet(false),
+    m_smsConfigurationFailureHasBeenSet(false),
+    m_emailConfigurationFailureHasBeenSet(false),
+    m_adminCreateUserConfigHasBeenSet(false)
 {
 }
 
@@ -53,6 +61,7 @@ UserPoolType::UserPoolType(const JsonValue& jsonValue) :
     m_nameHasBeenSet(false),
     m_policiesHasBeenSet(false),
     m_lambdaConfigHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastModifiedDateHasBeenSet(false),
     m_creationDateHasBeenSet(false),
@@ -63,9 +72,16 @@ UserPoolType::UserPoolType(const JsonValue& jsonValue) :
     m_emailVerificationMessageHasBeenSet(false),
     m_emailVerificationSubjectHasBeenSet(false),
     m_smsAuthenticationMessageHasBeenSet(false),
+    m_mfaConfiguration(UserPoolMfaType::NOT_SET),
     m_mfaConfigurationHasBeenSet(false),
+    m_deviceConfigurationHasBeenSet(false),
     m_estimatedNumberOfUsers(0),
-    m_estimatedNumberOfUsersHasBeenSet(false)
+    m_estimatedNumberOfUsersHasBeenSet(false),
+    m_emailConfigurationHasBeenSet(false),
+    m_smsConfigurationHasBeenSet(false),
+    m_smsConfigurationFailureHasBeenSet(false),
+    m_emailConfigurationFailureHasBeenSet(false),
+    m_adminCreateUserConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -186,11 +202,53 @@ UserPoolType& UserPoolType::operator =(const JsonValue& jsonValue)
     m_mfaConfigurationHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("DeviceConfiguration"))
+  {
+    m_deviceConfiguration = jsonValue.GetObject("DeviceConfiguration");
+
+    m_deviceConfigurationHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("EstimatedNumberOfUsers"))
   {
     m_estimatedNumberOfUsers = jsonValue.GetInteger("EstimatedNumberOfUsers");
 
     m_estimatedNumberOfUsersHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("EmailConfiguration"))
+  {
+    m_emailConfiguration = jsonValue.GetObject("EmailConfiguration");
+
+    m_emailConfigurationHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("SmsConfiguration"))
+  {
+    m_smsConfiguration = jsonValue.GetObject("SmsConfiguration");
+
+    m_smsConfigurationHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("SmsConfigurationFailure"))
+  {
+    m_smsConfigurationFailure = jsonValue.GetString("SmsConfigurationFailure");
+
+    m_smsConfigurationFailureHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("EmailConfigurationFailure"))
+  {
+    m_emailConfigurationFailure = jsonValue.GetString("EmailConfigurationFailure");
+
+    m_emailConfigurationFailureHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("AdminCreateUserConfig"))
+  {
+    m_adminCreateUserConfig = jsonValue.GetObject("AdminCreateUserConfig");
+
+    m_adminCreateUserConfigHasBeenSet = true;
   }
 
   return *this;
@@ -301,9 +359,45 @@ JsonValue UserPoolType::Jsonize() const
    payload.WithString("MfaConfiguration", UserPoolMfaTypeMapper::GetNameForUserPoolMfaType(m_mfaConfiguration));
   }
 
+  if(m_deviceConfigurationHasBeenSet)
+  {
+   payload.WithObject("DeviceConfiguration", m_deviceConfiguration.Jsonize());
+
+  }
+
   if(m_estimatedNumberOfUsersHasBeenSet)
   {
    payload.WithInteger("EstimatedNumberOfUsers", m_estimatedNumberOfUsers);
+
+  }
+
+  if(m_emailConfigurationHasBeenSet)
+  {
+   payload.WithObject("EmailConfiguration", m_emailConfiguration.Jsonize());
+
+  }
+
+  if(m_smsConfigurationHasBeenSet)
+  {
+   payload.WithObject("SmsConfiguration", m_smsConfiguration.Jsonize());
+
+  }
+
+  if(m_smsConfigurationFailureHasBeenSet)
+  {
+   payload.WithString("SmsConfigurationFailure", m_smsConfigurationFailure);
+
+  }
+
+  if(m_emailConfigurationFailureHasBeenSet)
+  {
+   payload.WithString("EmailConfigurationFailure", m_emailConfigurationFailure);
+
+  }
+
+  if(m_adminCreateUserConfigHasBeenSet)
+  {
+   payload.WithObject("AdminCreateUserConfig", m_adminCreateUserConfig.Jsonize());
 
   }
 

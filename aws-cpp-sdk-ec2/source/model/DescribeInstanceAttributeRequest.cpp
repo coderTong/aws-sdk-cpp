@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ DescribeInstanceAttributeRequest::DescribeInstanceAttributeRequest() :
     m_dryRun(false),
     m_dryRunHasBeenSet(false),
     m_instanceIdHasBeenSet(false),
+    m_attribute(InstanceAttributeName::NOT_SET),
     m_attributeHasBeenSet(false)
 {
 }
@@ -35,14 +36,17 @@ Aws::String DescribeInstanceAttributeRequest::SerializePayload() const
   {
     ss << "DryRun=" << m_dryRun << "&";
   }
+
   if(m_instanceIdHasBeenSet)
   {
     ss << "InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
+
   if(m_attributeHasBeenSet)
   {
     ss << "Attribute=" << InstanceAttributeNameMapper::GetNameForInstanceAttributeName(m_attribute) << "&";
   }
+
   ss << "Version=2015-10-01";
   return ss.str();
 }

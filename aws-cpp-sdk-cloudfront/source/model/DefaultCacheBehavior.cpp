@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ DefaultCacheBehavior::DefaultCacheBehavior() :
     m_targetOriginIdHasBeenSet(false),
     m_forwardedValuesHasBeenSet(false),
     m_trustedSignersHasBeenSet(false),
+    m_viewerProtocolPolicy(ViewerProtocolPolicy::NOT_SET),
     m_viewerProtocolPolicyHasBeenSet(false),
     m_minTTL(0),
     m_minTTLHasBeenSet(false),
@@ -52,6 +53,7 @@ DefaultCacheBehavior::DefaultCacheBehavior(const XmlNode& xmlNode) :
     m_targetOriginIdHasBeenSet(false),
     m_forwardedValuesHasBeenSet(false),
     m_trustedSignersHasBeenSet(false),
+    m_viewerProtocolPolicy(ViewerProtocolPolicy::NOT_SET),
     m_viewerProtocolPolicyHasBeenSet(false),
     m_minTTL(0),
     m_minTTLHasBeenSet(false),

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,7 +27,9 @@ CreateGameSessionRequest::CreateGameSessionRequest() :
     m_maximumPlayerSessionCount(0),
     m_maximumPlayerSessionCountHasBeenSet(false),
     m_nameHasBeenSet(false),
-    m_gamePropertiesHasBeenSet(false)
+    m_gamePropertiesHasBeenSet(false),
+    m_creatorIdHasBeenSet(false),
+    m_gameSessionIdHasBeenSet(false)
 {
 }
 
@@ -67,6 +69,18 @@ Aws::String CreateGameSessionRequest::SerializePayload() const
      gamePropertiesJsonList[gamePropertiesIndex].AsObject(m_gameProperties[gamePropertiesIndex].Jsonize());
    }
    payload.WithArray("GameProperties", std::move(gamePropertiesJsonList));
+
+  }
+
+  if(m_creatorIdHasBeenSet)
+  {
+   payload.WithString("CreatorId", m_creatorId);
+
+  }
+
+  if(m_gameSessionIdHasBeenSet)
+  {
+   payload.WithString("GameSessionId", m_gameSessionId);
 
   }
 

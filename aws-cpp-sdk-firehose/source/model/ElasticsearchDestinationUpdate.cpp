@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ ElasticsearchDestinationUpdate::ElasticsearchDestinationUpdate() :
     m_domainARNHasBeenSet(false),
     m_indexNameHasBeenSet(false),
     m_typeNameHasBeenSet(false),
+    m_indexRotationPeriod(ElasticsearchIndexRotationPeriod::NOT_SET),
     m_indexRotationPeriodHasBeenSet(false),
     m_bufferingHintsHasBeenSet(false),
     m_retryOptionsHasBeenSet(false),
@@ -45,6 +46,7 @@ ElasticsearchDestinationUpdate::ElasticsearchDestinationUpdate(const JsonValue& 
     m_domainARNHasBeenSet(false),
     m_indexNameHasBeenSet(false),
     m_typeNameHasBeenSet(false),
+    m_indexRotationPeriod(ElasticsearchIndexRotationPeriod::NOT_SET),
     m_indexRotationPeriodHasBeenSet(false),
     m_bufferingHintsHasBeenSet(false),
     m_retryOptionsHasBeenSet(false),

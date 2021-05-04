@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -21,7 +21,8 @@ using namespace Aws::Utils;
 
 DeleteStackRequest::DeleteStackRequest() : 
     m_stackNameHasBeenSet(false),
-    m_retainResourcesHasBeenSet(false)
+    m_retainResourcesHasBeenSet(false),
+    m_roleARNHasBeenSet(false)
 {
 }
 
@@ -33,6 +34,7 @@ Aws::String DeleteStackRequest::SerializePayload() const
   {
     ss << "StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
   }
+
   if(m_retainResourcesHasBeenSet)
   {
     unsigned retainResourcesCount = 1;
@@ -43,6 +45,12 @@ Aws::String DeleteStackRequest::SerializePayload() const
       retainResourcesCount++;
     }
   }
+
+  if(m_roleARNHasBeenSet)
+  {
+    ss << "RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
+  }
+
   ss << "Version=2010-05-15";
   return ss.str();
 }

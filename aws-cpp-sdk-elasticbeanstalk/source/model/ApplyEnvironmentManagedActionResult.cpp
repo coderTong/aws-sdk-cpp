@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,11 +26,13 @@ using namespace Aws::Utils::Logging;
 using namespace Aws::Utils;
 using namespace Aws;
 
-ApplyEnvironmentManagedActionResult::ApplyEnvironmentManagedActionResult()
+ApplyEnvironmentManagedActionResult::ApplyEnvironmentManagedActionResult() : 
+    m_actionType(ActionType::NOT_SET)
 {
 }
 
-ApplyEnvironmentManagedActionResult::ApplyEnvironmentManagedActionResult(const AmazonWebServiceResult<XmlDocument>& result)
+ApplyEnvironmentManagedActionResult::ApplyEnvironmentManagedActionResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_actionType(ActionType::NOT_SET)
 {
   *this = result;
 }

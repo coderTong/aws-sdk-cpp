@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -70,37 +70,37 @@ namespace Model
     inline SetPermissionRequest& WithStackId(const char* value) { SetStackId(value); return *this;}
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(const Aws::String& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = value; }
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(Aws::String&& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = value; }
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline void SetIamUserArn(const char* value) { m_iamUserArnHasBeenSet = true; m_iamUserArn.assign(value); }
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline SetPermissionRequest& WithIamUserArn(const Aws::String& value) { SetIamUserArn(value); return *this;}
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline SetPermissionRequest& WithIamUserArn(Aws::String&& value) { SetIamUserArn(value); return *this;}
 
     /**
-     * <p>The user's IAM ARN.</p>
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline SetPermissionRequest& WithIamUserArn(const char* value) { SetIamUserArn(value); return *this;}
 
@@ -136,10 +136,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -147,10 +148,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -158,10 +160,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -169,10 +172,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -180,10 +184,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -191,10 +196,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */
@@ -202,10 +208,11 @@ namespace Model
 
     /**
      * <p>The user's permission level, which must be set to one of the following
-     * strings. You cannot set your own permissions level.</p> <ul> <li>
-     * <code>deny</code> </li> <li> <code>show</code> </li> <li> <code>deploy</code>
-     * </li> <li> <code>manage</code> </li> <li> <code>iam_only</code> </li> </ul>
-     * <p>For more information on the permissions associated with these levels, see <a
+     * strings. You cannot set your own permissions level.</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a>.</p>
      */

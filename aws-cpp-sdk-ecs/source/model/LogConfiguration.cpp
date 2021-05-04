@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 LogConfiguration::LogConfiguration() : 
+    m_logDriver(LogDriver::NOT_SET),
     m_logDriverHasBeenSet(false),
     m_optionsHasBeenSet(false)
 {
 }
 
 LogConfiguration::LogConfiguration(const JsonValue& jsonValue) : 
+    m_logDriver(LogDriver::NOT_SET),
     m_logDriverHasBeenSet(false),
     m_optionsHasBeenSet(false)
 {

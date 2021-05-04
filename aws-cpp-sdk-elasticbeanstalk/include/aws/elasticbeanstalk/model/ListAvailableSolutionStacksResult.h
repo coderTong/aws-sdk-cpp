@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,7 +36,7 @@ namespace ElasticBeanstalk
 namespace Model
 {
   /**
-   * <p>A list of available AWS Elastic Beanstalk solution stacks. </p>
+   * <p>A list of available AWS Elastic Beanstalk solution stacks.</p>
    */
   class AWS_ELASTICBEANSTALK_API ListAvailableSolutionStacksResult
   {
@@ -46,42 +46,42 @@ namespace Model
     ListAvailableSolutionStacksResult& operator=(const AmazonWebServiceResult<Aws::Utils::Xml::XmlDocument>& result);
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSolutionStacks() const{ return m_solutionStacks; }
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline void SetSolutionStacks(const Aws::Vector<Aws::String>& value) { m_solutionStacks = value; }
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline void SetSolutionStacks(Aws::Vector<Aws::String>&& value) { m_solutionStacks = value; }
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline ListAvailableSolutionStacksResult& WithSolutionStacks(const Aws::Vector<Aws::String>& value) { SetSolutionStacks(value); return *this;}
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline ListAvailableSolutionStacksResult& WithSolutionStacks(Aws::Vector<Aws::String>&& value) { SetSolutionStacks(value); return *this;}
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline ListAvailableSolutionStacksResult& AddSolutionStacks(const Aws::String& value) { m_solutionStacks.push_back(value); return *this; }
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline ListAvailableSolutionStacksResult& AddSolutionStacks(Aws::String&& value) { m_solutionStacks.push_back(value); return *this; }
 
     /**
-     * <p> A list of available solution stacks. </p>
+     * <p>A list of available solution stacks.</p>
      */
     inline ListAvailableSolutionStacksResult& AddSolutionStacks(const char* value) { m_solutionStacks.push_back(value); return *this; }
 

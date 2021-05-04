@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 FailedCreateAssociation::FailedCreateAssociation() : 
     m_entryHasBeenSet(false),
     m_messageHasBeenSet(false),
+    m_fault(Fault::NOT_SET),
     m_faultHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ FailedCreateAssociation::FailedCreateAssociation() :
 FailedCreateAssociation::FailedCreateAssociation(const JsonValue& jsonValue) : 
     m_entryHasBeenSet(false),
     m_messageHasBeenSet(false),
+    m_fault(Fault::NOT_SET),
     m_faultHasBeenSet(false)
 {
   *this = jsonValue;

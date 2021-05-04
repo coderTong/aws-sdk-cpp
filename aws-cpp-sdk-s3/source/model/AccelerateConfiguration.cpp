@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,11 +30,13 @@ namespace Model
 {
 
 AccelerateConfiguration::AccelerateConfiguration() : 
+    m_status(BucketAccelerateStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
 }
 
 AccelerateConfiguration::AccelerateConfiguration(const XmlNode& xmlNode) : 
+    m_status(BucketAccelerateStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
   *this = xmlNode;

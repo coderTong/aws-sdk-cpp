@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,8 @@ CreateStackRequest::CreateStackRequest() :
     m_notificationARNsHasBeenSet(false),
     m_capabilitiesHasBeenSet(false),
     m_resourceTypesHasBeenSet(false),
+    m_roleARNHasBeenSet(false),
+    m_onFailure(OnFailure::NOT_SET),
     m_onFailureHasBeenSet(false),
     m_stackPolicyBodyHasBeenSet(false),
     m_stackPolicyURLHasBeenSet(false),
@@ -46,14 +48,17 @@ Aws::String CreateStackRequest::SerializePayload() const
   {
     ss << "StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
   }
+
   if(m_templateBodyHasBeenSet)
   {
     ss << "TemplateBody=" << StringUtils::URLEncode(m_templateBody.c_str()) << "&";
   }
+
   if(m_templateURLHasBeenSet)
   {
     ss << "TemplateURL=" << StringUtils::URLEncode(m_templateURL.c_str()) << "&";
   }
+
   if(m_parametersHasBeenSet)
   {
     unsigned parametersCount = 1;
@@ -63,14 +68,17 @@ Aws::String CreateStackRequest::SerializePayload() const
       parametersCount++;
     }
   }
+
   if(m_disableRollbackHasBeenSet)
   {
     ss << "DisableRollback=" << m_disableRollback << "&";
   }
+
   if(m_timeoutInMinutesHasBeenSet)
   {
     ss << "TimeoutInMinutes=" << m_timeoutInMinutes << "&";
   }
+
   if(m_notificationARNsHasBeenSet)
   {
     unsigned notificationARNsCount = 1;
@@ -81,6 +89,7 @@ Aws::String CreateStackRequest::SerializePayload() const
       notificationARNsCount++;
     }
   }
+
   if(m_capabilitiesHasBeenSet)
   {
     unsigned capabilitiesCount = 1;
@@ -91,6 +100,7 @@ Aws::String CreateStackRequest::SerializePayload() const
       capabilitiesCount++;
     }
   }
+
   if(m_resourceTypesHasBeenSet)
   {
     unsigned resourceTypesCount = 1;
@@ -101,18 +111,27 @@ Aws::String CreateStackRequest::SerializePayload() const
       resourceTypesCount++;
     }
   }
+
+  if(m_roleARNHasBeenSet)
+  {
+    ss << "RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
+  }
+
   if(m_onFailureHasBeenSet)
   {
     ss << "OnFailure=" << OnFailureMapper::GetNameForOnFailure(m_onFailure) << "&";
   }
+
   if(m_stackPolicyBodyHasBeenSet)
   {
     ss << "StackPolicyBody=" << StringUtils::URLEncode(m_stackPolicyBody.c_str()) << "&";
   }
+
   if(m_stackPolicyURLHasBeenSet)
   {
     ss << "StackPolicyURL=" << StringUtils::URLEncode(m_stackPolicyURL.c_str()) << "&";
   }
+
   if(m_tagsHasBeenSet)
   {
     unsigned tagsCount = 1;
@@ -122,6 +141,7 @@ Aws::String CreateStackRequest::SerializePayload() const
       tagsCount++;
     }
   }
+
   ss << "Version=2010-05-15";
   return ss.str();
 }

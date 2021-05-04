@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 
 DescribeExportTasksRequest::DescribeExportTasksRequest() : 
     m_taskIdHasBeenSet(false),
+    m_statusCode(ExportTaskStatusCode::NOT_SET),
     m_statusCodeHasBeenSet(false),
     m_nextTokenHasBeenSet(false),
     m_limit(0),

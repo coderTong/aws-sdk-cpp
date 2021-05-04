@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,6 +26,7 @@ ConnectDirectoryRequest::ConnectDirectoryRequest() :
     m_shortNameHasBeenSet(false),
     m_passwordHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_size(DirectorySize::NOT_SET),
     m_sizeHasBeenSet(false),
     m_connectSettingsHasBeenSet(false)
 {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -246,74 +246,74 @@ namespace Model
     inline DescribeEventsRequest& WithEnvironmentName(const char* value) { SetEnvironmentName(value); return *this;}
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline const Aws::String& GetRequestId() const{ return m_requestId; }
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline void SetRequestId(const Aws::String& value) { m_requestIdHasBeenSet = true; m_requestId = value; }
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline void SetRequestId(Aws::String&& value) { m_requestIdHasBeenSet = true; m_requestId = value; }
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline void SetRequestId(const char* value) { m_requestIdHasBeenSet = true; m_requestId.assign(value); }
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline DescribeEventsRequest& WithRequestId(const Aws::String& value) { SetRequestId(value); return *this;}
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline DescribeEventsRequest& WithRequestId(Aws::String&& value) { SetRequestId(value); return *this;}
 
     /**
-     * <p> If specified, AWS Elastic Beanstalk restricts the described events to
-     * include only those associated with this request ID. </p>
+     * <p>If specified, AWS Elastic Beanstalk restricts the described events to include
+     * only those associated with this request ID.</p>
      */
     inline DescribeEventsRequest& WithRequestId(const char* value) { SetRequestId(value); return *this;}
 
     /**
-     * <p> If specified, limits the events returned from this call to include only
-     * those with the specified severity or higher. </p>
+     * <p>If specified, limits the events returned from this call to include only those
+     * with the specified severity or higher.</p>
      */
     inline const EventSeverity& GetSeverity() const{ return m_severity; }
 
     /**
-     * <p> If specified, limits the events returned from this call to include only
-     * those with the specified severity or higher. </p>
+     * <p>If specified, limits the events returned from this call to include only those
+     * with the specified severity or higher.</p>
      */
     inline void SetSeverity(const EventSeverity& value) { m_severityHasBeenSet = true; m_severity = value; }
 
     /**
-     * <p> If specified, limits the events returned from this call to include only
-     * those with the specified severity or higher. </p>
+     * <p>If specified, limits the events returned from this call to include only those
+     * with the specified severity or higher.</p>
      */
     inline void SetSeverity(EventSeverity&& value) { m_severityHasBeenSet = true; m_severity = value; }
 
     /**
-     * <p> If specified, limits the events returned from this call to include only
-     * those with the specified severity or higher. </p>
+     * <p>If specified, limits the events returned from this call to include only those
+     * with the specified severity or higher.</p>
      */
     inline DescribeEventsRequest& WithSeverity(const EventSeverity& value) { SetSeverity(value); return *this;}
 
     /**
-     * <p> If specified, limits the events returned from this call to include only
-     * those with the specified severity or higher. </p>
+     * <p>If specified, limits the events returned from this call to include only those
+     * with the specified severity or higher.</p>
      */
     inline DescribeEventsRequest& WithSeverity(EventSeverity&& value) { SetSeverity(value); return *this;}
 
@@ -378,62 +378,62 @@ namespace Model
     inline DescribeEventsRequest& WithEndTime(Aws::Utils::DateTime&& value) { SetEndTime(value); return *this;}
 
     /**
-     * <p> Specifies the maximum number of events that can be returned, beginning with
-     * the most recent event. </p>
+     * <p>Specifies the maximum number of events that can be returned, beginning with
+     * the most recent event.</p>
      */
-    inline long GetMaxRecords() const{ return m_maxRecords; }
+    inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
-     * <p> Specifies the maximum number of events that can be returned, beginning with
-     * the most recent event. </p>
+     * <p>Specifies the maximum number of events that can be returned, beginning with
+     * the most recent event.</p>
      */
-    inline void SetMaxRecords(long value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
+    inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
-     * <p> Specifies the maximum number of events that can be returned, beginning with
-     * the most recent event. </p>
+     * <p>Specifies the maximum number of events that can be returned, beginning with
+     * the most recent event.</p>
      */
-    inline DescribeEventsRequest& WithMaxRecords(long value) { SetMaxRecords(value); return *this;}
+    inline DescribeEventsRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline void SetNextToken(Aws::String&& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline void SetNextToken(const char* value) { m_nextTokenHasBeenSet = true; m_nextToken.assign(value); }
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline DescribeEventsRequest& WithNextToken(const Aws::String& value) { SetNextToken(value); return *this;}
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline DescribeEventsRequest& WithNextToken(Aws::String&& value) { SetNextToken(value); return *this;}
 
     /**
-     * <p> Pagination token. If specified, the events return the next batch of results.
-     * </p>
+     * <p>Pagination token. If specified, the events return the next batch of
+     * results.</p>
      */
     inline DescribeEventsRequest& WithNextToken(const char* value) { SetNextToken(value); return *this;}
 
@@ -456,7 +456,7 @@ namespace Model
     bool m_startTimeHasBeenSet;
     Aws::Utils::DateTime m_endTime;
     bool m_endTimeHasBeenSet;
-    long m_maxRecords;
+    int m_maxRecords;
     bool m_maxRecordsHasBeenSet;
     Aws::String m_nextToken;
     bool m_nextTokenHasBeenSet;

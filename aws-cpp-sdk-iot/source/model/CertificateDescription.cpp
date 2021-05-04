@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ CertificateDescription::CertificateDescription() :
     m_certificateArnHasBeenSet(false),
     m_certificateIdHasBeenSet(false),
     m_caCertificateIdHasBeenSet(false),
+    m_status(CertificateStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_certificatePemHasBeenSet(false),
     m_ownedByHasBeenSet(false),
@@ -45,6 +46,7 @@ CertificateDescription::CertificateDescription(const JsonValue& jsonValue) :
     m_certificateArnHasBeenSet(false),
     m_certificateIdHasBeenSet(false),
     m_caCertificateIdHasBeenSet(false),
+    m_status(CertificateStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_certificatePemHasBeenSet(false),
     m_ownedByHasBeenSet(false),

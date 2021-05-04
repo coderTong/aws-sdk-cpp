@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ OptionStatus::OptionStatus() :
     m_updateDateHasBeenSet(false),
     m_updateVersion(0),
     m_updateVersionHasBeenSet(false),
+    m_state(OptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_pendingDeletion(false),
     m_pendingDeletionHasBeenSet(false)
@@ -45,6 +46,7 @@ OptionStatus::OptionStatus(const XmlNode& xmlNode) :
     m_updateDateHasBeenSet(false),
     m_updateVersion(0),
     m_updateVersionHasBeenSet(false),
+    m_state(OptionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_pendingDeletion(false),
     m_pendingDeletionHasBeenSet(false)
@@ -99,22 +101,27 @@ void OptionStatus::OutputToStream(Aws::OStream& oStream, const char* location, u
   {
       oStream << location << index << locationValue << ".CreationDate=" << StringUtils::URLEncode(m_creationDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_updateDateHasBeenSet)
   {
       oStream << location << index << locationValue << ".UpdateDate=" << StringUtils::URLEncode(m_updateDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_updateVersionHasBeenSet)
   {
       oStream << location << index << locationValue << ".UpdateVersion=" << m_updateVersion << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << OptionStateMapper::GetNameForOptionState(m_state) << "&";
   }
+
   if(m_pendingDeletionHasBeenSet)
   {
       oStream << location << index << locationValue << ".PendingDeletion=" << m_pendingDeletion << "&";
   }
+
 }
 
 void OptionStatus::OutputToStream(Aws::OStream& oStream, const char* location) const

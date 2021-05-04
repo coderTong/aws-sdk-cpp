@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -43,65 +43,65 @@ namespace Model
 
     /**
      * <p>The upper limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that can be running in a service during a
-     * deployment. The maximum number of tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the <code>maximumPercent</code>/100,
-     * rounded down to the nearest integer value.</p>
+     * of the number of tasks that are allowed in the <code>RUNNING</code> or
+     * <code>PENDING</code> state in a service during a deployment. The maximum number
+     * of tasks during a deployment is the <code>desiredCount</code> multiplied by the
+     * <code>maximumPercent</code>/100, rounded down to the nearest integer value.</p>
      */
-    inline long GetMaximumPercent() const{ return m_maximumPercent; }
+    inline int GetMaximumPercent() const{ return m_maximumPercent; }
 
     /**
      * <p>The upper limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that can be running in a service during a
-     * deployment. The maximum number of tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the <code>maximumPercent</code>/100,
-     * rounded down to the nearest integer value.</p>
+     * of the number of tasks that are allowed in the <code>RUNNING</code> or
+     * <code>PENDING</code> state in a service during a deployment. The maximum number
+     * of tasks during a deployment is the <code>desiredCount</code> multiplied by the
+     * <code>maximumPercent</code>/100, rounded down to the nearest integer value.</p>
      */
-    inline void SetMaximumPercent(long value) { m_maximumPercentHasBeenSet = true; m_maximumPercent = value; }
+    inline void SetMaximumPercent(int value) { m_maximumPercentHasBeenSet = true; m_maximumPercent = value; }
 
     /**
      * <p>The upper limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that can be running in a service during a
-     * deployment. The maximum number of tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the <code>maximumPercent</code>/100,
-     * rounded down to the nearest integer value.</p>
+     * of the number of tasks that are allowed in the <code>RUNNING</code> or
+     * <code>PENDING</code> state in a service during a deployment. The maximum number
+     * of tasks during a deployment is the <code>desiredCount</code> multiplied by the
+     * <code>maximumPercent</code>/100, rounded down to the nearest integer value.</p>
      */
-    inline DeploymentConfiguration& WithMaximumPercent(long value) { SetMaximumPercent(value); return *this;}
+    inline DeploymentConfiguration& WithMaximumPercent(int value) { SetMaximumPercent(value); return *this;}
 
     /**
      * <p>The lower limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that must remain running and healthy in a service
-     * during a deployment. The minimum healthy tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the
+     * of the number of running tasks that must remain in the <code>RUNNING</code>
+     * state in a service during a deployment. The minimum healthy tasks during a
+     * deployment is the <code>desiredCount</code> multiplied by the
      * <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
      * value.</p>
      */
-    inline long GetMinimumHealthyPercent() const{ return m_minimumHealthyPercent; }
+    inline int GetMinimumHealthyPercent() const{ return m_minimumHealthyPercent; }
 
     /**
      * <p>The lower limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that must remain running and healthy in a service
-     * during a deployment. The minimum healthy tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the
+     * of the number of running tasks that must remain in the <code>RUNNING</code>
+     * state in a service during a deployment. The minimum healthy tasks during a
+     * deployment is the <code>desiredCount</code> multiplied by the
      * <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
      * value.</p>
      */
-    inline void SetMinimumHealthyPercent(long value) { m_minimumHealthyPercentHasBeenSet = true; m_minimumHealthyPercent = value; }
+    inline void SetMinimumHealthyPercent(int value) { m_minimumHealthyPercentHasBeenSet = true; m_minimumHealthyPercent = value; }
 
     /**
      * <p>The lower limit (as a percentage of the service's <code>desiredCount</code>)
-     * of the number of running tasks that must remain running and healthy in a service
-     * during a deployment. The minimum healthy tasks during a deployment is the
-     * <code>desiredCount</code> multiplied by the
+     * of the number of running tasks that must remain in the <code>RUNNING</code>
+     * state in a service during a deployment. The minimum healthy tasks during a
+     * deployment is the <code>desiredCount</code> multiplied by the
      * <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
      * value.</p>
      */
-    inline DeploymentConfiguration& WithMinimumHealthyPercent(long value) { SetMinimumHealthyPercent(value); return *this;}
+    inline DeploymentConfiguration& WithMinimumHealthyPercent(int value) { SetMinimumHealthyPercent(value); return *this;}
 
   private:
-    long m_maximumPercent;
+    int m_maximumPercent;
     bool m_maximumPercentHasBeenSet;
-    long m_minimumHealthyPercent;
+    int m_minimumHealthyPercent;
     bool m_minimumHealthyPercentHasBeenSet;
   };
 

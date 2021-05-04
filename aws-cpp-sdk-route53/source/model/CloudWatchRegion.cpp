@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,10 +30,12 @@ namespace Aws
       {
 
         static const int us_east_1_HASH = HashingUtils::HashString("us-east-1");
+        static const int us_east_2_HASH = HashingUtils::HashString("us-east-2");
         static const int us_west_1_HASH = HashingUtils::HashString("us-west-1");
         static const int us_west_2_HASH = HashingUtils::HashString("us-west-2");
         static const int eu_central_1_HASH = HashingUtils::HashString("eu-central-1");
         static const int eu_west_1_HASH = HashingUtils::HashString("eu-west-1");
+        static const int ap_south_1_HASH = HashingUtils::HashString("ap-south-1");
         static const int ap_southeast_1_HASH = HashingUtils::HashString("ap-southeast-1");
         static const int ap_southeast_2_HASH = HashingUtils::HashString("ap-southeast-2");
         static const int ap_northeast_1_HASH = HashingUtils::HashString("ap-northeast-1");
@@ -47,6 +49,10 @@ namespace Aws
           if (hashCode == us_east_1_HASH)
           {
             return CloudWatchRegion::us_east_1;
+          }
+          else if (hashCode == us_east_2_HASH)
+          {
+            return CloudWatchRegion::us_east_2;
           }
           else if (hashCode == us_west_1_HASH)
           {
@@ -63,6 +69,10 @@ namespace Aws
           else if (hashCode == eu_west_1_HASH)
           {
             return CloudWatchRegion::eu_west_1;
+          }
+          else if (hashCode == ap_south_1_HASH)
+          {
+            return CloudWatchRegion::ap_south_1;
           }
           else if (hashCode == ap_southeast_1_HASH)
           {
@@ -100,6 +110,8 @@ namespace Aws
           {
           case CloudWatchRegion::us_east_1:
             return "us-east-1";
+          case CloudWatchRegion::us_east_2:
+            return "us-east-2";
           case CloudWatchRegion::us_west_1:
             return "us-west-1";
           case CloudWatchRegion::us_west_2:
@@ -108,6 +120,8 @@ namespace Aws
             return "eu-central-1";
           case CloudWatchRegion::eu_west_1:
             return "eu-west-1";
+          case CloudWatchRegion::ap_south_1:
+            return "ap-south-1";
           case CloudWatchRegion::ap_southeast_1:
             return "ap-southeast-1";
           case CloudWatchRegion::ap_southeast_2:

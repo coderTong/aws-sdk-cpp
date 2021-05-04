@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 VgwTelemetry::VgwTelemetry() : 
     m_outsideIpAddressHasBeenSet(false),
+    m_status(TelemetryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastStatusChangeHasBeenSet(false),
     m_statusMessageHasBeenSet(false),
@@ -41,6 +42,7 @@ VgwTelemetry::VgwTelemetry() :
 
 VgwTelemetry::VgwTelemetry(const XmlNode& xmlNode) : 
     m_outsideIpAddressHasBeenSet(false),
+    m_status(TelemetryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastStatusChangeHasBeenSet(false),
     m_statusMessageHasBeenSet(false),
@@ -97,22 +99,27 @@ void VgwTelemetry::OutputToStream(Aws::OStream& oStream, const char* location, u
   {
       oStream << location << index << locationValue << ".OutsideIpAddress=" << StringUtils::URLEncode(m_outsideIpAddress.c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << TelemetryStatusMapper::GetNameForTelemetryStatus(m_status) << "&";
   }
+
   if(m_lastStatusChangeHasBeenSet)
   {
       oStream << location << index << locationValue << ".LastStatusChange=" << StringUtils::URLEncode(m_lastStatusChange.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_statusMessageHasBeenSet)
   {
       oStream << location << index << locationValue << ".StatusMessage=" << StringUtils::URLEncode(m_statusMessage.c_str()) << "&";
   }
+
   if(m_acceptedRouteCountHasBeenSet)
   {
       oStream << location << index << locationValue << ".AcceptedRouteCount=" << m_acceptedRouteCount << "&";
   }
+
 }
 
 void VgwTelemetry::OutputToStream(Aws::OStream& oStream, const char* location) const

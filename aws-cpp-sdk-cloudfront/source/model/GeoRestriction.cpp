@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 GeoRestriction::GeoRestriction() : 
+    m_restrictionType(GeoRestrictionType::NOT_SET),
     m_restrictionTypeHasBeenSet(false),
     m_quantity(0),
     m_quantityHasBeenSet(false),
@@ -38,6 +39,7 @@ GeoRestriction::GeoRestriction() :
 }
 
 GeoRestriction::GeoRestriction(const XmlNode& xmlNode) : 
+    m_restrictionType(GeoRestrictionType::NOT_SET),
     m_restrictionTypeHasBeenSet(false),
     m_quantity(0),
     m_quantityHasBeenSet(false),

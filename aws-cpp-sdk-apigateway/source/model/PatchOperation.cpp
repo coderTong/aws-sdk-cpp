@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 PatchOperation::PatchOperation() : 
+    m_op(Op::NOT_SET),
     m_opHasBeenSet(false),
     m_pathHasBeenSet(false),
     m_valueHasBeenSet(false),
@@ -36,6 +37,7 @@ PatchOperation::PatchOperation() :
 }
 
 PatchOperation::PatchOperation(const JsonValue& jsonValue) : 
+    m_op(Op::NOT_SET),
     m_opHasBeenSet(false),
     m_pathHasBeenSet(false),
     m_valueHasBeenSet(false),

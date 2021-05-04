@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,9 +30,12 @@ namespace Model
 Suite::Suite() : 
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_type(TestType::NOT_SET),
     m_typeHasBeenSet(false),
     m_createdHasBeenSet(false),
+    m_status(ExecutionStatus::NOT_SET),
     m_statusHasBeenSet(false),
+    m_result(ExecutionResult::NOT_SET),
     m_resultHasBeenSet(false),
     m_startedHasBeenSet(false),
     m_stoppedHasBeenSet(false),
@@ -45,9 +48,12 @@ Suite::Suite() :
 Suite::Suite(const JsonValue& jsonValue) : 
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_type(TestType::NOT_SET),
     m_typeHasBeenSet(false),
     m_createdHasBeenSet(false),
+    m_status(ExecutionStatus::NOT_SET),
     m_statusHasBeenSet(false),
+    m_result(ExecutionResult::NOT_SET),
     m_resultHasBeenSet(false),
     m_startedHasBeenSet(false),
     m_stoppedHasBeenSet(false),

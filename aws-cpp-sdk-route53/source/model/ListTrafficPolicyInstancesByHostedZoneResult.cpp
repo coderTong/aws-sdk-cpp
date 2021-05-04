@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,11 +25,13 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 ListTrafficPolicyInstancesByHostedZoneResult::ListTrafficPolicyInstancesByHostedZoneResult() : 
+    m_trafficPolicyInstanceTypeMarker(RRType::NOT_SET),
     m_isTruncated(false)
 {
 }
 
 ListTrafficPolicyInstancesByHostedZoneResult::ListTrafficPolicyInstancesByHostedZoneResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_trafficPolicyInstanceTypeMarker(RRType::NOT_SET),
     m_isTruncated(false)
 {
   *this = result;

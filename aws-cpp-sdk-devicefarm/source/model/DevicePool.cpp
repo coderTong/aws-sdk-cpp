@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ DevicePool::DevicePool() :
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_type(DevicePoolType::NOT_SET),
     m_typeHasBeenSet(false),
     m_rulesHasBeenSet(false)
 {
@@ -40,6 +41,7 @@ DevicePool::DevicePool(const JsonValue& jsonValue) :
     m_arnHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_type(DevicePoolType::NOT_SET),
     m_typeHasBeenSet(false),
     m_rulesHasBeenSet(false)
 {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -41,6 +41,7 @@ VirtualInterface::VirtualInterface() :
     m_authKeyHasBeenSet(false),
     m_amazonAddressHasBeenSet(false),
     m_customerAddressHasBeenSet(false),
+    m_virtualInterfaceState(VirtualInterfaceState::NOT_SET),
     m_virtualInterfaceStateHasBeenSet(false),
     m_customerRouterConfigHasBeenSet(false),
     m_virtualGatewayIdHasBeenSet(false),
@@ -62,6 +63,7 @@ VirtualInterface::VirtualInterface(const JsonValue& jsonValue) :
     m_authKeyHasBeenSet(false),
     m_amazonAddressHasBeenSet(false),
     m_customerAddressHasBeenSet(false),
+    m_virtualInterfaceState(VirtualInterfaceState::NOT_SET),
     m_virtualInterfaceStateHasBeenSet(false),
     m_customerRouterConfigHasBeenSet(false),
     m_virtualGatewayIdHasBeenSet(false),

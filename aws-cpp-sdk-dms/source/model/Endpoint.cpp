@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 Endpoint::Endpoint() : 
     m_endpointIdentifierHasBeenSet(false),
+    m_endpointType(ReplicationEndpointTypeValue::NOT_SET),
     m_endpointTypeHasBeenSet(false),
     m_engineNameHasBeenSet(false),
     m_usernameHasBeenSet(false),
@@ -39,12 +40,16 @@ Endpoint::Endpoint() :
     m_extraConnectionAttributesHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_kmsKeyIdHasBeenSet(false),
-    m_endpointArnHasBeenSet(false)
+    m_endpointArnHasBeenSet(false),
+    m_certificateArnHasBeenSet(false),
+    m_sslMode(DmsSslModeValue::NOT_SET),
+    m_sslModeHasBeenSet(false)
 {
 }
 
 Endpoint::Endpoint(const JsonValue& jsonValue) : 
     m_endpointIdentifierHasBeenSet(false),
+    m_endpointType(ReplicationEndpointTypeValue::NOT_SET),
     m_endpointTypeHasBeenSet(false),
     m_engineNameHasBeenSet(false),
     m_usernameHasBeenSet(false),
@@ -55,7 +60,10 @@ Endpoint::Endpoint(const JsonValue& jsonValue) :
     m_extraConnectionAttributesHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_kmsKeyIdHasBeenSet(false),
-    m_endpointArnHasBeenSet(false)
+    m_endpointArnHasBeenSet(false),
+    m_certificateArnHasBeenSet(false),
+    m_sslMode(DmsSslModeValue::NOT_SET),
+    m_sslModeHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -139,6 +147,20 @@ Endpoint& Endpoint::operator =(const JsonValue& jsonValue)
     m_endpointArnHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("CertificateArn"))
+  {
+    m_certificateArn = jsonValue.GetString("CertificateArn");
+
+    m_certificateArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("SslMode"))
+  {
+    m_sslMode = DmsSslModeValueMapper::GetDmsSslModeValueForName(jsonValue.GetString("SslMode"));
+
+    m_sslModeHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -209,6 +231,17 @@ JsonValue Endpoint::Jsonize() const
   {
    payload.WithString("EndpointArn", m_endpointArn);
 
+  }
+
+  if(m_certificateArnHasBeenSet)
+  {
+   payload.WithString("CertificateArn", m_certificateArn);
+
+  }
+
+  if(m_sslModeHasBeenSet)
+  {
+   payload.WithString("SslMode", DmsSslModeValueMapper::GetNameForDmsSslModeValue(m_sslMode));
   }
 
   return payload;

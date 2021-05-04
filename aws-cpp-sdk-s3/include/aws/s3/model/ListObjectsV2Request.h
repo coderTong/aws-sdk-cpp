@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -17,6 +17,7 @@
 #include <aws/s3/S3Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/s3/model/EncodingType.h>
+#include <aws/s3/model/RequestPayer.h>
 
 namespace Aws
 {
@@ -38,6 +39,8 @@ namespace Model
     Aws::String SerializePayload() const override;
 
     void AddQueryStringParameters(Aws::Http::URI& uri) const override;
+
+    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
     /**
      * Name of the bucket to list.
@@ -138,19 +141,19 @@ namespace Model
      * Sets the maximum number of keys returned in the response. The response might
      * contain fewer keys but will never contain more.
      */
-    inline long GetMaxKeys() const{ return m_maxKeys; }
+    inline int GetMaxKeys() const{ return m_maxKeys; }
 
     /**
      * Sets the maximum number of keys returned in the response. The response might
      * contain fewer keys but will never contain more.
      */
-    inline void SetMaxKeys(long value) { m_maxKeysHasBeenSet = true; m_maxKeys = value; }
+    inline void SetMaxKeys(int value) { m_maxKeysHasBeenSet = true; m_maxKeys = value; }
 
     /**
      * Sets the maximum number of keys returned in the response. The response might
      * contain fewer keys but will never contain more.
      */
-    inline ListObjectsV2Request& WithMaxKeys(long value) { SetMaxKeys(value); return *this;}
+    inline ListObjectsV2Request& WithMaxKeys(int value) { SetMaxKeys(value); return *this;}
 
     /**
      * Limits the response to keys that begin with the specified prefix.
@@ -289,6 +292,41 @@ namespace Model
      */
     inline ListObjectsV2Request& WithStartAfter(const char* value) { SetStartAfter(value); return *this;}
 
+    /**
+     * Confirms that the requester knows that she or he will be charged for the list
+     * objects request in V2 style. Bucket owners need not specify this parameter in
+     * their requests.
+     */
+    inline const RequestPayer& GetRequestPayer() const{ return m_requestPayer; }
+
+    /**
+     * Confirms that the requester knows that she or he will be charged for the list
+     * objects request in V2 style. Bucket owners need not specify this parameter in
+     * their requests.
+     */
+    inline void SetRequestPayer(const RequestPayer& value) { m_requestPayerHasBeenSet = true; m_requestPayer = value; }
+
+    /**
+     * Confirms that the requester knows that she or he will be charged for the list
+     * objects request in V2 style. Bucket owners need not specify this parameter in
+     * their requests.
+     */
+    inline void SetRequestPayer(RequestPayer&& value) { m_requestPayerHasBeenSet = true; m_requestPayer = value; }
+
+    /**
+     * Confirms that the requester knows that she or he will be charged for the list
+     * objects request in V2 style. Bucket owners need not specify this parameter in
+     * their requests.
+     */
+    inline ListObjectsV2Request& WithRequestPayer(const RequestPayer& value) { SetRequestPayer(value); return *this;}
+
+    /**
+     * Confirms that the requester knows that she or he will be charged for the list
+     * objects request in V2 style. Bucket owners need not specify this parameter in
+     * their requests.
+     */
+    inline ListObjectsV2Request& WithRequestPayer(RequestPayer&& value) { SetRequestPayer(value); return *this;}
+
   private:
     Aws::String m_bucket;
     bool m_bucketHasBeenSet;
@@ -296,7 +334,7 @@ namespace Model
     bool m_delimiterHasBeenSet;
     EncodingType m_encodingType;
     bool m_encodingTypeHasBeenSet;
-    long m_maxKeys;
+    int m_maxKeys;
     bool m_maxKeysHasBeenSet;
     Aws::String m_prefix;
     bool m_prefixHasBeenSet;
@@ -306,6 +344,8 @@ namespace Model
     bool m_fetchOwnerHasBeenSet;
     Aws::String m_startAfter;
     bool m_startAfterHasBeenSet;
+    RequestPayer m_requestPayer;
+    bool m_requestPayerHasBeenSet;
   };
 
 } // namespace Model

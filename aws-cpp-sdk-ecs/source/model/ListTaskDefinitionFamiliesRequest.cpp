@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 
 ListTaskDefinitionFamiliesRequest::ListTaskDefinitionFamiliesRequest() : 
     m_familyPrefixHasBeenSet(false),
+    m_status(TaskDefinitionFamilyStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_nextTokenHasBeenSet(false),
     m_maxResults(0),

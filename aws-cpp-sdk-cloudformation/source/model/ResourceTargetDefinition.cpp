@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,15 +30,19 @@ namespace Model
 {
 
 ResourceTargetDefinition::ResourceTargetDefinition() : 
+    m_attribute(ResourceAttribute::NOT_SET),
     m_attributeHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_requiresRecreation(RequiresRecreation::NOT_SET),
     m_requiresRecreationHasBeenSet(false)
 {
 }
 
 ResourceTargetDefinition::ResourceTargetDefinition(const XmlNode& xmlNode) : 
+    m_attribute(ResourceAttribute::NOT_SET),
     m_attributeHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_requiresRecreation(RequiresRecreation::NOT_SET),
     m_requiresRecreationHasBeenSet(false)
 {
   *this = xmlNode;
@@ -79,14 +83,17 @@ void ResourceTargetDefinition::OutputToStream(Aws::OStream& oStream, const char*
   {
       oStream << location << index << locationValue << ".Attribute=" << ResourceAttributeMapper::GetNameForResourceAttribute(m_attribute) << "&";
   }
+
   if(m_nameHasBeenSet)
   {
       oStream << location << index << locationValue << ".Name=" << StringUtils::URLEncode(m_name.c_str()) << "&";
   }
+
   if(m_requiresRecreationHasBeenSet)
   {
       oStream << location << index << locationValue << ".RequiresRecreation=" << RequiresRecreationMapper::GetNameForRequiresRecreation(m_requiresRecreation) << "&";
   }
+
 }
 
 void ResourceTargetDefinition::OutputToStream(Aws::OStream& oStream, const char* location) const

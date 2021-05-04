@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,6 +27,7 @@ GetItemRequest::GetItemRequest() :
     m_attributesToGetHasBeenSet(false),
     m_consistentRead(false),
     m_consistentReadHasBeenSet(false),
+    m_returnConsumedCapacity(ReturnConsumedCapacity::NOT_SET),
     m_returnConsumedCapacityHasBeenSet(false),
     m_projectionExpressionHasBeenSet(false),
     m_expressionAttributeNamesHasBeenSet(false)

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 Source::Source() : 
+    m_type(SourceType::NOT_SET),
     m_typeHasBeenSet(false),
     m_urlHasBeenSet(false),
     m_usernameHasBeenSet(false),
@@ -38,6 +39,7 @@ Source::Source() :
 }
 
 Source::Source(const JsonValue& jsonValue) : 
+    m_type(SourceType::NOT_SET),
     m_typeHasBeenSet(false),
     m_urlHasBeenSet(false),
     m_usernameHasBeenSet(false),

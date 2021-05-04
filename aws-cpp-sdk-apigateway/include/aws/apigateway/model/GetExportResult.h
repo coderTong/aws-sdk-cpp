@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -91,37 +91,37 @@ namespace Model
     inline GetExportResult& WithContentType(const char* value) { SetContentType(value); return *this;}
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline const Aws::String& GetContentDisposition() const{ return m_contentDisposition; }
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline void SetContentDisposition(const Aws::String& value) { m_contentDisposition = value; }
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline void SetContentDisposition(Aws::String&& value) { m_contentDisposition = value; }
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline void SetContentDisposition(const char* value) { m_contentDisposition.assign(value); }
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline GetExportResult& WithContentDisposition(const Aws::String& value) { SetContentDisposition(value); return *this;}
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline GetExportResult& WithContentDisposition(Aws::String&& value) { SetContentDisposition(value); return *this;}
 
     /**
-     * <p>The content-disposition header value in the HTTP reseponse.</p>
+     * <p>The content-disposition header value in the HTTP response.</p>
      */
     inline GetExportResult& WithContentDisposition(const char* value) { SetContentDisposition(value); return *this;}
 
@@ -130,6 +130,11 @@ namespace Model
      */
     inline Aws::IOStream& GetBody() { return m_body.GetUnderlyingStream(); }
 
+    /**
+     * <p>The binary blob response to <a>GetExport</a>, which contains the export.</p>
+     */
+    inline void ReplaceBody(Aws::IOStream* body) { m_body = Aws::Utils::Stream::ResponseStream(body); }
+    
   private:
     Aws::String m_contentType;
     Aws::String m_contentDisposition;

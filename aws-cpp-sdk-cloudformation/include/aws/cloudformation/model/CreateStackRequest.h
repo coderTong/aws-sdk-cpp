@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -330,21 +330,21 @@ namespace Model
      * CREATE_FAILED; if <code>DisableRollback</code> is not set or is set to
      * <code>false</code>, the stack will be rolled back.</p>
      */
-    inline long GetTimeoutInMinutes() const{ return m_timeoutInMinutes; }
+    inline int GetTimeoutInMinutes() const{ return m_timeoutInMinutes; }
 
     /**
      * <p>The amount of time that can pass before the stack status becomes
      * CREATE_FAILED; if <code>DisableRollback</code> is not set or is set to
      * <code>false</code>, the stack will be rolled back.</p>
      */
-    inline void SetTimeoutInMinutes(long value) { m_timeoutInMinutesHasBeenSet = true; m_timeoutInMinutes = value; }
+    inline void SetTimeoutInMinutes(int value) { m_timeoutInMinutesHasBeenSet = true; m_timeoutInMinutes = value; }
 
     /**
      * <p>The amount of time that can pass before the stack status becomes
      * CREATE_FAILED; if <code>DisableRollback</code> is not set or is set to
      * <code>false</code>, the stack will be rolled back.</p>
      */
-    inline CreateStackRequest& WithTimeoutInMinutes(long value) { SetTimeoutInMinutes(value); return *this;}
+    inline CreateStackRequest& WithTimeoutInMinutes(int value) { SetTimeoutInMinutes(value); return *this;}
 
     /**
      * <p>The Simple Notification Service (SNS) topic ARNs to publish stack related
@@ -411,13 +411,13 @@ namespace Model
     inline CreateStackRequest& AddNotificationARNs(const char* value) { m_notificationARNsHasBeenSet = true; m_notificationARNs.push_back(value); return *this; }
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -433,20 +433,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline const Aws::Vector<Capability>& GetCapabilities() const{ return m_capabilities; }
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -462,20 +466,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline void SetCapabilities(const Aws::Vector<Capability>& value) { m_capabilitiesHasBeenSet = true; m_capabilities = value; }
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -491,20 +499,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline void SetCapabilities(Aws::Vector<Capability>&& value) { m_capabilitiesHasBeenSet = true; m_capabilities = value; }
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -520,20 +532,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline CreateStackRequest& WithCapabilities(const Aws::Vector<Capability>& value) { SetCapabilities(value); return *this;}
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -549,20 +565,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline CreateStackRequest& WithCapabilities(Aws::Vector<Capability>&& value) { SetCapabilities(value); return *this;}
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -578,20 +598,24 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline CreateStackRequest& AddCapabilities(const Capability& value) { m_capabilitiesHasBeenSet = true; m_capabilities.push_back(value); return *this; }
 
     /**
-     * <p>A list of capabilities that you must specify before AWS CloudFormation can
-     * create certain stacks. Some stack templates might include resources that can
-     * affect permissions in your AWS account, for example, by creating new AWS
-     * Identity and Access Management (IAM) users. For those stacks, you must
-     * explicitly acknowledge their capabilities by specifying this parameter.</p>
-     * <p>Currently, the only valid value is <code>CAPABILITY_IAM</code>, which is
-     * required for the following resources: <a
+     * <p>A list of values that you must specify before AWS CloudFormation can create
+     * certain stacks. Some stack templates might include resources that can affect
+     * permissions in your AWS account, for example, by creating new AWS Identity and
+     * Access Management (IAM) users. For those stacks, you must explicitly acknowledge
+     * their capabilities by specifying this parameter.</p> <p>The only valid values
+     * are <code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code>. The
+     * following resources require you to specify this parameter: <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
      * AWS::IAM::AccessKey</a>, <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
@@ -607,9 +631,13 @@ namespace Model
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">
      * AWS::IAM::UserToGroupAddition</a>. If your stack template contains these
      * resources, we recommend that you review all permissions associated with them and
-     * edit their permissions if necessary. If your template contains any of the listed
-     * resources and you don't specify this parameter, this action returns an
-     * <code>InsufficientCapabilities</code> error.</p>
+     * edit their permissions if necessary.</p> <p>If you have IAM resources, you can
+     * specify either capability. If you have IAM resources with custom names, you must
+     * specify <code>CAPABILITY_NAMED_IAM</code>. If you don't specify this parameter,
+     * this action returns an <code>InsufficientCapabilities</code> error.</p> <p>For
+     * more information, see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+     * IAM Resources in AWS CloudFormation Templates</a>.</p>
      */
     inline CreateStackRequest& AddCapabilities(Capability&& value) { m_capabilitiesHasBeenSet = true; m_capabilities.push_back(value); return *this; }
 
@@ -766,6 +794,104 @@ namespace Model
     inline CreateStackRequest& AddResourceTypes(const char* value) { m_resourceTypesHasBeenSet = true; m_resourceTypes.push_back(value); return *this; }
 
     /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline const Aws::String& GetRoleARN() const{ return m_roleARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline void SetRoleARN(const Aws::String& value) { m_roleARNHasBeenSet = true; m_roleARN = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline void SetRoleARN(Aws::String&& value) { m_roleARNHasBeenSet = true; m_roleARN = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline void SetRoleARN(const char* value) { m_roleARNHasBeenSet = true; m_roleARN.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline CreateStackRequest& WithRoleARN(const Aws::String& value) { SetRoleARN(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline CreateStackRequest& WithRoleARN(Aws::String&& value) { SetRoleARN(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
+     * role that AWS CloudFormation assumes to create the stack. AWS CloudFormation
+     * uses the role's credentials to make calls on your behalf. AWS CloudFormation
+     * always uses this role for all future operations on the stack. As long as users
+     * have permission to operate on the stack, AWS CloudFormation uses this role even
+     * if the users don't have permission to pass it. Ensure that the role grants least
+     * privilege.</p> <p>If you don't specify a value, AWS CloudFormation uses the role
+     * that was previously associated with the stack. If no role is available, AWS
+     * CloudFormation uses a temporary session that is generated from your user
+     * credentials.</p>
+     */
+    inline CreateStackRequest& WithRoleARN(const char* value) { SetRoleARN(value); return *this;}
+
+    /**
      * <p>Determines what action will be taken if stack creation fails. This must be
      * one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
      * <code>OnFailure</code> or <code>DisableRollback</code>, but not both.</p>
@@ -808,8 +934,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline const Aws::String& GetStackPolicyBody() const{ return m_stackPolicyBody; }
@@ -817,8 +943,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyBody(const Aws::String& value) { m_stackPolicyBodyHasBeenSet = true; m_stackPolicyBody = value; }
@@ -826,8 +952,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyBody(Aws::String&& value) { m_stackPolicyBodyHasBeenSet = true; m_stackPolicyBody = value; }
@@ -835,8 +961,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyBody(const char* value) { m_stackPolicyBodyHasBeenSet = true; m_stackPolicyBody.assign(value); }
@@ -844,8 +970,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyBody(const Aws::String& value) { SetStackPolicyBody(value); return *this;}
@@ -853,8 +979,8 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyBody(Aws::String&& value) { SetStackPolicyBody(value); return *this;}
@@ -862,64 +988,64 @@ namespace Model
     /**
      * <p>Structure containing the stack policy body. For more information, go to <a
      * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">
-     * Prevent Updates to Stack Resources</a> in the AWS CloudFormation User Guide. You
-     * can specify either the <code>StackPolicyBody</code> or the
+     * Prevent Updates to Stack Resources</a> in the <i>AWS CloudFormation User
+     * Guide</i>. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyBody(const char* value) { SetStackPolicyBody(value); return *this;}
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline const Aws::String& GetStackPolicyURL() const{ return m_stackPolicyURL; }
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyURL(const Aws::String& value) { m_stackPolicyURLHasBeenSet = true; m_stackPolicyURL = value; }
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyURL(Aws::String&& value) { m_stackPolicyURLHasBeenSet = true; m_stackPolicyURL = value; }
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline void SetStackPolicyURL(const char* value) { m_stackPolicyURLHasBeenSet = true; m_stackPolicyURL.assign(value); }
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyURL(const Aws::String& value) { SetStackPolicyURL(value); return *this;}
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyURL(Aws::String&& value) { SetStackPolicyURL(value); return *this;}
 
     /**
      * <p>Location of a file containing the stack policy. The URL must point to a
-     * policy (max size: 16KB) located in an S3 bucket in the same region as the stack.
-     * You can specify either the <code>StackPolicyBody</code> or the
+     * policy (maximum size: 16 KB) located in an S3 bucket in the same region as the
+     * stack. You can specify either the <code>StackPolicyBody</code> or the
      * <code>StackPolicyURL</code> parameter, but not both.</p>
      */
     inline CreateStackRequest& WithStackPolicyURL(const char* value) { SetStackPolicyURL(value); return *this;}
@@ -984,7 +1110,7 @@ namespace Model
     bool m_parametersHasBeenSet;
     bool m_disableRollback;
     bool m_disableRollbackHasBeenSet;
-    long m_timeoutInMinutes;
+    int m_timeoutInMinutes;
     bool m_timeoutInMinutesHasBeenSet;
     Aws::Vector<Aws::String> m_notificationARNs;
     bool m_notificationARNsHasBeenSet;
@@ -992,6 +1118,8 @@ namespace Model
     bool m_capabilitiesHasBeenSet;
     Aws::Vector<Aws::String> m_resourceTypes;
     bool m_resourceTypesHasBeenSet;
+    Aws::String m_roleARN;
+    bool m_roleARNHasBeenSet;
     OnFailure m_onFailure;
     bool m_onFailureHasBeenSet;
     Aws::String m_stackPolicyBody;

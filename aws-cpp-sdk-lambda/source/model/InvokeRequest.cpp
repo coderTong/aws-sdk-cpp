@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,7 +28,9 @@ using namespace Aws;
 
 InvokeRequest::InvokeRequest() : 
     m_functionNameHasBeenSet(false),
+    m_invocationType(InvocationType::NOT_SET),
     m_invocationTypeHasBeenSet(false),
+    m_logType(LogType::NOT_SET),
     m_logTypeHasBeenSet(false),
     m_clientContextHasBeenSet(false),
     m_qualifierHasBeenSet(false)

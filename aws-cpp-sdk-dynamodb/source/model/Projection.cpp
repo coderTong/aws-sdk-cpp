@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 Projection::Projection() : 
+    m_projectionType(ProjectionType::NOT_SET),
     m_projectionTypeHasBeenSet(false),
     m_nonKeyAttributesHasBeenSet(false)
 {
 }
 
 Projection::Projection(const JsonValue& jsonValue) : 
+    m_projectionType(ProjectionType::NOT_SET),
     m_projectionTypeHasBeenSet(false),
     m_nonKeyAttributesHasBeenSet(false)
 {

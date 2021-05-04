@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,10 +32,12 @@ namespace Model
 Stack::Stack() : 
     m_stackIdHasBeenSet(false),
     m_stackNameHasBeenSet(false),
+    m_changeSetIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_parametersHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_lastUpdatedTimeHasBeenSet(false),
+    m_stackStatus(StackStatus::NOT_SET),
     m_stackStatusHasBeenSet(false),
     m_stackStatusReasonHasBeenSet(false),
     m_disableRollback(false),
@@ -45,6 +47,7 @@ Stack::Stack() :
     m_timeoutInMinutesHasBeenSet(false),
     m_capabilitiesHasBeenSet(false),
     m_outputsHasBeenSet(false),
+    m_roleARNHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
 }
@@ -52,10 +55,12 @@ Stack::Stack() :
 Stack::Stack(const XmlNode& xmlNode) : 
     m_stackIdHasBeenSet(false),
     m_stackNameHasBeenSet(false),
+    m_changeSetIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_parametersHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_lastUpdatedTimeHasBeenSet(false),
+    m_stackStatus(StackStatus::NOT_SET),
     m_stackStatusHasBeenSet(false),
     m_stackStatusReasonHasBeenSet(false),
     m_disableRollback(false),
@@ -65,6 +70,7 @@ Stack::Stack(const XmlNode& xmlNode) :
     m_timeoutInMinutesHasBeenSet(false),
     m_capabilitiesHasBeenSet(false),
     m_outputsHasBeenSet(false),
+    m_roleARNHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
   *this = xmlNode;
@@ -87,6 +93,12 @@ Stack& Stack::operator =(const XmlNode& xmlNode)
     {
       m_stackName = StringUtils::Trim(stackNameNode.GetText().c_str());
       m_stackNameHasBeenSet = true;
+    }
+    XmlNode changeSetIdNode = resultNode.FirstChild("ChangeSetId");
+    if(!changeSetIdNode.IsNull())
+    {
+      m_changeSetId = StringUtils::Trim(changeSetIdNode.GetText().c_str());
+      m_changeSetIdHasBeenSet = true;
     }
     XmlNode descriptionNode = resultNode.FirstChild("Description");
     if(!descriptionNode.IsNull())
@@ -178,6 +190,12 @@ Stack& Stack::operator =(const XmlNode& xmlNode)
 
       m_outputsHasBeenSet = true;
     }
+    XmlNode roleARNNode = resultNode.FirstChild("RoleARN");
+    if(!roleARNNode.IsNull())
+    {
+      m_roleARN = StringUtils::Trim(roleARNNode.GetText().c_str());
+      m_roleARNHasBeenSet = true;
+    }
     XmlNode tagsNode = resultNode.FirstChild("Tags");
     if(!tagsNode.IsNull())
     {
@@ -201,14 +219,22 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
   {
       oStream << location << index << locationValue << ".StackId=" << StringUtils::URLEncode(m_stackId.c_str()) << "&";
   }
+
   if(m_stackNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
   }
+
+  if(m_changeSetIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".ChangeSetId=" << StringUtils::URLEncode(m_changeSetId.c_str()) << "&";
+  }
+
   if(m_descriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
   }
+
   if(m_parametersHasBeenSet)
   {
       unsigned parametersIdx = 1;
@@ -219,26 +245,32 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
         item.OutputToStream(oStream, parametersSs.str().c_str());
       }
   }
+
   if(m_creationTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".CreationTime=" << StringUtils::URLEncode(m_creationTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_lastUpdatedTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".LastUpdatedTime=" << StringUtils::URLEncode(m_lastUpdatedTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_stackStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".StackStatus=" << StackStatusMapper::GetNameForStackStatus(m_stackStatus) << "&";
   }
+
   if(m_stackStatusReasonHasBeenSet)
   {
       oStream << location << index << locationValue << ".StackStatusReason=" << StringUtils::URLEncode(m_stackStatusReason.c_str()) << "&";
   }
+
   if(m_disableRollbackHasBeenSet)
   {
       oStream << location << index << locationValue << ".DisableRollback=" << m_disableRollback << "&";
   }
+
   if(m_notificationARNsHasBeenSet)
   {
       unsigned notificationARNsIdx = 1;
@@ -247,10 +279,12 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
         oStream << location << index << locationValue << ".NotificationARNs.member." << notificationARNsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
       }
   }
+
   if(m_timeoutInMinutesHasBeenSet)
   {
       oStream << location << index << locationValue << ".TimeoutInMinutes=" << m_timeoutInMinutes << "&";
   }
+
   if(m_capabilitiesHasBeenSet)
   {
       unsigned capabilitiesIdx = 1;
@@ -259,6 +293,7 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
         oStream << location << index << locationValue << ".Capabilities.member." << capabilitiesIdx++ << "=" << CapabilityMapper::GetNameForCapability(item) << "&";
       }
   }
+
   if(m_outputsHasBeenSet)
   {
       unsigned outputsIdx = 1;
@@ -269,6 +304,12 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
         item.OutputToStream(oStream, outputsSs.str().c_str());
       }
   }
+
+  if(m_roleARNHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
+  }
+
   if(m_tagsHasBeenSet)
   {
       unsigned tagsIdx = 1;
@@ -279,6 +320,7 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location, unsigned
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
   }
+
 }
 
 void Stack::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -290,6 +332,10 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location) const
   if(m_stackNameHasBeenSet)
   {
       oStream << location << ".StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
+  }
+  if(m_changeSetIdHasBeenSet)
+  {
+      oStream << location << ".ChangeSetId=" << StringUtils::URLEncode(m_changeSetId.c_str()) << "&";
   }
   if(m_descriptionHasBeenSet)
   {
@@ -354,6 +400,10 @@ void Stack::OutputToStream(Aws::OStream& oStream, const char* location) const
         outputsSs << location <<  ".Outputs.member." << outputsIdx++;
         item.OutputToStream(oStream, outputsSs.str().c_str());
       }
+  }
+  if(m_roleARNHasBeenSet)
+  {
+      oStream << location << ".RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
   }
   if(m_tagsHasBeenSet)
   {

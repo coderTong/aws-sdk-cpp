@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -221,17 +221,17 @@ namespace Model
     /**
      * <p>The deployment duration.</p>
      */
-    inline long GetDuration() const{ return m_duration; }
+    inline int GetDuration() const{ return m_duration; }
 
     /**
      * <p>The deployment duration.</p>
      */
-    inline void SetDuration(long value) { m_durationHasBeenSet = true; m_duration = value; }
+    inline void SetDuration(int value) { m_durationHasBeenSet = true; m_duration = value; }
 
     /**
      * <p>The deployment duration.</p>
      */
-    inline Deployment& WithDuration(long value) { SetDuration(value); return *this;}
+    inline Deployment& WithDuration(int value) { SetDuration(value); return *this;}
 
     /**
      * <p>The user's IAM ARN.</p>
@@ -319,53 +319,53 @@ namespace Model
     inline Deployment& WithCommand(DeploymentCommand&& value) { SetCommand(value); return *this;}
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline void SetStatus(const Aws::String& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline void SetStatus(Aws::String&& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline void SetStatus(const char* value) { m_statusHasBeenSet = true; m_status.assign(value); }
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline Deployment& WithStatus(const Aws::String& value) { SetStatus(value); return *this;}
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline Deployment& WithStatus(Aws::String&& value) { SetStatus(value); return *this;}
 
     /**
-     * <p>The deployment status:</p> <ul> <li>running</li> <li>successful</li>
-     * <li>failed</li> </ul>
+     * <p>The deployment status:</p> <ul> <li> <p>running</p> </li> <li>
+     * <p>successful</p> </li> <li> <p>failed</p> </li> </ul>
      */
     inline Deployment& WithStatus(const char* value) { SetStatus(value); return *this;}
 
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -374,9 +374,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -385,9 +385,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -396,9 +396,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -407,9 +407,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -418,9 +418,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -429,9 +429,9 @@ namespace Model
     /**
      * <p>A string that contains user-defined custom JSON. It can be used to override
      * the corresponding default stack configuration attribute values for stack or to
-     * pass data to recipes. The string should be in the following format and must
-     * escape characters such as '"':</p> <p> <code>"{\"key1\": \"value1\", \"key2\":
-     * \"value2\",...}"</code> </p> <p>For more information on custom JSON, see <a
+     * pass data to recipes. The string should be in the following format:</p> <p>
+     * <code>"{\"key1\": \"value1\", \"key2\": \"value2\",...}"</code> </p> <p>For more
+     * information on custom JSON, see <a
      * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html">Use
      * Custom JSON to Modify the Stack Configuration Attributes</a>.</p>
      */
@@ -488,7 +488,7 @@ namespace Model
     bool m_createdAtHasBeenSet;
     Aws::String m_completedAt;
     bool m_completedAtHasBeenSet;
-    long m_duration;
+    int m_duration;
     bool m_durationHasBeenSet;
     Aws::String m_iamUserArn;
     bool m_iamUserArnHasBeenSet;

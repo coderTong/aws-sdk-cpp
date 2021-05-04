@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ ExpectedAttributeValue::ExpectedAttributeValue() :
     m_valueHasBeenSet(false),
     m_exists(false),
     m_existsHasBeenSet(false),
+    m_comparisonOperator(ComparisonOperator::NOT_SET),
     m_comparisonOperatorHasBeenSet(false),
     m_attributeValueListHasBeenSet(false)
 {
@@ -40,6 +41,7 @@ ExpectedAttributeValue::ExpectedAttributeValue(const JsonValue& jsonValue) :
     m_valueHasBeenSet(false),
     m_exists(false),
     m_existsHasBeenSet(false),
+    m_comparisonOperator(ComparisonOperator::NOT_SET),
     m_comparisonOperatorHasBeenSet(false),
     m_attributeValueListHasBeenSet(false)
 {

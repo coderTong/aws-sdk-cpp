@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 RecurringCharge::RecurringCharge() : 
+    m_frequency(RecurringChargeFrequency::NOT_SET),
     m_frequencyHasBeenSet(false),
     m_amount(0.0),
     m_amountHasBeenSet(false)
@@ -37,6 +38,7 @@ RecurringCharge::RecurringCharge() :
 }
 
 RecurringCharge::RecurringCharge(const XmlNode& xmlNode) : 
+    m_frequency(RecurringChargeFrequency::NOT_SET),
     m_frequencyHasBeenSet(false),
     m_amount(0.0),
     m_amountHasBeenSet(false)
@@ -73,10 +75,12 @@ void RecurringCharge::OutputToStream(Aws::OStream& oStream, const char* location
   {
       oStream << location << index << locationValue << ".Frequency=" << RecurringChargeFrequencyMapper::GetNameForRecurringChargeFrequency(m_frequency) << "&";
   }
+
   if(m_amountHasBeenSet)
   {
         oStream << location << index << locationValue << ".Amount=" << StringUtils::URLEncode(m_amount) << "&";
   }
+
 }
 
 void RecurringCharge::OutputToStream(Aws::OStream& oStream, const char* location) const

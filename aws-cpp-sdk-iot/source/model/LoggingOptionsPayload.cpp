@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 LoggingOptionsPayload::LoggingOptionsPayload() : 
     m_roleArnHasBeenSet(false),
+    m_logLevel(LogLevel::NOT_SET),
     m_logLevelHasBeenSet(false)
 {
 }
 
 LoggingOptionsPayload::LoggingOptionsPayload(const JsonValue& jsonValue) : 
     m_roleArnHasBeenSet(false),
+    m_logLevel(LogLevel::NOT_SET),
     m_logLevelHasBeenSet(false)
 {
   *this = jsonValue;

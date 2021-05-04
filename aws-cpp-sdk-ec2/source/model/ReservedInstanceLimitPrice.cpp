@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 ReservedInstanceLimitPrice::ReservedInstanceLimitPrice() : 
     m_amount(0.0),
     m_amountHasBeenSet(false),
+    m_currencyCode(CurrencyCodeValues::NOT_SET),
     m_currencyCodeHasBeenSet(false)
 {
 }
@@ -39,6 +40,7 @@ ReservedInstanceLimitPrice::ReservedInstanceLimitPrice() :
 ReservedInstanceLimitPrice::ReservedInstanceLimitPrice(const XmlNode& xmlNode) : 
     m_amount(0.0),
     m_amountHasBeenSet(false),
+    m_currencyCode(CurrencyCodeValues::NOT_SET),
     m_currencyCodeHasBeenSet(false)
 {
   *this = xmlNode;
@@ -73,10 +75,12 @@ void ReservedInstanceLimitPrice::OutputToStream(Aws::OStream& oStream, const cha
   {
         oStream << location << index << locationValue << ".Amount=" << StringUtils::URLEncode(m_amount) << "&";
   }
+
   if(m_currencyCodeHasBeenSet)
   {
       oStream << location << index << locationValue << ".CurrencyCode=" << CurrencyCodeValuesMapper::GetNameForCurrencyCodeValues(m_currencyCode) << "&";
   }
+
 }
 
 void ReservedInstanceLimitPrice::OutputToStream(Aws::OStream& oStream, const char* location) const

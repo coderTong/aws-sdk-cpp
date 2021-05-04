@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ UserPoolDescriptionType::UserPoolDescriptionType() :
     m_idHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_lambdaConfigHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastModifiedDateHasBeenSet(false),
     m_creationDateHasBeenSet(false)
@@ -41,6 +42,7 @@ UserPoolDescriptionType::UserPoolDescriptionType(const JsonValue& jsonValue) :
     m_idHasBeenSet(false),
     m_nameHasBeenSet(false),
     m_lambdaConfigHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastModifiedDateHasBeenSet(false),
     m_creationDateHasBeenSet(false)

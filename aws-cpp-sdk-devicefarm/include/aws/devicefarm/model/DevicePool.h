@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -150,42 +150,42 @@ namespace Model
     inline DevicePool& WithDescription(const char* value) { SetDescription(value); return *this;}
 
     /**
-     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul>
-     * <li><p>CURATED: A device pool that is created and managed by AWS Device
-     * Farm.</p></li> <li><p>PRIVATE: A device pool that is created and managed by the
-     * device pool developer.</p></li> </ul>
+     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li>
+     * <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p>
+     * </li> <li> <p>PRIVATE: A device pool that is created and managed by the device
+     * pool developer.</p> </li> </ul>
      */
     inline const DevicePoolType& GetType() const{ return m_type; }
 
     /**
-     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul>
-     * <li><p>CURATED: A device pool that is created and managed by AWS Device
-     * Farm.</p></li> <li><p>PRIVATE: A device pool that is created and managed by the
-     * device pool developer.</p></li> </ul>
+     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li>
+     * <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p>
+     * </li> <li> <p>PRIVATE: A device pool that is created and managed by the device
+     * pool developer.</p> </li> </ul>
      */
     inline void SetType(const DevicePoolType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
-     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul>
-     * <li><p>CURATED: A device pool that is created and managed by AWS Device
-     * Farm.</p></li> <li><p>PRIVATE: A device pool that is created and managed by the
-     * device pool developer.</p></li> </ul>
+     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li>
+     * <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p>
+     * </li> <li> <p>PRIVATE: A device pool that is created and managed by the device
+     * pool developer.</p> </li> </ul>
      */
     inline void SetType(DevicePoolType&& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
-     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul>
-     * <li><p>CURATED: A device pool that is created and managed by AWS Device
-     * Farm.</p></li> <li><p>PRIVATE: A device pool that is created and managed by the
-     * device pool developer.</p></li> </ul>
+     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li>
+     * <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p>
+     * </li> <li> <p>PRIVATE: A device pool that is created and managed by the device
+     * pool developer.</p> </li> </ul>
      */
     inline DevicePool& WithType(const DevicePoolType& value) { SetType(value); return *this;}
 
     /**
-     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul>
-     * <li><p>CURATED: A device pool that is created and managed by AWS Device
-     * Farm.</p></li> <li><p>PRIVATE: A device pool that is created and managed by the
-     * device pool developer.</p></li> </ul>
+     * <p>The device pool's type.</p> <p>Allowed values include:</p> <ul> <li>
+     * <p>CURATED: A device pool that is created and managed by AWS Device Farm.</p>
+     * </li> <li> <p>PRIVATE: A device pool that is created and managed by the device
+     * pool developer.</p> </li> </ul>
      */
     inline DevicePool& WithType(DevicePoolType&& value) { SetType(value); return *this;}
 

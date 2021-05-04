@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 AnalysisScheme::AnalysisScheme() : 
     m_analysisSchemeNameHasBeenSet(false),
+    m_analysisSchemeLanguage(AnalysisSchemeLanguage::NOT_SET),
     m_analysisSchemeLanguageHasBeenSet(false),
     m_analysisOptionsHasBeenSet(false)
 {
@@ -38,6 +39,7 @@ AnalysisScheme::AnalysisScheme() :
 
 AnalysisScheme::AnalysisScheme(const XmlNode& xmlNode) : 
     m_analysisSchemeNameHasBeenSet(false),
+    m_analysisSchemeLanguage(AnalysisSchemeLanguage::NOT_SET),
     m_analysisSchemeLanguageHasBeenSet(false),
     m_analysisOptionsHasBeenSet(false)
 {
@@ -79,16 +81,19 @@ void AnalysisScheme::OutputToStream(Aws::OStream& oStream, const char* location,
   {
       oStream << location << index << locationValue << ".AnalysisSchemeName=" << StringUtils::URLEncode(m_analysisSchemeName.c_str()) << "&";
   }
+
   if(m_analysisSchemeLanguageHasBeenSet)
   {
       oStream << location << index << locationValue << ".AnalysisSchemeLanguage=" << AnalysisSchemeLanguageMapper::GetNameForAnalysisSchemeLanguage(m_analysisSchemeLanguage) << "&";
   }
+
   if(m_analysisOptionsHasBeenSet)
   {
       Aws::StringStream analysisOptionsLocationAndMemberSs;
       analysisOptionsLocationAndMemberSs << location << index << locationValue << ".AnalysisOptions";
       m_analysisOptions.OutputToStream(oStream, analysisOptionsLocationAndMemberSs.str().c_str());
   }
+
 }
 
 void AnalysisScheme::OutputToStream(Aws::OStream& oStream, const char* location) const

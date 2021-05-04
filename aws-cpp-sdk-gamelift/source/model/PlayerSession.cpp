@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,8 +34,11 @@ PlayerSession::PlayerSession() :
     m_fleetIdHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_terminationTimeHasBeenSet(false),
+    m_status(PlayerSessionStatus::NOT_SET),
     m_statusHasBeenSet(false),
-    m_ipAddressHasBeenSet(false)
+    m_ipAddressHasBeenSet(false),
+    m_port(0),
+    m_portHasBeenSet(false)
 {
 }
 
@@ -46,8 +49,11 @@ PlayerSession::PlayerSession(const JsonValue& jsonValue) :
     m_fleetIdHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_terminationTimeHasBeenSet(false),
+    m_status(PlayerSessionStatus::NOT_SET),
     m_statusHasBeenSet(false),
-    m_ipAddressHasBeenSet(false)
+    m_ipAddressHasBeenSet(false),
+    m_port(0),
+    m_portHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -110,6 +116,13 @@ PlayerSession& PlayerSession::operator =(const JsonValue& jsonValue)
     m_ipAddressHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("Port"))
+  {
+    m_port = jsonValue.GetInteger("Port");
+
+    m_portHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -159,6 +172,12 @@ JsonValue PlayerSession::Jsonize() const
   if(m_ipAddressHasBeenSet)
   {
    payload.WithString("IpAddress", m_ipAddress);
+
+  }
+
+  if(m_portHasBeenSet)
+  {
+   payload.WithInteger("Port", m_port);
 
   }
 

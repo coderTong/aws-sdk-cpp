@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,12 +28,14 @@ namespace Model
 {
 
 Compliance::Compliance() : 
+    m_complianceType(ComplianceType::NOT_SET),
     m_complianceTypeHasBeenSet(false),
     m_complianceContributorCountHasBeenSet(false)
 {
 }
 
 Compliance::Compliance(const JsonValue& jsonValue) : 
+    m_complianceType(ComplianceType::NOT_SET),
     m_complianceTypeHasBeenSet(false),
     m_complianceContributorCountHasBeenSet(false)
 {

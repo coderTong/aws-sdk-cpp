@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -270,7 +270,7 @@ namespace Model
      * supports more flexible metadata than the REST API. For example, using SOAP, you
      * can create metadata whose values are not legal HTTP headers.
      */
-    inline long GetMissingMeta() const{ return m_missingMeta; }
+    inline int GetMissingMeta() const{ return m_missingMeta; }
 
     /**
      * This is set to the number of metadata entries not returned in x-amz-meta
@@ -278,7 +278,7 @@ namespace Model
      * supports more flexible metadata than the REST API. For example, using SOAP, you
      * can create metadata whose values are not legal HTTP headers.
      */
-    inline void SetMissingMeta(long value) { m_missingMeta = value; }
+    inline void SetMissingMeta(int value) { m_missingMeta = value; }
 
     /**
      * This is set to the number of metadata entries not returned in x-amz-meta
@@ -286,7 +286,7 @@ namespace Model
      * supports more flexible metadata than the REST API. For example, using SOAP, you
      * can create metadata whose values are not legal HTTP headers.
      */
-    inline HeadObjectResult& WithMissingMeta(long value) { SetMissingMeta(value); return *this;}
+    inline HeadObjectResult& WithMissingMeta(int value) { SetMissingMeta(value); return *this;}
 
     /**
      * Version of the object.
@@ -854,6 +854,21 @@ namespace Model
     
     inline HeadObjectResult& WithReplicationStatus(ReplicationStatus&& value) { SetReplicationStatus(value); return *this;}
 
+    /**
+     * The count of parts this object has.
+     */
+    inline int GetPartsCount() const{ return m_partsCount; }
+
+    /**
+     * The count of parts this object has.
+     */
+    inline void SetPartsCount(int value) { m_partsCount = value; }
+
+    /**
+     * The count of parts this object has.
+     */
+    inline HeadObjectResult& WithPartsCount(int value) { SetPartsCount(value); return *this;}
+
   private:
     bool m_deleteMarker;
     Aws::String m_acceptRanges;
@@ -862,7 +877,7 @@ namespace Model
     Aws::Utils::DateTime m_lastModified;
     long long m_contentLength;
     Aws::String m_eTag;
-    long m_missingMeta;
+    int m_missingMeta;
     Aws::String m_versionId;
     Aws::String m_cacheControl;
     Aws::String m_contentDisposition;
@@ -879,6 +894,7 @@ namespace Model
     StorageClass m_storageClass;
     RequestCharged m_requestCharged;
     ReplicationStatus m_replicationStatus;
+    int m_partsCount;
   };
 
 } // namespace Model

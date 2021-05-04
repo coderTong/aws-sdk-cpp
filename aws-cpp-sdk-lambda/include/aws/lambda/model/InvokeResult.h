@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -53,7 +53,7 @@ namespace Model
      * the <code>Event</code> invocation type this status code will be 202. For the
      * <code>DryRun</code> invocation type the status code will be 204. </p>
      */
-    inline long GetStatusCode() const{ return m_statusCode; }
+    inline int GetStatusCode() const{ return m_statusCode; }
 
     /**
      * <p>The HTTP status code will be in the 200 range for successful request. For the
@@ -61,7 +61,7 @@ namespace Model
      * the <code>Event</code> invocation type this status code will be 202. For the
      * <code>DryRun</code> invocation type the status code will be 204. </p>
      */
-    inline void SetStatusCode(long value) { m_statusCode = value; }
+    inline void SetStatusCode(int value) { m_statusCode = value; }
 
     /**
      * <p>The HTTP status code will be in the 200 range for successful request. For the
@@ -69,7 +69,7 @@ namespace Model
      * the <code>Event</code> invocation type this status code will be 202. For the
      * <code>DryRun</code> invocation type the status code will be 204. </p>
      */
-    inline InvokeResult& WithStatusCode(long value) { SetStatusCode(value); return *this;}
+    inline InvokeResult& WithStatusCode(int value) { SetStatusCode(value); return *this;}
 
     /**
      * <p>Indicates whether an error occurred while executing the Lambda function. If
@@ -221,8 +221,18 @@ namespace Model
      */
     inline Aws::IOStream& GetPayload() { return m_payload.GetUnderlyingStream(); }
 
+    /**
+     * <p> It is the JSON representation of the object returned by the Lambda function.
+     * In This is present only if the invocation type is <code>RequestResponse</code>.
+     * </p> <p>In the event of a function error this field contains a message
+     * describing the error. For the <code>Handled</code> errors the Lambda function
+     * will report this message. For <code>Unhandled</code> errors AWS Lambda reports
+     * the message. </p>
+     */
+    inline void ReplaceBody(Aws::IOStream* body) { m_payload = Aws::Utils::Stream::ResponseStream(body); }
+    
   private:
-    long m_statusCode;
+    int m_statusCode;
     Aws::String m_functionError;
     Aws::String m_logResult;
     Utils::Stream::ResponseStream m_payload;

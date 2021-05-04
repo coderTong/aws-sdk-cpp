@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,6 +38,7 @@ UpdateStackRequest::UpdateStackRequest() :
     m_useCustomCookbooksHasBeenSet(false),
     m_customCookbooksSourceHasBeenSet(false),
     m_defaultSshKeyNameHasBeenSet(false),
+    m_defaultRootDeviceType(RootDeviceType::NOT_SET),
     m_defaultRootDeviceTypeHasBeenSet(false),
     m_useOpsworksSecurityGroups(false),
     m_useOpsworksSecurityGroupsHasBeenSet(false),

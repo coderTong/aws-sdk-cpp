@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,11 +25,13 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 AllocateConnectionOnInterconnectResult::AllocateConnectionOnInterconnectResult() : 
+    m_connectionState(ConnectionState::NOT_SET),
     m_vlan(0)
 {
 }
 
 AllocateConnectionOnInterconnectResult::AllocateConnectionOnInterconnectResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_connectionState(ConnectionState::NOT_SET),
     m_vlan(0)
 {
   *this = result;
@@ -89,6 +91,12 @@ AllocateConnectionOnInterconnectResult& AllocateConnectionOnInterconnectResult::
   if(jsonValue.ValueExists("partnerName"))
   {
     m_partnerName = jsonValue.GetString("partnerName");
+
+  }
+
+  if(jsonValue.ValueExists("loaIssueTime"))
+  {
+    m_loaIssueTime = jsonValue.GetDouble("loaIssueTime");
 
   }
 

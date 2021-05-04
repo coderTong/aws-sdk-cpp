@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ SearchRequest::SearchRequest() :
     m_partialHasBeenSet(false),
     m_queryHasBeenSet(false),
     m_queryOptionsHasBeenSet(false),
+    m_queryParser(QueryParser::NOT_SET),
     m_queryParserHasBeenSet(false),
     m_returnHasBeenSet(false),
     m_size(0),

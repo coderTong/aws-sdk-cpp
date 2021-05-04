@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,6 +25,7 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 GetFunctionConfigurationResult::GetFunctionConfigurationResult() : 
+    m_runtime(Runtime::NOT_SET),
     m_codeSize(0),
     m_timeout(0),
     m_memorySize(0)
@@ -32,6 +33,7 @@ GetFunctionConfigurationResult::GetFunctionConfigurationResult() :
 }
 
 GetFunctionConfigurationResult::GetFunctionConfigurationResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_runtime(Runtime::NOT_SET),
     m_codeSize(0),
     m_timeout(0),
     m_memorySize(0)

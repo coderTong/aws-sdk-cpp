@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 JobFlowExecutionStatusDetail::JobFlowExecutionStatusDetail() : 
+    m_state(JobFlowExecutionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_startDateTimeHasBeenSet(false),
@@ -38,6 +39,7 @@ JobFlowExecutionStatusDetail::JobFlowExecutionStatusDetail() :
 }
 
 JobFlowExecutionStatusDetail::JobFlowExecutionStatusDetail(const JsonValue& jsonValue) : 
+    m_state(JobFlowExecutionState::NOT_SET),
     m_stateHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_startDateTimeHasBeenSet(false),

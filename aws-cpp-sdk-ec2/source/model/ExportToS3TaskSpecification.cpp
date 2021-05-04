@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,7 +30,9 @@ namespace Model
 {
 
 ExportToS3TaskSpecification::ExportToS3TaskSpecification() : 
+    m_diskImageFormat(DiskImageFormat::NOT_SET),
     m_diskImageFormatHasBeenSet(false),
+    m_containerFormat(ContainerFormat::NOT_SET),
     m_containerFormatHasBeenSet(false),
     m_s3BucketHasBeenSet(false),
     m_s3PrefixHasBeenSet(false)
@@ -38,7 +40,9 @@ ExportToS3TaskSpecification::ExportToS3TaskSpecification() :
 }
 
 ExportToS3TaskSpecification::ExportToS3TaskSpecification(const XmlNode& xmlNode) : 
+    m_diskImageFormat(DiskImageFormat::NOT_SET),
     m_diskImageFormatHasBeenSet(false),
+    m_containerFormat(ContainerFormat::NOT_SET),
     m_containerFormatHasBeenSet(false),
     m_s3BucketHasBeenSet(false),
     m_s3PrefixHasBeenSet(false)
@@ -87,18 +91,22 @@ void ExportToS3TaskSpecification::OutputToStream(Aws::OStream& oStream, const ch
   {
       oStream << location << index << locationValue << ".DiskImageFormat=" << DiskImageFormatMapper::GetNameForDiskImageFormat(m_diskImageFormat) << "&";
   }
+
   if(m_containerFormatHasBeenSet)
   {
       oStream << location << index << locationValue << ".ContainerFormat=" << ContainerFormatMapper::GetNameForContainerFormat(m_containerFormat) << "&";
   }
+
   if(m_s3BucketHasBeenSet)
   {
       oStream << location << index << locationValue << ".S3Bucket=" << StringUtils::URLEncode(m_s3Bucket.c_str()) << "&";
   }
+
   if(m_s3PrefixHasBeenSet)
   {
       oStream << location << index << locationValue << ".S3Prefix=" << StringUtils::URLEncode(m_s3Prefix.c_str()) << "&";
   }
+
 }
 
 void ExportToS3TaskSpecification::OutputToStream(Aws::OStream& oStream, const char* location) const

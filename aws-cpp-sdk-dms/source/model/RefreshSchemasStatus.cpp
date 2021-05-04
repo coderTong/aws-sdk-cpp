@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 RefreshSchemasStatus::RefreshSchemasStatus() : 
     m_endpointArnHasBeenSet(false),
     m_replicationInstanceArnHasBeenSet(false),
+    m_status(RefreshSchemasStatusTypeValue::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastRefreshDateHasBeenSet(false),
     m_lastFailureMessageHasBeenSet(false)
@@ -39,6 +40,7 @@ RefreshSchemasStatus::RefreshSchemasStatus() :
 RefreshSchemasStatus::RefreshSchemasStatus(const JsonValue& jsonValue) : 
     m_endpointArnHasBeenSet(false),
     m_replicationInstanceArnHasBeenSet(false),
+    m_status(RefreshSchemasStatusTypeValue::NOT_SET),
     m_statusHasBeenSet(false),
     m_lastRefreshDateHasBeenSet(false),
     m_lastFailureMessageHasBeenSet(false)

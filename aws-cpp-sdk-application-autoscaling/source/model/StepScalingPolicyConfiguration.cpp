@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,23 +28,27 @@ namespace Model
 {
 
 StepScalingPolicyConfiguration::StepScalingPolicyConfiguration() : 
+    m_adjustmentType(AdjustmentType::NOT_SET),
     m_adjustmentTypeHasBeenSet(false),
     m_stepAdjustmentsHasBeenSet(false),
     m_minAdjustmentMagnitude(0),
     m_minAdjustmentMagnitudeHasBeenSet(false),
     m_cooldown(0),
     m_cooldownHasBeenSet(false),
+    m_metricAggregationType(MetricAggregationType::NOT_SET),
     m_metricAggregationTypeHasBeenSet(false)
 {
 }
 
 StepScalingPolicyConfiguration::StepScalingPolicyConfiguration(const JsonValue& jsonValue) : 
+    m_adjustmentType(AdjustmentType::NOT_SET),
     m_adjustmentTypeHasBeenSet(false),
     m_stepAdjustmentsHasBeenSet(false),
     m_minAdjustmentMagnitude(0),
     m_minAdjustmentMagnitudeHasBeenSet(false),
     m_cooldown(0),
     m_cooldownHasBeenSet(false),
+    m_metricAggregationType(MetricAggregationType::NOT_SET),
     m_metricAggregationTypeHasBeenSet(false)
 {
   *this = jsonValue;

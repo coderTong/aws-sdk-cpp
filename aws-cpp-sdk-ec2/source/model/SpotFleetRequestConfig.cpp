@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 SpotFleetRequestConfig::SpotFleetRequestConfig() : 
     m_spotFleetRequestIdHasBeenSet(false),
+    m_spotFleetRequestState(BatchState::NOT_SET),
     m_spotFleetRequestStateHasBeenSet(false),
     m_spotFleetRequestConfigHasBeenSet(false),
     m_createTimeHasBeenSet(false)
@@ -39,6 +40,7 @@ SpotFleetRequestConfig::SpotFleetRequestConfig() :
 
 SpotFleetRequestConfig::SpotFleetRequestConfig(const XmlNode& xmlNode) : 
     m_spotFleetRequestIdHasBeenSet(false),
+    m_spotFleetRequestState(BatchState::NOT_SET),
     m_spotFleetRequestStateHasBeenSet(false),
     m_spotFleetRequestConfigHasBeenSet(false),
     m_createTimeHasBeenSet(false)
@@ -87,20 +89,24 @@ void SpotFleetRequestConfig::OutputToStream(Aws::OStream& oStream, const char* l
   {
       oStream << location << index << locationValue << ".SpotFleetRequestId=" << StringUtils::URLEncode(m_spotFleetRequestId.c_str()) << "&";
   }
+
   if(m_spotFleetRequestStateHasBeenSet)
   {
       oStream << location << index << locationValue << ".SpotFleetRequestState=" << BatchStateMapper::GetNameForBatchState(m_spotFleetRequestState) << "&";
   }
+
   if(m_spotFleetRequestConfigHasBeenSet)
   {
       Aws::StringStream spotFleetRequestConfigLocationAndMemberSs;
       spotFleetRequestConfigLocationAndMemberSs << location << index << locationValue << ".SpotFleetRequestConfig";
       m_spotFleetRequestConfig.OutputToStream(oStream, spotFleetRequestConfigLocationAndMemberSs.str().c_str());
   }
+
   if(m_createTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".CreateTime=" << StringUtils::URLEncode(m_createTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void SpotFleetRequestConfig::OutputToStream(Aws::OStream& oStream, const char* location) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -26,6 +26,7 @@ namespace Model
 {
 
   /**
+   * <p>Contains the parameters for UpdateAutoScalingGroup.</p>
    */
   class AWS_AUTOSCALING_API UpdateAutoScalingGroupRequest : public AutoScalingRequest
   {
@@ -106,80 +107,80 @@ namespace Model
     /**
      * <p>The minimum size of the Auto Scaling group.</p>
      */
-    inline long GetMinSize() const{ return m_minSize; }
+    inline int GetMinSize() const{ return m_minSize; }
 
     /**
      * <p>The minimum size of the Auto Scaling group.</p>
      */
-    inline void SetMinSize(long value) { m_minSizeHasBeenSet = true; m_minSize = value; }
+    inline void SetMinSize(int value) { m_minSizeHasBeenSet = true; m_minSize = value; }
 
     /**
      * <p>The minimum size of the Auto Scaling group.</p>
      */
-    inline UpdateAutoScalingGroupRequest& WithMinSize(long value) { SetMinSize(value); return *this;}
+    inline UpdateAutoScalingGroupRequest& WithMinSize(int value) { SetMinSize(value); return *this;}
 
     /**
      * <p>The maximum size of the Auto Scaling group.</p>
      */
-    inline long GetMaxSize() const{ return m_maxSize; }
+    inline int GetMaxSize() const{ return m_maxSize; }
 
     /**
      * <p>The maximum size of the Auto Scaling group.</p>
      */
-    inline void SetMaxSize(long value) { m_maxSizeHasBeenSet = true; m_maxSize = value; }
+    inline void SetMaxSize(int value) { m_maxSizeHasBeenSet = true; m_maxSize = value; }
 
     /**
      * <p>The maximum size of the Auto Scaling group.</p>
      */
-    inline UpdateAutoScalingGroupRequest& WithMaxSize(long value) { SetMaxSize(value); return *this;}
+    inline UpdateAutoScalingGroupRequest& WithMaxSize(int value) { SetMaxSize(value); return *this;}
 
     /**
      * <p>The number of EC2 instances that should be running in the Auto Scaling group.
      * This number must be greater than or equal to the minimum size of the group and
      * less than or equal to the maximum size of the group.</p>
      */
-    inline long GetDesiredCapacity() const{ return m_desiredCapacity; }
+    inline int GetDesiredCapacity() const{ return m_desiredCapacity; }
 
     /**
      * <p>The number of EC2 instances that should be running in the Auto Scaling group.
      * This number must be greater than or equal to the minimum size of the group and
      * less than or equal to the maximum size of the group.</p>
      */
-    inline void SetDesiredCapacity(long value) { m_desiredCapacityHasBeenSet = true; m_desiredCapacity = value; }
+    inline void SetDesiredCapacity(int value) { m_desiredCapacityHasBeenSet = true; m_desiredCapacity = value; }
 
     /**
      * <p>The number of EC2 instances that should be running in the Auto Scaling group.
      * This number must be greater than or equal to the minimum size of the group and
      * less than or equal to the maximum size of the group.</p>
      */
-    inline UpdateAutoScalingGroupRequest& WithDesiredCapacity(long value) { SetDesiredCapacity(value); return *this;}
+    inline UpdateAutoScalingGroupRequest& WithDesiredCapacity(int value) { SetDesiredCapacity(value); return *this;}
 
     /**
      * <p>The amount of time, in seconds, after a scaling activity completes before
      * another scaling activity can start. The default is 300.</p> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
-     * Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline long GetDefaultCooldown() const{ return m_defaultCooldown; }
+    inline int GetDefaultCooldown() const{ return m_defaultCooldown; }
 
     /**
      * <p>The amount of time, in seconds, after a scaling activity completes before
      * another scaling activity can start. The default is 300.</p> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
-     * Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline void SetDefaultCooldown(long value) { m_defaultCooldownHasBeenSet = true; m_defaultCooldown = value; }
+    inline void SetDefaultCooldown(int value) { m_defaultCooldownHasBeenSet = true; m_defaultCooldown = value; }
 
     /**
      * <p>The amount of time, in seconds, after a scaling activity completes before
      * another scaling activity can start. The default is 300.</p> <p>For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto
-     * Scaling Cooldowns</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+     * Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline UpdateAutoScalingGroupRequest& WithDefaultCooldown(long value) { SetDefaultCooldown(value); return *this;}
+    inline UpdateAutoScalingGroupRequest& WithDefaultCooldown(int value) { SetDefaultCooldown(value); return *this;}
 
     /**
      * <p>One or more Availability Zones for the group.</p>
@@ -266,29 +267,29 @@ namespace Model
     /**
      * <p>The amount of time, in seconds, that Auto Scaling waits before checking the
      * health status of an EC2 instance that has come into service. The default is
-     * 300.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-     * Checks</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * 0.</p> <p>For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health
+     * Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline long GetHealthCheckGracePeriod() const{ return m_healthCheckGracePeriod; }
+    inline int GetHealthCheckGracePeriod() const{ return m_healthCheckGracePeriod; }
 
     /**
      * <p>The amount of time, in seconds, that Auto Scaling waits before checking the
      * health status of an EC2 instance that has come into service. The default is
-     * 300.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-     * Checks</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * 0.</p> <p>For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health
+     * Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline void SetHealthCheckGracePeriod(long value) { m_healthCheckGracePeriodHasBeenSet = true; m_healthCheckGracePeriod = value; }
+    inline void SetHealthCheckGracePeriod(int value) { m_healthCheckGracePeriodHasBeenSet = true; m_healthCheckGracePeriod = value; }
 
     /**
      * <p>The amount of time, in seconds, that Auto Scaling waits before checking the
      * health status of an EC2 instance that has come into service. The default is
-     * 300.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health
-     * Checks</a> in the <i>Auto Scaling Developer Guide</i>.</p>
+     * 0.</p> <p>For more information, see <a
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health
+     * Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
-    inline UpdateAutoScalingGroupRequest& WithHealthCheckGracePeriod(long value) { SetHealthCheckGracePeriod(value); return *this;}
+    inline UpdateAutoScalingGroupRequest& WithHealthCheckGracePeriod(int value) { SetHealthCheckGracePeriod(value); return *this;}
 
     /**
      * <p>The name of the placement group into which you'll launch your instances, if
@@ -352,9 +353,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline const Aws::String& GetVPCZoneIdentifier() const{ return m_vPCZoneIdentifier; }
 
@@ -364,9 +364,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline void SetVPCZoneIdentifier(const Aws::String& value) { m_vPCZoneIdentifierHasBeenSet = true; m_vPCZoneIdentifier = value; }
 
@@ -376,9 +375,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline void SetVPCZoneIdentifier(Aws::String&& value) { m_vPCZoneIdentifierHasBeenSet = true; m_vPCZoneIdentifier = value; }
 
@@ -388,9 +386,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline void SetVPCZoneIdentifier(const char* value) { m_vPCZoneIdentifierHasBeenSet = true; m_vPCZoneIdentifier.assign(value); }
 
@@ -400,9 +397,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithVPCZoneIdentifier(const Aws::String& value) { SetVPCZoneIdentifier(value); return *this;}
 
@@ -412,9 +408,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithVPCZoneIdentifier(Aws::String&& value) { SetVPCZoneIdentifier(value); return *this;}
 
@@ -424,9 +419,8 @@ namespace Model
      * <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, ensure that
      * the subnets' Availability Zones match the values you specify for
      * <code>AvailabilityZones</code>.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching
-     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling Developer
-     * Guide</i>.</p>
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching
+     * Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithVPCZoneIdentifier(const char* value) { SetVPCZoneIdentifier(value); return *this;}
 
@@ -434,9 +428,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTerminationPolicies() const{ return m_terminationPolicies; }
 
@@ -444,9 +438,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline void SetTerminationPolicies(const Aws::Vector<Aws::String>& value) { m_terminationPoliciesHasBeenSet = true; m_terminationPolicies = value; }
 
@@ -454,9 +448,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline void SetTerminationPolicies(Aws::Vector<Aws::String>&& value) { m_terminationPoliciesHasBeenSet = true; m_terminationPolicies = value; }
 
@@ -464,9 +458,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithTerminationPolicies(const Aws::Vector<Aws::String>& value) { SetTerminationPolicies(value); return *this;}
 
@@ -474,9 +468,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithTerminationPolicies(Aws::Vector<Aws::String>&& value) { SetTerminationPolicies(value); return *this;}
 
@@ -484,9 +478,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& AddTerminationPolicies(const Aws::String& value) { m_terminationPoliciesHasBeenSet = true; m_terminationPolicies.push_back(value); return *this; }
 
@@ -494,9 +488,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& AddTerminationPolicies(Aws::String&& value) { m_terminationPoliciesHasBeenSet = true; m_terminationPolicies.push_back(value); return *this; }
 
@@ -504,9 +498,9 @@ namespace Model
      * <p>A standalone termination policy or a list of termination policies used to
      * select the instance to terminate. The policies are executed in the order that
      * they are listed.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling
+     * href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling
      * Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto
-     * Scaling Developer Guide</i>.</p>
+     * Scaling User Guide</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& AddTerminationPolicies(const char* value) { m_terminationPoliciesHasBeenSet = true; m_terminationPolicies.push_back(value); return *this; }
 
@@ -533,19 +527,19 @@ namespace Model
     bool m_autoScalingGroupNameHasBeenSet;
     Aws::String m_launchConfigurationName;
     bool m_launchConfigurationNameHasBeenSet;
-    long m_minSize;
+    int m_minSize;
     bool m_minSizeHasBeenSet;
-    long m_maxSize;
+    int m_maxSize;
     bool m_maxSizeHasBeenSet;
-    long m_desiredCapacity;
+    int m_desiredCapacity;
     bool m_desiredCapacityHasBeenSet;
-    long m_defaultCooldown;
+    int m_defaultCooldown;
     bool m_defaultCooldownHasBeenSet;
     Aws::Vector<Aws::String> m_availabilityZones;
     bool m_availabilityZonesHasBeenSet;
     Aws::String m_healthCheckType;
     bool m_healthCheckTypeHasBeenSet;
-    long m_healthCheckGracePeriod;
+    int m_healthCheckGracePeriod;
     bool m_healthCheckGracePeriodHasBeenSet;
     Aws::String m_placementGroup;
     bool m_placementGroupHasBeenSet;

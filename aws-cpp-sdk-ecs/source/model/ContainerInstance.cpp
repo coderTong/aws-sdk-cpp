@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -40,6 +40,7 @@ ContainerInstance::ContainerInstance() :
     m_runningTasksCountHasBeenSet(false),
     m_pendingTasksCount(0),
     m_pendingTasksCountHasBeenSet(false),
+    m_agentUpdateStatus(AgentUpdateStatus::NOT_SET),
     m_agentUpdateStatusHasBeenSet(false),
     m_attributesHasBeenSet(false)
 {
@@ -58,6 +59,7 @@ ContainerInstance::ContainerInstance(const JsonValue& jsonValue) :
     m_runningTasksCountHasBeenSet(false),
     m_pendingTasksCount(0),
     m_pendingTasksCountHasBeenSet(false),
+    m_agentUpdateStatus(AgentUpdateStatus::NOT_SET),
     m_agentUpdateStatusHasBeenSet(false),
     m_attributesHasBeenSet(false)
 {

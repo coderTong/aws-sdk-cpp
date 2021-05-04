@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,13 +31,15 @@ Connection::Connection() :
     m_ownerAccountHasBeenSet(false),
     m_connectionIdHasBeenSet(false),
     m_connectionNameHasBeenSet(false),
+    m_connectionState(ConnectionState::NOT_SET),
     m_connectionStateHasBeenSet(false),
     m_regionHasBeenSet(false),
     m_locationHasBeenSet(false),
     m_bandwidthHasBeenSet(false),
     m_vlan(0),
     m_vlanHasBeenSet(false),
-    m_partnerNameHasBeenSet(false)
+    m_partnerNameHasBeenSet(false),
+    m_loaIssueTimeHasBeenSet(false)
 {
 }
 
@@ -45,13 +47,15 @@ Connection::Connection(const JsonValue& jsonValue) :
     m_ownerAccountHasBeenSet(false),
     m_connectionIdHasBeenSet(false),
     m_connectionNameHasBeenSet(false),
+    m_connectionState(ConnectionState::NOT_SET),
     m_connectionStateHasBeenSet(false),
     m_regionHasBeenSet(false),
     m_locationHasBeenSet(false),
     m_bandwidthHasBeenSet(false),
     m_vlan(0),
     m_vlanHasBeenSet(false),
-    m_partnerNameHasBeenSet(false)
+    m_partnerNameHasBeenSet(false),
+    m_loaIssueTimeHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -121,6 +125,13 @@ Connection& Connection::operator =(const JsonValue& jsonValue)
     m_partnerNameHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("loaIssueTime"))
+  {
+    m_loaIssueTime = jsonValue.GetDouble("loaIssueTime");
+
+    m_loaIssueTimeHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -179,6 +190,11 @@ JsonValue Connection::Jsonize() const
   {
    payload.WithString("partnerName", m_partnerName);
 
+  }
+
+  if(m_loaIssueTimeHasBeenSet)
+  {
+   payload.WithDouble("loaIssueTime", m_loaIssueTime.SecondsWithMSPrecision());
   }
 
   return payload;

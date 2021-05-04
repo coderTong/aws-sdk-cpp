@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 Event::Event() : 
     m_eventIdHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_eventCode(EventCode::NOT_SET),
     m_eventCodeHasBeenSet(false),
     m_messageHasBeenSet(false),
     m_eventTimeHasBeenSet(false)
@@ -39,6 +40,7 @@ Event::Event() :
 Event::Event(const JsonValue& jsonValue) : 
     m_eventIdHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_eventCode(EventCode::NOT_SET),
     m_eventCodeHasBeenSet(false),
     m_messageHasBeenSet(false),
     m_eventTimeHasBeenSet(false)

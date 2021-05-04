@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,7 +28,9 @@ namespace Model
 {
 
 ActionTypeId::ActionTypeId() : 
+    m_category(ActionCategory::NOT_SET),
     m_categoryHasBeenSet(false),
+    m_owner(ActionOwner::NOT_SET),
     m_ownerHasBeenSet(false),
     m_providerHasBeenSet(false),
     m_versionHasBeenSet(false)
@@ -36,7 +38,9 @@ ActionTypeId::ActionTypeId() :
 }
 
 ActionTypeId::ActionTypeId(const JsonValue& jsonValue) : 
+    m_category(ActionCategory::NOT_SET),
     m_categoryHasBeenSet(false),
+    m_owner(ActionOwner::NOT_SET),
     m_ownerHasBeenSet(false),
     m_providerHasBeenSet(false),
     m_versionHasBeenSet(false)

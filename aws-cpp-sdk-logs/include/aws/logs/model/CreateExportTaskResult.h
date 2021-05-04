@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -40,37 +40,37 @@ namespace Model
     CreateExportTaskResult& operator=(const AmazonWebServiceResult<Aws::Utils::Json::JsonValue>& result);
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline const Aws::String& GetTaskId() const{ return m_taskId; }
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline void SetTaskId(const Aws::String& value) { m_taskId = value; }
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline void SetTaskId(Aws::String&& value) { m_taskId = value; }
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline void SetTaskId(const char* value) { m_taskId.assign(value); }
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline CreateExportTaskResult& WithTaskId(const Aws::String& value) { SetTaskId(value); return *this;}
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline CreateExportTaskResult& WithTaskId(Aws::String&& value) { SetTaskId(value); return *this;}
 
     /**
-     * <p>Id of the export task that got created.</p>
+     * <p>The ID of the export task.</p>
      */
     inline CreateExportTaskResult& WithTaskId(const char* value) { SetTaskId(value); return *this;}
 

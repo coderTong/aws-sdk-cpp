@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 MonetaryAmount::MonetaryAmount() : 
     m_amount(0.0),
     m_amountHasBeenSet(false),
+    m_currencyCode(CurrencyCode::NOT_SET),
     m_currencyCodeHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ MonetaryAmount::MonetaryAmount() :
 MonetaryAmount::MonetaryAmount(const JsonValue& jsonValue) : 
     m_amount(0.0),
     m_amountHasBeenSet(false),
+    m_currencyCode(CurrencyCode::NOT_SET),
     m_currencyCodeHasBeenSet(false)
 {
   *this = jsonValue;

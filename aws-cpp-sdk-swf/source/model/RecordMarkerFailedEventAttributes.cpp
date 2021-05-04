@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 RecordMarkerFailedEventAttributes::RecordMarkerFailedEventAttributes() : 
     m_markerNameHasBeenSet(false),
+    m_cause(RecordMarkerFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)
@@ -37,6 +38,7 @@ RecordMarkerFailedEventAttributes::RecordMarkerFailedEventAttributes() :
 
 RecordMarkerFailedEventAttributes::RecordMarkerFailedEventAttributes(const JsonValue& jsonValue) : 
     m_markerNameHasBeenSet(false),
+    m_cause(RecordMarkerFailedCause::NOT_SET),
     m_causeHasBeenSet(false),
     m_decisionTaskCompletedEventId(0),
     m_decisionTaskCompletedEventIdHasBeenSet(false)

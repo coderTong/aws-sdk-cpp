@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,12 +31,14 @@ namespace Model
 
 SNSAction::SNSAction() : 
     m_topicArnHasBeenSet(false),
+    m_encoding(SNSActionEncoding::NOT_SET),
     m_encodingHasBeenSet(false)
 {
 }
 
 SNSAction::SNSAction(const XmlNode& xmlNode) : 
     m_topicArnHasBeenSet(false),
+    m_encoding(SNSActionEncoding::NOT_SET),
     m_encodingHasBeenSet(false)
 {
   *this = xmlNode;
@@ -71,10 +73,12 @@ void SNSAction::OutputToStream(Aws::OStream& oStream, const char* location, unsi
   {
       oStream << location << index << locationValue << ".TopicArn=" << StringUtils::URLEncode(m_topicArn.c_str()) << "&";
   }
+
   if(m_encodingHasBeenSet)
   {
       oStream << location << index << locationValue << ".Encoding=" << SNSActionEncodingMapper::GetNameForSNSActionEncoding(m_encoding) << "&";
   }
+
 }
 
 void SNSAction::OutputToStream(Aws::OStream& oStream, const char* location) const

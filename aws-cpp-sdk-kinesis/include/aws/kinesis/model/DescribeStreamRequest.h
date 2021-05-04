@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -71,19 +71,25 @@ namespace Model
     inline DescribeStreamRequest& WithStreamName(const char* value) { SetStreamName(value); return *this;}
 
     /**
-     * <p>The maximum number of shards to return.</p>
+     * <p>The maximum number of shards to return in a single call. The default value is
+     * 100. If you specify a value greater than 100, at most 100 shards are
+     * returned.</p>
      */
-    inline long GetLimit() const{ return m_limit; }
+    inline int GetLimit() const{ return m_limit; }
 
     /**
-     * <p>The maximum number of shards to return.</p>
+     * <p>The maximum number of shards to return in a single call. The default value is
+     * 100. If you specify a value greater than 100, at most 100 shards are
+     * returned.</p>
      */
-    inline void SetLimit(long value) { m_limitHasBeenSet = true; m_limit = value; }
+    inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
-     * <p>The maximum number of shards to return.</p>
+     * <p>The maximum number of shards to return in a single call. The default value is
+     * 100. If you specify a value greater than 100, at most 100 shards are
+     * returned.</p>
      */
-    inline DescribeStreamRequest& WithLimit(long value) { SetLimit(value); return *this;}
+    inline DescribeStreamRequest& WithLimit(int value) { SetLimit(value); return *this;}
 
     /**
      * <p>The shard ID of the shard to start with.</p>
@@ -123,7 +129,7 @@ namespace Model
   private:
     Aws::String m_streamName;
     bool m_streamNameHasBeenSet;
-    long m_limit;
+    int m_limit;
     bool m_limitHasBeenSet;
     Aws::String m_exclusiveStartShardId;
     bool m_exclusiveStartShardIdHasBeenSet;

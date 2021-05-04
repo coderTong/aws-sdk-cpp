@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,11 +28,14 @@ CreateChangeSetRequest::CreateChangeSetRequest() :
     m_parametersHasBeenSet(false),
     m_capabilitiesHasBeenSet(false),
     m_resourceTypesHasBeenSet(false),
+    m_roleARNHasBeenSet(false),
     m_notificationARNsHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_changeSetNameHasBeenSet(false),
     m_clientTokenHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_changeSetType(ChangeSetType::NOT_SET),
+    m_changeSetTypeHasBeenSet(false)
 {
 }
 
@@ -44,18 +47,22 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
   {
     ss << "StackName=" << StringUtils::URLEncode(m_stackName.c_str()) << "&";
   }
+
   if(m_templateBodyHasBeenSet)
   {
     ss << "TemplateBody=" << StringUtils::URLEncode(m_templateBody.c_str()) << "&";
   }
+
   if(m_templateURLHasBeenSet)
   {
     ss << "TemplateURL=" << StringUtils::URLEncode(m_templateURL.c_str()) << "&";
   }
+
   if(m_usePreviousTemplateHasBeenSet)
   {
     ss << "UsePreviousTemplate=" << m_usePreviousTemplate << "&";
   }
+
   if(m_parametersHasBeenSet)
   {
     unsigned parametersCount = 1;
@@ -65,6 +72,7 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
       parametersCount++;
     }
   }
+
   if(m_capabilitiesHasBeenSet)
   {
     unsigned capabilitiesCount = 1;
@@ -75,6 +83,7 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
       capabilitiesCount++;
     }
   }
+
   if(m_resourceTypesHasBeenSet)
   {
     unsigned resourceTypesCount = 1;
@@ -85,6 +94,12 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
       resourceTypesCount++;
     }
   }
+
+  if(m_roleARNHasBeenSet)
+  {
+    ss << "RoleARN=" << StringUtils::URLEncode(m_roleARN.c_str()) << "&";
+  }
+
   if(m_notificationARNsHasBeenSet)
   {
     unsigned notificationARNsCount = 1;
@@ -95,6 +110,7 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
       notificationARNsCount++;
     }
   }
+
   if(m_tagsHasBeenSet)
   {
     unsigned tagsCount = 1;
@@ -104,18 +120,27 @@ Aws::String CreateChangeSetRequest::SerializePayload() const
       tagsCount++;
     }
   }
+
   if(m_changeSetNameHasBeenSet)
   {
     ss << "ChangeSetName=" << StringUtils::URLEncode(m_changeSetName.c_str()) << "&";
   }
+
   if(m_clientTokenHasBeenSet)
   {
     ss << "ClientToken=" << StringUtils::URLEncode(m_clientToken.c_str()) << "&";
   }
+
   if(m_descriptionHasBeenSet)
   {
     ss << "Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
   }
+
+  if(m_changeSetTypeHasBeenSet)
+  {
+    ss << "ChangeSetType=" << ChangeSetTypeMapper::GetNameForChangeSetType(m_changeSetType) << "&";
+  }
+
   ss << "Version=2010-05-15";
   return ss.str();
 }

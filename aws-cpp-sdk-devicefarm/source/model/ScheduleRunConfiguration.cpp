@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,6 +34,7 @@ ScheduleRunConfiguration::ScheduleRunConfiguration() :
     m_locationHasBeenSet(false),
     m_radiosHasBeenSet(false),
     m_auxiliaryAppsHasBeenSet(false),
+    m_billingMethod(BillingMethod::NOT_SET),
     m_billingMethodHasBeenSet(false)
 {
 }
@@ -45,6 +46,7 @@ ScheduleRunConfiguration::ScheduleRunConfiguration(const JsonValue& jsonValue) :
     m_locationHasBeenSet(false),
     m_radiosHasBeenSet(false),
     m_auxiliaryAppsHasBeenSet(false),
+    m_billingMethod(BillingMethod::NOT_SET),
     m_billingMethodHasBeenSet(false)
 {
   *this = jsonValue;

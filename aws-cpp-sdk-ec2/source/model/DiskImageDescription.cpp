@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 {
 
 DiskImageDescription::DiskImageDescription() : 
+    m_format(DiskImageFormat::NOT_SET),
     m_formatHasBeenSet(false),
     m_size(0),
     m_sizeHasBeenSet(false),
@@ -39,6 +40,7 @@ DiskImageDescription::DiskImageDescription() :
 }
 
 DiskImageDescription::DiskImageDescription(const XmlNode& xmlNode) : 
+    m_format(DiskImageFormat::NOT_SET),
     m_formatHasBeenSet(false),
     m_size(0),
     m_sizeHasBeenSet(false),
@@ -89,18 +91,22 @@ void DiskImageDescription::OutputToStream(Aws::OStream& oStream, const char* loc
   {
       oStream << location << index << locationValue << ".Format=" << DiskImageFormatMapper::GetNameForDiskImageFormat(m_format) << "&";
   }
+
   if(m_sizeHasBeenSet)
   {
       oStream << location << index << locationValue << ".Size=" << m_size << "&";
   }
+
   if(m_importManifestUrlHasBeenSet)
   {
       oStream << location << index << locationValue << ".ImportManifestUrl=" << StringUtils::URLEncode(m_importManifestUrl.c_str()) << "&";
   }
+
   if(m_checksumHasBeenSet)
   {
       oStream << location << index << locationValue << ".Checksum=" << StringUtils::URLEncode(m_checksum.c_str()) << "&";
   }
+
 }
 
 void DiskImageDescription::OutputToStream(Aws::OStream& oStream, const char* location) const

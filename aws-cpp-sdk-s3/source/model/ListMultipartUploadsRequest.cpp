@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -14,6 +14,7 @@
 */
 #include <aws/s3/model/ListMultipartUploadsRequest.h>
 #include <aws/core/utils/xml/XmlSerializer.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 #include <aws/core/http/URI.h>
 #include <aws/core/utils/memory/stl/AWSStringStream.h>
 
@@ -27,6 +28,7 @@ using namespace Aws::Http;
 ListMultipartUploadsRequest::ListMultipartUploadsRequest() : 
     m_bucketHasBeenSet(false),
     m_delimiterHasBeenSet(false),
+    m_encodingType(EncodingType::NOT_SET),
     m_encodingTypeHasBeenSet(false),
     m_keyMarkerHasBeenSet(false),
     m_maxUploads(0),

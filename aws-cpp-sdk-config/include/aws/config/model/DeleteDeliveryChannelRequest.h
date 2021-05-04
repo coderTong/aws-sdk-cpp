@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,8 +25,8 @@ namespace Model
 {
 
   /**
-   * <p> The input for the <a>DeleteDeliveryChannel</a> action. The action accepts
-   * the following data in JSON format. </p>
+   * <p>The input for the <a>DeleteDeliveryChannel</a> action. The action accepts the
+   * following data in JSON format. </p>
    */
   class AWS_CONFIGSERVICE_API DeleteDeliveryChannelRequest : public ConfigServiceRequest
   {

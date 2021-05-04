@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 ChangeInfo::ChangeInfo() : 
     m_idHasBeenSet(false),
+    m_status(ChangeStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_submittedAtHasBeenSet(false),
     m_commentHasBeenSet(false)
@@ -39,6 +40,7 @@ ChangeInfo::ChangeInfo() :
 
 ChangeInfo::ChangeInfo(const XmlNode& xmlNode) : 
     m_idHasBeenSet(false),
+    m_status(ChangeStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_submittedAtHasBeenSet(false),
     m_commentHasBeenSet(false)

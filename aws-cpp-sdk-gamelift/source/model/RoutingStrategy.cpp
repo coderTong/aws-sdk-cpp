@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 RoutingStrategy::RoutingStrategy() : 
+    m_type(RoutingStrategyType::NOT_SET),
     m_typeHasBeenSet(false),
     m_fleetIdHasBeenSet(false),
     m_messageHasBeenSet(false)
@@ -35,6 +36,7 @@ RoutingStrategy::RoutingStrategy() :
 }
 
 RoutingStrategy::RoutingStrategy(const JsonValue& jsonValue) : 
+    m_type(RoutingStrategyType::NOT_SET),
     m_typeHasBeenSet(false),
     m_fleetIdHasBeenSet(false),
     m_messageHasBeenSet(false)

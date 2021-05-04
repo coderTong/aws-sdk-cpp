@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,11 +24,13 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 using namespace Aws;
 
-DescribeTagsResult::DescribeTagsResult()
+DescribeTagsResult::DescribeTagsResult() : 
+    m_resourceType(TaggableResourceType::NOT_SET)
 {
 }
 
-DescribeTagsResult::DescribeTagsResult(const AmazonWebServiceResult<JsonValue>& result)
+DescribeTagsResult::DescribeTagsResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_resourceType(TaggableResourceType::NOT_SET)
 {
   *this = result;
 }

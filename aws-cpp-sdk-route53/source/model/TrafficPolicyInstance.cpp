@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -40,6 +40,7 @@ TrafficPolicyInstance::TrafficPolicyInstance() :
     m_trafficPolicyIdHasBeenSet(false),
     m_trafficPolicyVersion(0),
     m_trafficPolicyVersionHasBeenSet(false),
+    m_trafficPolicyType(RRType::NOT_SET),
     m_trafficPolicyTypeHasBeenSet(false)
 {
 }
@@ -55,6 +56,7 @@ TrafficPolicyInstance::TrafficPolicyInstance(const XmlNode& xmlNode) :
     m_trafficPolicyIdHasBeenSet(false),
     m_trafficPolicyVersion(0),
     m_trafficPolicyVersionHasBeenSet(false),
+    m_trafficPolicyType(RRType::NOT_SET),
     m_trafficPolicyTypeHasBeenSet(false)
 {
   *this = xmlNode;

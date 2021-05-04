@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,12 +30,14 @@ namespace Model
 {
 
 InstanceStatusSummary::InstanceStatusSummary() : 
+    m_status(SummaryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_detailsHasBeenSet(false)
 {
 }
 
 InstanceStatusSummary::InstanceStatusSummary(const XmlNode& xmlNode) : 
+    m_status(SummaryStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_detailsHasBeenSet(false)
 {
@@ -77,6 +79,7 @@ void InstanceStatusSummary::OutputToStream(Aws::OStream& oStream, const char* lo
   {
       oStream << location << index << locationValue << ".Status=" << SummaryStatusMapper::GetNameForSummaryStatus(m_status) << "&";
   }
+
   if(m_detailsHasBeenSet)
   {
       unsigned detailsIdx = 1;
@@ -87,6 +90,7 @@ void InstanceStatusSummary::OutputToStream(Aws::OStream& oStream, const char* lo
         item.OutputToStream(oStream, detailsSs.str().c_str());
       }
   }
+
 }
 
 void InstanceStatusSummary::OutputToStream(Aws::OStream& oStream, const char* location) const

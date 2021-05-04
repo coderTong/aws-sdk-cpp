@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 EC2InstanceLimit::EC2InstanceLimit() : 
+    m_eC2InstanceType(EC2InstanceType::NOT_SET),
     m_eC2InstanceTypeHasBeenSet(false),
     m_currentInstances(0),
     m_currentInstancesHasBeenSet(false),
@@ -37,6 +38,7 @@ EC2InstanceLimit::EC2InstanceLimit() :
 }
 
 EC2InstanceLimit::EC2InstanceLimit(const JsonValue& jsonValue) : 
+    m_eC2InstanceType(EC2InstanceType::NOT_SET),
     m_eC2InstanceTypeHasBeenSet(false),
     m_currentInstances(0),
     m_currentInstancesHasBeenSet(false),

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -36,7 +36,7 @@ namespace Model
   /**
    * <p>The details of an AWS Config evaluation. Provides the AWS resource that was
    * evaluated, the compliance of the resource, related timestamps, and supplementary
-   * information. </p>
+   * information.</p>
    */
   class AWS_CONFIGSERVICE_API EvaluationResult
   {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,7 +23,9 @@ using namespace Aws::Utils;
 
 ListRepositoriesRequest::ListRepositoriesRequest() : 
     m_nextTokenHasBeenSet(false),
+    m_sortBy(SortByEnum::NOT_SET),
     m_sortByHasBeenSet(false),
+    m_order(OrderEnum::NOT_SET),
     m_orderHasBeenSet(false)
 {
 }

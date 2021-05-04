@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ PortMapping::PortMapping() :
     m_containerPortHasBeenSet(false),
     m_hostPort(0),
     m_hostPortHasBeenSet(false),
+    m_protocol(TransportProtocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
 }
@@ -41,6 +42,7 @@ PortMapping::PortMapping(const JsonValue& jsonValue) :
     m_containerPortHasBeenSet(false),
     m_hostPort(0),
     m_hostPortHasBeenSet(false),
+    m_protocol(TransportProtocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
   *this = jsonValue;

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,11 +30,13 @@ namespace Model
 {
 
 RequestPaymentConfiguration::RequestPaymentConfiguration() : 
+    m_payer(Payer::NOT_SET),
     m_payerHasBeenSet(false)
 {
 }
 
 RequestPaymentConfiguration::RequestPaymentConfiguration(const XmlNode& xmlNode) : 
+    m_payer(Payer::NOT_SET),
     m_payerHasBeenSet(false)
 {
   *this = xmlNode;

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ TableDescription::TableDescription() :
     m_attributeDefinitionsHasBeenSet(false),
     m_tableNameHasBeenSet(false),
     m_keySchemaHasBeenSet(false),
+    m_tableStatus(TableStatus::NOT_SET),
     m_tableStatusHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_provisionedThroughputHasBeenSet(false),
@@ -51,6 +52,7 @@ TableDescription::TableDescription(const JsonValue& jsonValue) :
     m_attributeDefinitionsHasBeenSet(false),
     m_tableNameHasBeenSet(false),
     m_keySchemaHasBeenSet(false),
+    m_tableStatus(TableStatus::NOT_SET),
     m_tableStatusHasBeenSet(false),
     m_creationDateTimeHasBeenSet(false),
     m_provisionedThroughputHasBeenSet(false),

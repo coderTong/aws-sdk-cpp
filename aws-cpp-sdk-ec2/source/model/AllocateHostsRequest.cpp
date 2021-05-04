@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -20,6 +20,7 @@ using namespace Aws::EC2::Model;
 using namespace Aws::Utils;
 
 AllocateHostsRequest::AllocateHostsRequest() : 
+    m_autoPlacement(AutoPlacement::NOT_SET),
     m_autoPlacementHasBeenSet(false),
     m_clientTokenHasBeenSet(false),
     m_instanceTypeHasBeenSet(false),
@@ -37,22 +38,27 @@ Aws::String AllocateHostsRequest::SerializePayload() const
   {
     ss << "AutoPlacement=" << AutoPlacementMapper::GetNameForAutoPlacement(m_autoPlacement) << "&";
   }
+
   if(m_clientTokenHasBeenSet)
   {
     ss << "ClientToken=" << StringUtils::URLEncode(m_clientToken.c_str()) << "&";
   }
+
   if(m_instanceTypeHasBeenSet)
   {
     ss << "InstanceType=" << StringUtils::URLEncode(m_instanceType.c_str()) << "&";
   }
+
   if(m_quantityHasBeenSet)
   {
     ss << "Quantity=" << m_quantity << "&";
   }
+
   if(m_availabilityZoneHasBeenSet)
   {
     ss << "AvailabilityZone=" << StringUtils::URLEncode(m_availabilityZone.c_str()) << "&";
   }
+
   ss << "Version=2015-10-01";
   return ss.str();
 }

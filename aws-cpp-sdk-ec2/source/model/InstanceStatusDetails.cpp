@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,14 +30,18 @@ namespace Model
 {
 
 InstanceStatusDetails::InstanceStatusDetails() : 
+    m_name(StatusName::NOT_SET),
     m_nameHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_impairedSinceHasBeenSet(false)
 {
 }
 
 InstanceStatusDetails::InstanceStatusDetails(const XmlNode& xmlNode) : 
+    m_name(StatusName::NOT_SET),
     m_nameHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_impairedSinceHasBeenSet(false)
 {
@@ -79,14 +83,17 @@ void InstanceStatusDetails::OutputToStream(Aws::OStream& oStream, const char* lo
   {
       oStream << location << index << locationValue << ".Name=" << StatusNameMapper::GetNameForStatusName(m_name) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << StatusTypeMapper::GetNameForStatusType(m_status) << "&";
   }
+
   if(m_impairedSinceHasBeenSet)
   {
       oStream << location << index << locationValue << ".ImpairedSince=" << StringUtils::URLEncode(m_impairedSince.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void InstanceStatusDetails::OutputToStream(Aws::OStream& oStream, const char* location) const

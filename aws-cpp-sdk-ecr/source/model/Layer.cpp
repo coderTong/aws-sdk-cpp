@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,6 +29,7 @@ namespace Model
 
 Layer::Layer() : 
     m_layerDigestHasBeenSet(false),
+    m_layerAvailability(LayerAvailability::NOT_SET),
     m_layerAvailabilityHasBeenSet(false),
     m_layerSize(0),
     m_layerSizeHasBeenSet(false)
@@ -37,6 +38,7 @@ Layer::Layer() :
 
 Layer::Layer(const JsonValue& jsonValue) : 
     m_layerDigestHasBeenSet(false),
+    m_layerAvailability(LayerAvailability::NOT_SET),
     m_layerAvailabilityHasBeenSet(false),
     m_layerSize(0),
     m_layerSizeHasBeenSet(false)

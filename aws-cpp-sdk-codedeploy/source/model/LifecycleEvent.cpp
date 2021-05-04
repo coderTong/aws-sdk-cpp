@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ LifecycleEvent::LifecycleEvent() :
     m_diagnosticsHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
+    m_status(LifecycleEventStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
 }
@@ -41,6 +42,7 @@ LifecycleEvent::LifecycleEvent(const JsonValue& jsonValue) :
     m_diagnosticsHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_endTimeHasBeenSet(false),
+    m_status(LifecycleEventStatus::NOT_SET),
     m_statusHasBeenSet(false)
 {
   *this = jsonValue;

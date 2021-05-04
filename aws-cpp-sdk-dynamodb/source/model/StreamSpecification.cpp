@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 StreamSpecification::StreamSpecification() : 
     m_streamEnabled(false),
     m_streamEnabledHasBeenSet(false),
+    m_streamViewType(StreamViewType::NOT_SET),
     m_streamViewTypeHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ StreamSpecification::StreamSpecification() :
 StreamSpecification::StreamSpecification(const JsonValue& jsonValue) : 
     m_streamEnabled(false),
     m_streamEnabledHasBeenSet(false),
+    m_streamViewType(StreamViewType::NOT_SET),
     m_streamViewTypeHasBeenSet(false)
 {
   *this = jsonValue;

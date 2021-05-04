@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -35,8 +35,9 @@ namespace ElastiCache
 namespace Model
 {
   /**
-   * <p>Represents the output from the <i>AddTagsToResource</i>,
-   * <i>ListTagsOnResource</i>, and <i>RemoveTagsFromResource</i> actions.</p>
+   * <p>Represents the output from the <code>AddTagsToResource</code>,
+   * <code>ListTagsOnResource</code>, and <code>RemoveTagsFromResource</code>
+   * operations.</p>
    */
   class AWS_ELASTICACHE_API RemoveTagsFromResourceResult
   {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,13 +25,16 @@ SendCommandRequest::SendCommandRequest() :
     m_instanceIdsHasBeenSet(false),
     m_documentNameHasBeenSet(false),
     m_documentHashHasBeenSet(false),
+    m_documentHashType(DocumentHashType::NOT_SET),
     m_documentHashTypeHasBeenSet(false),
     m_timeoutSeconds(0),
     m_timeoutSecondsHasBeenSet(false),
     m_commentHasBeenSet(false),
     m_parametersHasBeenSet(false),
     m_outputS3BucketNameHasBeenSet(false),
-    m_outputS3KeyPrefixHasBeenSet(false)
+    m_outputS3KeyPrefixHasBeenSet(false),
+    m_serviceRoleArnHasBeenSet(false),
+    m_notificationConfigHasBeenSet(false)
 {
 }
 
@@ -104,6 +107,18 @@ Aws::String SendCommandRequest::SerializePayload() const
   if(m_outputS3KeyPrefixHasBeenSet)
   {
    payload.WithString("OutputS3KeyPrefix", m_outputS3KeyPrefix);
+
+  }
+
+  if(m_serviceRoleArnHasBeenSet)
+  {
+   payload.WithString("ServiceRoleArn", m_serviceRoleArn);
+
+  }
+
+  if(m_notificationConfigHasBeenSet)
+  {
+   payload.WithObject("NotificationConfig", m_notificationConfig.Jsonize());
 
   }
 

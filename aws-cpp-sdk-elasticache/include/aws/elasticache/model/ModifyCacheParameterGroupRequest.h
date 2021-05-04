@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -27,7 +27,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a <i>ModifyCacheParameterGroup</i> action.</p>
+   * <p>Represents the input of a <code>ModifyCacheParameterGroup</code>
+   * operation.</p>
    */
   class AWS_ELASTICACHE_API ModifyCacheParameterGroupRequest : public ElastiCacheRequest
   {

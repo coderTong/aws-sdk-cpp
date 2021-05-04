@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 UnprocessedIdentityId::UnprocessedIdentityId() : 
     m_identityIdHasBeenSet(false),
+    m_errorCode(ErrorCode::NOT_SET),
     m_errorCodeHasBeenSet(false)
 {
 }
 
 UnprocessedIdentityId::UnprocessedIdentityId(const JsonValue& jsonValue) : 
     m_identityIdHasBeenSet(false),
+    m_errorCode(ErrorCode::NOT_SET),
     m_errorCodeHasBeenSet(false)
 {
   *this = jsonValue;

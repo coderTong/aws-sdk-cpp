@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,7 @@ namespace Model
   /**
    * <p>Indicates whether an AWS Config rule is compliant. A rule is compliant if all
    * of the resources that the rule evaluated comply with it, and it is noncompliant
-   * if any of these resources do not comply. </p>
+   * if any of these resources do not comply.</p>
    */
   class AWS_CONFIGSERVICE_API ComplianceByConfigRule
   {

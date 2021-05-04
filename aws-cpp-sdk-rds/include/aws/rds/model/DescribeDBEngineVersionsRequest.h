@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -208,7 +208,7 @@ namespace Model
      * is included in the response so that the following results can be retrieved. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
-    inline long GetMaxRecords() const{ return m_maxRecords; }
+    inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
      * <p> The maximum number of records to include in the response. If more than the
@@ -216,7 +216,7 @@ namespace Model
      * is included in the response so that the following results can be retrieved. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
-    inline void SetMaxRecords(long value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
+    inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
      * <p> The maximum number of records to include in the response. If more than the
@@ -224,7 +224,7 @@ namespace Model
      * is included in the response so that the following results can be retrieved. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
-    inline DescribeDBEngineVersionsRequest& WithMaxRecords(long value) { SetMaxRecords(value); return *this;}
+    inline DescribeDBEngineVersionsRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 
     /**
      * <p> An optional pagination token provided by a previous request. If this
@@ -294,25 +294,49 @@ namespace Model
     inline DescribeDBEngineVersionsRequest& WithDefaultOnly(bool value) { SetDefaultOnly(value); return *this;}
 
     /**
-     * <p>If this parameter is specified, and if the requested engine supports the
-     * CharacterSetName parameter for CreateDBInstance, the response includes a list of
-     * supported character sets for each engine version.</p>
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
+     * response includes a list of supported character sets for each engine version.
+     * </p>
      */
     inline bool GetListSupportedCharacterSets() const{ return m_listSupportedCharacterSets; }
 
     /**
-     * <p>If this parameter is specified, and if the requested engine supports the
-     * CharacterSetName parameter for CreateDBInstance, the response includes a list of
-     * supported character sets for each engine version.</p>
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
+     * response includes a list of supported character sets for each engine version.
+     * </p>
      */
     inline void SetListSupportedCharacterSets(bool value) { m_listSupportedCharacterSetsHasBeenSet = true; m_listSupportedCharacterSets = value; }
 
     /**
-     * <p>If this parameter is specified, and if the requested engine supports the
-     * CharacterSetName parameter for CreateDBInstance, the response includes a list of
-     * supported character sets for each engine version.</p>
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
+     * response includes a list of supported character sets for each engine version.
+     * </p>
      */
     inline DescribeDBEngineVersionsRequest& WithListSupportedCharacterSets(bool value) { SetListSupportedCharacterSets(value); return *this;}
+
+    /**
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
+     * includes a list of supported time zones for each engine version. </p>
+     */
+    inline bool GetListSupportedTimezones() const{ return m_listSupportedTimezones; }
+
+    /**
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
+     * includes a list of supported time zones for each engine version. </p>
+     */
+    inline void SetListSupportedTimezones(bool value) { m_listSupportedTimezonesHasBeenSet = true; m_listSupportedTimezones = value; }
+
+    /**
+     * <p>If this parameter is specified and the requested engine supports the
+     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
+     * includes a list of supported time zones for each engine version. </p>
+     */
+    inline DescribeDBEngineVersionsRequest& WithListSupportedTimezones(bool value) { SetListSupportedTimezones(value); return *this;}
 
   private:
     Aws::String m_engine;
@@ -323,7 +347,7 @@ namespace Model
     bool m_dBParameterGroupFamilyHasBeenSet;
     Aws::Vector<Filter> m_filters;
     bool m_filtersHasBeenSet;
-    long m_maxRecords;
+    int m_maxRecords;
     bool m_maxRecordsHasBeenSet;
     Aws::String m_marker;
     bool m_markerHasBeenSet;
@@ -331,6 +355,8 @@ namespace Model
     bool m_defaultOnlyHasBeenSet;
     bool m_listSupportedCharacterSets;
     bool m_listSupportedCharacterSetsHasBeenSet;
+    bool m_listSupportedTimezones;
+    bool m_listSupportedTimezonesHasBeenSet;
   };
 
 } // namespace Model

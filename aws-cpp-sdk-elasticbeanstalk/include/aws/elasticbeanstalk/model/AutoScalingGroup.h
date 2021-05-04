@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,7 +32,7 @@ namespace Model
 {
 
   /**
-   * <p>Describes an Auto Scaling launch configuration. </p>
+   * <p>Describes an Auto Scaling launch configuration.</p>
    */
   class AWS_ELASTICBEANSTALK_API AutoScalingGroup
   {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 
 ModifyDocumentPermissionRequest::ModifyDocumentPermissionRequest() : 
     m_nameHasBeenSet(false),
+    m_permissionType(DocumentPermissionType::NOT_SET),
     m_permissionTypeHasBeenSet(false),
     m_accountIdsToAddHasBeenSet(false),
     m_accountIdsToRemoveHasBeenSet(false)

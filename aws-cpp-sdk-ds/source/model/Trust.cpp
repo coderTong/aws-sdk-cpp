@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,8 +31,11 @@ Trust::Trust() :
     m_directoryIdHasBeenSet(false),
     m_trustIdHasBeenSet(false),
     m_remoteDomainNameHasBeenSet(false),
+    m_trustType(TrustType::NOT_SET),
     m_trustTypeHasBeenSet(false),
+    m_trustDirection(TrustDirection::NOT_SET),
     m_trustDirectionHasBeenSet(false),
+    m_trustState(TrustState::NOT_SET),
     m_trustStateHasBeenSet(false),
     m_createdDateTimeHasBeenSet(false),
     m_lastUpdatedDateTimeHasBeenSet(false),
@@ -45,8 +48,11 @@ Trust::Trust(const JsonValue& jsonValue) :
     m_directoryIdHasBeenSet(false),
     m_trustIdHasBeenSet(false),
     m_remoteDomainNameHasBeenSet(false),
+    m_trustType(TrustType::NOT_SET),
     m_trustTypeHasBeenSet(false),
+    m_trustDirection(TrustDirection::NOT_SET),
     m_trustDirectionHasBeenSet(false),
+    m_trustState(TrustState::NOT_SET),
     m_trustStateHasBeenSet(false),
     m_createdDateTimeHasBeenSet(false),
     m_lastUpdatedDateTimeHasBeenSet(false),

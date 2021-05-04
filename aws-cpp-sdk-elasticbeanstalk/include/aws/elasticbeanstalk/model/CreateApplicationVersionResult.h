@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,7 +34,7 @@ namespace ElasticBeanstalk
 namespace Model
 {
   /**
-   * <p> Result message wrapping a single description of an application version. </p>
+   * <p>Result message wrapping a single description of an application version.</p>
    */
   class AWS_ELASTICBEANSTALK_API CreateApplicationVersionResult
   {

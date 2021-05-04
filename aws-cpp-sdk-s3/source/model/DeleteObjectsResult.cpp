@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,11 +25,13 @@ using namespace Aws::Utils::Xml;
 using namespace Aws::Utils;
 using namespace Aws;
 
-DeleteObjectsResult::DeleteObjectsResult()
+DeleteObjectsResult::DeleteObjectsResult() : 
+    m_requestCharged(RequestCharged::NOT_SET)
 {
 }
 
-DeleteObjectsResult::DeleteObjectsResult(const AmazonWebServiceResult<XmlDocument>& result)
+DeleteObjectsResult::DeleteObjectsResult(const AmazonWebServiceResult<XmlDocument>& result) : 
+    m_requestCharged(RequestCharged::NOT_SET)
 {
   *this = result;
 }
@@ -52,14 +54,14 @@ DeleteObjectsResult& DeleteObjectsResult::operator =(const AmazonWebServiceResul
       }
 
     }
-    XmlNode errorsNode = resultNode.FirstChild("Errors");
+    XmlNode errorsNode = resultNode.FirstChild("Error");
     if(!errorsNode.IsNull())
     {
-      XmlNode errorsMember = errorsNode;
-      while(!errorsMember.IsNull())
+      XmlNode errorMember = errorsNode;
+      while(!errorMember.IsNull())
       {
-        m_errors.push_back(errorsMember);
-        errorsMember = errorsMember.NextNode("Error");
+        m_errors.push_back(errorMember);
+        errorMember = errorMember.NextNode("Error");
       }
 
     }

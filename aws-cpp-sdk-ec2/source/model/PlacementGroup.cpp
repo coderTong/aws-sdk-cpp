@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,14 +31,18 @@ namespace Model
 
 PlacementGroup::PlacementGroup() : 
     m_groupNameHasBeenSet(false),
+    m_strategy(PlacementStrategy::NOT_SET),
     m_strategyHasBeenSet(false),
+    m_state(PlacementGroupState::NOT_SET),
     m_stateHasBeenSet(false)
 {
 }
 
 PlacementGroup::PlacementGroup(const XmlNode& xmlNode) : 
     m_groupNameHasBeenSet(false),
+    m_strategy(PlacementStrategy::NOT_SET),
     m_strategyHasBeenSet(false),
+    m_state(PlacementGroupState::NOT_SET),
     m_stateHasBeenSet(false)
 {
   *this = xmlNode;
@@ -79,14 +83,17 @@ void PlacementGroup::OutputToStream(Aws::OStream& oStream, const char* location,
   {
       oStream << location << index << locationValue << ".GroupName=" << StringUtils::URLEncode(m_groupName.c_str()) << "&";
   }
+
   if(m_strategyHasBeenSet)
   {
       oStream << location << index << locationValue << ".Strategy=" << PlacementStrategyMapper::GetNameForPlacementStrategy(m_strategy) << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << PlacementGroupStateMapper::GetNameForPlacementGroupState(m_state) << "&";
   }
+
 }
 
 void PlacementGroup::OutputToStream(Aws::OStream& oStream, const char* location) const

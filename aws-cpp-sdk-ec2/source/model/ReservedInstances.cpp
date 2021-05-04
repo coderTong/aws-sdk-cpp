@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -31,6 +31,7 @@ namespace Model
 
 ReservedInstances::ReservedInstances() : 
     m_reservedInstancesIdHasBeenSet(false),
+    m_instanceType(InstanceType::NOT_SET),
     m_instanceTypeHasBeenSet(false),
     m_availabilityZoneHasBeenSet(false),
     m_startHasBeenSet(false),
@@ -43,11 +44,16 @@ ReservedInstances::ReservedInstances() :
     m_fixedPriceHasBeenSet(false),
     m_instanceCount(0),
     m_instanceCountHasBeenSet(false),
+    m_productDescription(RIProductDescription::NOT_SET),
     m_productDescriptionHasBeenSet(false),
+    m_state(ReservedInstanceState::NOT_SET),
     m_stateHasBeenSet(false),
     m_tagsHasBeenSet(false),
+    m_instanceTenancy(Tenancy::NOT_SET),
     m_instanceTenancyHasBeenSet(false),
+    m_currencyCode(CurrencyCodeValues::NOT_SET),
     m_currencyCodeHasBeenSet(false),
+    m_offeringType(OfferingTypeValues::NOT_SET),
     m_offeringTypeHasBeenSet(false),
     m_recurringChargesHasBeenSet(false)
 {
@@ -55,6 +61,7 @@ ReservedInstances::ReservedInstances() :
 
 ReservedInstances::ReservedInstances(const XmlNode& xmlNode) : 
     m_reservedInstancesIdHasBeenSet(false),
+    m_instanceType(InstanceType::NOT_SET),
     m_instanceTypeHasBeenSet(false),
     m_availabilityZoneHasBeenSet(false),
     m_startHasBeenSet(false),
@@ -67,11 +74,16 @@ ReservedInstances::ReservedInstances(const XmlNode& xmlNode) :
     m_fixedPriceHasBeenSet(false),
     m_instanceCount(0),
     m_instanceCountHasBeenSet(false),
+    m_productDescription(RIProductDescription::NOT_SET),
     m_productDescriptionHasBeenSet(false),
+    m_state(ReservedInstanceState::NOT_SET),
     m_stateHasBeenSet(false),
     m_tagsHasBeenSet(false),
+    m_instanceTenancy(Tenancy::NOT_SET),
     m_instanceTenancyHasBeenSet(false),
+    m_currencyCode(CurrencyCodeValues::NOT_SET),
     m_currencyCodeHasBeenSet(false),
+    m_offeringType(OfferingTypeValues::NOT_SET),
     m_offeringTypeHasBeenSet(false),
     m_recurringChargesHasBeenSet(false)
 {
@@ -203,46 +215,57 @@ void ReservedInstances::OutputToStream(Aws::OStream& oStream, const char* locati
   {
       oStream << location << index << locationValue << ".ReservedInstancesId=" << StringUtils::URLEncode(m_reservedInstancesId.c_str()) << "&";
   }
+
   if(m_instanceTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".InstanceType=" << InstanceTypeMapper::GetNameForInstanceType(m_instanceType) << "&";
   }
+
   if(m_availabilityZoneHasBeenSet)
   {
       oStream << location << index << locationValue << ".AvailabilityZone=" << StringUtils::URLEncode(m_availabilityZone.c_str()) << "&";
   }
+
   if(m_startHasBeenSet)
   {
       oStream << location << index << locationValue << ".Start=" << StringUtils::URLEncode(m_start.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_endHasBeenSet)
   {
       oStream << location << index << locationValue << ".End=" << StringUtils::URLEncode(m_end.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_durationHasBeenSet)
   {
       oStream << location << index << locationValue << ".Duration=" << m_duration << "&";
   }
+
   if(m_usagePriceHasBeenSet)
   {
       oStream << location << index << locationValue << ".UsagePrice=" << m_usagePrice << "&";
   }
+
   if(m_fixedPriceHasBeenSet)
   {
       oStream << location << index << locationValue << ".FixedPrice=" << m_fixedPrice << "&";
   }
+
   if(m_instanceCountHasBeenSet)
   {
       oStream << location << index << locationValue << ".InstanceCount=" << m_instanceCount << "&";
   }
+
   if(m_productDescriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".ProductDescription=" << RIProductDescriptionMapper::GetNameForRIProductDescription(m_productDescription) << "&";
   }
+
   if(m_stateHasBeenSet)
   {
       oStream << location << index << locationValue << ".State=" << ReservedInstanceStateMapper::GetNameForReservedInstanceState(m_state) << "&";
   }
+
   if(m_tagsHasBeenSet)
   {
       unsigned tagsIdx = 1;
@@ -253,18 +276,22 @@ void ReservedInstances::OutputToStream(Aws::OStream& oStream, const char* locati
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
   }
+
   if(m_instanceTenancyHasBeenSet)
   {
       oStream << location << index << locationValue << ".InstanceTenancy=" << TenancyMapper::GetNameForTenancy(m_instanceTenancy) << "&";
   }
+
   if(m_currencyCodeHasBeenSet)
   {
       oStream << location << index << locationValue << ".CurrencyCode=" << CurrencyCodeValuesMapper::GetNameForCurrencyCodeValues(m_currencyCode) << "&";
   }
+
   if(m_offeringTypeHasBeenSet)
   {
       oStream << location << index << locationValue << ".OfferingType=" << OfferingTypeValuesMapper::GetNameForOfferingTypeValues(m_offeringType) << "&";
   }
+
   if(m_recurringChargesHasBeenSet)
   {
       unsigned recurringChargesIdx = 1;
@@ -275,6 +302,7 @@ void ReservedInstances::OutputToStream(Aws::OStream& oStream, const char* locati
         item.OutputToStream(oStream, recurringChargesSs.str().c_str());
       }
   }
+
 }
 
 void ReservedInstances::OutputToStream(Aws::OStream& oStream, const char* location) const

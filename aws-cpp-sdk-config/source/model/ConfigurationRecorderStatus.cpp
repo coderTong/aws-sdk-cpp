@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ ConfigurationRecorderStatus::ConfigurationRecorderStatus() :
     m_lastStopTimeHasBeenSet(false),
     m_recording(false),
     m_recordingHasBeenSet(false),
+    m_lastStatus(RecorderStatus::NOT_SET),
     m_lastStatusHasBeenSet(false),
     m_lastErrorCodeHasBeenSet(false),
     m_lastErrorMessageHasBeenSet(false),
@@ -46,6 +47,7 @@ ConfigurationRecorderStatus::ConfigurationRecorderStatus(const JsonValue& jsonVa
     m_lastStopTimeHasBeenSet(false),
     m_recording(false),
     m_recordingHasBeenSet(false),
+    m_lastStatus(RecorderStatus::NOT_SET),
     m_lastStatusHasBeenSet(false),
     m_lastErrorCodeHasBeenSet(false),
     m_lastErrorMessageHasBeenSet(false),

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 Instance::Instance() : 
     m_instanceIdHasBeenSet(false),
     m_availabilityZoneHasBeenSet(false),
+    m_lifecycleState(LifecycleState::NOT_SET),
     m_lifecycleStateHasBeenSet(false),
     m_healthStatusHasBeenSet(false),
     m_launchConfigurationNameHasBeenSet(false),
@@ -43,6 +44,7 @@ Instance::Instance() :
 Instance::Instance(const XmlNode& xmlNode) : 
     m_instanceIdHasBeenSet(false),
     m_availabilityZoneHasBeenSet(false),
+    m_lifecycleState(LifecycleState::NOT_SET),
     m_lifecycleStateHasBeenSet(false),
     m_healthStatusHasBeenSet(false),
     m_launchConfigurationNameHasBeenSet(false),
@@ -105,26 +107,32 @@ void Instance::OutputToStream(Aws::OStream& oStream, const char* location, unsig
   {
       oStream << location << index << locationValue << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
+
   if(m_availabilityZoneHasBeenSet)
   {
       oStream << location << index << locationValue << ".AvailabilityZone=" << StringUtils::URLEncode(m_availabilityZone.c_str()) << "&";
   }
+
   if(m_lifecycleStateHasBeenSet)
   {
       oStream << location << index << locationValue << ".LifecycleState=" << LifecycleStateMapper::GetNameForLifecycleState(m_lifecycleState) << "&";
   }
+
   if(m_healthStatusHasBeenSet)
   {
       oStream << location << index << locationValue << ".HealthStatus=" << StringUtils::URLEncode(m_healthStatus.c_str()) << "&";
   }
+
   if(m_launchConfigurationNameHasBeenSet)
   {
       oStream << location << index << locationValue << ".LaunchConfigurationName=" << StringUtils::URLEncode(m_launchConfigurationName.c_str()) << "&";
   }
+
   if(m_protectedFromScaleInHasBeenSet)
   {
       oStream << location << index << locationValue << ".ProtectedFromScaleIn=" << m_protectedFromScaleIn << "&";
   }
+
 }
 
 void Instance::OutputToStream(Aws::OStream& oStream, const char* location) const

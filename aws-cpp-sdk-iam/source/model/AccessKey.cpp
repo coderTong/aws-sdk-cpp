@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -32,6 +32,7 @@ namespace Model
 AccessKey::AccessKey() : 
     m_userNameHasBeenSet(false),
     m_accessKeyIdHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_secretAccessKeyHasBeenSet(false),
     m_createDateHasBeenSet(false)
@@ -41,6 +42,7 @@ AccessKey::AccessKey() :
 AccessKey::AccessKey(const XmlNode& xmlNode) : 
     m_userNameHasBeenSet(false),
     m_accessKeyIdHasBeenSet(false),
+    m_status(StatusType::NOT_SET),
     m_statusHasBeenSet(false),
     m_secretAccessKeyHasBeenSet(false),
     m_createDateHasBeenSet(false)
@@ -95,22 +97,27 @@ void AccessKey::OutputToStream(Aws::OStream& oStream, const char* location, unsi
   {
       oStream << location << index << locationValue << ".UserName=" << StringUtils::URLEncode(m_userName.c_str()) << "&";
   }
+
   if(m_accessKeyIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".AccessKeyId=" << StringUtils::URLEncode(m_accessKeyId.c_str()) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << StatusTypeMapper::GetNameForStatusType(m_status) << "&";
   }
+
   if(m_secretAccessKeyHasBeenSet)
   {
       oStream << location << index << locationValue << ".SecretAccessKey=" << StringUtils::URLEncode(m_secretAccessKey.c_str()) << "&";
   }
+
   if(m_createDateHasBeenSet)
   {
       oStream << location << index << locationValue << ".CreateDate=" << StringUtils::URLEncode(m_createDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
 }
 
 void AccessKey::OutputToStream(Aws::OStream& oStream, const char* location) const

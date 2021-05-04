@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -190,86 +190,121 @@ namespace Model
     inline ContainerInstance& WithVersionInfo(VersionInfo&& value) { SetVersionInfo(value); return *this;}
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline const Aws::Vector<Resource>& GetRemainingResources() const{ return m_remainingResources; }
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline void SetRemainingResources(const Aws::Vector<Resource>& value) { m_remainingResourcesHasBeenSet = true; m_remainingResources = value; }
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline void SetRemainingResources(Aws::Vector<Resource>&& value) { m_remainingResourcesHasBeenSet = true; m_remainingResources = value; }
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline ContainerInstance& WithRemainingResources(const Aws::Vector<Resource>& value) { SetRemainingResources(value); return *this;}
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline ContainerInstance& WithRemainingResources(Aws::Vector<Resource>&& value) { SetRemainingResources(value); return *this;}
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline ContainerInstance& AddRemainingResources(const Resource& value) { m_remainingResourcesHasBeenSet = true; m_remainingResources.push_back(value); return *this; }
 
     /**
-     * <p>The remaining resources of the container instance that are available for new
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the remaining resources of
+     * the container instance that are available for new tasks. For port resource
+     * types, this parameter describes the ports that are reserved by the Amazon ECS
+     * container agent and any containers that have reserved port mappings; any port
+     * that is not specified here is available for new tasks.</p>
      */
     inline ContainerInstance& AddRemainingResources(Resource&& value) { m_remainingResourcesHasBeenSet = true; m_remainingResources.push_back(value); return *this; }
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline const Aws::Vector<Resource>& GetRegisteredResources() const{ return m_registeredResources; }
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline void SetRegisteredResources(const Aws::Vector<Resource>& value) { m_registeredResourcesHasBeenSet = true; m_registeredResources = value; }
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline void SetRegisteredResources(Aws::Vector<Resource>&& value) { m_registeredResourcesHasBeenSet = true; m_registeredResources = value; }
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline ContainerInstance& WithRegisteredResources(const Aws::Vector<Resource>& value) { SetRegisteredResources(value); return *this;}
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline ContainerInstance& WithRegisteredResources(Aws::Vector<Resource>&& value) { SetRegisteredResources(value); return *this;}
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline ContainerInstance& AddRegisteredResources(const Resource& value) { m_registeredResourcesHasBeenSet = true; m_registeredResources.push_back(value); return *this; }
 
     /**
-     * <p>The registered resources on the container instance that are in use by current
-     * tasks.</p>
+     * <p>For most resource types, this parameter describes the registered resources on
+     * the container instance that are in use by current tasks. For port resource
+     * types, this parameter describes the ports that were reserved by the Amazon ECS
+     * container agent when it registered the container instance with Amazon ECS.</p>
      */
     inline ContainerInstance& AddRegisteredResources(Resource&& value) { m_registeredResourcesHasBeenSet = true; m_registeredResources.push_back(value); return *this; }
 
@@ -350,37 +385,37 @@ namespace Model
      * <p>The number of tasks on the container instance that are in the
      * <code>RUNNING</code> status.</p>
      */
-    inline long GetRunningTasksCount() const{ return m_runningTasksCount; }
+    inline int GetRunningTasksCount() const{ return m_runningTasksCount; }
 
     /**
      * <p>The number of tasks on the container instance that are in the
      * <code>RUNNING</code> status.</p>
      */
-    inline void SetRunningTasksCount(long value) { m_runningTasksCountHasBeenSet = true; m_runningTasksCount = value; }
+    inline void SetRunningTasksCount(int value) { m_runningTasksCountHasBeenSet = true; m_runningTasksCount = value; }
 
     /**
      * <p>The number of tasks on the container instance that are in the
      * <code>RUNNING</code> status.</p>
      */
-    inline ContainerInstance& WithRunningTasksCount(long value) { SetRunningTasksCount(value); return *this;}
+    inline ContainerInstance& WithRunningTasksCount(int value) { SetRunningTasksCount(value); return *this;}
 
     /**
      * <p>The number of tasks on the container instance that are in the
      * <code>PENDING</code> status.</p>
      */
-    inline long GetPendingTasksCount() const{ return m_pendingTasksCount; }
+    inline int GetPendingTasksCount() const{ return m_pendingTasksCount; }
 
     /**
      * <p>The number of tasks on the container instance that are in the
      * <code>PENDING</code> status.</p>
      */
-    inline void SetPendingTasksCount(long value) { m_pendingTasksCountHasBeenSet = true; m_pendingTasksCount = value; }
+    inline void SetPendingTasksCount(int value) { m_pendingTasksCountHasBeenSet = true; m_pendingTasksCount = value; }
 
     /**
      * <p>The number of tasks on the container instance that are in the
      * <code>PENDING</code> status.</p>
      */
-    inline ContainerInstance& WithPendingTasksCount(long value) { SetPendingTasksCount(value); return *this;}
+    inline ContainerInstance& WithPendingTasksCount(int value) { SetPendingTasksCount(value); return *this;}
 
     /**
      * <p>The status of the most recent agent update. If an update has never been
@@ -469,9 +504,9 @@ namespace Model
     bool m_statusHasBeenSet;
     bool m_agentConnected;
     bool m_agentConnectedHasBeenSet;
-    long m_runningTasksCount;
+    int m_runningTasksCount;
     bool m_runningTasksCountHasBeenSet;
-    long m_pendingTasksCount;
+    int m_pendingTasksCount;
     bool m_pendingTasksCountHasBeenSet;
     AgentUpdateStatus m_agentUpdateStatus;
     bool m_agentUpdateStatusHasBeenSet;

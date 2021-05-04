@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -282,27 +282,27 @@ namespace Model
     inline EventDescription& WithRequestId(const char* value) { SetRequestId(value); return *this;}
 
     /**
-     * <p>The severity level of this event. </p>
+     * <p>The severity level of this event.</p>
      */
     inline const EventSeverity& GetSeverity() const{ return m_severity; }
 
     /**
-     * <p>The severity level of this event. </p>
+     * <p>The severity level of this event.</p>
      */
     inline void SetSeverity(const EventSeverity& value) { m_severityHasBeenSet = true; m_severity = value; }
 
     /**
-     * <p>The severity level of this event. </p>
+     * <p>The severity level of this event.</p>
      */
     inline void SetSeverity(EventSeverity&& value) { m_severityHasBeenSet = true; m_severity = value; }
 
     /**
-     * <p>The severity level of this event. </p>
+     * <p>The severity level of this event.</p>
      */
     inline EventDescription& WithSeverity(const EventSeverity& value) { SetSeverity(value); return *this;}
 
     /**
-     * <p>The severity level of this event. </p>
+     * <p>The severity level of this event.</p>
      */
     inline EventDescription& WithSeverity(EventSeverity&& value) { SetSeverity(value); return *this;}
 

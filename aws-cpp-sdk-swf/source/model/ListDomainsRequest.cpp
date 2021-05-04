@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 
 ListDomainsRequest::ListDomainsRequest() : 
     m_nextPageTokenHasBeenSet(false),
+    m_registrationStatus(RegistrationStatus::NOT_SET),
     m_registrationStatusHasBeenSet(false),
     m_maximumPageSize(0),
     m_maximumPageSizeHasBeenSet(false),

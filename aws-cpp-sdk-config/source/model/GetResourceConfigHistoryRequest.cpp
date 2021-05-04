@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -22,10 +22,12 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 GetResourceConfigHistoryRequest::GetResourceConfigHistoryRequest() : 
+    m_resourceType(ResourceType::NOT_SET),
     m_resourceTypeHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
     m_laterTimeHasBeenSet(false),
     m_earlierTimeHasBeenSet(false),
+    m_chronologicalOrder(ChronologicalOrder::NOT_SET),
     m_chronologicalOrderHasBeenSet(false),
     m_limit(0),
     m_limitHasBeenSet(false),

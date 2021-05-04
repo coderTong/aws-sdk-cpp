@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -82,214 +82,219 @@ namespace Model
     inline ScalingPolicy& WithFleetId(const char* value) { SetFleetId(value); return *this;}
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline ScalingPolicy& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline ScalingPolicy& WithName(Aws::String&& value) { SetName(value); return *this;}
 
     /**
-     * <p>Descriptive label associated with this scaling policy. Policy names do not
-     * need to be unique.</p>
+     * <p>Descriptive label associated with a scaling policy. Policy names do not need
+     * to be unique.</p>
      */
     inline ScalingPolicy& WithName(const char* value) { SetName(value); return *this;}
 
     /**
      * <p>Current status of the scaling policy. The scaling policy is only in force
-     * when in an Active state. <ul> <li>ACTIVE: The scaling policy is currently in
-     * force.</li> <li>UPDATEREQUESTED: A request to update the scaling policy has been
-     * received.</li> <li>UPDATING: A change is being made to the scaling policy.</li>
-     * <li>DELETEREQUESTED: A request to delete the scaling policy has been
-     * received.</li> <li>DELETING: The scaling policy is being deleted.</li>
-     * <li>DELETED: The scaling policy has been deleted.</li> <li>ERROR: An error
-     * occurred in creating the policy. It should be removed and recreated.</li>
-     * </ul></p>
+     * when in an <code>ACTIVE</code> status.</p> <ul> <li> <p> <b>ACTIVE</b> – The
+     * scaling policy is currently in force.</p> </li> <li> <p> <b>UPDATE_REQUESTED</b>
+     * – A request to update the scaling policy has been received.</p> </li> <li> <p>
+     * <b>UPDATING</b> – A change is being made to the scaling policy.</p> </li> <li>
+     * <p> <b>DELETE_REQUESTED</b> – A request to delete the scaling policy has been
+     * received.</p> </li> <li> <p> <b>DELETING</b> – The scaling policy is being
+     * deleted.</p> </li> <li> <p> <b>DELETED</b> – The scaling policy has been
+     * deleted.</p> </li> <li> <p> <b>ERROR</b> – An error occurred in creating the
+     * policy. It should be removed and recreated.</p> </li> </ul>
      */
     inline const ScalingStatusType& GetStatus() const{ return m_status; }
 
     /**
      * <p>Current status of the scaling policy. The scaling policy is only in force
-     * when in an Active state. <ul> <li>ACTIVE: The scaling policy is currently in
-     * force.</li> <li>UPDATEREQUESTED: A request to update the scaling policy has been
-     * received.</li> <li>UPDATING: A change is being made to the scaling policy.</li>
-     * <li>DELETEREQUESTED: A request to delete the scaling policy has been
-     * received.</li> <li>DELETING: The scaling policy is being deleted.</li>
-     * <li>DELETED: The scaling policy has been deleted.</li> <li>ERROR: An error
-     * occurred in creating the policy. It should be removed and recreated.</li>
-     * </ul></p>
+     * when in an <code>ACTIVE</code> status.</p> <ul> <li> <p> <b>ACTIVE</b> – The
+     * scaling policy is currently in force.</p> </li> <li> <p> <b>UPDATE_REQUESTED</b>
+     * – A request to update the scaling policy has been received.</p> </li> <li> <p>
+     * <b>UPDATING</b> – A change is being made to the scaling policy.</p> </li> <li>
+     * <p> <b>DELETE_REQUESTED</b> – A request to delete the scaling policy has been
+     * received.</p> </li> <li> <p> <b>DELETING</b> – The scaling policy is being
+     * deleted.</p> </li> <li> <p> <b>DELETED</b> – The scaling policy has been
+     * deleted.</p> </li> <li> <p> <b>ERROR</b> – An error occurred in creating the
+     * policy. It should be removed and recreated.</p> </li> </ul>
      */
     inline void SetStatus(const ScalingStatusType& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
      * <p>Current status of the scaling policy. The scaling policy is only in force
-     * when in an Active state. <ul> <li>ACTIVE: The scaling policy is currently in
-     * force.</li> <li>UPDATEREQUESTED: A request to update the scaling policy has been
-     * received.</li> <li>UPDATING: A change is being made to the scaling policy.</li>
-     * <li>DELETEREQUESTED: A request to delete the scaling policy has been
-     * received.</li> <li>DELETING: The scaling policy is being deleted.</li>
-     * <li>DELETED: The scaling policy has been deleted.</li> <li>ERROR: An error
-     * occurred in creating the policy. It should be removed and recreated.</li>
-     * </ul></p>
+     * when in an <code>ACTIVE</code> status.</p> <ul> <li> <p> <b>ACTIVE</b> – The
+     * scaling policy is currently in force.</p> </li> <li> <p> <b>UPDATE_REQUESTED</b>
+     * – A request to update the scaling policy has been received.</p> </li> <li> <p>
+     * <b>UPDATING</b> – A change is being made to the scaling policy.</p> </li> <li>
+     * <p> <b>DELETE_REQUESTED</b> – A request to delete the scaling policy has been
+     * received.</p> </li> <li> <p> <b>DELETING</b> – The scaling policy is being
+     * deleted.</p> </li> <li> <p> <b>DELETED</b> – The scaling policy has been
+     * deleted.</p> </li> <li> <p> <b>ERROR</b> – An error occurred in creating the
+     * policy. It should be removed and recreated.</p> </li> </ul>
      */
     inline void SetStatus(ScalingStatusType&& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
      * <p>Current status of the scaling policy. The scaling policy is only in force
-     * when in an Active state. <ul> <li>ACTIVE: The scaling policy is currently in
-     * force.</li> <li>UPDATEREQUESTED: A request to update the scaling policy has been
-     * received.</li> <li>UPDATING: A change is being made to the scaling policy.</li>
-     * <li>DELETEREQUESTED: A request to delete the scaling policy has been
-     * received.</li> <li>DELETING: The scaling policy is being deleted.</li>
-     * <li>DELETED: The scaling policy has been deleted.</li> <li>ERROR: An error
-     * occurred in creating the policy. It should be removed and recreated.</li>
-     * </ul></p>
+     * when in an <code>ACTIVE</code> status.</p> <ul> <li> <p> <b>ACTIVE</b> – The
+     * scaling policy is currently in force.</p> </li> <li> <p> <b>UPDATE_REQUESTED</b>
+     * – A request to update the scaling policy has been received.</p> </li> <li> <p>
+     * <b>UPDATING</b> – A change is being made to the scaling policy.</p> </li> <li>
+     * <p> <b>DELETE_REQUESTED</b> – A request to delete the scaling policy has been
+     * received.</p> </li> <li> <p> <b>DELETING</b> – The scaling policy is being
+     * deleted.</p> </li> <li> <p> <b>DELETED</b> – The scaling policy has been
+     * deleted.</p> </li> <li> <p> <b>ERROR</b> – An error occurred in creating the
+     * policy. It should be removed and recreated.</p> </li> </ul>
      */
     inline ScalingPolicy& WithStatus(const ScalingStatusType& value) { SetStatus(value); return *this;}
 
     /**
      * <p>Current status of the scaling policy. The scaling policy is only in force
-     * when in an Active state. <ul> <li>ACTIVE: The scaling policy is currently in
-     * force.</li> <li>UPDATEREQUESTED: A request to update the scaling policy has been
-     * received.</li> <li>UPDATING: A change is being made to the scaling policy.</li>
-     * <li>DELETEREQUESTED: A request to delete the scaling policy has been
-     * received.</li> <li>DELETING: The scaling policy is being deleted.</li>
-     * <li>DELETED: The scaling policy has been deleted.</li> <li>ERROR: An error
-     * occurred in creating the policy. It should be removed and recreated.</li>
-     * </ul></p>
+     * when in an <code>ACTIVE</code> status.</p> <ul> <li> <p> <b>ACTIVE</b> – The
+     * scaling policy is currently in force.</p> </li> <li> <p> <b>UPDATE_REQUESTED</b>
+     * – A request to update the scaling policy has been received.</p> </li> <li> <p>
+     * <b>UPDATING</b> – A change is being made to the scaling policy.</p> </li> <li>
+     * <p> <b>DELETE_REQUESTED</b> – A request to delete the scaling policy has been
+     * received.</p> </li> <li> <p> <b>DELETING</b> – The scaling policy is being
+     * deleted.</p> </li> <li> <p> <b>DELETED</b> – The scaling policy has been
+     * deleted.</p> </li> <li> <p> <b>ERROR</b> – An error occurred in creating the
+     * policy. It should be removed and recreated.</p> </li> </ul>
      */
     inline ScalingPolicy& WithStatus(ScalingStatusType&& value) { SetStatus(value); return *this;}
 
     /**
      * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
      */
-    inline long GetScalingAdjustment() const{ return m_scalingAdjustment; }
+    inline int GetScalingAdjustment() const{ return m_scalingAdjustment; }
 
     /**
      * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
      */
-    inline void SetScalingAdjustment(long value) { m_scalingAdjustmentHasBeenSet = true; m_scalingAdjustment = value; }
+    inline void SetScalingAdjustment(int value) { m_scalingAdjustmentHasBeenSet = true; m_scalingAdjustment = value; }
 
     /**
      * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
      */
-    inline ScalingPolicy& WithScalingAdjustment(long value) { SetScalingAdjustment(value); return *this;}
+    inline ScalingPolicy& WithScalingAdjustment(int value) { SetScalingAdjustment(value); return *this;}
 
     /**
      * <p>Type of adjustment to make to a fleet's instance count (see
-     * <a>FleetCapacity</a>): <ul> <li>ChangeInCapacity: add (or subtract) the scaling
-     * adjustment value from the current instance count. Positive values scale up while
-     * negative values scale down.</li> <li>ExactCapacity: set the instance count to
-     * the scaling adjustment value.</li> <li>PercentChangeInCapacity: increase or
-     * reduce the current instance count by the scaling adjustment, read as a
-     * percentage. Positive values scale up while negative values scale down.</li>
-     * </ul></p>
+     * <a>FleetCapacity</a>):</p> <ul> <li> <p> <b>ChangeInCapacity</b> – add (or
+     * subtract) the scaling adjustment value from the current instance count. Positive
+     * values scale up while negative values scale down.</p> </li> <li> <p>
+     * <b>ExactCapacity</b> – set the instance count to the scaling adjustment
+     * value.</p> </li> <li> <p> <b>PercentChangeInCapacity</b> – increase or reduce
+     * the current instance count by the scaling adjustment, read as a percentage.
+     * Positive values scale up while negative values scale down.</p> </li> </ul>
      */
     inline const ScalingAdjustmentType& GetScalingAdjustmentType() const{ return m_scalingAdjustmentType; }
 
     /**
      * <p>Type of adjustment to make to a fleet's instance count (see
-     * <a>FleetCapacity</a>): <ul> <li>ChangeInCapacity: add (or subtract) the scaling
-     * adjustment value from the current instance count. Positive values scale up while
-     * negative values scale down.</li> <li>ExactCapacity: set the instance count to
-     * the scaling adjustment value.</li> <li>PercentChangeInCapacity: increase or
-     * reduce the current instance count by the scaling adjustment, read as a
-     * percentage. Positive values scale up while negative values scale down.</li>
-     * </ul></p>
+     * <a>FleetCapacity</a>):</p> <ul> <li> <p> <b>ChangeInCapacity</b> – add (or
+     * subtract) the scaling adjustment value from the current instance count. Positive
+     * values scale up while negative values scale down.</p> </li> <li> <p>
+     * <b>ExactCapacity</b> – set the instance count to the scaling adjustment
+     * value.</p> </li> <li> <p> <b>PercentChangeInCapacity</b> – increase or reduce
+     * the current instance count by the scaling adjustment, read as a percentage.
+     * Positive values scale up while negative values scale down.</p> </li> </ul>
      */
     inline void SetScalingAdjustmentType(const ScalingAdjustmentType& value) { m_scalingAdjustmentTypeHasBeenSet = true; m_scalingAdjustmentType = value; }
 
     /**
      * <p>Type of adjustment to make to a fleet's instance count (see
-     * <a>FleetCapacity</a>): <ul> <li>ChangeInCapacity: add (or subtract) the scaling
-     * adjustment value from the current instance count. Positive values scale up while
-     * negative values scale down.</li> <li>ExactCapacity: set the instance count to
-     * the scaling adjustment value.</li> <li>PercentChangeInCapacity: increase or
-     * reduce the current instance count by the scaling adjustment, read as a
-     * percentage. Positive values scale up while negative values scale down.</li>
-     * </ul></p>
+     * <a>FleetCapacity</a>):</p> <ul> <li> <p> <b>ChangeInCapacity</b> – add (or
+     * subtract) the scaling adjustment value from the current instance count. Positive
+     * values scale up while negative values scale down.</p> </li> <li> <p>
+     * <b>ExactCapacity</b> – set the instance count to the scaling adjustment
+     * value.</p> </li> <li> <p> <b>PercentChangeInCapacity</b> – increase or reduce
+     * the current instance count by the scaling adjustment, read as a percentage.
+     * Positive values scale up while negative values scale down.</p> </li> </ul>
      */
     inline void SetScalingAdjustmentType(ScalingAdjustmentType&& value) { m_scalingAdjustmentTypeHasBeenSet = true; m_scalingAdjustmentType = value; }
 
     /**
      * <p>Type of adjustment to make to a fleet's instance count (see
-     * <a>FleetCapacity</a>): <ul> <li>ChangeInCapacity: add (or subtract) the scaling
-     * adjustment value from the current instance count. Positive values scale up while
-     * negative values scale down.</li> <li>ExactCapacity: set the instance count to
-     * the scaling adjustment value.</li> <li>PercentChangeInCapacity: increase or
-     * reduce the current instance count by the scaling adjustment, read as a
-     * percentage. Positive values scale up while negative values scale down.</li>
-     * </ul></p>
+     * <a>FleetCapacity</a>):</p> <ul> <li> <p> <b>ChangeInCapacity</b> – add (or
+     * subtract) the scaling adjustment value from the current instance count. Positive
+     * values scale up while negative values scale down.</p> </li> <li> <p>
+     * <b>ExactCapacity</b> – set the instance count to the scaling adjustment
+     * value.</p> </li> <li> <p> <b>PercentChangeInCapacity</b> – increase or reduce
+     * the current instance count by the scaling adjustment, read as a percentage.
+     * Positive values scale up while negative values scale down.</p> </li> </ul>
      */
     inline ScalingPolicy& WithScalingAdjustmentType(const ScalingAdjustmentType& value) { SetScalingAdjustmentType(value); return *this;}
 
     /**
      * <p>Type of adjustment to make to a fleet's instance count (see
-     * <a>FleetCapacity</a>): <ul> <li>ChangeInCapacity: add (or subtract) the scaling
-     * adjustment value from the current instance count. Positive values scale up while
-     * negative values scale down.</li> <li>ExactCapacity: set the instance count to
-     * the scaling adjustment value.</li> <li>PercentChangeInCapacity: increase or
-     * reduce the current instance count by the scaling adjustment, read as a
-     * percentage. Positive values scale up while negative values scale down.</li>
-     * </ul></p>
+     * <a>FleetCapacity</a>):</p> <ul> <li> <p> <b>ChangeInCapacity</b> – add (or
+     * subtract) the scaling adjustment value from the current instance count. Positive
+     * values scale up while negative values scale down.</p> </li> <li> <p>
+     * <b>ExactCapacity</b> – set the instance count to the scaling adjustment
+     * value.</p> </li> <li> <p> <b>PercentChangeInCapacity</b> – increase or reduce
+     * the current instance count by the scaling adjustment, read as a percentage.
+     * Positive values scale up while negative values scale down.</p> </li> </ul>
      */
     inline ScalingPolicy& WithScalingAdjustmentType(ScalingAdjustmentType&& value) { SetScalingAdjustmentType(value); return *this;}
 
     /**
      * <p>Comparison operator to use when measuring a metric against the threshold
-     * value. </p>
+     * value.</p>
      */
     inline const ComparisonOperatorType& GetComparisonOperator() const{ return m_comparisonOperator; }
 
     /**
      * <p>Comparison operator to use when measuring a metric against the threshold
-     * value. </p>
+     * value.</p>
      */
     inline void SetComparisonOperator(const ComparisonOperatorType& value) { m_comparisonOperatorHasBeenSet = true; m_comparisonOperator = value; }
 
     /**
      * <p>Comparison operator to use when measuring a metric against the threshold
-     * value. </p>
+     * value.</p>
      */
     inline void SetComparisonOperator(ComparisonOperatorType&& value) { m_comparisonOperatorHasBeenSet = true; m_comparisonOperator = value; }
 
     /**
      * <p>Comparison operator to use when measuring a metric against the threshold
-     * value. </p>
+     * value.</p>
      */
     inline ScalingPolicy& WithComparisonOperator(const ComparisonOperatorType& value) { SetComparisonOperator(value); return *this;}
 
     /**
      * <p>Comparison operator to use when measuring a metric against the threshold
-     * value. </p>
+     * value.</p>
      */
     inline ScalingPolicy& WithComparisonOperator(ComparisonOperatorType&& value) { SetComparisonOperator(value); return *this;}
 
@@ -312,102 +317,122 @@ namespace Model
      * <p>Length of time (in minutes) the metric must be at or beyond the threshold
      * before a scaling event is triggered.</p>
      */
-    inline long GetEvaluationPeriods() const{ return m_evaluationPeriods; }
+    inline int GetEvaluationPeriods() const{ return m_evaluationPeriods; }
 
     /**
      * <p>Length of time (in minutes) the metric must be at or beyond the threshold
      * before a scaling event is triggered.</p>
      */
-    inline void SetEvaluationPeriods(long value) { m_evaluationPeriodsHasBeenSet = true; m_evaluationPeriods = value; }
+    inline void SetEvaluationPeriods(int value) { m_evaluationPeriodsHasBeenSet = true; m_evaluationPeriods = value; }
 
     /**
      * <p>Length of time (in minutes) the metric must be at or beyond the threshold
      * before a scaling event is triggered.</p>
      */
-    inline ScalingPolicy& WithEvaluationPeriods(long value) { SetEvaluationPeriods(value); return *this;}
+    inline ScalingPolicy& WithEvaluationPeriods(int value) { SetEvaluationPeriods(value); return *this;}
 
     /**
-     * <p>Name of the GameLift-defined metric that is used to trigger an adjustment.
-     * <ul> <li>ActivatingGameSessions: number of game sessions in the process of being
-     * created (game session status = ACTIVATING).</li> <li>ActiveGameSessions: number
-     * of game sessions currently running (game session status = ACTIVE).</li>
-     * <li>CurrentPlayerSessions: number of active or reserved player sessions (player
-     * session status = ACTIVE or RESERVED). </li> <li>AvailablePlayerSessions: number
-     * of player session slots currently available in active game sessions across the
-     * fleet, calculated by subtracting a game session's current player session count
-     * from its maximum player session count. This number does include game sessions
-     * that are not currently accepting players (game session
-     * PlayerSessionCreationPolicy = DENY_ALL).</li> <li>ActiveInstances: number of
-     * instances currently running a game session.</li> <li>IdleInstances: number of
-     * instances not currently running a game session.</li> </ul></p>
+     * <p>Name of the GameLift-defined metric that is used to trigger an
+     * adjustment.</p> <ul> <li> <p> <b>ActivatingGameSessions</b> – number of game
+     * sessions in the process of being created (game session status =
+     * <code>ACTIVATING</code>).</p> </li> <li> <p> <b>ActiveGameSessions</b> – number
+     * of game sessions currently running (game session status =
+     * <code>ACTIVE</code>).</p> </li> <li> <p> <b>CurrentPlayerSessions</b> – number
+     * of active or reserved player sessions (player session status =
+     * <code>ACTIVE</code> or <code>RESERVED</code>). </p> </li> <li> <p>
+     * <b>AvailablePlayerSessions</b> – number of player session slots currently
+     * available in active game sessions across the fleet, calculated by subtracting a
+     * game session's current player session count from its maximum player session
+     * count. This number does include game sessions that are not currently accepting
+     * players (game session <code>PlayerSessionCreationPolicy</code> =
+     * <code>DENY_ALL</code>).</p> </li> <li> <p> <b>ActiveInstances</b> – number of
+     * instances currently running a game session.</p> </li> <li> <p>
+     * <b>IdleInstances</b> – number of instances not currently running a game
+     * session.</p> </li> </ul>
      */
     inline const MetricName& GetMetricName() const{ return m_metricName; }
 
     /**
-     * <p>Name of the GameLift-defined metric that is used to trigger an adjustment.
-     * <ul> <li>ActivatingGameSessions: number of game sessions in the process of being
-     * created (game session status = ACTIVATING).</li> <li>ActiveGameSessions: number
-     * of game sessions currently running (game session status = ACTIVE).</li>
-     * <li>CurrentPlayerSessions: number of active or reserved player sessions (player
-     * session status = ACTIVE or RESERVED). </li> <li>AvailablePlayerSessions: number
-     * of player session slots currently available in active game sessions across the
-     * fleet, calculated by subtracting a game session's current player session count
-     * from its maximum player session count. This number does include game sessions
-     * that are not currently accepting players (game session
-     * PlayerSessionCreationPolicy = DENY_ALL).</li> <li>ActiveInstances: number of
-     * instances currently running a game session.</li> <li>IdleInstances: number of
-     * instances not currently running a game session.</li> </ul></p>
+     * <p>Name of the GameLift-defined metric that is used to trigger an
+     * adjustment.</p> <ul> <li> <p> <b>ActivatingGameSessions</b> – number of game
+     * sessions in the process of being created (game session status =
+     * <code>ACTIVATING</code>).</p> </li> <li> <p> <b>ActiveGameSessions</b> – number
+     * of game sessions currently running (game session status =
+     * <code>ACTIVE</code>).</p> </li> <li> <p> <b>CurrentPlayerSessions</b> – number
+     * of active or reserved player sessions (player session status =
+     * <code>ACTIVE</code> or <code>RESERVED</code>). </p> </li> <li> <p>
+     * <b>AvailablePlayerSessions</b> – number of player session slots currently
+     * available in active game sessions across the fleet, calculated by subtracting a
+     * game session's current player session count from its maximum player session
+     * count. This number does include game sessions that are not currently accepting
+     * players (game session <code>PlayerSessionCreationPolicy</code> =
+     * <code>DENY_ALL</code>).</p> </li> <li> <p> <b>ActiveInstances</b> – number of
+     * instances currently running a game session.</p> </li> <li> <p>
+     * <b>IdleInstances</b> – number of instances not currently running a game
+     * session.</p> </li> </ul>
      */
     inline void SetMetricName(const MetricName& value) { m_metricNameHasBeenSet = true; m_metricName = value; }
 
     /**
-     * <p>Name of the GameLift-defined metric that is used to trigger an adjustment.
-     * <ul> <li>ActivatingGameSessions: number of game sessions in the process of being
-     * created (game session status = ACTIVATING).</li> <li>ActiveGameSessions: number
-     * of game sessions currently running (game session status = ACTIVE).</li>
-     * <li>CurrentPlayerSessions: number of active or reserved player sessions (player
-     * session status = ACTIVE or RESERVED). </li> <li>AvailablePlayerSessions: number
-     * of player session slots currently available in active game sessions across the
-     * fleet, calculated by subtracting a game session's current player session count
-     * from its maximum player session count. This number does include game sessions
-     * that are not currently accepting players (game session
-     * PlayerSessionCreationPolicy = DENY_ALL).</li> <li>ActiveInstances: number of
-     * instances currently running a game session.</li> <li>IdleInstances: number of
-     * instances not currently running a game session.</li> </ul></p>
+     * <p>Name of the GameLift-defined metric that is used to trigger an
+     * adjustment.</p> <ul> <li> <p> <b>ActivatingGameSessions</b> – number of game
+     * sessions in the process of being created (game session status =
+     * <code>ACTIVATING</code>).</p> </li> <li> <p> <b>ActiveGameSessions</b> – number
+     * of game sessions currently running (game session status =
+     * <code>ACTIVE</code>).</p> </li> <li> <p> <b>CurrentPlayerSessions</b> – number
+     * of active or reserved player sessions (player session status =
+     * <code>ACTIVE</code> or <code>RESERVED</code>). </p> </li> <li> <p>
+     * <b>AvailablePlayerSessions</b> – number of player session slots currently
+     * available in active game sessions across the fleet, calculated by subtracting a
+     * game session's current player session count from its maximum player session
+     * count. This number does include game sessions that are not currently accepting
+     * players (game session <code>PlayerSessionCreationPolicy</code> =
+     * <code>DENY_ALL</code>).</p> </li> <li> <p> <b>ActiveInstances</b> – number of
+     * instances currently running a game session.</p> </li> <li> <p>
+     * <b>IdleInstances</b> – number of instances not currently running a game
+     * session.</p> </li> </ul>
      */
     inline void SetMetricName(MetricName&& value) { m_metricNameHasBeenSet = true; m_metricName = value; }
 
     /**
-     * <p>Name of the GameLift-defined metric that is used to trigger an adjustment.
-     * <ul> <li>ActivatingGameSessions: number of game sessions in the process of being
-     * created (game session status = ACTIVATING).</li> <li>ActiveGameSessions: number
-     * of game sessions currently running (game session status = ACTIVE).</li>
-     * <li>CurrentPlayerSessions: number of active or reserved player sessions (player
-     * session status = ACTIVE or RESERVED). </li> <li>AvailablePlayerSessions: number
-     * of player session slots currently available in active game sessions across the
-     * fleet, calculated by subtracting a game session's current player session count
-     * from its maximum player session count. This number does include game sessions
-     * that are not currently accepting players (game session
-     * PlayerSessionCreationPolicy = DENY_ALL).</li> <li>ActiveInstances: number of
-     * instances currently running a game session.</li> <li>IdleInstances: number of
-     * instances not currently running a game session.</li> </ul></p>
+     * <p>Name of the GameLift-defined metric that is used to trigger an
+     * adjustment.</p> <ul> <li> <p> <b>ActivatingGameSessions</b> – number of game
+     * sessions in the process of being created (game session status =
+     * <code>ACTIVATING</code>).</p> </li> <li> <p> <b>ActiveGameSessions</b> – number
+     * of game sessions currently running (game session status =
+     * <code>ACTIVE</code>).</p> </li> <li> <p> <b>CurrentPlayerSessions</b> – number
+     * of active or reserved player sessions (player session status =
+     * <code>ACTIVE</code> or <code>RESERVED</code>). </p> </li> <li> <p>
+     * <b>AvailablePlayerSessions</b> – number of player session slots currently
+     * available in active game sessions across the fleet, calculated by subtracting a
+     * game session's current player session count from its maximum player session
+     * count. This number does include game sessions that are not currently accepting
+     * players (game session <code>PlayerSessionCreationPolicy</code> =
+     * <code>DENY_ALL</code>).</p> </li> <li> <p> <b>ActiveInstances</b> – number of
+     * instances currently running a game session.</p> </li> <li> <p>
+     * <b>IdleInstances</b> – number of instances not currently running a game
+     * session.</p> </li> </ul>
      */
     inline ScalingPolicy& WithMetricName(const MetricName& value) { SetMetricName(value); return *this;}
 
     /**
-     * <p>Name of the GameLift-defined metric that is used to trigger an adjustment.
-     * <ul> <li>ActivatingGameSessions: number of game sessions in the process of being
-     * created (game session status = ACTIVATING).</li> <li>ActiveGameSessions: number
-     * of game sessions currently running (game session status = ACTIVE).</li>
-     * <li>CurrentPlayerSessions: number of active or reserved player sessions (player
-     * session status = ACTIVE or RESERVED). </li> <li>AvailablePlayerSessions: number
-     * of player session slots currently available in active game sessions across the
-     * fleet, calculated by subtracting a game session's current player session count
-     * from its maximum player session count. This number does include game sessions
-     * that are not currently accepting players (game session
-     * PlayerSessionCreationPolicy = DENY_ALL).</li> <li>ActiveInstances: number of
-     * instances currently running a game session.</li> <li>IdleInstances: number of
-     * instances not currently running a game session.</li> </ul></p>
+     * <p>Name of the GameLift-defined metric that is used to trigger an
+     * adjustment.</p> <ul> <li> <p> <b>ActivatingGameSessions</b> – number of game
+     * sessions in the process of being created (game session status =
+     * <code>ACTIVATING</code>).</p> </li> <li> <p> <b>ActiveGameSessions</b> – number
+     * of game sessions currently running (game session status =
+     * <code>ACTIVE</code>).</p> </li> <li> <p> <b>CurrentPlayerSessions</b> – number
+     * of active or reserved player sessions (player session status =
+     * <code>ACTIVE</code> or <code>RESERVED</code>). </p> </li> <li> <p>
+     * <b>AvailablePlayerSessions</b> – number of player session slots currently
+     * available in active game sessions across the fleet, calculated by subtracting a
+     * game session's current player session count from its maximum player session
+     * count. This number does include game sessions that are not currently accepting
+     * players (game session <code>PlayerSessionCreationPolicy</code> =
+     * <code>DENY_ALL</code>).</p> </li> <li> <p> <b>ActiveInstances</b> – number of
+     * instances currently running a game session.</p> </li> <li> <p>
+     * <b>IdleInstances</b> – number of instances not currently running a game
+     * session.</p> </li> </ul>
      */
     inline ScalingPolicy& WithMetricName(MetricName&& value) { SetMetricName(value); return *this;}
 
@@ -418,7 +443,7 @@ namespace Model
     bool m_nameHasBeenSet;
     ScalingStatusType m_status;
     bool m_statusHasBeenSet;
-    long m_scalingAdjustment;
+    int m_scalingAdjustment;
     bool m_scalingAdjustmentHasBeenSet;
     ScalingAdjustmentType m_scalingAdjustmentType;
     bool m_scalingAdjustmentTypeHasBeenSet;
@@ -426,7 +451,7 @@ namespace Model
     bool m_comparisonOperatorHasBeenSet;
     double m_threshold;
     bool m_thresholdHasBeenSet;
-    long m_evaluationPeriods;
+    int m_evaluationPeriods;
     bool m_evaluationPeriodsHasBeenSet;
     MetricName m_metricName;
     bool m_metricNameHasBeenSet;

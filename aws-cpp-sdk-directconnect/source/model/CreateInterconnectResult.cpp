@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,11 +24,13 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 using namespace Aws;
 
-CreateInterconnectResult::CreateInterconnectResult()
+CreateInterconnectResult::CreateInterconnectResult() : 
+    m_interconnectState(InterconnectState::NOT_SET)
 {
 }
 
-CreateInterconnectResult::CreateInterconnectResult(const AmazonWebServiceResult<JsonValue>& result)
+CreateInterconnectResult::CreateInterconnectResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_interconnectState(InterconnectState::NOT_SET)
 {
   *this = result;
 }
@@ -69,6 +71,12 @@ CreateInterconnectResult& CreateInterconnectResult::operator =(const AmazonWebSe
   if(jsonValue.ValueExists("bandwidth"))
   {
     m_bandwidth = jsonValue.GetString("bandwidth");
+
+  }
+
+  if(jsonValue.ValueExists("loaIssueTime"))
+  {
+    m_loaIssueTime = jsonValue.GetDouble("loaIssueTime");
 
   }
 

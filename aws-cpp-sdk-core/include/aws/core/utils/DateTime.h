@@ -94,13 +94,16 @@ namespace Aws
              */
             DateTime(const char* timestamp, DateFormat format);
 
-            bool operator == (const DateTime& other);
-            bool operator < (const DateTime& other);
-            bool operator > (const DateTime& other);
-            bool operator != (const DateTime& other);
-            bool operator <= (const DateTime& other);
-            bool operator >= (const DateTime& other);
+            bool operator == (const DateTime& other) const;
+            bool operator < (const DateTime& other) const;
+            bool operator > (const DateTime& other) const;
+            bool operator != (const DateTime& other) const;
+            bool operator <= (const DateTime& other) const;
+            bool operator >= (const DateTime& other) const;
 
+            DateTime operator+(const std::chrono::milliseconds& a) const;
+            DateTime operator-(const std::chrono::milliseconds& a) const;
+            
             /**
              * Assign from seconds.millis since epoch.
              */
@@ -226,10 +229,10 @@ namespace Aws
              */
             static double ComputeCurrentTimestampInAmazonFormat();
 
-	    /*
-	     * A platform-agnostic implementation of the timegm function from gnu extensions
-	     */
-	    static time_t TimeGM(tm* const t);
+            /**
+             * Compute the difference between two timestamps.
+             */
+            static std::chrono::milliseconds Diff(const DateTime& a, const DateTime& b);
 
         private:
             std::chrono::system_clock::time_point m_time;

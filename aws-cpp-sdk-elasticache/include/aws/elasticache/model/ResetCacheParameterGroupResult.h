@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -34,9 +34,9 @@ namespace ElastiCache
 namespace Model
 {
   /**
-   * <p>Represents the output of one of the following actions:</p> <ul> <li> <p>
-   * <i>ModifyCacheParameterGroup</i> </p> </li> <li> <p>
-   * <i>ResetCacheParameterGroup</i> </p> </li> </ul>
+   * <p>Represents the output of one of the following operations:</p> <ul> <li> <p>
+   * <code>ModifyCacheParameterGroup</code> </p> </li> <li> <p>
+   * <code>ResetCacheParameterGroup</code> </p> </li> </ul>
    */
   class AWS_ELASTICACHE_API ResetCacheParameterGroupResult
   {

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ IpPermission::IpPermission() :
     m_toPort(0),
     m_toPortHasBeenSet(false),
     m_ipRangeHasBeenSet(false),
+    m_protocol(IpProtocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
 }
@@ -43,6 +44,7 @@ IpPermission::IpPermission(const JsonValue& jsonValue) :
     m_toPort(0),
     m_toPortHasBeenSet(false),
     m_ipRangeHasBeenSet(false),
+    m_protocol(IpProtocol::NOT_SET),
     m_protocolHasBeenSet(false)
 {
   *this = jsonValue;

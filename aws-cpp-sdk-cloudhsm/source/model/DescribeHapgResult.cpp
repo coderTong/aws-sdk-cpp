@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -24,11 +24,13 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 using namespace Aws;
 
-DescribeHapgResult::DescribeHapgResult()
+DescribeHapgResult::DescribeHapgResult() : 
+    m_state(CloudHsmObjectState::NOT_SET)
 {
 }
 
-DescribeHapgResult::DescribeHapgResult(const AmazonWebServiceResult<JsonValue>& result)
+DescribeHapgResult::DescribeHapgResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_state(CloudHsmObjectState::NOT_SET)
 {
   *this = result;
 }

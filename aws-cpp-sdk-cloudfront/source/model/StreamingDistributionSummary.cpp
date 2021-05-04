@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -38,6 +38,7 @@ StreamingDistributionSummary::StreamingDistributionSummary() :
     m_aliasesHasBeenSet(false),
     m_trustedSignersHasBeenSet(false),
     m_commentHasBeenSet(false),
+    m_priceClass(PriceClass::NOT_SET),
     m_priceClassHasBeenSet(false),
     m_enabled(false),
     m_enabledHasBeenSet(false)
@@ -53,6 +54,7 @@ StreamingDistributionSummary::StreamingDistributionSummary(const XmlNode& xmlNod
     m_aliasesHasBeenSet(false),
     m_trustedSignersHasBeenSet(false),
     m_commentHasBeenSet(false),
+    m_priceClass(PriceClass::NOT_SET),
     m_priceClassHasBeenSet(false),
     m_enabled(false),
     m_enabledHasBeenSet(false)

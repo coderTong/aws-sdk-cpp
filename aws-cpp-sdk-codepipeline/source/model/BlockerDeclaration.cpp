@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,12 +29,14 @@ namespace Model
 
 BlockerDeclaration::BlockerDeclaration() : 
     m_nameHasBeenSet(false),
+    m_type(BlockerType::NOT_SET),
     m_typeHasBeenSet(false)
 {
 }
 
 BlockerDeclaration::BlockerDeclaration(const JsonValue& jsonValue) : 
     m_nameHasBeenSet(false),
+    m_type(BlockerType::NOT_SET),
     m_typeHasBeenSet(false)
 {
   *this = jsonValue;

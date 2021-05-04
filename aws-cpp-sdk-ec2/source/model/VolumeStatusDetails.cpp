@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,12 +30,14 @@ namespace Model
 {
 
 VolumeStatusDetails::VolumeStatusDetails() : 
+    m_name(VolumeStatusName::NOT_SET),
     m_nameHasBeenSet(false),
     m_statusHasBeenSet(false)
 {
 }
 
 VolumeStatusDetails::VolumeStatusDetails(const XmlNode& xmlNode) : 
+    m_name(VolumeStatusName::NOT_SET),
     m_nameHasBeenSet(false),
     m_statusHasBeenSet(false)
 {
@@ -71,10 +73,12 @@ void VolumeStatusDetails::OutputToStream(Aws::OStream& oStream, const char* loca
   {
       oStream << location << index << locationValue << ".Name=" << VolumeStatusNameMapper::GetNameForVolumeStatusName(m_name) << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << StringUtils::URLEncode(m_status.c_str()) << "&";
   }
+
 }
 
 void VolumeStatusDetails::OutputToStream(Aws::OStream& oStream, const char* location) const

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 Ulimit::Ulimit() : 
+    m_name(UlimitName::NOT_SET),
     m_nameHasBeenSet(false),
     m_softLimit(0),
     m_softLimitHasBeenSet(false),
@@ -37,6 +38,7 @@ Ulimit::Ulimit() :
 }
 
 Ulimit::Ulimit(const JsonValue& jsonValue) : 
+    m_name(UlimitName::NOT_SET),
     m_nameHasBeenSet(false),
     m_softLimit(0),
     m_softLimitHasBeenSet(false),

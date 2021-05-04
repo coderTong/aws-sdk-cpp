@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -25,14 +25,18 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 DescribeJobResult::DescribeJobResult() : 
+    m_action(ActionCode::NOT_SET),
     m_completed(false),
+    m_statusCode(StatusCode::NOT_SET),
     m_archiveSizeInBytes(0),
     m_inventorySizeInBytes(0)
 {
 }
 
 DescribeJobResult::DescribeJobResult(const AmazonWebServiceResult<JsonValue>& result) : 
+    m_action(ActionCode::NOT_SET),
     m_completed(false),
+    m_statusCode(StatusCode::NOT_SET),
     m_archiveSizeInBytes(0),
     m_inventorySizeInBytes(0)
 {

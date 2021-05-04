@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -22,8 +22,10 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 DescribeScalingActivitiesRequest::DescribeScalingActivitiesRequest() : 
+    m_serviceNamespace(ServiceNamespace::NOT_SET),
     m_serviceNamespaceHasBeenSet(false),
     m_resourceIdHasBeenSet(false),
+    m_scalableDimension(ScalableDimension::NOT_SET),
     m_scalableDimensionHasBeenSet(false),
     m_maxResults(0),
     m_maxResultsHasBeenSet(false),

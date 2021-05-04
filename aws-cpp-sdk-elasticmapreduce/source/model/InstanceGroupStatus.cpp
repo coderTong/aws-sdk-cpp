@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -28,6 +28,7 @@ namespace Model
 {
 
 InstanceGroupStatus::InstanceGroupStatus() : 
+    m_state(InstanceGroupState::NOT_SET),
     m_stateHasBeenSet(false),
     m_stateChangeReasonHasBeenSet(false),
     m_timelineHasBeenSet(false)
@@ -35,6 +36,7 @@ InstanceGroupStatus::InstanceGroupStatus() :
 }
 
 InstanceGroupStatus::InstanceGroupStatus(const JsonValue& jsonValue) : 
+    m_state(InstanceGroupState::NOT_SET),
     m_stateHasBeenSet(false),
     m_stateChangeReasonHasBeenSet(false),
     m_timelineHasBeenSet(false)

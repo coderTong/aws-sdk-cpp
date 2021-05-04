@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -41,25 +41,39 @@ namespace Model
     DescribeLogGroupsResult(const AmazonWebServiceResult<Aws::Utils::Json::JsonValue>& result);
     DescribeLogGroupsResult& operator=(const AmazonWebServiceResult<Aws::Utils::Json::JsonValue>& result);
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline const Aws::Vector<LogGroup>& GetLogGroups() const{ return m_logGroups; }
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline void SetLogGroups(const Aws::Vector<LogGroup>& value) { m_logGroups = value; }
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline void SetLogGroups(Aws::Vector<LogGroup>&& value) { m_logGroups = value; }
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline DescribeLogGroupsResult& WithLogGroups(const Aws::Vector<LogGroup>& value) { SetLogGroups(value); return *this;}
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline DescribeLogGroupsResult& WithLogGroups(Aws::Vector<LogGroup>&& value) { SetLogGroups(value); return *this;}
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline DescribeLogGroupsResult& AddLogGroups(const LogGroup& value) { m_logGroups.push_back(value); return *this; }
 
-    
+    /**
+     * <p>The log groups.</p>
+     */
     inline DescribeLogGroupsResult& AddLogGroups(LogGroup&& value) { m_logGroups.push_back(value); return *this; }
 
     

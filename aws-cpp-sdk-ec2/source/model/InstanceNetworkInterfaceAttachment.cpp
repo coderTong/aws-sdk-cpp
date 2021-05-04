@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -33,6 +33,7 @@ InstanceNetworkInterfaceAttachment::InstanceNetworkInterfaceAttachment() :
     m_attachmentIdHasBeenSet(false),
     m_deviceIndex(0),
     m_deviceIndexHasBeenSet(false),
+    m_status(AttachmentStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_attachTimeHasBeenSet(false),
     m_deleteOnTermination(false),
@@ -44,6 +45,7 @@ InstanceNetworkInterfaceAttachment::InstanceNetworkInterfaceAttachment(const Xml
     m_attachmentIdHasBeenSet(false),
     m_deviceIndex(0),
     m_deviceIndexHasBeenSet(false),
+    m_status(AttachmentStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_attachTimeHasBeenSet(false),
     m_deleteOnTermination(false),
@@ -99,22 +101,27 @@ void InstanceNetworkInterfaceAttachment::OutputToStream(Aws::OStream& oStream, c
   {
       oStream << location << index << locationValue << ".AttachmentId=" << StringUtils::URLEncode(m_attachmentId.c_str()) << "&";
   }
+
   if(m_deviceIndexHasBeenSet)
   {
       oStream << location << index << locationValue << ".DeviceIndex=" << m_deviceIndex << "&";
   }
+
   if(m_statusHasBeenSet)
   {
       oStream << location << index << locationValue << ".Status=" << AttachmentStatusMapper::GetNameForAttachmentStatus(m_status) << "&";
   }
+
   if(m_attachTimeHasBeenSet)
   {
       oStream << location << index << locationValue << ".AttachTime=" << StringUtils::URLEncode(m_attachTime.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
+
   if(m_deleteOnTerminationHasBeenSet)
   {
       oStream << location << index << locationValue << ".DeleteOnTermination=" << m_deleteOnTermination << "&";
   }
+
 }
 
 void InstanceNetworkInterfaceAttachment::OutputToStream(Aws::OStream& oStream, const char* location) const

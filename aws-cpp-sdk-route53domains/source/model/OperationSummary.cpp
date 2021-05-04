@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -29,7 +29,9 @@ namespace Model
 
 OperationSummary::OperationSummary() : 
     m_operationIdHasBeenSet(false),
+    m_status(OperationStatus::NOT_SET),
     m_statusHasBeenSet(false),
+    m_type(OperationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_submittedDateHasBeenSet(false)
 {
@@ -37,7 +39,9 @@ OperationSummary::OperationSummary() :
 
 OperationSummary::OperationSummary(const JsonValue& jsonValue) : 
     m_operationIdHasBeenSet(false),
+    m_status(OperationStatus::NOT_SET),
     m_statusHasBeenSet(false),
+    m_type(OperationType::NOT_SET),
     m_typeHasBeenSet(false),
     m_submittedDateHasBeenSet(false)
 {

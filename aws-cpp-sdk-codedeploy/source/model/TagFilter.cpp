@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 *
 * Licensed under the Apache License, Version 2.0 (the "License").
@@ -30,6 +30,7 @@ namespace Model
 TagFilter::TagFilter() : 
     m_keyHasBeenSet(false),
     m_valueHasBeenSet(false),
+    m_type(TagFilterType::NOT_SET),
     m_typeHasBeenSet(false)
 {
 }
@@ -37,6 +38,7 @@ TagFilter::TagFilter() :
 TagFilter::TagFilter(const JsonValue& jsonValue) : 
     m_keyHasBeenSet(false),
     m_valueHasBeenSet(false),
+    m_type(TagFilterType::NOT_SET),
     m_typeHasBeenSet(false)
 {
   *this = jsonValue;
